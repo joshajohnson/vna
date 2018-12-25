@@ -1,0 +1,17 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD8302
+D AD8302ARUZ, RF Amplifier, 14-Pin TSSOP
+F https://componentsearchengine.com/Datasheets/1/AD8302ARUZ.pdf
+$ENDCMP
+#
+$CMP HMC313
+F https://componentsearchengine.com/Datasheets/1/HMC313E.pdf
+$ENDCMP
+#
+$CMP MAX2871
+D Phase Locked Loops - PLL 23.5-6000MHz Fractional/IntegerN
+F https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf
+$ENDCMP
+#
+#End Doc Library
