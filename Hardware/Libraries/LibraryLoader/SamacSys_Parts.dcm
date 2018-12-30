@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555D
+D NE555DG4, Timer, 4.5 To 16V, 8-Pin SOIC-8
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP BLM18PG181SN1D
+D Ferrite bead SMD 0603 180R 1.5A
+K
+F https://componentsearchengine.com/Datasheets/1/BLM18PG181SN1D.pdf
+$ENDCMP
+#
+#End Doc Library

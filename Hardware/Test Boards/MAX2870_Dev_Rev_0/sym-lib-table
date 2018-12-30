@@ -1,2 +1,3 @@
 (sym_lib_table
+  (lib (name MAX2870_Dev_Rev_0-rescue)(type Legacy)(uri ${KIPRJMOD}/MAX2870_Dev_Rev_0-rescue.lib)(options "")(descr ""))
 )
