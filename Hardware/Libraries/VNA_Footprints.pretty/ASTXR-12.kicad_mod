@@ -1,4 +1,4 @@
-(module ASTXR-12 (layer F.Cu) (tedit 5C285DD6)
+(module ASTXR-12 (layer F.Cu) (tedit 5C2972F8)
   (attr smd)
   (fp_text reference XO1 (at 0.13 2.63 180) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
@@ -19,7 +19,7 @@
   (pad 4 smd rect (at 1.04 -0.695) (size 0.63 0.84) (layers F.Cu F.Paste F.Mask))
   (pad 1 smd rect (at -1.04 0.695) (size 0.63 0.84) (layers F.Cu F.Paste F.Mask))
   (pad 6 smd rect (at -1.04 -0.695) (size 0.63 0.84) (layers F.Cu F.Paste F.Mask))
-  (model "C:/Users/Josh Johnson/Dropbox/ENGN4200/vna/Hardware/Libraries/VNA_3D_Models/ASTXR-12-38.400MHz-514054.STEP"
+  (model ${KISYS_USER_3D_MOD}/ASTXR-12-38.400MHz-514054.STEP
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz -90 0 0))

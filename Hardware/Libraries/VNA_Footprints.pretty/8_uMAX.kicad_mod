@@ -1,4 +1,4 @@
-(module "8 uMAX" (layer F.Cu) (tedit 5C204EAD)
+(module 8_uMAX (layer F.Cu) (tedit 5C297A6F)
   (fp_text reference REF** (at 0 -3) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -23,4 +23,9 @@
   (pad 7 smd rect (at 2.13 -0.28) (size 1.35 0.4) (layers F.Cu F.Paste F.Mask))
   (pad 6 smd rect (at 2.13 0.37) (size 1.35 0.4) (layers F.Cu F.Paste F.Mask))
   (pad 5 smd rect (at 2.13 1.02) (size 1.35 0.4) (layers F.Cu F.Paste F.Mask))
+  (model ${KISYS_USER_3D_MOD}/umax8.step
+    (offset (xyz 0 -0.05 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 90))
+  )
 )

@@ -1,4 +1,4 @@
-(module CD542 (layer F.Cu) (tedit 5C29512C)
+(module CD542 (layer F.Cu) (tedit 5C297372)
   (attr smd)
   (fp_text reference FL1 (at -0.097222 -4.27399) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
@@ -21,7 +21,7 @@
   (pad 2 smd rect (at -2.637222 0.59101 270) (size 1.65 2.54) (layers F.Cu F.Paste F.Mask))
   (pad 4 smd rect (at 2.442778 3.13101 270) (size 1.65 2.54) (layers F.Cu F.Paste F.Mask))
   (pad 3 smd rect (at -2.637222 3.13101 270) (size 1.65 2.54) (layers F.Cu F.Paste F.Mask))
-  (model "C:/Users/Josh Johnson/Dropbox/ENGN4200/vna/Hardware/Libraries/VNA_3D_Models/Mini-Circuits_CD542.step"
+  (model ${KISYS_USER_3D_MOD}/Mini-Circuits_CD542.step
     (offset (xyz 2.7 3.33 0))
     (scale (xyz 1 1 1))
     (rotate (xyz -90 0 90))
