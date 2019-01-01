@@ -549,7 +549,7 @@ U 1 1 5C302457
 P 1250 5050
 F 0 "J1" H 1305 5517 50  0000 C CNN
 F 1 "USB_B_Micro" H 1305 5426 50  0000 C CNN
-F 2 "" H 1400 5000 50  0001 C CNN
+F 2 "VNA_Footprints:MicroUSB_Aliexpress" H 1400 5000 50  0001 C CNN
 F 3 "~" H 1400 5000 50  0001 C CNN
 	1    1250 5050
 	1    0    0    -1  
@@ -876,4 +876,92 @@ Wire Wire Line
 	3000 5250 3600 5250
 Wire Wire Line
 	1550 4850 2000 4850
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 5C2B5FA4
+P 7300 4250
+F 0 "H1" H 7400 4301 50  0000 L CNN
+F 1 "MountingHole_Pad" H 7400 4210 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 7300 4250 50  0001 C CNN
+F 3 "~" H 7300 4250 50  0001 C CNN
+	1    7300 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR023
+U 1 1 5C2B61C5
+P 7300 4350
+F 0 "#PWR023" H 7300 4100 50  0001 C CNN
+F 1 "GND" H 7305 4177 50  0000 C CNN
+F 2 "" H 7300 4350 50  0001 C CNN
+F 3 "" H 7300 4350 50  0001 C CNN
+	1    7300 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 5C2BA3A5
+P 7300 4750
+F 0 "H2" H 7400 4801 50  0000 L CNN
+F 1 "MountingHole_Pad" H 7400 4710 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 7300 4750 50  0001 C CNN
+F 3 "~" H 7300 4750 50  0001 C CNN
+	1    7300 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR024
+U 1 1 5C2BA3AC
+P 7300 4850
+F 0 "#PWR024" H 7300 4600 50  0001 C CNN
+F 1 "GND" H 7305 4677 50  0000 C CNN
+F 2 "" H 7300 4850 50  0001 C CNN
+F 3 "" H 7300 4850 50  0001 C CNN
+	1    7300 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 5C2BE533
+P 8250 4250
+F 0 "H3" H 8350 4301 50  0000 L CNN
+F 1 "MountingHole_Pad" H 8350 4210 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 8250 4250 50  0001 C CNN
+F 3 "~" H 8250 4250 50  0001 C CNN
+	1    8250 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR025
+U 1 1 5C2BE53A
+P 8250 4350
+F 0 "#PWR025" H 8250 4100 50  0001 C CNN
+F 1 "GND" H 8255 4177 50  0000 C CNN
+F 2 "" H 8250 4350 50  0001 C CNN
+F 3 "" H 8250 4350 50  0001 C CNN
+	1    8250 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H4
+U 1 1 5C2C26B4
+P 8250 4750
+F 0 "H4" H 8350 4801 50  0000 L CNN
+F 1 "MountingHole_Pad" H 8350 4710 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 8250 4750 50  0001 C CNN
+F 3 "~" H 8250 4750 50  0001 C CNN
+	1    8250 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR026
+U 1 1 5C2C26BB
+P 8250 4850
+F 0 "#PWR026" H 8250 4600 50  0001 C CNN
+F 1 "GND" H 8255 4677 50  0000 C CNN
+F 2 "" H 8250 4850 50  0001 C CNN
+F 3 "" H 8250 4850 50  0001 C CNN
+	1    8250 4850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

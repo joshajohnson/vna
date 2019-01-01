@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "MAX2870/2871 Dev Board"
 Date "2018-12-29"
-Rev ""
+Rev "0"
 Comp "Josh Johnson"
 Comment1 ""
 Comment2 ""
