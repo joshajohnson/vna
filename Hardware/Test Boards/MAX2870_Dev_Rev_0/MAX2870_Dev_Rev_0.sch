@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:MAX2870_Dev_Rev_0-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -14,17 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MAX2870_Dev_Rev_0-rescue:MAX2871-VNA_Symbols U3
-U 1 1 5C26E3F2
-P 4200 3750
-F 0 "U3" H 3450 4750 50  0000 C CNN
-F 1 "MAX2871" H 3550 4650 50  0000 C CNN
-F 2 "VNA_Footprints:QFN-32-1EP_5x5mm_Pitch0.5mm_Thermal_Vias" H 5400 4900 50  0001 L CNN
-F 3 "https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf" H 4650 4650 50  0001 L CNN
-	1    4200 3750
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C C1
 U 1 1 5C26F0B7
@@ -1150,17 +1138,6 @@ Connection ~ 2950 1400
 Wire Wire Line
 	6100 4350 6200 4350
 $Comp
-L MAX2870_Dev_Rev_0-rescue:ASTXR-12-19.200MHz-VNA_Symbols XO1
-U 1 1 5C27981F
-P 1300 2250
-F 0 "XO1" H 1150 2500 50  0000 C CNN
-F 1 "ASTXR-12-19.200MHz" H 1400 2400 50  0000 C CNN
-F 2 "VNA_Footprints:ASTXR-12" H 1200 2400 50  0001 C CNN
-F 3 "" H 1200 2400 50  0001 C CNN
-	1    1300 2250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C4
 U 1 1 5C29A828
 P 2250 2400
@@ -1171,8 +1148,6 @@ F 3 "~" H 2250 2400 50  0001 C CNN
 	1    2250 2400
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	1900 2400 2100 2400
 Wire Wire Line
 	2400 2400 2650 2400
 Wire Wire Line
@@ -1188,17 +1163,6 @@ F 1 "GND" H 805 2377 50  0000 C CNN
 F 2 "" H 800 2550 50  0001 C CNN
 F 3 "" H 800 2550 50  0001 C CNN
 	1    800  2550
-	1    0    0    -1  
-$EndComp
-$Comp
-L MAX2870_Dev_Rev_0-rescue:MIC5366-1.8-VNA_Symbols U4
-U 1 1 5C2CF761
-P 5800 7200
-F 0 "U4" H 5825 7565 50  0000 C CNN
-F 1 "MIC5366-1.8" H 5825 7474 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-353_SC-70-5" H 5600 7500 50  0001 C CNN
-F 3 "" H 5600 7500 50  0001 C CNN
-	1    5800 7200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1269,12 +1233,8 @@ Wire Wire Line
 Wire Wire Line
 	5350 7300 5350 7500
 Wire Wire Line
-	5400 7200 5350 7200
-Wire Wire Line
 	5350 7200 5350 7100
 Connection ~ 5350 7100
-Wire Wire Line
-	5350 7100 5400 7100
 Wire Wire Line
 	6400 7450 6400 7500
 Wire Wire Line
@@ -1553,6 +1513,45 @@ F 1 "Conn_02x05_Odd_Even" H 1450 6176 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 1400 5850 50  0001 C CNN
 F 3 "~" H 1400 5850 50  0001 C CNN
 	1    1400 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L VNA_Symbols:ASTXR-12-19.200MHz XO1
+U 1 1 5C321785
+P 1300 2250
+F 0 "XO1" H 1400 2525 50  0000 C CNN
+F 1 "ASTXR-12-19.200MHz" H 1400 2434 50  0000 C CNN
+F 2 "" H 1200 2400 50  0001 C CNN
+F 3 "" H 1200 2400 50  0001 C CNN
+	1    1300 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 2400 2100 2400
+$Comp
+L VNA_Symbols:MAX2871 U?
+U 1 1 5C32C1BE
+P 4200 3750
+F 0 "U?" H 3450 4750 50  0000 C CNN
+F 1 "MAX2871" H 3550 4650 50  0000 C CNN
+F 2 "" H 5400 4900 50  0001 L CNN
+F 3 "https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf" H 4650 4650 50  0001 L CNN
+	1    4200 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 7200 5350 7200
+Wire Wire Line
+	5350 7100 5400 7100
+$Comp
+L VNA_Symbols:MIC5366-1.8 U?
+U 1 1 5C34158F
+P 5800 7200
+F 0 "U?" H 5825 7565 50  0000 C CNN
+F 1 "MIC5366-1.8" H 5825 7474 50  0000 C CNN
+F 2 "" H 5600 7500 50  0001 C CNN
+F 3 "" H 5600 7500 50  0001 C CNN
+	1    5800 7200
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

@@ -1,0 +1,378 @@
+EESchema Schematic File Version 4
+LIBS:ADC-15-4_Dev_Rev_1-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Coupler Test Board"
+Date "2019-01-06"
+Rev "1"
+Comp "Josh Johnson"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L VNA_Symbols:ADC-15-4+ FL1
+U 1 1 5C294AFE
+P 4400 2050
+F 0 "FL1" H 4050 2200 50  0000 C CNN
+F 1 "ADC-15-4+" H 4200 2100 50  0000 C CNN
+F 2 "VNA_Footprints:CD542" H 4400 2050 50  0001 C CNN
+F 3 "" H 4400 2050 50  0001 C CNN
+	1    4400 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_Coaxial J1
+U 1 1 5C294C4E
+P 3150 2100
+F 0 "J1" H 3200 2300 50  0000 C CNN
+F 1 "SMA" H 3150 2200 50  0000 C CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 3150 2100 50  0001 C CNN
+F 3 " ~" H 3150 2100 50  0001 C CNN
+	1    3150 2100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_Coaxial J5
+U 1 1 5C294C9B
+P 5700 2100
+F 0 "J5" H 5600 2300 50  0000 L CNN
+F 1 "SMA" H 5600 2200 50  0000 L CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 5700 2100 50  0001 C CNN
+F 3 " ~" H 5700 2100 50  0001 C CNN
+	1    5700 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3350 2100 3750 2100
+Wire Wire Line
+	5150 2100 5500 2100
+NoConn ~ 5150 2200
+$Comp
+L Device:R R1
+U 1 1 5C294D81
+P 5300 2450
+F 0 "R1" H 5370 2496 50  0000 L CNN
+F 1 "49.9" H 5370 2405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5230 2450 50  0001 C CNN
+F 3 "~" H 5300 2450 50  0001 C CNN
+	1    5300 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 5C294DD0
+P 5300 2700
+F 0 "#PWR05" H 5300 2450 50  0001 C CNN
+F 1 "GND" H 5305 2527 50  0000 C CNN
+F 2 "" H 5300 2700 50  0001 C CNN
+F 3 "" H 5300 2700 50  0001 C CNN
+	1    5300 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 5C294DEA
+P 5700 2400
+F 0 "#PWR07" H 5700 2150 50  0001 C CNN
+F 1 "GND" H 5705 2227 50  0000 C CNN
+F 2 "" H 5700 2400 50  0001 C CNN
+F 3 "" H 5700 2400 50  0001 C CNN
+	1    5700 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 5C294DFD
+P 3400 2400
+F 0 "#PWR02" H 3400 2150 50  0001 C CNN
+F 1 "GND" H 3405 2227 50  0000 C CNN
+F 2 "" H 3400 2400 50  0001 C CNN
+F 3 "" H 3400 2400 50  0001 C CNN
+	1    3400 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5C294E10
+P 3150 2400
+F 0 "#PWR01" H 3150 2150 50  0001 C CNN
+F 1 "GND" H 3155 2227 50  0000 C CNN
+F 2 "" H 3150 2400 50  0001 C CNN
+F 3 "" H 3150 2400 50  0001 C CNN
+	1    3150 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 2400 3150 2300
+Wire Wire Line
+	5700 2300 5700 2400
+Wire Wire Line
+	5150 2300 5300 2300
+Wire Wire Line
+	5300 2600 5300 2700
+Wire Wire Line
+	3750 2200 3400 2200
+Wire Wire Line
+	3400 2200 3400 2400
+$Comp
+L Connector:Conn_Coaxial J3
+U 1 1 5C294F08
+P 3950 2550
+F 0 "J3" H 4050 2600 50  0000 L CNN
+F 1 "SMA" H 4050 2500 50  0000 L CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 3950 2550 50  0001 C CNN
+F 3 " ~" H 3950 2550 50  0001 C CNN
+	1    3950 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 2300 3650 2300
+Wire Wire Line
+	3650 2300 3650 2550
+Wire Wire Line
+	3650 2550 3750 2550
+$Comp
+L power:GND #PWR04
+U 1 1 5C295037
+P 3950 2900
+F 0 "#PWR04" H 3950 2650 50  0001 C CNN
+F 1 "GND" H 3955 2727 50  0000 C CNN
+F 2 "" H 3950 2900 50  0001 C CNN
+F 3 "" H 3950 2900 50  0001 C CNN
+	1    3950 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 2900 3950 2750
+$Comp
+L Connector:Conn_Coaxial J2
+U 1 1 5C29534C
+P 1350 4250
+F 0 "J2" H 1400 4450 50  0000 C CNN
+F 1 "SMA" H 1350 4350 50  0000 C CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 1350 4250 50  0001 C CNN
+F 3 " ~" H 1350 4250 50  0001 C CNN
+	1    1350 4250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 5C295353
+P 1350 4550
+F 0 "#PWR03" H 1350 4300 50  0001 C CNN
+F 1 "GND" H 1355 4377 50  0000 C CNN
+F 2 "" H 1350 4550 50  0001 C CNN
+F 3 "" H 1350 4550 50  0001 C CNN
+	1    1350 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 4550 1350 4450
+$Comp
+L Connector:Conn_Coaxial J4
+U 1 1 5C29549C
+P 2900 4250
+F 0 "J4" H 2800 4450 50  0000 L CNN
+F 1 "SMA" H 2800 4350 50  0000 L CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 2900 4250 50  0001 C CNN
+F 3 " ~" H 2900 4250 50  0001 C CNN
+	1    2900 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 5C2954A3
+P 2900 4550
+F 0 "#PWR06" H 2900 4300 50  0001 C CNN
+F 1 "GND" H 2905 4377 50  0000 C CNN
+F 2 "" H 2900 4550 50  0001 C CNN
+F 3 "" H 2900 4550 50  0001 C CNN
+	1    2900 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2900 4450 2900 4550
+Wire Wire Line
+	1550 4250 2700 4250
+Text Notes 3450 4300 0    50   ~ 0
+Ensure Trace lengths are identical\n
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5C295AFA
+P 2500 6350
+F 0 "#FLG0101" H 2500 6425 50  0001 C CNN
+F 1 "PWR_FLAG" H 2500 6524 50  0000 C CNN
+F 2 "" H 2500 6350 50  0001 C CNN
+F 3 "~" H 2500 6350 50  0001 C CNN
+	1    2500 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5C295B27
+P 2500 6450
+F 0 "#PWR0101" H 2500 6200 50  0001 C CNN
+F 1 "GND" H 2505 6277 50  0000 C CNN
+F 2 "" H 2500 6450 50  0001 C CNN
+F 3 "" H 2500 6450 50  0001 C CNN
+	1    2500 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 6450 2500 6350
+Text Notes 3950 1700 0    100  ~ 0
+Coupler to Test
+Text Notes 1350 3850 0    100  ~ 0
+Thru for Calibration
+$Comp
+L Mechanical:MountingHole_Pad H3
+U 1 1 5C31D22F
+P 3800 5850
+F 0 "H3" H 3900 5901 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3900 5810 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 3800 5850 50  0001 C CNN
+F 3 "~" H 3800 5850 50  0001 C CNN
+	1    3800 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H1
+U 1 1 5C31D2C1
+P 2900 5850
+F 0 "H1" H 3000 5901 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3000 5810 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 2900 5850 50  0001 C CNN
+F 3 "~" H 2900 5850 50  0001 C CNN
+	1    2900 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 5C31D33C
+P 2900 5950
+F 0 "#PWR08" H 2900 5700 50  0001 C CNN
+F 1 "GND" H 2905 5777 50  0000 C CNN
+F 2 "" H 2900 5950 50  0001 C CNN
+F 3 "" H 2900 5950 50  0001 C CNN
+	1    2900 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR010
+U 1 1 5C31D360
+P 3800 5950
+F 0 "#PWR010" H 3800 5700 50  0001 C CNN
+F 1 "GND" H 3805 5777 50  0000 C CNN
+F 2 "" H 3800 5950 50  0001 C CNN
+F 3 "" H 3800 5950 50  0001 C CNN
+	1    3800 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H4
+U 1 1 5C31D3BA
+P 3800 6350
+F 0 "H4" H 3900 6401 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3900 6310 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 3800 6350 50  0001 C CNN
+F 3 "~" H 3800 6350 50  0001 C CNN
+	1    3800 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H2
+U 1 1 5C31D3C1
+P 2900 6350
+F 0 "H2" H 3000 6401 50  0000 L CNN
+F 1 "MountingHole_Pad" H 3000 6310 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 2900 6350 50  0001 C CNN
+F 3 "~" H 2900 6350 50  0001 C CNN
+	1    2900 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 5C31D3C8
+P 2900 6450
+F 0 "#PWR09" H 2900 6200 50  0001 C CNN
+F 1 "GND" H 2905 6277 50  0000 C CNN
+F 2 "" H 2900 6450 50  0001 C CNN
+F 3 "" H 2900 6450 50  0001 C CNN
+	1    2900 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR011
+U 1 1 5C31D3CE
+P 3800 6450
+F 0 "#PWR011" H 3800 6200 50  0001 C CNN
+F 1 "GND" H 3805 6277 50  0000 C CNN
+F 2 "" H 3800 6450 50  0001 C CNN
+F 3 "" H 3800 6450 50  0001 C CNN
+	1    3800 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_Coaxial J6
+U 1 1 5C31DAB5
+P 5500 4250
+F 0 "J6" H 5550 4450 50  0000 C CNN
+F 1 "SMA" H 5500 4350 50  0000 C CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 5500 4250 50  0001 C CNN
+F 3 " ~" H 5500 4250 50  0001 C CNN
+	1    5500 4250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR012
+U 1 1 5C31DABC
+P 5500 4550
+F 0 "#PWR012" H 5500 4300 50  0001 C CNN
+F 1 "GND" H 5505 4377 50  0000 C CNN
+F 2 "" H 5500 4550 50  0001 C CNN
+F 3 "" H 5500 4550 50  0001 C CNN
+	1    5500 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 4550 5500 4450
+$Comp
+L Connector:Conn_Coaxial J7
+U 1 1 5C31DAC3
+P 7050 4250
+F 0 "J7" H 6950 4400 50  0000 L CNN
+F 1 "SMA" H 6950 4350 50  0000 L CNN
+F 2 "VNA_Footprints:SMA_EDGE_MOUNT" H 7050 4250 50  0001 C CNN
+F 3 " ~" H 7050 4250 50  0001 C CNN
+	1    7050 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 5C31DACA
+P 7050 4550
+F 0 "#PWR013" H 7050 4300 50  0001 C CNN
+F 1 "GND" H 7055 4377 50  0000 C CNN
+F 2 "" H 7050 4550 50  0001 C CNN
+F 3 "" H 7050 4550 50  0001 C CNN
+	1    7050 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 4450 7050 4550
+Wire Wire Line
+	5700 4250 6850 4250
+Text Notes 4900 3850 0    100  ~ 0
+Thru with no ground plane cutout\n
+Text Notes 2800 2150 0    50   ~ 0
+RF IN
+Text Notes 5900 2150 0    50   ~ 0
+RF OUT
+Text Notes 4050 2750 0    50   ~ 0
+RF Coupled
+$EndSCHEMATC

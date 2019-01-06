@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\Josh Johnson\Dropbox\ENGN4200\vna\Hardware\Test Boards\ADC-15-4_Dev_Rev_1\ADC-15-4_Dev_Rev_1.sch</source>
+    <date>6/01/2019 13:29:31</date>
+    <tool>Eeschema (5.0.2)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Coupler Test Board</title>
+        <company>Josh Johnson</company>
+        <rev>1</rev>
+        <date>2019-01-06</date>
+        <source>ADC-15-4_Dev_Rev_1.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="FL1">
+      <value>ADC-15-4+</value>
+      <footprint>VNA_Footprints:CD542</footprint>
+      <libsource lib="VNA_Symbols" part="ADC-15-4+" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C294AFE</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>RF IN</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C294C4E</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>RF OUT</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C294C9B</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>49.9</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C294D81</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>RF COUPLED</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C294F08</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>RF THRU IN</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C29534C</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>RF THRU OUT</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C29549C</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31D22F</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31D2C1</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31D3BA</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole_Pad</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_Pad_Via</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31D3C1</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>RF THRU IN 2</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31DAB5</tstamp>
+    </comp>
+    <comp ref="J7">
+      <value>RF THRU OUT 2</value>
+      <footprint>VNA_Footprints:SMA_EDGE_MOUNT</footprint>
+      <datasheet> ~</datasheet>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C31DAC3</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="Conn_Coaxial">
+      <description>coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, ...)</description>
+      <docs> ~</docs>
+      <footprints>
+        <fp>*BNC*</fp>
+        <fp>*SMA*</fp>
+        <fp>*SMB*</fp>
+        <fp>*SMC*</fp>
+        <fp>*Cinch*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_Coaxial</field>
+      </fields>
+      <pins>
+        <pin num="1" name="In" type="passive"/>
+        <pin num="2" name="Ext" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="VNA_Symbols" part="ADC-15-4+">
+      <fields>
+        <field name="Reference">FL</field>
+        <field name="Value">ADC-15-4+</field>
+      </fields>
+      <pins>
+        <pin num="1" name="INPUT" type="BiDi"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="COUPLED" type="BiDi"/>
+        <pin num="4" name="50_OHM_TERM" type="BiDi"/>
+        <pin num="5" name="ISOLATE" type="BiDi"/>
+        <pin num="6" name="OUTPUT" type="BiDi"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="VNA_Symbols">
+      <uri>C:/Users/Josh Johnson/Dropbox/ENGN4200/vna/Hardware/Libraries/VNA_Symbols/VNA_Symbols.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="GND">
+      <node ref="J1" pin="2"/>
+      <node ref="H2" pin="1"/>
+      <node ref="H4" pin="1"/>
+      <node ref="J5" pin="2"/>
+      <node ref="R1" pin="2"/>
+      <node ref="FL1" pin="2"/>
+      <node ref="J3" pin="2"/>
+      <node ref="J4" pin="2"/>
+      <node ref="H3" pin="1"/>
+      <node ref="H1" pin="1"/>
+      <node ref="J2" pin="2"/>
+      <node ref="J6" pin="2"/>
+      <node ref="J7" pin="2"/>
+    </net>
+    <net code="2" name="Net-(J2-Pad1)">
+      <node ref="J4" pin="1"/>
+      <node ref="J2" pin="1"/>
+    </net>
+    <net code="3" name="Net-(J6-Pad1)">
+      <node ref="J6" pin="1"/>
+      <node ref="J7" pin="1"/>
+    </net>
+    <net code="4" name="Net-(FL1-Pad5)">
+      <node ref="FL1" pin="5"/>
+    </net>
+    <net code="5" name="Net-(FL1-Pad6)">
+      <node ref="FL1" pin="6"/>
+      <node ref="J5" pin="1"/>
+    </net>
+    <net code="6" name="Net-(FL1-Pad1)">
+      <node ref="FL1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="7" name="Net-(FL1-Pad4)">
+      <node ref="R1" pin="1"/>
+      <node ref="FL1" pin="4"/>
+    </net>
+    <net code="8" name="Net-(FL1-Pad3)">
+      <node ref="FL1" pin="3"/>
+      <node ref="J3" pin="1"/>
+    </net>
+  </nets>
+</export>
