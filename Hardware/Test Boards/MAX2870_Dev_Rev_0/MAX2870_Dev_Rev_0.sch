@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:MAX2870_Dev_Rev_0-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -1112,8 +1113,8 @@ Wire Wire Line
 	5250 4200 5700 4200
 Text Notes 950  6600 0    100  ~ 0
 Digital 3V3 LDO\n
-Text Notes 2850 6600 0    100  ~ 0
-Analogue 3V3 LDO\n
+Text Notes 2900 6600 0    100  ~ 0
+Analog 3V3 LDO\n
 Text Notes 1000 5550 0    100  ~ 0
 IO Connector\n\n
 Wire Wire Line
