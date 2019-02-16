@@ -283,16 +283,16 @@ Text Label 1600 7200 0    50   ~ 0
 CLK
 Text Label 4800 2900 2    50   ~ 0
 SI
-Text Label 4800 3000 2    50   ~ 0
-LE
 Text Label 4800 3100 2    50   ~ 0
+LE
+Text Label 4800 3000 2    50   ~ 0
 CLK
 Wire Wire Line
 	4500 2900 4800 2900
 Wire Wire Line
-	4500 3000 4800 3000
-Wire Wire Line
 	4500 3100 4800 3100
+Wire Wire Line
+	4500 3000 4800 3000
 $Comp
 L power:+5V #PWR0105
 U 1 1 5C31F078
