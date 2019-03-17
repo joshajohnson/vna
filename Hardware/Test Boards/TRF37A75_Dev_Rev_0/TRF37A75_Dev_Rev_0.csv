@@ -1,0 +1,12 @@
+Qty,Reference(s),Value,LibPart,Footprint,Part Number,URL
+2,"C1, C4",10u,Device:C,Capacitor_SMD:C_0805_2012Metric,Home Stock,
+2,"C2, C7",1n,Device:C,Capacitor_SMD:C_0402_1005Metric,Home Stock,
+2,"C3, C5",10n,Device:C,Capacitor_SMD:C_0402_1005Metric,Home Stock,
+1,C6,10p,Device:C,Capacitor_SMD:C_0402_1005Metric,Home Stock,
+1,FB1,BLM18PG181SN1D,Device:Ferrite_Bead,VNA_Footprints:BEADC1608X95N,Home Stock,
+1,J1,USB_B_Micro,Connector:USB_B_Micro,VNA_Footprints:MicroUSB_Aliexpress,Home Stock,
+1,J2,Conn_01x02,Connector_Generic:Conn_01x02,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,Home Stock,
+2,"J3, J4",SMA,Connector:Conn_Coaxial,VNA_Footprints:SMA_EDGE_MOUNT,Home Stock,
+1,L1,100n,Device:L,Inductor_SMD:L_0402_1005Metric,587-4003-1-ND,https://www.digikey.com.au/product-detail/en/taiyo-yuden/HK1005R10J-TV/587-4003-1-ND/5035163
+1,R1,1R8,Device:R,Resistor_SMD:R_0402_1005Metric,RMCF0402JT1R80CT-ND,https://www.digikey.com.au/product-detail/en/stackpole-electronics-inc/RMCF0402JT1R80/RMCF0402JT1R80CT-ND/7790410
+1,U1,TRF37A75,VNA_Symbols:TRF37A75,Package_DFN_QFN:DFN-8-1EP_2x2mm_P0.5mm_EP0.9x1.5mm,296-37886-1-ND,https://www.digikey.com.au/product-detail/en/texas-instruments/TRF37A75IDSGT/296-37886-1-ND/4878774
