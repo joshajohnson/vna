@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;DevBoards/DevBoards Run (1).cfg&apos;" deleteContents="false" description="Delete resource &apos;DevBoards/DevBoards Run (1).cfg&apos;" element1="/DevBoards/DevBoards Run (1).cfg" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1553328107252"/>
+</session>

@@ -1,0 +1,147 @@
+EESchema Schematic File Version 4
+LIBS:VNA-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 8
+Title "Directional Couplers"
+Date "2019-04-06"
+Rev "0"
+Comp "Josh Johnson"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L VNA_Symbols:ADC-15-4+ FL1
+U 1 1 5C294AFE
+P 4050 1900
+F 0 "FL1" H 3700 2050 50  0000 C CNN
+F 1 "ADC-15-4+" H 3850 1950 50  0000 C CNN
+F 2 "VNA_Footprints:CD542" H 4050 1900 50  0001 C CNN
+F 3 "" H 4050 1900 50  0001 C CNN
+	1    4050 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 1950 3400 1950
+NoConn ~ 4800 2050
+$Comp
+L Device:R R20
+U 1 1 5C294D81
+P 4950 2350
+F 0 "R20" H 5020 2396 50  0000 L CNN
+F 1 "49R9" H 5020 2305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4880 2350 50  0001 C CNN
+F 3 "~" H 4950 2350 50  0001 C CNN
+	1    4950 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR050
+U 1 1 5C294DD0
+P 4950 2550
+F 0 "#PWR050" H 4950 2300 50  0001 C CNN
+F 1 "GND" H 4955 2377 50  0000 C CNN
+F 2 "" H 4950 2550 50  0001 C CNN
+F 3 "" H 4950 2550 50  0001 C CNN
+	1    4950 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR049
+U 1 1 5C294DFD
+P 3300 2250
+F 0 "#PWR049" H 3300 2000 50  0001 C CNN
+F 1 "GND" H 3305 2077 50  0000 C CNN
+F 2 "" H 3300 2250 50  0001 C CNN
+F 3 "" H 3300 2250 50  0001 C CNN
+	1    3300 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 2150 4950 2150
+Wire Wire Line
+	4950 2500 4950 2550
+Wire Wire Line
+	3300 2150 3300 2250
+Text Notes 3500 1650 0    100  ~ 0
+Forward Coupler
+$Comp
+L VNA_Symbols:ADC-15-4+ FL2
+U 1 1 5CC49764
+P 6900 1900
+F 0 "FL2" H 7350 2050 50  0000 C CNN
+F 1 "ADC-15-4+" H 7200 1950 50  0000 C CNN
+F 2 "VNA_Footprints:CD542" H 6900 1900 50  0001 C CNN
+F 3 "" H 6900 1900 50  0001 C CNN
+	1    6900 1900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8500 1950 7550 1950
+NoConn ~ 6150 2050
+$Comp
+L power:GND #PWR052
+U 1 1 5CC49779
+P 7650 2250
+F 0 "#PWR052" H 7650 2000 50  0001 C CNN
+F 1 "GND" H 7655 2077 50  0000 C CNN
+F 2 "" H 7650 2250 50  0001 C CNN
+F 3 "" H 7650 2250 50  0001 C CNN
+	1    7650 2250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7650 2150 7650 2250
+Text Notes 7450 1650 2    100  ~ 0
+Reverse Coupler
+Wire Wire Line
+	4800 1950 6150 1950
+Wire Wire Line
+	7550 2150 7650 2150
+Wire Wire Line
+	3300 2150 3400 2150
+Wire Wire Line
+	4950 2150 4950 2200
+$Comp
+L Device:R R21
+U 1 1 5CC51D15
+P 6000 2350
+F 0 "R21" H 6070 2396 50  0000 L CNN
+F 1 "49R9" H 6070 2305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5930 2350 50  0001 C CNN
+F 3 "~" H 6000 2350 50  0001 C CNN
+	1    6000 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR051
+U 1 1 5CC51D1B
+P 6000 2550
+F 0 "#PWR051" H 6000 2300 50  0001 C CNN
+F 1 "GND" H 6005 2377 50  0000 C CNN
+F 2 "" H 6000 2550 50  0001 C CNN
+F 3 "" H 6000 2550 50  0001 C CNN
+	1    6000 2550
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 2150 6000 2150
+Wire Wire Line
+	6000 2500 6000 2550
+Wire Wire Line
+	6000 2150 6000 2200
+Wire Wire Line
+	3400 2050 3350 2050
+Text HLabel 3350 2050 0    50   Input ~ 0
+Forward_CPL
+Text HLabel 7550 2050 2    50   Input ~ 0
+Reverse_CPL
+Text HLabel 3000 1950 0    50   Input ~ 0
+RF_IN
+Text HLabel 8500 1950 2    50   Input ~ 0
+RF_OUT
+$EndSCHEMATC

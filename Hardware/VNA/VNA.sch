@@ -1,0 +1,592 @@
+EESchema Schematic File Version 4
+LIBS:VNA-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 8
+Title "VNA"
+Date "2019-04-06"
+Rev "0"
+Comp "Josh Johnson"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 1550 1400 1000 1150
+U 5CA81007
+F0 "Synth" 50
+F1 "synth.sch" 50
+F2 "RF_OUT_P" O R 2550 1550 50 
+F3 "RF_OUT_N" O R 2550 1800 50 
+F4 "LD" O R 2550 2400 50 
+F5 "MUX_OUT" O L 1550 1950 50 
+F6 "CLK" I L 1550 2050 50 
+F7 "DATA" I L 1550 1850 50 
+F8 "LE" I L 1550 2150 50 
+F9 "CE" I L 1550 2350 50 
+F10 "RFOUT_EN" I L 1550 2450 50 
+F11 "3V3A" I L 1550 1550 50 
+F12 "1V8" I L 1550 1650 50 
+F13 "3V3" I L 1550 1450 50 
+$EndSheet
+$Sheet
+S 1650 4200 550  500 
+U 5CA96610
+F0 "Power" 50
+F1 "power.sch" 50
+F2 "3V3A" O R 2200 4500 50 
+F3 "1V8" O R 2200 4600 50 
+F4 "5V0" O R 2200 4300 50 
+F5 "3V3" O R 2200 4400 50 
+F6 "VBUS" I L 1650 4300 50 
+$EndSheet
+$Sheet
+S 6200 1400 900  1250
+U 5CAA0E12
+F0 "Source Leveling" 50
+F1 "sourceLevel.sch" 50
+F2 "RF_IN" I L 6200 1550 50 
+F3 "RF_OUT" O R 7100 1550 50 
+F4 "SI" I L 6200 2050 50 
+F5 "RF_PWR_IN" I L 6200 2450 50 
+F6 "PWR_LEVEL" O L 6200 2550 50 
+F7 "CLK" I L 6200 2150 50 
+F8 "LE" I L 6200 2250 50 
+F9 "3V3A" I L 6200 1850 50 
+F10 "5V0" I L 6200 1750 50 
+F11 "PWRDN" I L 6200 2350 50 
+$EndSheet
+$Sheet
+S 3250 4200 850  1000
+U 5CAA2138
+F0 "Microcontroller" 50
+F1 "microcontroller.sch" 50
+$EndSheet
+$Comp
+L Device:C C3
+U 1 1 5CB71B22
+P 5600 1550
+F 0 "C3" V 5450 1550 50  0000 C CNN
+F 1 "1n" V 5750 1550 50  0000 C CNN
+F 2 "" H 5638 1400 50  0001 C CNN
+F 3 "~" H 5600 1550 50  0001 C CNN
+	1    5600 1550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5750 1550 6200 1550
+$Comp
+L Device:C C2
+U 1 1 5CB73406
+P 3400 1550
+F 0 "C2" V 3250 1550 50  0000 C CNN
+F 1 "1n" V 3550 1550 50  0000 C CNN
+F 2 "" H 3438 1400 50  0001 C CNN
+F 3 "~" H 3400 1550 50  0001 C CNN
+	1    3400 1550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3550 1550 4200 1550
+Wire Wire Line
+	2550 1550 3250 1550
+$Comp
+L Device:C C1
+U 1 1 5CB9CDFB
+P 2950 1800
+F 0 "C1" V 2800 1800 50  0000 C CNN
+F 1 "1n" V 3100 1800 50  0000 C CNN
+F 2 "" H 2988 1650 50  0001 C CNN
+F 3 "~" H 2950 1800 50  0001 C CNN
+	1    2950 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3100 1800 3300 1800
+$Comp
+L Device:R R1
+U 1 1 5CB9DBF0
+P 3300 2050
+F 0 "R1" H 3370 2096 50  0000 L CNN
+F 1 "49R9" H 3370 2005 50  0000 L CNN
+F 2 "" V 3230 2050 50  0001 C CNN
+F 3 "~" H 3300 2050 50  0001 C CNN
+	1    3300 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 2200 3300 2250
+$Comp
+L power:GND #PWR03
+U 1 1 5CB9E377
+P 3300 2250
+F 0 "#PWR03" H 3300 2000 50  0001 C CNN
+F 1 "GND" H 3305 2077 50  0000 C CNN
+F 2 "" H 3300 2250 50  0001 C CNN
+F 3 "" H 3300 2250 50  0001 C CNN
+	1    3300 2250
+	1    0    0    -1  
+$EndComp
+Text Label 4150 2050 2    50   ~ 0
+Filter_CTRL2
+Text Label 4150 1950 2    50   ~ 0
+Filter_CTRL1
+Wire Wire Line
+	4150 1950 4200 1950
+Wire Wire Line
+	4150 2050 4200 2050
+Text Label 1500 1850 2    50   ~ 0
+MAX2871_MOSI
+Text Label 1500 1950 2    50   ~ 0
+MAX2871_MISO
+Text Label 1500 2050 2    50   ~ 0
+MAX2871_CLK
+Wire Wire Line
+	1500 1850 1550 1850
+Text Label 1500 2150 2    50   ~ 0
+MAX2871_LE
+Wire Wire Line
+	1500 2350 1550 2350
+Text Label 1500 2350 2    50   ~ 0
+MAX2871_CHIP_EN
+Wire Wire Line
+	1500 2450 1550 2450
+Text Label 1500 2450 2    50   ~ 0
+MAX2871_RFOUT_EN
+Wire Wire Line
+	6200 2050 6150 2050
+Wire Wire Line
+	6150 2150 6200 2150
+Wire Wire Line
+	6150 2250 6200 2250
+Text Label 6150 2050 2    50   ~ 0
+ATTEN_DATA
+Text Label 6150 2150 2    50   ~ 0
+ATTEN_CLK
+Text Label 6150 2250 2    50   ~ 0
+ATTEN_LE
+Wire Wire Line
+	3300 1800 3300 1900
+Wire Wire Line
+	2550 2400 2600 2400
+Text Label 2600 2400 0    50   ~ 0
+MAX2871_LD
+Wire Wire Line
+	2550 1800 2800 1800
+$Comp
+L Device:C C4
+U 1 1 5CC2CB42
+P 7500 1550
+F 0 "C4" V 7350 1550 50  0000 C CNN
+F 1 "1n" V 7650 1550 50  0000 C CNN
+F 2 "" H 7538 1400 50  0001 C CNN
+F 3 "~" H 7500 1550 50  0001 C CNN
+	1    7500 1550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7350 1550 7100 1550
+Wire Wire Line
+	7650 1550 7950 1550
+Text Notes 4950 950  0    118  ~ 0
+Josh's VNA
+$Comp
+L Connector:USB_B_Micro J1
+U 1 1 5CC34B29
+P 950 7000
+F 0 "J1" H 800 7450 50  0000 C CNN
+F 1 "USB_B_Micro" H 900 7350 50  0000 C CNN
+F 2 "" H 1100 6950 50  0001 C CNN
+F 3 "~" H 1100 6950 50  0001 C CNN
+	1    950  7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1250 7000 1300 7000
+Wire Wire Line
+	1250 7100 1300 7100
+NoConn ~ 1250 7200
+Wire Wire Line
+	850  7400 850  7450
+Wire Wire Line
+	850  7450 900  7450
+Wire Wire Line
+	950  7450 950  7400
+Wire Wire Line
+	900  7450 900  7500
+Connection ~ 900  7450
+Wire Wire Line
+	900  7450 950  7450
+$Comp
+L power:GND #PWR01
+U 1 1 5CC38869
+P 900 7500
+F 0 "#PWR01" H 900 7250 50  0001 C CNN
+F 1 "GND" H 905 7327 50  0000 C CNN
+F 2 "" H 900 7500 50  0001 C CNN
+F 3 "" H 900 7500 50  0001 C CNN
+	1    900  7500
+	1    0    0    -1  
+$EndComp
+Text Label 1300 7000 0    50   ~ 0
+D+
+Text Label 1300 7100 0    50   ~ 0
+D-
+Text Notes 650  6450 0    100  ~ 0
+Power In \n/ Data
+$Sheet
+S 7950 1400 1100 650 
+U 5CC4615D
+F0 "Directional Couplers" 50
+F1 "couplers.sch" 50
+F2 "Forward_CPL" O R 9050 1950 50 
+F3 "Reverse_CPL" O R 9050 1800 50 
+F4 "RF_IN" I L 7950 1550 50 
+F5 "RF_OUT" O R 9050 1550 50 
+$EndSheet
+$Sheet
+S 4200 1400 950  750 
+U 5CAA0C0D
+F0 "Filter Bank" 50
+F1 "filterBank.sch" 50
+F2 "RF_IN" I L 4200 1550 50 
+F3 "RF_OUT" O R 5150 1550 50 
+F4 "CTRL1" I L 4200 1950 50 
+F5 "CTRL2" I L 4200 2050 50 
+F6 "3V3A" I L 4200 1800 50 
+F7 "3V3" I L 4200 1700 50 
+$EndSheet
+$Comp
+L Connector:Conn_Coaxial J4
+U 1 1 5CD85A99
+P 10000 1550
+F 0 "J4" H 10100 1525 50  0000 L CNN
+F 1 "SMA" H 9850 1700 50  0000 L CNN
+F 2 "" H 10000 1550 50  0001 C CNN
+F 3 " ~" H 10000 1550 50  0001 C CNN
+	1    10000 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 1750 10000 1800
+$Comp
+L power:GND #PWR05
+U 1 1 5CD86CAC
+P 10000 1800
+F 0 "#PWR05" H 10000 1550 50  0001 C CNN
+F 1 "GND" H 10005 1627 50  0000 C CNN
+F 2 "" H 10000 1800 50  0001 C CNN
+F 3 "" H 10000 1800 50  0001 C CNN
+	1    10000 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 2550 6150 2550
+Wire Wire Line
+	6200 2450 6150 2450
+Text Label 9200 1800 0    50   ~ 0
+RF_REV_CPL
+$Comp
+L Device:R R3
+U 1 1 5CD8B53A
+P 9300 2250
+F 0 "R3" H 9370 2296 50  0000 L CNN
+F 1 "16R6" H 9370 2205 50  0000 L CNN
+F 2 "" V 9230 2250 50  0001 C CNN
+F 3 "~" H 9300 2250 50  0001 C CNN
+	1    9300 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5CD8B8FA
+P 9100 2500
+F 0 "R2" V 9000 2500 50  0000 C CNN
+F 1 "16R6" V 9200 2500 50  0000 C CNN
+F 2 "" V 9030 2500 50  0001 C CNN
+F 3 "~" H 9100 2500 50  0001 C CNN
+	1    9100 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5CD8C38B
+P 9500 2500
+F 0 "R4" V 9400 2500 50  0000 C CNN
+F 1 "16R6" V 9600 2500 50  0000 C CNN
+F 2 "" V 9430 2500 50  0001 C CNN
+F 3 "~" H 9500 2500 50  0001 C CNN
+	1    9500 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9300 2400 9300 2500
+Wire Wire Line
+	9300 2500 9350 2500
+Wire Wire Line
+	9300 2500 9250 2500
+Connection ~ 9300 2500
+Text Label 9700 2500 0    50   ~ 0
+RF_FWD_CPL
+Wire Wire Line
+	9700 2500 9650 2500
+Wire Wire Line
+	8900 2500 8950 2500
+Text Label 8900 2500 2    50   ~ 0
+AD8319_RF
+Text Label 6150 2450 2    50   ~ 0
+AD8319_RF
+Text Label 6150 2550 2    50   ~ 0
+RF_PWR_LEVEL
+Wire Wire Line
+	9300 1950 9300 2100
+Text Notes 8950 2750 0    50   ~ 0
+6dB Resistive Split
+$Comp
+L Connector:Conn_Coaxial J3
+U 1 1 5CDCDD5F
+P 9950 4500
+F 0 "J3" H 10050 4475 50  0000 L CNN
+F 1 "SMA" H 9800 4650 50  0000 L CNN
+F 2 "" H 9950 4500 50  0001 C CNN
+F 3 " ~" H 9950 4500 50  0001 C CNN
+	1    9950 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9950 4700 9950 4750
+$Comp
+L power:GND #PWR04
+U 1 1 5CDCDD66
+P 9950 4750
+F 0 "#PWR04" H 9950 4500 50  0001 C CNN
+F 1 "GND" H 9955 4577 50  0000 C CNN
+F 2 "" H 9950 4750 50  0001 C CNN
+F 3 "" H 9950 4750 50  0001 C CNN
+	1    9950 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9750 4500 9700 4500
+Text Label 9700 4500 2    50   ~ 0
+RF_THROUGH
+Text Notes 10600 3400 2    118  ~ 0
+D\nU\nT
+Wire Notes Line
+	10450 2850 10450 3450
+Wire Notes Line
+	10450 3450 10650 3450
+Wire Notes Line
+	10650 3450 10650 2850
+Wire Notes Line
+	10550 2850 10550 1550
+Wire Notes Line
+	10550 1550 10350 1550
+Wire Notes Line
+	10450 2850 10650 2850
+Wire Notes Line
+	10550 3450 10550 4500
+Wire Notes Line
+	10550 4500 10350 4500
+Text Label 8250 4750 0    50   ~ 0
+AD8302_VREF
+Text Label 8250 4650 0    50   ~ 0
+AD8302_VPHASE
+Text Label 8250 4550 0    50   ~ 0
+AD8302_VMAG
+Wire Wire Line
+	8200 4750 8250 4750
+Wire Wire Line
+	8200 4650 8250 4650
+Wire Wire Line
+	8200 4550 8250 4550
+Text Label 7000 4900 2    50   ~ 0
+RF_THROUGH
+Text Label 7000 5150 2    50   ~ 0
+FRONT_E_CTRL_2
+Text Label 7000 5050 2    50   ~ 0
+FRONT_E_CTRL_1
+Wire Wire Line
+	7000 5150 7050 5150
+Wire Wire Line
+	7050 5050 7000 5050
+Wire Wire Line
+	7050 4900 7000 4900
+Wire Wire Line
+	7000 4700 7050 4700
+Wire Wire Line
+	7000 4800 7050 4800
+Text Label 7000 4800 2    50   ~ 0
+RF_REV_CPL
+Text Label 7000 4700 2    50   ~ 0
+RF_FWD_CPL
+$Sheet
+S 7050 4400 1150 850 
+U 5CD99815
+F0 "Gain Phase Detection" 50
+F1 "gainPhaseDetect.sch" 50
+F2 "RF_FORWARD" I L 7050 4700 50 
+F3 "RF_REVERSE" I L 7050 4800 50 
+F4 "RF_THROUGH" I L 7050 4900 50 
+F5 "CTRL_1" I L 7050 5050 50 
+F6 "CTRL_2" I L 7050 5150 50 
+F7 "VMAG" O R 8200 4550 50 
+F8 "VREF" O R 8200 4750 50 
+F9 "VPHS" O R 8200 4650 50 
+F10 "3V3A" I L 7050 4500 50 
+$EndSheet
+Wire Wire Line
+	1550 2050 1500 2050
+Wire Wire Line
+	1550 2150 1500 2150
+Wire Wire Line
+	1500 1950 1550 1950
+Wire Wire Line
+	6200 1750 6150 1750
+Wire Wire Line
+	6200 1850 6150 1850
+Wire Wire Line
+	7050 4500 7000 4500
+Text Notes 10350 1550 0    100  ~ 0
+Port 1
+Text Notes 10350 4650 0    100  ~ 0
+Port 2
+Wire Wire Line
+	2200 4300 2250 4300
+Wire Wire Line
+	2200 4400 2250 4400
+Wire Wire Line
+	2200 4500 2250 4500
+Wire Wire Line
+	2200 4600 2250 4600
+Text Label 2250 4300 0    50   ~ 0
+5V0
+Text Label 2250 4400 0    50   ~ 0
+3V3
+Text Label 2250 4500 0    50   ~ 0
+3V3A
+Text Label 2250 4600 0    50   ~ 0
+1V8
+Text Label 3100 4300 2    50   ~ 0
+5V0
+Text Label 3100 4400 2    50   ~ 0
+3V3
+Text Label 1500 1450 2    50   ~ 0
+3V3
+Text Label 1500 1550 2    50   ~ 0
+3V3A
+Text Label 1500 1650 2    50   ~ 0
+1V8
+Wire Wire Line
+	1500 1450 1550 1450
+Wire Wire Line
+	1500 1550 1550 1550
+Wire Wire Line
+	1500 1650 1550 1650
+Text Label 4150 1700 2    50   ~ 0
+3V3
+Text Label 4150 1800 2    50   ~ 0
+3V3A
+Wire Wire Line
+	4150 1700 4200 1700
+Wire Wire Line
+	4150 1800 4200 1800
+Text Label 6150 1750 2    50   ~ 0
+5V0
+Text Label 6150 1850 2    50   ~ 0
+3V3A
+Text Label 7000 4500 2    50   ~ 0
+3V3
+$Comp
+L Connector:USB_A J2
+U 1 1 5D01C6AE
+P 2000 7000
+F 0 "J2" H 1850 7450 50  0000 C CNN
+F 1 "USB_A" H 1900 7350 50  0000 C CNN
+F 2 "" H 2150 6950 50  0001 C CNN
+F 3 " ~" H 2150 6950 50  0001 C CNN
+	1    2000 7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 7400 1900 7450
+Wire Wire Line
+	1900 7450 1950 7450
+Wire Wire Line
+	2000 7450 2000 7400
+Wire Wire Line
+	1950 7450 1950 7500
+$Comp
+L power:GND #PWR02
+U 1 1 5D023937
+P 1950 7500
+F 0 "#PWR02" H 1950 7250 50  0001 C CNN
+F 1 "GND" H 1955 7327 50  0000 C CNN
+F 2 "" H 1950 7500 50  0001 C CNN
+F 3 "" H 1950 7500 50  0001 C CNN
+	1    1950 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2300 6800 2350 6800
+Text Label 2350 6800 0    50   ~ 0
+5V0
+Text Label 2350 7000 0    50   ~ 0
+SDA
+Text Label 2350 7100 0    50   ~ 0
+SCL
+Wire Wire Line
+	2300 7000 2350 7000
+Wire Wire Line
+	2300 7100 2350 7100
+Connection ~ 1950 7450
+Wire Wire Line
+	1950 7450 2000 7450
+Text Notes 1650 6450 0    100  ~ 0
+Front Panel \nConnector
+Wire Wire Line
+	1650 4300 1600 4300
+Wire Wire Line
+	1250 6800 1300 6800
+Text Label 1300 6800 0    50   ~ 0
+VBUS
+Text Label 1600 4300 2    50   ~ 0
+VBUS
+Text Notes 1250 1350 0    50   ~ 0
+180mA
+Text Notes 5700 1750 0    50   ~ 0
+100mA
+Text Notes 5700 1850 0    50   ~ 0
+10mA
+Text Notes 3100 1350 0    50   ~ 0
+-4 to +5 dBm
+Text Notes 5300 1350 0    50   ~ 0
+-7 to +3 dBm
+Text Notes 4550 1900 0    50   ~ 0
+Insertion Loss:\n-2 to -3 dB
+Wire Wire Line
+	5150 1550 5450 1550
+Text Notes 6500 2050 0    50   ~ 0
+Gain:\n-23 to 10 dB
+Text Notes 7200 1300 0    50   ~ 0
+-30 to +13 dBm
+Text Notes 8000 1750 0    50   ~ 0
+Insertion Loss: \n-1.5  to -3 dB
+Wire Wire Line
+	9050 1550 9800 1550
+Wire Wire Line
+	9050 1800 9200 1800
+Wire Wire Line
+	9050 1950 9300 1950
+Text Notes 9100 1350 0    50   ~ 0
+-32 to +11 dBm
+Text Notes 1650 5100 0    50   ~ 0
+5V: 100mA\n3V3A: 200mA\n3V3: 100mA
+Wire Wire Line
+	6200 2350 6150 2350
+Text Label 6150 2350 2    50   ~ 0
+PA_PWRDN
+$EndSCHEMATC

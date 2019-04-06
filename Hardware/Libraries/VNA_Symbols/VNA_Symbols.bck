@@ -1,17 +1,67 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 74AHC1G04
+D Not Gate
+$ENDCMP
+#
 $CMP AD8302
-D AD8302ARUZ, RF Amplifier, 14-Pin TSSOP
-F https://componentsearchengine.com/Datasheets/1/AD8302ARUZ.pdf
+D Gain Phase Detector
+$ENDCMP
+#
+$CMP AD8319
+D Log Power Detector
+$ENDCMP
+#
+$CMP ADC-15-4+
+D MiniCircuits Directional Coupler
+$ENDCMP
+#
+$CMP ASTXR-12-19.200MHz
+D TCXO
+$ENDCMP
+#
+$CMP Filter_LFCN
+D MiniCircuits Filter
 $ENDCMP
 #
 $CMP HMC313
-F https://componentsearchengine.com/Datasheets/1/HMC313E.pdf
+D RF Amp
+$ENDCMP
+#
+$CMP LP5912
+D 500 mA LDO
 $ENDCMP
 #
 $CMP MAX2871
-D Phase Locked Loops - PLL 23.5-6000MHz Fractional/IntegerN
-F https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf
+D  PLL 23.5-6000MHz
+$ENDCMP
+#
+$CMP MIC5366-1.8
+D Voltage Regulator
+$ENDCMP
+#
+$CMP PE42440
+D 4 Throw RF Switch
+$ENDCMP
+#
+$CMP PE4257
+D 2 Throw RF Switch
+$ENDCMP
+#
+$CMP PE43711
+D RF Attenuator
+$ENDCMP
+#
+$CMP SN74LVC1G139
+D 2 to 4 Binary Decoder
+$ENDCMP
+#
+$CMP TRF37A75
+D RF Amp
+$ENDCMP
+#
+$CMP TVL755P
+D 500 mA LDO
 $ENDCMP
 #
 #End Doc Library

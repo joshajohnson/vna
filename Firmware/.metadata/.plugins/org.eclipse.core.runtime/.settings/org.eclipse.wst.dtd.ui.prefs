@@ -1,0 +1,10 @@
+dtdComment=\#586E75 | null | null | true | null | null
+dtdData=\#839496 | null | null | null | null | null
+dtdDefault=\#839496 | null | null | null | null | null
+dtdKeyword=\#B58900 | null | null | null | null | null
+dtdString=\#2AA198 | null | null | null | null | null
+dtdSymbol=\#678CB1 | null | null | null | null | null
+dtdTag=\#268BD2 | null | null | null | null | null
+dtdTagName=\#268BD2 | null | null | null | null | null
+eclipse.preferences.version=1
+overriddenByCSS=,dtdKeyword,dtdTag,dtdString,dtdTagName,dtdDefault,dtdData,dtdSymbol,dtdComment,
