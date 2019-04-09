@@ -34,6 +34,12 @@ $CMP HMC313
 D RF Amp
 $ENDCMP
 #
+$CMP LED_RGBA
+D RGB LED, anode/red/green/blue
+K LED RGB diode
+F ~
+$ENDCMP
+#
 $CMP LP5912
 D 500 mA LDO
 $ENDCMP

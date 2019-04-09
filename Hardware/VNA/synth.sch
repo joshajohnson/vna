@@ -488,7 +488,7 @@ Wire Notes Line
 	7950 5450 6600 5450
 Wire Notes Line
 	6600 5450 6600 3800
-Text Notes 6600 3800 0    50   ~ 6
+Text Notes 6600 3800 0    50   ~ 0
 PLL Loop Filter\n
 Wire Wire Line
 	2850 4050 3400 4050
@@ -529,9 +529,9 @@ Wire Wire Line
 	5450 4850 5850 4850
 Wire Wire Line
 	5450 4950 5850 4950
-Text Label 5850 4950 2    50   ~ 6
+Text Label 5850 4950 2    50   ~ 0
 RF_OUT_N
-Text Label 5850 4850 2    50   ~ 6
+Text Label 5850 4850 2    50   ~ 0
 RF_OUT_P
 Wire Wire Line
 	4050 2250 4500 2250
@@ -542,9 +542,9 @@ Wire Wire Line
 Wire Wire Line
 	4950 1900 4950 2250
 Connection ~ 4950 2250
-Text Label 9000 5100 2    50   ~ 6
+Text Label 9000 5100 2    50   ~ 0
 RF_OUT_N
-Text Label 9000 4600 2    50   ~ 6
+Text Label 9000 4600 2    50   ~ 0
 RF_OUT_P
 Wire Wire Line
 	5450 4350 6550 4350
@@ -614,7 +614,7 @@ Wire Wire Line
 	5900 5050 6000 5050
 Wire Wire Line
 	5450 5100 5900 5100
-Text Notes 8700 3600 0    100  ~ 6
+Text Notes 8700 3600 0    100  ~ 0
 RF OUT (single ended)\n\n
 Wire Wire Line
 	4050 1900 4050 2250
@@ -684,7 +684,7 @@ F 3 "" H 2550 2800 50  0001 C CNN
 	1    2550 2800
 	1    0    0    -1  
 $EndComp
-Text Notes 1250 2700 0    100  ~ 6
+Text Notes 1250 2700 0    100  ~ 0
 Clock Ref\n
 Wire Wire Line
 	2150 2600 2150 2750
@@ -795,23 +795,23 @@ Wire Wire Line
 	3600 2300 3600 2500
 Wire Wire Line
 	3150 2300 3150 2500
-Text HLabel 9700 4600 2    50   Input ~ 6
+Text HLabel 9700 4600 2    50   Input ~ 0
 RF_OUT_P
-Text HLabel 9700 5100 2    50   Input ~ 6
+Text HLabel 9700 5100 2    50   Input ~ 0
 RF_OUT_N
-Text HLabel 5850 4050 2    50   Input ~ 6
+Text HLabel 5850 4050 2    50   Input ~ 0
 LD
-Text HLabel 5850 4150 2    50   Input ~ 6
+Text HLabel 5850 4150 2    50   Input ~ 0
 MUX_OUT
-Text HLabel 3000 4200 0    50   Input ~ 6
+Text HLabel 3000 4200 0    50   Input ~ 0
 CLK
-Text HLabel 3000 4300 0    50   Input ~ 6
+Text HLabel 3000 4300 0    50   Input ~ 0
 DATA
-Text HLabel 3000 4400 0    50   Input ~ 6
+Text HLabel 3000 4400 0    50   Input ~ 0
 LE
-Text HLabel 3000 4500 0    50   Input ~ 6
+Text HLabel 3000 4500 0    50   Input ~ 0
 CE
-Text HLabel 3000 4650 0    50   Input ~ 6
+Text HLabel 3000 4650 0    50   Input ~ 0
 RFOUT_EN
 Connection ~ 3150 2500
 Wire Wire Line
@@ -878,17 +878,17 @@ Wire Wire Line
 	7300 4900 7700 4900
 Text Notes 3050 1350 0    100  ~ 0
 MAX2871: 23.5 - 6000 MHz PLL\n
-Text HLabel 9400 3850 1    50   Input ~ 6
+Text HLabel 9400 3850 1    50   Input ~ 0
 3V3A
-Text HLabel 2150 2600 1    50   Input ~ 6
+Text HLabel 2150 2600 1    50   Input ~ 0
 1V8
-Text HLabel 3350 1800 1    50   Input ~ 6
+Text HLabel 3350 1800 1    50   Input ~ 0
 3V3A
-Text HLabel 4300 1800 1    50   Input ~ 6
+Text HLabel 4300 1800 1    50   Input ~ 0
 3V3A
-Text HLabel 6400 5000 1    50   Input ~ 6
+Text HLabel 6400 5000 1    50   Input ~ 0
 3V3A
-Text HLabel 3150 2200 1    50   Input ~ 6
+Text HLabel 3150 2200 1    50   Input ~ 0
 3V3
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB?
@@ -898,7 +898,7 @@ AR Path="/5CCC81FC" Ref="FB?"  Part="1"
 AR Path="/5CA81007/5CCC81FC" Ref="FB2"  Part="1" 
 F 0 "FB2" V 3750 1750 50  0000 C CNN
 F 1 "Bead" V 3850 2050 50  0000 C CNN
-F 2 "" V 3730 1900 50  0001 C CNN
+F 2 "VNA_Footprints:BEADC1608X95N" V 3730 1900 50  0001 C CNN
 F 3 "~" H 3800 1900 50  0001 C CNN
 	1    3800 1900
 	0    1    1    0   
@@ -911,7 +911,7 @@ AR Path="/5CCCD1B3" Ref="FB?"  Part="1"
 AR Path="/5CA81007/5CCCD1B3" Ref="FB3"  Part="1" 
 F 0 "FB3" V 4700 1750 50  0000 C CNN
 F 1 "Bead" V 4800 2050 50  0000 C CNN
-F 2 "" V 4680 1900 50  0001 C CNN
+F 2 "VNA_Footprints:BEADC1608X95N" V 4680 1900 50  0001 C CNN
 F 3 "~" H 4750 1900 50  0001 C CNN
 	1    4750 1900
 	0    1    1    0   

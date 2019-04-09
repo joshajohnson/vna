@@ -25,14 +25,8 @@ F 3 "" H 3650 4000 50  0001 C CNN
 	1    3600 3350
 	1    0    0    -1  
 $EndComp
-Text Label 4700 3350 2    50   ~ 6
+Text Label 4700 3350 2    50   ~ 0
 nP_S
-Text Label 4700 3500 2    50   ~ 6
-SI
-Text Label 4700 3700 2    50   ~ 6
-LE
-Text Label 4700 3600 2    50   ~ 6
-CLK
 Wire Wire Line
 	4400 3500 4700 3500
 Wire Wire Line
@@ -66,50 +60,42 @@ Connection ~ 4100 4300
 $Comp
 L Device:C C39
 U 1 1 5CC58ACB
-P 3750 2300
-F 0 "C39" V 3700 2200 50  0000 C CNN
-F 1 "100p" V 3900 2300 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3788 2150 50  0001 C CNN
-F 3 "~" H 3750 2300 50  0001 C CNN
-	1    3750 2300
+P 3900 2300
+F 0 "C39" V 3850 2150 50  0000 C CNN
+F 1 "100p" V 4050 2300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3938 2150 50  0001 C CNN
+F 3 "~" H 3900 2300 50  0001 C CNN
+	1    3900 2300
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:C C38
 U 1 1 5C364B92
-P 3750 1950
-F 0 "C38" V 3700 1850 50  0000 C CNN
-F 1 "100n" V 3900 1950 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 3788 1800 50  0001 C CNN
-F 3 "~" H 3750 1950 50  0001 C CNN
-	1    3750 1950
+P 3900 1950
+F 0 "C38" V 3850 1800 50  0000 C CNN
+F 1 "100n" V 4050 1950 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3938 1800 50  0001 C CNN
+F 3 "~" H 3900 1950 50  0001 C CNN
+	1    3900 1950
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	3600 1750 3600 1950
 $Comp
 L power:GND #PWR058
 U 1 1 5C36FE30
-P 3900 2400
-F 0 "#PWR058" H 3900 2150 50  0001 C CNN
-F 1 "GND" H 3905 2227 50  0000 C CNN
-F 2 "" H 3900 2400 50  0001 C CNN
-F 3 "" H 3900 2400 50  0001 C CNN
-	1    3900 2400
+P 4050 2400
+F 0 "#PWR058" H 4050 2150 50  0001 C CNN
+F 1 "GND" H 4055 2227 50  0000 C CNN
+F 2 "" H 4050 2400 50  0001 C CNN
+F 3 "" H 4050 2400 50  0001 C CNN
+	1    4050 2400
 	1    0    0    -1  
 $EndComp
-Connection ~ 3600 1950
 Wire Wire Line
-	3900 2300 3900 2400
-Connection ~ 3600 2300
+	4050 2300 4050 2400
 Wire Wire Line
-	3600 1950 3600 2300
-Wire Wire Line
-	3900 1950 3900 2300
-Connection ~ 3900 2300
-Wire Wire Line
-	3600 2300 3600 2550
-Text Notes 2750 850  0    100  ~ 6
+	4050 1950 4050 2300
+Connection ~ 4050 2300
+Text Notes 2750 850  0    100  ~ 0
 Programmable Attenuator
 Wire Wire Line
 	2500 2900 2800 2900
@@ -301,11 +287,11 @@ Wire Wire Line
 Connection ~ 5400 3600
 Wire Wire Line
 	5400 3600 5400 3650
-Text HLabel 2500 2900 0    50   Input ~ 6
+Text HLabel 2500 2900 0    50   Input ~ 0
 RF_IN
-Text HLabel 8000 2900 2    50   Input ~ 6
+Text HLabel 8000 2900 2    50   Input ~ 0
 RF_OUT
-Text HLabel 4700 3500 2    50   Input ~ 6
+Text HLabel 4700 3500 2    50   Input ~ 0
 SI
 Wire Wire Line
 	4450 5200 4450 5300
@@ -523,8 +509,8 @@ Wire Wire Line
 	4350 6100 4550 6100
 Connection ~ 4350 6100
 Wire Wire Line
-	4850 6100 5250 6100
-Text Notes 2900 4900 0    100  ~ 6
+	4850 6100 5050 6100
+Text Notes 2900 4900 0    100  ~ 0
 Power Detector\n
 $Comp
 L Device:C C41
@@ -579,11 +565,11 @@ Wire Wire Line
 	5000 5500 5150 5500
 Wire Wire Line
 	5000 5700 5150 5700
-Text HLabel 4700 3600 2    50   Input ~ 6
+Text HLabel 4700 3600 2    50   Input ~ 0
 CLK
-Text HLabel 4700 3700 2    50   Input ~ 6
+Text HLabel 4700 3700 2    50   Input ~ 0
 LE
-Text Notes 5400 1000 0    100  ~ 6
+Text Notes 5400 1000 0    100  ~ 0
 Amplifier \n(Gain = 12dB P1dB = +18dBm IP3 = +32.5dBm)  
 Wire Wire Line
 	7600 1650 7600 1700
@@ -680,15 +666,15 @@ Wire Wire Line
 Connection ~ 5150 5700
 Wire Wire Line
 	5150 5700 5150 5750
-Text HLabel 2450 5200 0    50   Input ~ 6
+Text HLabel 2450 5200 0    50   Input ~ 0
 RF_PWR_IN
-Text HLabel 5250 6100 2    50   Output ~ 6
+Text HLabel 5250 6100 2    50   Output ~ 0
 PWR_LEVEL
-Text HLabel 3600 1750 1    50   Input ~ 6
+Text HLabel 3600 1750 1    50   Input ~ 0
 3V3A
-Text HLabel 5850 1950 1    50   Input ~ 6
+Text HLabel 5850 1950 1    50   Input ~ 0
 5V0
-Text HLabel 7600 1350 1    50   Input ~ 6
+Text HLabel 7600 1350 1    50   Input ~ 0
 5V0
 Wire Wire Line
 	6800 3800 6800 3700
@@ -707,12 +693,42 @@ F 3 "" H 7250 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7250 3300 7250 3200
-Text HLabel 6000 3200 0    50   Input ~ 6
+Text HLabel 6000 3200 0    50   Input ~ 0
 PWRDN
-Text HLabel 4650 5350 1    50   Input ~ 6
+Text HLabel 4650 5350 1    50   Input ~ 0
 3V3A
-Text HLabel 5400 3200 1    50   Input ~ 6
+Text HLabel 5400 3200 1    50   Input ~ 0
 3V3A
 Wire Wire Line
 	7200 1650 7200 1700
+$Comp
+L Connector:TestPoint TP16
+U 1 1 5CECA150
+P 5150 6300
+F 0 "TP16" V 5104 6488 50  0000 L CNN
+F 1 "TP" V 5195 6488 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5350 6300 50  0001 C CNN
+F 3 "~" H 5350 6300 50  0001 C CNN
+	1    5150 6300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5150 6300 5050 6300
+Wire Wire Line
+	5050 6300 5050 6100
+Connection ~ 5050 6100
+Wire Wire Line
+	5050 6100 5250 6100
+Wire Wire Line
+	3600 1750 3600 1950
+Wire Wire Line
+	3750 2300 3600 2300
+Connection ~ 3600 2300
+Wire Wire Line
+	3600 2300 3600 2550
+Wire Wire Line
+	3750 1950 3600 1950
+Connection ~ 3600 1950
+Wire Wire Line
+	3600 1950 3600 2300
 $EndSCHEMATC

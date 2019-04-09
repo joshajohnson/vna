@@ -1,4 +1,4 @@
-(module QFN-32-1EP_5x5mm_Pitch0.5mm_Thermal_Vias (layer F.Cu) (tedit 5C282D2D)
+(module QFN-32-1EP_5x5mm_Pitch0.5mm_Thermal_Vias (layer F.Cu) (tedit 5CAC5B2E)
   (descr "UH Package; 32-Lead Plastic QFN (5mm x 5mm); (see Linear Technology QFN_32_05-08-1693.pdf)")
   (tags "QFN 0.5")
   (attr smd)
@@ -83,6 +83,11 @@
   (pad 33 smd rect (at -0.8625 -0.8625) (size 1.725 1.725) (layers F.Cu F.Paste F.Mask)
     (solder_paste_margin_ratio -0.2))
   (model ${KISYS3DMOD}/Housings_DFN_QFN.3dshapes/QFN-32-1EP_5x5mm_Pitch0.5mm.wrl
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+  (model ${KISYS3DMOD}/Package_DFN_QFN.3dshapes/QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm.step
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
