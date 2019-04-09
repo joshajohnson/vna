@@ -20,6 +20,12 @@ $CMP ASTXR-12-19.200MHz
 D TCXO
 $ENDCMP
 #
+$CMP Ferrite_Bead_PWR
+D Ferrite bead
+K L ferrite bead inductor filter
+F ~
+$ENDCMP
+#
 $CMP Filter_LFCN
 D MiniCircuits Filter
 $ENDCMP
@@ -62,6 +68,11 @@ $ENDCMP
 #
 $CMP TVL755P
 D 500 mA LDO
+$ENDCMP
+#
+$CMP VREF
+D Power flag
+K power-flag
 $ENDCMP
 #
 #End Doc Library

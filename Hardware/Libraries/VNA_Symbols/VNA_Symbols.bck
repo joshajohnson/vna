@@ -64,4 +64,14 @@ $CMP TVL755P
 D 500 mA LDO
 $ENDCMP
 #
+$CMP VDDSD
+D Power flag
+K power-flag
+$ENDCMP
+#
+$CMP VREF
+D Power flag
+K power-flag
+$ENDCMP
+#
 #End Doc Library
