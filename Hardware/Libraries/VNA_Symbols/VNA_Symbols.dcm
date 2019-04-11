@@ -20,6 +20,10 @@ $CMP ASTXR-12-19.200MHz
 D TCXO
 $ENDCMP
 #
+$CMP F2923
+D 2 Port High Isol RF Switch
+$ENDCMP
+#
 $CMP Ferrite_Bead_PWR
 D Ferrite bead
 K L ferrite bead inductor filter
@@ -61,6 +65,10 @@ D 2 Throw RF Switch
 $ENDCMP
 #
 $CMP PE43711
+D RF Attenuator
+$ENDCMP
+#
+$CMP SKY12347-362LF
 D RF Attenuator
 $ENDCMP
 #

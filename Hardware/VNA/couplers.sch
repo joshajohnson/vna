@@ -67,7 +67,7 @@ Wire Wire Line
 	4950 2500 4950 2550
 Wire Wire Line
 	3300 2150 3300 2250
-Text Notes 3500 1650 0    100  ~ 0
+Text Notes 3500 1650 0    100  ~ 6
 Forward Coupler
 $Comp
 L VNA_Symbols:ADC-15-4+ FL2
@@ -96,7 +96,7 @@ F 3 "" H 7650 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2150 7650 2250
-Text Notes 7450 1650 2    100  ~ 0
+Text Notes 7450 1650 2    100  ~ 6
 Reverse Coupler
 Wire Wire Line
 	4800 1950 6150 1950
@@ -136,12 +136,12 @@ Wire Wire Line
 	6000 2150 6000 2200
 Wire Wire Line
 	3400 2050 3350 2050
-Text HLabel 3350 2050 0    50   Input ~ 0
+Text HLabel 3350 2050 0    50   Input ~ 6
 Forward_CPL
-Text HLabel 7550 2050 2    50   Input ~ 0
+Text HLabel 7550 2050 2    50   Input ~ 6
 Reverse_CPL
-Text HLabel 3000 1950 0    50   Input ~ 0
+Text HLabel 3000 1950 0    50   Input ~ 6
 RF_IN
-Text HLabel 8500 1950 2    50   Input ~ 0
+Text HLabel 8500 1950 2    50   Input ~ 6
 RF_OUT
 $EndSCHEMATC

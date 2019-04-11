@@ -104,7 +104,7 @@ Connection ~ 3450 3950
 Wire Wire Line
 	5150 3950 5150 3800
 Connection ~ 4950 3950
-Text Notes 4000 3550 0    100  ~ 0
+Text Notes 4000 3550 0    100  ~ 6
 1V8 LDO\n
 Wire Wire Line
 	4950 3950 5150 3950
@@ -193,13 +193,13 @@ F 3 "" H 2300 2950 50  0001 C CNN
 	1    2300 2950
 	1    0    0    -1  
 $EndComp
-Text Notes 1300 2150 0    100  ~ 0
+Text Notes 1300 2150 0    100  ~ 6
 5V (Filtered)
-Text HLabel 3350 3800 1    49   Input ~ 0
+Text HLabel 3350 3800 1    49   Input ~ 6
 3V3A
-Text HLabel 5150 3800 1    49   Input ~ 0
+Text HLabel 5150 3800 1    49   Input ~ 6
 1V8
-Text HLabel 2550 2400 1    49   Input ~ 0
+Text HLabel 2550 2400 1    49   Input ~ 6
 5V0
 Wire Wire Line
 	1550 3950 1500 3950
@@ -268,7 +268,7 @@ F 3 "" H 1200 4350 50  0001 C CNN
 	1    1200 4350
 	1    0    0    -1  
 $EndComp
-Text Notes 2250 3600 2    100  ~ 0
+Text Notes 2250 3600 2    100  ~ 6
 3V3A LDO
 Wire Wire Line
 	1100 3850 1100 3950
@@ -276,7 +276,7 @@ Wire Wire Line
 	2850 3950 2850 3850
 Wire Wire Line
 	2550 3950 2850 3950
-Text HLabel 2850 3850 1    49   Input ~ 0
+Text HLabel 2850 3850 1    49   Input ~ 6
 3V3A
 Connection ~ 2550 3950
 Wire Wire Line
@@ -308,23 +308,8 @@ F 3 "~" H 2550 4150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 2150 4150
-$Comp
-L VNA_Symbols:TVL755P U5
-U 1 1 5CFCC1C6
-P 4200 2700
-F 0 "U5" H 4225 3125 50  0000 C CNN
-F 1 "TVL755P" H 4225 3034 50  0000 C CNN
-F 2 "Package_DFN_QFN:DFN-6-1EP_2x2mm_P0.65mm_EP1x1.6mm" H 4200 3150 100 0001 C CNN
-F 3 "" H 4200 3150 100 0001 C CNN
-	1    4200 2700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	3750 2650 3750 2500
-Wire Wire Line
-	3750 2500 3900 2500
-Wire Wire Line
-	3750 2650 3900 2650
+	3750 2700 3750 2500
 $Comp
 L Device:C C32
 U 1 1 5CFCE6C5
@@ -355,7 +340,7 @@ Wire Wire Line
 	5250 2500 5250 2400
 Wire Wire Line
 	4950 2500 5250 2500
-Text HLabel 5250 2400 1    49   Input ~ 0
+Text HLabel 5250 2400 1    49   Input ~ 6
 3V3
 Connection ~ 4950 2500
 Wire Wire Line
@@ -387,37 +372,37 @@ F 3 "~" H 4950 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4550 2650 4600 2650
+	4550 2700 4600 2700
 Wire Wire Line
-	4600 2650 4600 2750
+	4600 2700 4600 2800
 Wire Wire Line
-	4550 2950 4600 2950
-Connection ~ 4600 2950
+	4550 3000 4600 3000
+Connection ~ 4600 3000
 Wire Wire Line
-	4600 2950 4600 3050
+	4600 3000 4600 3100
 Wire Wire Line
-	4550 2850 4600 2850
-Connection ~ 4600 2850
+	4550 2900 4600 2900
+Connection ~ 4600 2900
 Wire Wire Line
-	4600 2850 4600 2950
+	4600 2900 4600 3000
 Wire Wire Line
-	4550 2750 4600 2750
-Connection ~ 4600 2750
+	4550 2800 4600 2800
+Connection ~ 4600 2800
 Wire Wire Line
-	4600 2750 4600 2850
+	4600 2800 4600 2900
 $Comp
 L power:GND #PWR037
 U 1 1 5CFD53FA
-P 4600 3050
-F 0 "#PWR037" H 4600 2800 50  0001 C CNN
-F 1 "GND" H 4605 2877 50  0000 C CNN
-F 2 "" H 4600 3050 50  0001 C CNN
-F 3 "" H 4600 3050 50  0001 C CNN
-	1    4600 3050
+P 4600 3100
+F 0 "#PWR037" H 4600 2850 50  0001 C CNN
+F 1 "GND" H 4605 2927 50  0000 C CNN
+F 2 "" H 4600 3100 50  0001 C CNN
+F 3 "" H 4600 3100 50  0001 C CNN
+	1    4600 3100
 	1    0    0    -1  
 $EndComp
 Connection ~ 3750 2500
-Text Notes 4600 2200 2    100  ~ 0
+Text Notes 4600 2200 2    100  ~ 6
 3V3 LDO
 $Comp
 L Device:Polyfuse_Small F?
@@ -432,19 +417,19 @@ F 3 "~" H 1800 1400 50  0001 C CNN
 	1    1800 1400
 	0    1    1    0   
 $EndComp
-Text HLabel 1250 1400 0    49   Input ~ 0
+Text HLabel 1250 1400 0    49   Input ~ 6
 VBUS
 Wire Wire Line
 	1900 1400 2200 1400
-Text Label 2300 1400 0    50   ~ 0
+Text Label 2300 1400 0    50   ~ 6
 VIN
-Text Label 1050 2400 1    50   ~ 0
+Text Label 1050 2400 1    50   ~ 6
 VIN
-Text Label 3350 2400 1    50   ~ 0
+Text Label 3350 2400 1    50   ~ 6
 VIN
-Text Label 1100 3850 1    50   ~ 0
+Text Label 1100 3850 1    50   ~ 6
 VIN
-Text Notes 1200 1150 0    100  ~ 0
+Text Notes 1200 1150 0    100  ~ 6
 Input Protection
 Wire Wire Line
 	1250 1400 1350 1400
@@ -551,9 +536,9 @@ Wire Wire Line
 Connection ~ 6200 3500
 Wire Wire Line
 	6600 2600 6600 2550
-Text HLabel 6600 2550 1    50   Input ~ 0
+Text HLabel 6600 2550 1    50   Input ~ 6
 3V3A
-Text HLabel 6150 3500 0    50   Input ~ 0
+Text HLabel 6150 3500 0    50   Input ~ 6
 1V8
 Wire Wire Line
 	6600 2950 6600 2900
@@ -581,11 +566,11 @@ F 3 "~" H 6600 2750 50  0001 C CNN
 	1    6600 2750
 	1    0    0    -1  
 $EndComp
-Text Notes 6800 2200 0    100  ~ 0
+Text Notes 6800 2200 0    100  ~ 6
 Voltage Rail LEDs
 Wire Wire Line
 	7250 2600 7250 2550
-Text HLabel 7250 2550 1    50   Input ~ 0
+Text HLabel 7250 2550 1    50   Input ~ 6
 3V3A
 Wire Wire Line
 	7250 2950 7250 2900
@@ -626,7 +611,7 @@ F 3 "" H 7250 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2600 7650 2550
-Text HLabel 7650 2550 1    50   Input ~ 0
+Text HLabel 7650 2550 1    50   Input ~ 6
 3V3
 Wire Wire Line
 	7650 2950 7650 2900
@@ -667,7 +652,7 @@ F 3 "" H 7650 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8050 2600 8050 2550
-Text HLabel 8050 2550 1    50   Input ~ 0
+Text HLabel 8050 2550 1    50   Input ~ 6
 5V0
 Wire Wire Line
 	8050 2950 8050 2900
@@ -745,7 +730,7 @@ F 3 "" H 8400 3300 50  0001 C CNN
 	1    8400 3300
 	1    0    0    -1  
 $EndComp
-Text HLabel 8400 2550 1    49   Input ~ 0
+Text HLabel 8400 2550 1    49   Input ~ 6
 VBUS
 Connection ~ 5150 3950
 $Comp
@@ -937,7 +922,7 @@ F 3 "" H 10550 3000 50  0001 C CNN
 	1    10550 3000
 	1    0    0    -1  
 $EndComp
-Text Notes 9150 2200 0    100  ~ 0
+Text Notes 9150 2200 0    100  ~ 6
 Ground Test Points
 $Comp
 L Connector:TestPoint TP6
@@ -1082,4 +1067,19 @@ F 3 "~" H 1800 2550 50  0001 C CNN
 	1    1800 2550
 	0    1    1    0   
 $EndComp
+$Comp
+L VNA_Symbols:LP5912 U5
+U 1 1 5CAEAD8A
+P 4250 2750
+F 0 "U5" H 4100 3200 49  0000 C CNN
+F 1 "LP5912" H 4200 3100 49  0000 C CNN
+F 2 "Package_DFN_QFN:DFN-6-1EP_2x2mm_P0.65mm_EP1x1.6mm" H 4200 3100 49  0001 C CNN
+F 3 "" H 4200 3100 49  0001 C CNN
+	1    4250 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 2700 3950 2700
+Wire Wire Line
+	3750 2500 3950 2500
 $EndSCHEMATC

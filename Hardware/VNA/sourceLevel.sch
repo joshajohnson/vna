@@ -14,49 +14,20 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L VNA_Symbols:PE43711 U8
-U 1 1 5CC58AC9
-P 3600 3350
-F 0 "U8" H 3050 4100 50  0000 C CNN
-F 1 "PE43711" H 3150 4000 50  0000 C CNN
-F 2 "VNA_Footprints:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.6mm_ThermalVias" H 3650 4000 50  0001 C CNN
-F 3 "" H 3650 4000 50  0001 C CNN
-	1    3600 3350
-	1    0    0    -1  
-$EndComp
-Text Label 4700 3350 2    50   ~ 0
-nP_S
-Wire Wire Line
-	4400 3500 4700 3500
-Wire Wire Line
-	4400 3700 4700 3700
-Wire Wire Line
-	4400 3600 4700 3600
-Wire Wire Line
-	4100 4300 4100 4250
-Wire Wire Line
-	4000 4250 4000 4300
-Connection ~ 4000 4300
-Wire Wire Line
-	4000 4300 4100 4300
 Wire Wire Line
 	3900 4250 3900 4300
 Connection ~ 3900 4300
-Wire Wire Line
-	3900 4300 4000 4300
 $Comp
 L power:GND #PWR059
 U 1 1 5C364909
-P 4100 4300
-F 0 "#PWR059" H 4100 4050 50  0001 C CNN
-F 1 "GND" H 4105 4127 50  0000 C CNN
-F 2 "" H 4100 4300 50  0001 C CNN
-F 3 "" H 4100 4300 50  0001 C CNN
-	1    4100 4300
+P 3900 4350
+F 0 "#PWR059" H 3900 4100 50  0001 C CNN
+F 1 "GND" H 3905 4177 50  0000 C CNN
+F 2 "" H 3900 4350 50  0001 C CNN
+F 3 "" H 3900 4350 50  0001 C CNN
+	1    3900 4350
 	1    0    0    -1  
 $EndComp
-Connection ~ 4100 4300
 $Comp
 L Device:C C39
 U 1 1 5CC58ACB
@@ -95,7 +66,7 @@ Wire Wire Line
 Wire Wire Line
 	4050 1950 4050 2300
 Connection ~ 4050 2300
-Text Notes 2750 850  0    100  ~ 0
+Text Notes 2750 850  0    100  ~ 6
 Programmable Attenuator
 Wire Wire Line
 	2500 2900 2800 2900
@@ -192,10 +163,6 @@ F 3 "~" H 5150 2900 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3100 4250 3100 4300
-Wire Wire Line
-	3100 4300 3200 4300
-Wire Wire Line
 	3800 4250 3800 4300
 Connection ~ 3800 4300
 Wire Wire Line
@@ -227,72 +194,14 @@ Wire Wire Line
 	3300 4300 3400 4300
 Wire Wire Line
 	3200 4250 3200 4300
-Connection ~ 3200 4300
 Wire Wire Line
 	3200 4300 3300 4300
 Wire Wire Line
 	4400 2900 5000 2900
-NoConn ~ 2800 3100
-NoConn ~ 2800 3200
-NoConn ~ 2800 3300
-NoConn ~ 2800 3400
-NoConn ~ 2800 3500
-NoConn ~ 2800 3600
-NoConn ~ 2800 3700
-$Comp
-L Device:R R24
-U 1 1 5CB195A2
-P 5400 3400
-F 0 "R24" H 5470 3446 50  0000 L CNN
-F 1 "0R" H 5470 3355 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 3400 50  0001 C CNN
-F 3 "~" H 5400 3400 50  0001 C CNN
-	1    5400 3400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R25
-U 1 1 5CB19A2E
-P 5400 3800
-F 0 "R25" H 5470 3846 50  0000 L CNN
-F 1 "DNP" H 5470 3755 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 3800 50  0001 C CNN
-F 3 "~" H 5400 3800 50  0001 C CNN
-	1    5400 3800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4400 3350 5200 3350
-Wire Wire Line
-	5400 3950 5400 4000
-Wire Wire Line
-	5400 3250 5400 3200
-$Comp
-L power:GND #PWR063
-U 1 1 5CB1FC94
-P 5400 4000
-F 0 "#PWR063" H 5400 3750 50  0001 C CNN
-F 1 "GND" H 5405 3827 50  0000 C CNN
-F 2 "" H 5400 4000 50  0001 C CNN
-F 3 "" H 5400 4000 50  0001 C CNN
-	1    5400 4000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5400 3550 5400 3600
-Wire Wire Line
-	5200 3600 5400 3600
-Wire Wire Line
-	5200 3350 5200 3600
-Connection ~ 5400 3600
-Wire Wire Line
-	5400 3600 5400 3650
-Text HLabel 2500 2900 0    50   Input ~ 0
+Text HLabel 2500 2900 0    50   Input ~ 6
 RF_IN
-Text HLabel 8000 2900 2    50   Input ~ 0
+Text HLabel 8000 2900 2    50   Input ~ 6
 RF_OUT
-Text HLabel 4700 3500 2    50   Input ~ 0
-SI
 Wire Wire Line
 	4450 5200 4450 5300
 $Comp
@@ -510,7 +419,7 @@ Wire Wire Line
 Connection ~ 4350 6100
 Wire Wire Line
 	4850 6100 5050 6100
-Text Notes 2900 4900 0    100  ~ 0
+Text Notes 2900 4900 0    100  ~ 6
 Power Detector\n
 $Comp
 L Device:C C41
@@ -565,11 +474,7 @@ Wire Wire Line
 	5000 5500 5150 5500
 Wire Wire Line
 	5000 5700 5150 5700
-Text HLabel 4700 3600 2    50   Input ~ 0
-CLK
-Text HLabel 4700 3700 2    50   Input ~ 0
-LE
-Text Notes 5400 1000 0    100  ~ 0
+Text Notes 5400 1000 0    100  ~ 6
 Amplifier \n(Gain = 12dB P1dB = +18dBm IP3 = +32.5dBm)  
 Wire Wire Line
 	7600 1650 7600 1700
@@ -666,15 +571,15 @@ Wire Wire Line
 Connection ~ 5150 5700
 Wire Wire Line
 	5150 5700 5150 5750
-Text HLabel 2450 5200 0    50   Input ~ 0
+Text HLabel 2450 5200 0    50   Input ~ 6
 RF_PWR_IN
-Text HLabel 5250 6100 2    50   Output ~ 0
+Text HLabel 5250 6100 2    50   Output ~ 6
 PWR_LEVEL
-Text HLabel 3600 1750 1    50   Input ~ 0
+Text HLabel 3600 1750 1    50   Input ~ 6
 3V3A
-Text HLabel 5850 1950 1    50   Input ~ 0
+Text HLabel 5850 1950 1    50   Input ~ 6
 5V0
-Text HLabel 7600 1350 1    50   Input ~ 0
+Text HLabel 7600 1350 1    50   Input ~ 6
 5V0
 Wire Wire Line
 	6800 3800 6800 3700
@@ -693,11 +598,9 @@ F 3 "" H 7250 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7250 3300 7250 3200
-Text HLabel 6000 3200 0    50   Input ~ 0
+Text HLabel 6000 3200 0    50   Input ~ 6
 PWRDN
-Text HLabel 4650 5350 1    50   Input ~ 0
-3V3A
-Text HLabel 5400 3200 1    50   Input ~ 0
+Text HLabel 4650 5350 1    50   Input ~ 6
 3V3A
 Wire Wire Line
 	7200 1650 7200 1700
@@ -731,4 +634,111 @@ Wire Wire Line
 Connection ~ 3600 1950
 Wire Wire Line
 	3600 1950 3600 2300
+$Comp
+L VNA_Symbols:SKY12347-362LF U8
+U 1 1 5CB0A6D7
+P 3600 3350
+F 0 "U8" H 3050 4100 50  0000 C CNN
+F 1 "SKY12347-362LF" H 3200 4000 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.7x2.7mm_ThermalVias" H 3650 4000 50  0001 C CNN
+F 3 "" H 3650 4000 50  0001 C CNN
+	1    3600 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 3250 2750 3250
+Wire Wire Line
+	2800 3450 2750 3450
+Wire Wire Line
+	2800 3150 2750 3150
+$Comp
+L Device:R R24
+U 1 1 5CB0F084
+P 2350 3600
+F 0 "R24" H 2420 3646 50  0000 L CNN
+F 1 "0R0" H 2420 3555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2280 3600 50  0001 C CNN
+F 3 "~" H 2350 3600 50  0001 C CNN
+	1    2350 3600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R25
+U 1 1 5CB0F08A
+P 2350 4000
+F 0 "R25" H 2420 4046 50  0000 L CNN
+F 1 "DNP" H 2420 3955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2280 4000 50  0001 C CNN
+F 3 "~" H 2350 4000 50  0001 C CNN
+	1    2350 4000
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 3550 2550 3550
+Wire Wire Line
+	2350 4150 2350 4200
+Wire Wire Line
+	2350 3450 2350 3400
+$Comp
+L power:GND #PWR063
+U 1 1 5CB0F093
+P 2350 4200
+F 0 "#PWR063" H 2350 3950 50  0001 C CNN
+F 1 "GND" H 2355 4027 50  0000 C CNN
+F 2 "" H 2350 4200 50  0001 C CNN
+F 3 "" H 2350 4200 50  0001 C CNN
+	1    2350 4200
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 3750 2350 3800
+Wire Wire Line
+	2550 3800 2350 3800
+Wire Wire Line
+	2550 3550 2550 3800
+Connection ~ 2350 3800
+Wire Wire Line
+	2350 3800 2350 3850
+Text HLabel 2750 3250 0    50   Input ~ 6
+SDI
+Text HLabel 2750 3150 0    50   Input ~ 6
+CLK
+Text HLabel 2750 3450 0    50   Input ~ 6
+LE
+Text HLabel 2350 3400 1    50   Input ~ 6
+3V3A
+Wire Wire Line
+	3900 4300 3900 4350
+NoConn ~ 4400 3400
+NoConn ~ 4400 3500
+NoConn ~ 4400 3600
+NoConn ~ 4400 3700
+NoConn ~ 4400 3800
+NoConn ~ 4400 3900
+Wire Wire Line
+	2800 3350 2750 3350
+Text HLabel 2750 3350 0    50   Input ~ 6
+SDO
+Wire Wire Line
+	4400 3150 4550 3150
+Wire Wire Line
+	4550 3150 4550 3250
+Wire Wire Line
+	4400 3250 4550 3250
+Wire Wire Line
+	4550 3250 4550 3300
+Connection ~ 4550 3250
+$Comp
+L power:GND #PWR0122
+U 1 1 5CB3AAC5
+P 4550 3300
+F 0 "#PWR0122" H 4550 3050 50  0001 C CNN
+F 1 "GND" H 4555 3127 50  0000 C CNN
+F 2 "" H 4550 3300 50  0001 C CNN
+F 3 "" H 4550 3300 50  0001 C CNN
+	1    4550 3300
+	1    0    0    -1  
+$EndComp
+Text Notes 4600 3300 0    50   ~ 6
+Sets init state \nto full attenuation
 $EndSCHEMATC

@@ -33,31 +33,32 @@ F12 "1V8" I L 1550 1650 50
 F13 "3V3" I L 1550 1450 50 
 $EndSheet
 $Sheet
-S 3400 3650 550  500 
+S 3650 3100 550  500 
 U 5CA96610
 F0 "Power" 50
 F1 "power.sch" 50
-F2 "3V3A" O R 3950 3950 50 
-F3 "1V8" O R 3950 4050 50 
-F4 "5V0" O R 3950 3750 50 
-F5 "3V3" O R 3950 3850 50 
-F6 "VBUS" I L 3400 3750 50 
+F2 "3V3A" O R 4200 3400 50 
+F3 "1V8" O R 4200 3500 50 
+F4 "5V0" O R 4200 3200 50 
+F5 "3V3" O R 4200 3300 50 
+F6 "VBUS" I L 3650 3200 50 
 $EndSheet
 $Sheet
-S 6200 1400 900  1250
+S 6200 1400 900  1350
 U 5CAA0E12
 F0 "Source Leveling" 50
 F1 "sourceLevel.sch" 50
 F2 "RF_IN" I L 6200 1550 50 
 F3 "RF_OUT" O R 7100 1550 50 
-F4 "SI" I L 6200 2050 50 
-F5 "RF_PWR_IN" I L 6200 2450 50 
-F6 "PWR_LEVEL" O L 6200 2550 50 
-F7 "CLK" I L 6200 2150 50 
-F8 "LE" I L 6200 2250 50 
-F9 "3V3A" I L 6200 1850 50 
-F10 "5V0" I L 6200 1750 50 
-F11 "PWRDN" I L 6200 2350 50 
+F4 "RF_PWR_IN" I L 6200 2550 50 
+F5 "PWR_LEVEL" O L 6200 2650 50 
+F6 "CLK" I L 6200 2250 50 
+F7 "LE" I L 6200 2350 50 
+F8 "3V3A" I L 6200 1850 50 
+F9 "5V0" I L 6200 1750 50 
+F10 "PWRDN" I L 6200 2450 50 
+F11 "SDI" I L 6200 2050 50 
+F12 "SDO" O L 6200 2150 50 
 $EndSheet
 $Comp
 L Device:C C5
@@ -124,49 +125,47 @@ F 3 "" H 3400 2250 50  0001 C CNN
 	1    3400 2250
 	1    0    0    -1  
 $EndComp
-Text Label 4150 2050 2    50   ~ 0
+Text Label 4150 2050 2    50   ~ 6
 Filter_CTRL2
-Text Label 4150 1950 2    50   ~ 0
+Text Label 4150 1950 2    50   ~ 6
 Filter_CTRL1
 Wire Wire Line
 	4150 1950 4200 1950
 Wire Wire Line
 	4150 2050 4200 2050
-Text Label 1500 1850 2    50   ~ 0
+Text Label 1500 1850 2    50   ~ 6
 MAX2871_MOSI
-Text Label 1500 1950 2    50   ~ 0
+Text Label 1500 1950 2    50   ~ 6
 MAX2871_MISO
-Text Label 1500 2050 2    50   ~ 0
+Text Label 1500 2050 2    50   ~ 6
 MAX2871_CLK
 Wire Wire Line
 	1500 1850 1550 1850
-Text Label 1500 2150 2    50   ~ 0
+Text Label 1500 2150 2    50   ~ 6
 MAX2871_LE
 Wire Wire Line
 	1500 2350 1550 2350
-Text Label 1500 2350 2    50   ~ 0
+Text Label 1500 2350 2    50   ~ 6
 MAX2871_CHIP_EN
 Wire Wire Line
 	1500 2450 1550 2450
-Text Label 1500 2450 2    50   ~ 0
+Text Label 1500 2450 2    50   ~ 6
 MAX2871_RFOUT_EN
 Wire Wire Line
 	6200 2050 6150 2050
 Wire Wire Line
-	6150 2150 6200 2150
-Wire Wire Line
 	6150 2250 6200 2250
-Text Label 6150 2050 2    50   ~ 0
-ATTEN_DATA
-Text Label 6150 2150 2    50   ~ 0
+Wire Wire Line
+	6150 2350 6200 2350
+Text Label 6150 2250 2    50   ~ 6
 ATTEN_CLK
-Text Label 6150 2250 2    50   ~ 0
+Text Label 6150 2350 2    50   ~ 6
 ATTEN_LE
 Wire Wire Line
 	3400 1800 3400 1900
 Wire Wire Line
 	2550 2400 2700 2400
-Text Label 2750 2400 0    50   ~ 0
+Text Label 2750 2400 0    50   ~ 6
 MAX2871_LD
 Wire Wire Line
 	2550 1800 2800 1800
@@ -219,11 +218,11 @@ F 3 "" H 800 5200 50  0001 C CNN
 	1    800  5200
 	1    0    0    -1  
 $EndComp
-Text Label 1200 4700 0    50   ~ 0
+Text Label 1200 4700 0    50   ~ 6
 Dp
-Text Label 1200 4800 0    50   ~ 0
+Text Label 1200 4800 0    50   ~ 6
 Dn
-Text Notes 950  3700 0    100  ~ 0
+Text Notes 950  3700 0    100  ~ 6
 Power In / Data
 $Sheet
 S 7950 1400 1100 650 
@@ -272,10 +271,10 @@ F 3 "" H 10000 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6200 2550 6150 2550
+	6200 2650 6150 2650
 Wire Wire Line
-	6200 2450 6150 2450
-Text Label 9200 1800 0    50   ~ 0
+	6200 2550 6150 2550
+Text Label 9200 1800 0    50   ~ 6
 RF_REV_CPL
 $Comp
 L Device:R R4
@@ -317,21 +316,21 @@ Wire Wire Line
 Wire Wire Line
 	9300 2500 9250 2500
 Connection ~ 9300 2500
-Text Label 9700 2500 0    50   ~ 0
+Text Label 9700 2500 0    50   ~ 6
 RF_FWD_CPL
 Wire Wire Line
 	9700 2500 9650 2500
 Wire Wire Line
 	8900 2500 8950 2500
-Text Label 8900 2500 2    50   ~ 0
+Text Label 8900 2500 2    50   ~ 6
 AD8319_RF
-Text Label 6150 2450 2    50   ~ 0
+Text Label 6150 2550 2    50   ~ 6
 AD8319_RF
-Text Label 6150 2550 2    50   ~ 0
+Text Label 6150 2650 2    50   ~ 6
 RF_PWR_LEVEL
 Wire Wire Line
 	9300 1950 9300 2100
-Text Notes 8950 2750 0    50   ~ 0
+Text Notes 8950 2750 0    50   ~ 6
 6dB Resistive Split
 $Comp
 L Connector:Conn_Coaxial J4
@@ -359,9 +358,9 @@ F 3 "" H 10100 5700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9900 5450 9850 5450
-Text Label 9850 5450 2    50   ~ 0
+Text Label 9850 5450 2    50   ~ 6
 RF_THROUGH
-Text Notes 10600 4000 2    118  ~ 0
+Text Notes 10600 4000 2    118  ~ 6
 D\nU\nT
 Wire Notes Line
 	10450 3450 10450 4050
@@ -373,11 +372,11 @@ Wire Notes Line
 	10550 1550 10350 1550
 Wire Notes Line
 	10450 3450 10650 3450
-Text Label 8700 5800 0    50   ~ 0
+Text Label 8700 5800 0    50   ~ 6
 AD8302_VREF
-Text Label 8700 5700 0    50   ~ 0
+Text Label 8700 5700 0    50   ~ 6
 AD8302_VPHASE
-Text Label 8700 5600 0    50   ~ 0
+Text Label 8700 5600 0    50   ~ 6
 AD8302_VMAG
 Wire Wire Line
 	8650 5800 8700 5800
@@ -385,9 +384,9 @@ Wire Wire Line
 	8650 5700 8700 5700
 Wire Wire Line
 	8650 5600 8700 5600
-Text Label 7450 5950 2    50   ~ 0
+Text Label 7450 5950 2    50   ~ 6
 RF_THROUGH
-Text Label 7450 6100 2    50   ~ 0
+Text Label 7450 6100 2    50   ~ 6
 INPUT_SW_1
 Wire Wire Line
 	7450 6200 7500 6200
@@ -399,9 +398,9 @@ Wire Wire Line
 	7450 5750 7500 5750
 Wire Wire Line
 	7450 5850 7500 5850
-Text Label 7450 5850 2    50   ~ 0
+Text Label 7450 5850 2    50   ~ 6
 RF_REV_CPL
-Text Label 7450 5750 2    50   ~ 0
+Text Label 7450 5750 2    50   ~ 6
 RF_FWD_CPL
 $Sheet
 S 7500 5450 1150 850 
@@ -430,33 +429,33 @@ Wire Wire Line
 	6200 1850 6150 1850
 Wire Wire Line
 	7500 5550 7450 5550
-Text Notes 10350 1550 0    100  ~ 0
+Text Notes 10350 1550 0    100  ~ 6
 Port 1
-Text Notes 10350 5600 0    100  ~ 0
+Text Notes 10350 5600 0    100  ~ 6
 Port 2
 Wire Wire Line
-	3950 3750 4000 3750
+	4200 3200 4250 3200
 Wire Wire Line
-	3950 3850 4000 3850
+	4200 3300 4250 3300
 Wire Wire Line
-	3950 3950 4000 3950
+	4200 3400 4250 3400
 Wire Wire Line
-	3950 4050 4000 4050
-Text Label 4000 3750 0    50   ~ 0
+	4200 3500 4250 3500
+Text Label 4250 3200 0    50   ~ 6
 5V0
-Text Label 4000 3850 0    50   ~ 0
+Text Label 4250 3300 0    50   ~ 6
 3V3
-Text Label 4000 3950 0    50   ~ 0
+Text Label 4250 3400 0    50   ~ 6
 3V3A
-Text Label 4000 4050 0    50   ~ 0
+Text Label 4250 3500 0    50   ~ 6
 1V8
-Text Label 5250 3350 2    50   ~ 0
+Text Label 5250 3350 2    50   ~ 6
 3V3A
-Text Label 1500 1450 2    50   ~ 0
+Text Label 1500 1450 2    50   ~ 6
 3V3
-Text Label 1500 1550 2    50   ~ 0
+Text Label 1500 1550 2    50   ~ 6
 3V3A
-Text Label 1500 1650 2    50   ~ 0
+Text Label 1500 1650 2    50   ~ 6
 1V8
 Wire Wire Line
 	1500 1450 1550 1450
@@ -464,17 +463,17 @@ Wire Wire Line
 	1500 1550 1550 1550
 Wire Wire Line
 	1500 1650 1550 1650
-Text Label 4150 1700 2    50   ~ 0
+Text Label 4150 1700 2    50   ~ 6
 3V3
-Text Label 4150 1800 2    50   ~ 0
+Text Label 4150 1800 2    50   ~ 6
 3V3A
 Wire Wire Line
 	4150 1700 4200 1700
 Wire Wire Line
 	4150 1800 4200 1800
-Text Label 6150 1750 2    50   ~ 0
+Text Label 6150 1750 2    50   ~ 6
 5V0
-Text Label 6150 1850 2    50   ~ 0
+Text Label 6150 1850 2    50   ~ 6
 3V3A
 $Comp
 L Connector:USB_A J2
@@ -506,40 +505,40 @@ F 3 "" H 800 7300 50  0001 C CNN
 	1    800  7300
 	1    0    0    -1  
 $EndComp
-Text Label 2600 6800 0    50   ~ 0
+Text Label 2600 6800 0    50   ~ 6
 SDA
-Text Label 2600 7000 0    50   ~ 0
+Text Label 2600 7000 0    50   ~ 6
 SCL
 Connection ~ 800  7250
 Wire Wire Line
 	800  7250 850  7250
-Text Notes 850  5800 0    100  ~ 0
+Text Notes 850  5800 0    100  ~ 6
 E-Cal / Power Out
 Wire Wire Line
-	3400 3750 3350 3750
-Text Label 2350 3900 0    50   ~ 0
+	3650 3200 3600 3200
+Text Label 2700 3900 0    50   ~ 6
 VBUS
-Text Label 3350 3750 2    50   ~ 0
+Text Label 3600 3200 2    50   ~ 6
 VBUS
-Text Notes 1250 1350 0    50   ~ 0
+Text Notes 1250 1350 0    50   ~ 6
 180mA
-Text Notes 5700 1750 0    50   ~ 0
+Text Notes 5700 1750 0    50   ~ 6
 100mA
-Text Notes 5700 1850 0    50   ~ 0
+Text Notes 5700 1850 0    50   ~ 6
 10mA
-Text Notes 3100 1350 0    50   ~ 0
+Text Notes 3100 1350 0    50   ~ 6
 -4 to +5 dBm
-Text Notes 5300 1350 0    50   ~ 0
+Text Notes 5300 1350 0    50   ~ 6
 -7 to +3 dBm
-Text Notes 4550 1900 0    50   ~ 0
+Text Notes 4550 1900 0    50   ~ 6
 Insertion Loss:\n-2 to -3 dB
 Wire Wire Line
 	5150 1550 5450 1550
-Text Notes 6500 2050 0    50   ~ 0
+Text Notes 6500 2050 0    50   ~ 6
 Gain:\n-23 to 10 dB
-Text Notes 7200 1300 0    50   ~ 0
+Text Notes 7200 1300 0    50   ~ 6
 -30 to +13 dBm
-Text Notes 8000 1750 0    50   ~ 0
+Text Notes 8000 1750 0    50   ~ 6
 Insertion Loss: \n-1.5  to -3 dB
 Wire Wire Line
 	9050 1550 9800 1550
@@ -547,87 +546,76 @@ Wire Wire Line
 	9050 1800 9200 1800
 Wire Wire Line
 	9050 1950 9300 1950
-Text Notes 9100 1350 0    50   ~ 0
+Text Notes 9100 1350 0    50   ~ 6
 -32 to +11 dBm
-Text Notes 3400 4550 0    50   ~ 0
+Text Notes 3700 4000 0    50   ~ 6
 5V: 100mA\n3V3A: 200mA\n3V3: 100mA
 Wire Wire Line
-	6200 2350 6150 2350
-Text Label 6150 2350 2    50   ~ 0
+	6200 2450 6150 2450
+Text Label 6150 2450 2    50   ~ 6
 PA_PWRDN
 $Comp
 L Power_Protection:TPD2S017 U1
 U 1 1 5CAC48B1
-P 2150 4800
-F 0 "U1" H 2300 5250 50  0000 C CNN
-F 1 "TPD2S017" H 2400 5150 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 1400 4450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tpd2s017.pdf" H 2150 4800 50  0001 C CNN
-	1    2150 4800
+P 2500 4800
+F 0 "U1" H 2650 5250 50  0000 C CNN
+F 1 "TPD2S017" H 2750 5150 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 1750 4450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tpd2s017.pdf" H 2500 4800 50  0001 C CNN
+	1    2500 4800
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C1
 U 1 1 5CAC9524
-P 1600 4200
-F 0 "C1" V 1750 4200 50  0000 C CNN
-F 1 "100n" V 1450 4200 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1638 4050 50  0001 C CNN
-F 3 "~" H 1600 4200 50  0001 C CNN
-	1    1600 4200
+P 1850 4200
+F 0 "C1" V 2000 4200 50  0000 C CNN
+F 1 "100n" V 1700 4200 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1888 4050 50  0001 C CNN
+F 3 "~" H 1850 4200 50  0001 C CNN
+	1    1850 4200
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR03
 U 1 1 5CAC9A1D
-P 2150 5350
-F 0 "#PWR03" H 2150 5100 50  0001 C CNN
-F 1 "GND" H 2155 5177 50  0000 C CNN
-F 2 "" H 2150 5350 50  0001 C CNN
-F 3 "" H 2150 5350 50  0001 C CNN
-	1    2150 5350
+P 2500 5350
+F 0 "#PWR03" H 2500 5100 50  0001 C CNN
+F 1 "GND" H 2505 5177 50  0000 C CNN
+F 2 "" H 2500 5350 50  0001 C CNN
+F 3 "" H 2500 5350 50  0001 C CNN
+	1    2500 5350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2150 5300 2150 5350
+	2500 5300 2500 5350
 $Comp
 L power:GND #PWR02
 U 1 1 5CAD5B30
-P 1800 4250
-F 0 "#PWR02" H 1800 4000 50  0001 C CNN
-F 1 "GND" H 1805 4077 50  0000 C CNN
-F 2 "" H 1800 4250 50  0001 C CNN
-F 3 "" H 1800 4250 50  0001 C CNN
-	1    1800 4250
+P 2050 4250
+F 0 "#PWR02" H 2050 4000 50  0001 C CNN
+F 1 "GND" H 2055 4077 50  0000 C CNN
+F 2 "" H 2050 4250 50  0001 C CNN
+F 3 "" H 2050 4250 50  0001 C CNN
+	1    2050 4250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1350 4500 1350 4200
+	3000 4700 3050 4700
 Wire Wire Line
-	1150 4500 1350 4500
-Wire Wire Line
-	1150 4700 1650 4700
-Wire Wire Line
-	1150 4800 1550 4800
-Wire Wire Line
-	2650 4700 2700 4700
-Wire Wire Line
-	2650 4900 2700 4900
-Text Label 2700 4900 0    50   ~ 0
+	3000 4900 3050 4900
+Text Label 3050 4900 0    50   ~ 6
 USB_D-
-Text Label 2700 4700 0    50   ~ 0
+Text Label 3050 4700 0    50   ~ 6
 USB_D+
 Wire Wire Line
-	1450 4200 1350 4200
-Connection ~ 1350 4200
+	2000 4200 2050 4200
 Wire Wire Line
-	1750 4200 1800 4200
+	2050 4200 2050 4250
 Wire Wire Line
-	1800 4200 1800 4250
+	2000 4900 1900 4900
 Wire Wire Line
-	1650 4900 1550 4900
-Wire Wire Line
-	1550 4900 1550 4800
+	1900 4900 1900 4800
 $Comp
 L Power_Protection:TPD2S017 U2
 U 1 1 5CB1C768
@@ -693,7 +681,7 @@ Wire Wire Line
 Wire Wire Line
 	1150 6600 1250 6600
 Connection ~ 1250 6300
-Text Label 2250 5950 0    50   ~ 0
+Text Label 2250 5950 0    50   ~ 6
 5V0
 Wire Wire Line
 	1150 6800 1550 6800
@@ -704,17 +692,13 @@ Wire Wire Line
 Wire Wire Line
 	1150 6900 1350 6900
 Wire Wire Line
-	1600 3900 1350 3900
+	2250 3900 2500 3900
 Wire Wire Line
-	1350 3900 1350 4200
-Wire Wire Line
-	1900 3900 2150 3900
-Wire Wire Line
-	2150 3900 2150 4300
-Connection ~ 2150 3900
-Text Label 6850 3250 0    50   ~ 0
+	2500 3900 2500 4300
+Connection ~ 2500 3900
+Text Label 6850 3250 0    50   ~ 6
 SDA
-Text Label 6850 3350 0    50   ~ 0
+Text Label 6850 3350 0    50   ~ 6
 SCL
 $Comp
 L Connector:Conn_ARM_JTAG_SWD_10 J3
@@ -751,11 +735,11 @@ Wire Wire Line
 	3350 7400 3400 7400
 Wire Wire Line
 	3400 6150 3400 6100
-Text Label 3400 6100 1    50   ~ 0
+Text Label 3400 6100 1    50   ~ 6
 3V3
-Text Label 7450 5550 2    50   ~ 0
+Text Label 7450 5550 2    50   ~ 6
 3V3A
-Text Notes 2950 5900 0    100  ~ 0
+Text Notes 2950 5900 0    100  ~ 6
 SWD Header
 Wire Wire Line
 	3900 6450 3950 6450
@@ -764,24 +748,24 @@ Wire Wire Line
 Wire Wire Line
 	3900 6750 3950 6750
 NoConn ~ 3900 6950
-Text Label 3950 6450 0    50   ~ 0
+Text Label 3950 6450 0    50   ~ 6
 SWD_nRST
-Text Label 3950 6650 0    50   ~ 0
+Text Label 3950 6650 0    50   ~ 6
 SWD_CLK
-Text Label 3950 6750 0    50   ~ 0
+Text Label 3950 6750 0    50   ~ 6
 SWD_IO
-Text Label 5250 4750 2    50   ~ 0
+Text Label 5250 4750 2    50   ~ 6
 SWD_nRST
-Text Label 5250 4650 2    50   ~ 0
+Text Label 5250 4650 2    50   ~ 6
 SWD_CLK
-Text Label 5250 4550 2    50   ~ 0
+Text Label 5250 4550 2    50   ~ 6
 SWD_IO
-Text Label 5250 3600 2    50   ~ 0
+Text Label 5250 3600 2    50   ~ 6
 USB_D-
-Text Label 5250 3500 2    50   ~ 0
+Text Label 5250 3500 2    50   ~ 6
 USB_D+
 $Sheet
-S 5300 3150 1500 2050
+S 5300 3150 1500 2150
 U 5CAA2138
 F0 "Microcontroller" 50
 F1 "microcontroller.sch" 50
@@ -806,16 +790,17 @@ F19 "MAX2871_CE" O R 6800 3900 50
 F20 "MAX2871_RF_EN" O R 6800 4000 50 
 F21 "MAX2871_LD" I R 6800 4100 50 
 F22 "MAX2871_LE" O R 6800 3800 50 
-F23 "INPUT_SW_1" O R 6800 5000 50 
-F24 "INPUT_SW_2" O R 6800 5100 50 
-F25 "ATTEN_DATA" O R 6800 4500 50 
-F26 "ATTEN_CLK" O R 6800 4600 50 
-F27 "ATTEN_LE" O R 6800 4700 50 
-F28 "PA_PWRDN" O R 6800 4850 50 
-F29 "FILTER_SW_1" O R 6800 4250 50 
-F30 "FILTER_SW_2" O R 6800 4350 50 
-F31 "SWD_IO" I L 5300 4550 50 
-F32 "SWD_CLK" I L 5300 4650 50 
+F23 "INPUT_SW_1" O R 6800 5100 50 
+F24 "INPUT_SW_2" O R 6800 5200 50 
+F25 "ATTEN_CLK" O R 6800 4700 50 
+F26 "ATTEN_LE" O R 6800 4800 50 
+F27 "PA_PWRDN" O R 6800 4950 50 
+F28 "FILTER_SW_1" O R 6800 4250 50 
+F29 "FILTER_SW_2" O R 6800 4350 50 
+F30 "SWD_IO" I L 5300 4550 50 
+F31 "SWD_CLK" I L 5300 4650 50 
+F32 "ATTEN_MOSI" I R 6800 4500 50 
+F33 "ATTEN_MISO" I R 6800 4600 50 
 $EndSheet
 NoConn ~ 3900 6850
 Wire Wire Line
@@ -846,19 +831,19 @@ Wire Wire Line
 	5300 4650 5250 4650
 Wire Wire Line
 	5300 4750 5250 4750
-Text Label 5250 3250 2    50   ~ 0
+Text Label 5250 3250 2    50   ~ 6
 3V3
 Wire Wire Line
 	6800 3250 6850 3250
 Wire Wire Line
 	6800 3350 6850 3350
-Text Label 6850 3600 0    50   ~ 0
+Text Label 6850 3600 0    50   ~ 6
 MAX2871_MOSI
-Text Label 6850 3700 0    50   ~ 0
+Text Label 6850 3700 0    50   ~ 6
 MAX2871_MISO
-Text Label 6850 3500 0    50   ~ 0
+Text Label 6850 3500 0    50   ~ 6
 MAX2871_CLK
-Text Label 6850 3800 0    50   ~ 0
+Text Label 6850 3800 0    50   ~ 6
 MAX2871_LE
 Wire Wire Line
 	6800 3500 6850 3500
@@ -881,20 +866,20 @@ Wire Wire Line
 Wire Wire Line
 	6800 4500 6850 4500
 Wire Wire Line
-	6800 4600 6850 4600
-Wire Wire Line
 	6800 4700 6850 4700
 Wire Wire Line
-	6800 4850 6850 4850
+	6800 4800 6850 4800
 Wire Wire Line
-	6800 5000 6850 5000
+	6800 4950 6850 4950
 Wire Wire Line
 	6800 5100 6850 5100
-Text Label 6850 3900 0    50   ~ 0
+Wire Wire Line
+	6800 5200 6850 5200
+Text Label 6850 3900 0    50   ~ 6
 MAX2871_CHIP_EN
-Text Label 6850 4000 0    50   ~ 0
+Text Label 6850 4000 0    50   ~ 6
 MAX2871_RFOUT_EN
-Text Label 6850 4100 0    50   ~ 0
+Text Label 6850 4100 0    50   ~ 6
 MAX2871_LD
 Wire Wire Line
 	2700 2400 2700 2450
@@ -944,47 +929,45 @@ F 3 "" H 2700 3150 50  0001 C CNN
 	1    2700 3150
 	1    0    0    -1  
 $EndComp
-Text Label 6850 4350 0    50   ~ 0
+Text Label 6850 4350 0    50   ~ 6
 Filter_CTRL2
-Text Label 6850 4250 0    50   ~ 0
+Text Label 6850 4250 0    50   ~ 6
 Filter_CTRL1
-Text Label 6850 4500 0    50   ~ 0
-ATTEN_DATA
-Text Label 6850 4600 0    50   ~ 0
+Text Label 6850 4700 0    50   ~ 6
 ATTEN_CLK
-Text Label 6850 4700 0    50   ~ 0
+Text Label 6850 4800 0    50   ~ 6
 ATTEN_LE
-Text Label 5250 4000 2    50   ~ 0
+Text Label 5250 4000 2    50   ~ 6
 RF_PWR_LEVEL
-Text Label 6850 4850 0    50   ~ 0
+Text Label 6850 4950 0    50   ~ 6
 PA_PWRDN
-Text Label 5250 4400 2    50   ~ 0
+Text Label 5250 4400 2    50   ~ 6
 AD8302_VREF
-Text Label 5250 4200 2    50   ~ 0
+Text Label 5250 4200 2    50   ~ 6
 AD8302_VPHASE
-Text Label 5250 4300 2    50   ~ 0
+Text Label 5250 4300 2    50   ~ 6
 AD8302_VMAG
 NoConn ~ 5250 4100
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB1
 U 1 1 5CC56F48
-P 1750 3900
-F 0 "FB1" V 1700 3750 50  0000 C CNN
-F 1 "Bead" V 1800 4050 50  0000 C CNN
-F 2 "VNA_Footprints:BEADC1608X95N" V 1680 3900 50  0001 C CNN
-F 3 "~" H 1750 3900 50  0001 C CNN
-	1    1750 3900
+P 2100 3900
+F 0 "FB1" V 2050 3750 50  0000 C CNN
+F 1 "Bead" V 2150 4050 50  0000 C CNN
+F 2 "VNA_Footprints:BEADC1608X95N" V 2030 3900 50  0001 C CNN
+F 3 "~" H 2100 3900 50  0001 C CNN
+	1    2100 3900
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2150 3900 2350 3900
+	2500 3900 2700 3900
 Wire Notes Line
 	10550 1550 10550 3450
 Wire Notes Line
 	10550 4050 10550 5450
 Wire Notes Line
 	10550 5450 10350 5450
-Text Notes 5200 950  0    157  ~ 0
+Text Notes 5200 950  0    157  ~ 6
 Josh's VNA
 $Comp
 L Mechanical:MountingHole_Pad H1
@@ -1082,7 +1065,7 @@ F 3 "" H 6200 7500 50  0001 C CNN
 	1    6200 7500
 	1    0    0    -1  
 $EndComp
-Text Notes 5500 6650 0    100  ~ 0
+Text Notes 5500 6650 0    100  ~ 6
 Mounting Holes
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB6
@@ -1102,11 +1085,11 @@ Wire Wire Line
 	1500 5950 1250 5950
 Wire Wire Line
 	1250 5950 1250 6300
-Text Label 7450 6200 2    50   ~ 0
+Text Label 7450 6200 2    50   ~ 6
 INPUT_SW_2
-Text Label 6850 5000 0    50   ~ 0
+Text Label 6850 5100 0    50   ~ 6
 INPUT_SW_1
-Text Label 6850 5100 0    50   ~ 0
+Text Label 6850 5200 0    50   ~ 6
 INPUT_SW_1
 $Comp
 L Connector:Conn_01x04_Male J6
@@ -1119,21 +1102,21 @@ F 3 "~" H 4550 6300 50  0001 C CNN
 	1    4550 6300
 	1    0    0    -1  
 $EndComp
-Text Notes 4450 5900 0    100  ~ 0
+Text Notes 4450 5900 0    100  ~ 6
 UART Header
-Text Label 5250 3750 2    50   ~ 0
+Text Label 5250 3750 2    50   ~ 6
 UART_TX
-Text Label 5250 3850 2    50   ~ 0
+Text Label 5250 3850 2    50   ~ 6
 UART_RX
-Text Label 4800 6300 0    50   ~ 0
+Text Label 4800 6300 0    50   ~ 6
 UART_TX
-Text Label 4800 6400 0    50   ~ 0
+Text Label 4800 6400 0    50   ~ 6
 UART_RX
 Wire Wire Line
 	4800 6400 4750 6400
 Wire Wire Line
 	4800 6300 4750 6300
-Text Label 4800 6200 0    50   ~ 0
+Text Label 4800 6200 0    50   ~ 6
 3V3
 Wire Wire Line
 	4800 6200 4750 6200
@@ -1152,4 +1135,60 @@ F 3 "" H 4850 6550 50  0001 C CNN
 	1    4850 6550
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1150 4700 2000 4700
+Wire Wire Line
+	1150 4800 1900 4800
+$Comp
+L Connector:TestPoint TP43
+U 1 1 5CB0756B
+P 1000 3900
+F 0 "TP43" V 1100 4000 50  0000 C CNN
+F 1 "5V_VIN" V 1000 4200 50  0000 C CNN
+F 2 "VNA_Footprints:TestPoint_Loop_D1.80mm_Drill1.0mm_Beaded_RED" H 1200 3900 50  0001 C CNN
+F 3 "~" H 1200 3900 50  0001 C CNN
+	1    1000 3900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R61
+U 1 1 5CB0813E
+P 1350 4200
+F 0 "R61" H 1420 4246 50  0000 L CNN
+F 1 "0R0" H 1420 4155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1280 4200 50  0001 C CNN
+F 3 "~" H 1350 4200 50  0001 C CNN
+	1    1350 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 4200 1700 4200
+Wire Wire Line
+	1350 3900 1600 3900
+Wire Wire Line
+	1350 3900 1350 4050
+Wire Wire Line
+	1600 3900 1600 4200
+Connection ~ 1600 3900
+Wire Wire Line
+	1600 3900 1950 3900
+Wire Wire Line
+	1350 4350 1350 4500
+Wire Wire Line
+	1150 4500 1350 4500
+Wire Wire Line
+	1000 3900 1350 3900
+Connection ~ 1350 3900
+Wire Wire Line
+	6200 2150 6150 2150
+Text Label 6850 4500 0    50   ~ 6
+ATTEN_MOSI
+Text Label 6850 4600 0    50   ~ 6
+ATTEN_MISO
+Wire Wire Line
+	6850 4600 6800 4600
+Text Label 6150 2050 2    50   ~ 6
+ATTEN_MOSI
+Text Label 6150 2150 2    50   ~ 6
+ATTEN_MISO
 $EndSCHEMATC

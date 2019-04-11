@@ -20,12 +20,24 @@ $CMP ASTXR-12-19.200MHz
 D TCXO
 $ENDCMP
 #
+$CMP Ferrite_Bead_PWR
+D Ferrite bead
+K L ferrite bead inductor filter
+F ~
+$ENDCMP
+#
 $CMP Filter_LFCN
 D MiniCircuits Filter
 $ENDCMP
 #
 $CMP HMC313
 D RF Amp
+$ENDCMP
+#
+$CMP LED_RGBA
+D RGB LED, anode/red/green/blue
+K LED RGB diode
+F ~
 $ENDCMP
 #
 $CMP LP5912
@@ -52,6 +64,10 @@ $CMP PE43711
 D RF Attenuator
 $ENDCMP
 #
+$CMP SKY12347-362LF
+D RF Attenuator
+$ENDCMP
+#
 $CMP SN74LVC1G139
 D 2 to 4 Binary Decoder
 $ENDCMP
@@ -62,11 +78,6 @@ $ENDCMP
 #
 $CMP TVL755P
 D 500 mA LDO
-$ENDCMP
-#
-$CMP VDDSD
-D Power flag
-K power-flag
 $ENDCMP
 #
 $CMP VREF

@@ -440,55 +440,43 @@ $EndComp
 $Comp
 L Device:C C26
 U 1 1 5C44DD06
-P 7300 5050
-F 0 "C26" H 7415 5096 50  0000 L CNN
-F 1 "820p" H 7415 5005 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 7338 4900 50  0001 C CNN
-F 3 "~" H 7300 5050 50  0001 C CNN
-	1    7300 5050
+P 8550 4500
+F 0 "C26" H 8665 4546 50  0000 L CNN
+F 1 "820p" H 8665 4455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 8588 4350 50  0001 C CNN
+F 3 "~" H 8550 4500 50  0001 C CNN
+	1    8550 4500
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR027
 U 1 1 5C44DD0E
-P 7300 5200
-F 0 "#PWR027" H 7300 4950 50  0001 C CNN
-F 1 "GND" H 7305 5027 50  0000 C CNN
-F 2 "" H 7300 5200 50  0001 C CNN
-F 3 "" H 7300 5200 50  0001 C CNN
-	1    7300 5200
+P 8550 4650
+F 0 "#PWR027" H 8550 4400 50  0001 C CNN
+F 1 "GND" H 8555 4477 50  0000 C CNN
+F 2 "" H 8550 4650 50  0001 C CNN
+F 3 "" H 8550 4650 50  0001 C CNN
+	1    8550 4650
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R11
 U 1 1 5C45B711
-P 7700 4600
-F 0 "R11" H 7770 4646 50  0000 L CNN
-F 1 "240" H 7770 4555 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 7630 4600 50  0001 C CNN
-F 3 "~" H 7700 4600 50  0001 C CNN
-	1    7700 4600
-	1    0    0    -1  
+P 8200 4300
+F 0 "R11" V 8100 4200 50  0000 L CNN
+F 1 "240" V 8300 4200 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8130 4300 50  0001 C CNN
+F 3 "~" H 8200 4300 50  0001 C CNN
+	1    8200 4300
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7700 4300 7700 4450
 Wire Wire Line
 	7100 4550 7100 4300
 Wire Wire Line
-	7100 4900 7100 4650
-Wire Wire Line
-	7700 4900 7700 4750
-Wire Wire Line
 	6550 4000 6550 4350
 Wire Notes Line
-	6600 3800 7950 3800
-Wire Notes Line
-	7950 3800 7950 5450
-Wire Notes Line
-	7950 5450 6600 5450
-Wire Notes Line
-	6600 5450 6600 3800
-Text Notes 6600 3800 0    50   ~ 0
+	6600 5400 6600 3800
+Text Notes 6600 3800 0    50   ~ 6
 PLL Loop Filter\n
 Wire Wire Line
 	2850 4050 3400 4050
@@ -529,9 +517,9 @@ Wire Wire Line
 	5450 4850 5850 4850
 Wire Wire Line
 	5450 4950 5850 4950
-Text Label 5850 4950 2    50   ~ 0
+Text Label 5850 4950 2    50   ~ 6
 RF_OUT_N
-Text Label 5850 4850 2    50   ~ 0
+Text Label 5850 4850 2    50   ~ 6
 RF_OUT_P
 Wire Wire Line
 	4050 2250 4500 2250
@@ -542,9 +530,9 @@ Wire Wire Line
 Wire Wire Line
 	4950 1900 4950 2250
 Connection ~ 4950 2250
-Text Label 9000 5100 2    50   ~ 0
+Text Label 9600 5100 2    50   ~ 6
 RF_OUT_N
-Text Label 9000 4600 2    50   ~ 0
+Text Label 9600 4600 2    50   ~ 6
 RF_OUT_P
 Wire Wire Line
 	5450 4350 6550 4350
@@ -555,47 +543,47 @@ Wire Wire Line
 $Comp
 L Device:R R12
 U 1 1 5C664064
-P 9400 4250
-F 0 "R12" H 9470 4296 50  0000 L CNN
-F 1 "49.9" H 9470 4205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 9330 4250 50  0001 C CNN
-F 3 "~" H 9400 4250 50  0001 C CNN
-	1    9400 4250
+P 10000 4250
+F 0 "R12" H 10070 4296 50  0000 L CNN
+F 1 "49.9" H 10070 4205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 9930 4250 50  0001 C CNN
+F 3 "~" H 10000 4250 50  0001 C CNN
+	1    10000 4250
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C27
 U 1 1 5C674D87
-P 9100 4000
-F 0 "C27" V 8950 4000 50  0000 C CNN
-F 1 "100p" V 9250 4000 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 9138 3850 50  0001 C CNN
-F 3 "~" H 9100 4000 50  0001 C CNN
-	1    9100 4000
+P 9700 4000
+F 0 "C27" V 9550 4000 50  0000 C CNN
+F 1 "100p" V 9850 4000 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 9738 3850 50  0001 C CNN
+F 3 "~" H 9700 4000 50  0001 C CNN
+	1    9700 4000
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9250 4000 9400 4000
+	9850 4000 10000 4000
 Wire Wire Line
-	8950 4000 8850 4000
+	9550 4000 9450 4000
 Wire Wire Line
-	8850 4000 8850 4150
+	9450 4000 9450 4150
 $Comp
 L power:GND #PWR028
 U 1 1 5C6A88A2
-P 8850 4150
-F 0 "#PWR028" H 8850 3900 50  0001 C CNN
-F 1 "GND" H 8855 3977 50  0000 C CNN
-F 2 "" H 8850 4150 50  0001 C CNN
-F 3 "" H 8850 4150 50  0001 C CNN
-	1    8850 4150
+P 9450 4150
+F 0 "#PWR028" H 9450 3900 50  0001 C CNN
+F 1 "GND" H 9455 3977 50  0000 C CNN
+F 2 "" H 9450 4150 50  0001 C CNN
+F 3 "" H 9450 4150 50  0001 C CNN
+	1    9450 4150
 	1    0    0    -1  
 $EndComp
-Connection ~ 9400 4000
+Connection ~ 10000 4000
 Wire Wire Line
-	9400 4000 9400 4100
+	10000 4000 10000 4100
 Wire Wire Line
-	9400 3850 9400 4000
+	10000 3850 10000 4000
 Wire Wire Line
 	3350 1900 3350 1800
 Wire Wire Line
@@ -614,7 +602,7 @@ Wire Wire Line
 	5900 5050 6000 5050
 Wire Wire Line
 	5450 5100 5900 5100
-Text Notes 8700 3600 0    100  ~ 0
+Text Notes 9300 3600 0    100  ~ 6
 RF OUT (single ended)\n\n
 Wire Wire Line
 	4050 1900 4050 2250
@@ -684,7 +672,7 @@ F 3 "" H 2550 2800 50  0001 C CNN
 	1    2550 2800
 	1    0    0    -1  
 $EndComp
-Text Notes 1250 2700 0    100  ~ 0
+Text Notes 1250 2700 0    100  ~ 6
 Clock Ref\n
 Wire Wire Line
 	2150 2600 2150 2750
@@ -733,7 +721,7 @@ F 3 "" H 5250 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9000 4600 9400 4600
+	9600 4600 10000 4600
 $Comp
 L VNA_Symbols:ASTXR-12-19.200MHz X1
 U 1 1 5C321785
@@ -759,12 +747,12 @@ F 3 "https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf" H 4850 5550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9000 5100 9700 5100
+	9600 5100 10300 5100
 Wire Wire Line
-	9400 4400 9400 4600
-Connection ~ 9400 4600
+	10000 4400 10000 4600
+Connection ~ 10000 4600
 Wire Wire Line
-	9400 4600 9700 4600
+	10000 4600 10300 4600
 Wire Wire Line
 	3900 2500 3900 2950
 Wire Wire Line
@@ -780,8 +768,6 @@ Wire Wire Line
 Wire Wire Line
 	7100 4300 7300 4300
 Wire Wire Line
-	7100 4900 7300 4900
-Wire Wire Line
 	6550 4000 6750 4000
 Wire Wire Line
 	4500 2250 4500 2500
@@ -795,23 +781,23 @@ Wire Wire Line
 	3600 2300 3600 2500
 Wire Wire Line
 	3150 2300 3150 2500
-Text HLabel 9700 4600 2    50   Input ~ 0
+Text HLabel 10300 4600 2    50   Input ~ 6
 RF_OUT_P
-Text HLabel 9700 5100 2    50   Input ~ 0
+Text HLabel 10300 5100 2    50   Input ~ 6
 RF_OUT_N
-Text HLabel 5850 4050 2    50   Input ~ 0
+Text HLabel 5850 4050 2    50   Input ~ 6
 LD
-Text HLabel 5850 4150 2    50   Input ~ 0
+Text HLabel 5850 4150 2    50   Input ~ 6
 MUX_OUT
-Text HLabel 3000 4200 0    50   Input ~ 0
+Text HLabel 3000 4200 0    50   Input ~ 6
 CLK
-Text HLabel 3000 4300 0    50   Input ~ 0
+Text HLabel 3000 4300 0    50   Input ~ 6
 DATA
-Text HLabel 3000 4400 0    50   Input ~ 0
+Text HLabel 3000 4400 0    50   Input ~ 6
 LE
-Text HLabel 3000 4500 0    50   Input ~ 0
+Text HLabel 3000 4500 0    50   Input ~ 6
 CE
-Text HLabel 3000 4650 0    50   Input ~ 0
+Text HLabel 3000 4650 0    50   Input ~ 6
 RFOUT_EN
 Connection ~ 3150 2500
 Wire Wire Line
@@ -871,24 +857,19 @@ Connection ~ 6750 4000
 Wire Wire Line
 	6750 4000 6900 4000
 Connection ~ 7300 4300
-Wire Wire Line
-	7300 4300 7700 4300
-Connection ~ 7300 4900
-Wire Wire Line
-	7300 4900 7700 4900
-Text Notes 3050 1350 0    100  ~ 0
+Text Notes 3050 1350 0    100  ~ 6
 MAX2871: 23.5 - 6000 MHz PLL\n
-Text HLabel 9400 3850 1    50   Input ~ 0
+Text HLabel 10000 3850 1    50   Input ~ 6
 3V3A
-Text HLabel 2150 2600 1    50   Input ~ 0
+Text HLabel 2150 2600 1    50   Input ~ 6
 1V8
-Text HLabel 3350 1800 1    50   Input ~ 0
+Text HLabel 3350 1800 1    50   Input ~ 6
 3V3A
-Text HLabel 4300 1800 1    50   Input ~ 0
+Text HLabel 4300 1800 1    50   Input ~ 6
 3V3A
-Text HLabel 6400 5000 1    50   Input ~ 0
+Text HLabel 6400 5000 1    50   Input ~ 6
 3V3A
-Text HLabel 3150 2200 1    50   Input ~ 0
+Text HLabel 3150 2200 1    50   Input ~ 6
 3V3
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB?
@@ -916,4 +897,69 @@ F 3 "~" H 4750 1900 50  0001 C CNN
 	1    4750 1900
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	7300 4300 7850 4300
+$Comp
+L Device:C C?
+U 1 1 5CB618D9
+P 7850 4500
+F 0 "C?" H 7965 4546 50  0000 L CNN
+F 1 "DNP" H 7965 4455 50  0000 L CNN
+F 2 "" H 7888 4350 50  0001 C CNN
+F 3 "~" H 7850 4500 50  0001 C CNN
+	1    7850 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5CB620B8
+P 7850 4850
+F 0 "R?" H 7920 4896 50  0000 L CNN
+F 1 "DNP" H 7920 4805 50  0000 L CNN
+F 2 "" V 7780 4850 50  0001 C CNN
+F 3 "~" H 7850 4850 50  0001 C CNN
+	1    7850 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 4300 8550 4350
+Connection ~ 8550 4300
+Wire Wire Line
+	8550 4300 8350 4300
+Wire Wire Line
+	7850 4300 7850 4350
+Connection ~ 7850 4300
+Wire Wire Line
+	7850 4300 8050 4300
+Wire Wire Line
+	7850 4650 7850 4700
+Wire Wire Line
+	7850 5000 7850 5050
+Wire Wire Line
+	9000 4300 9000 5250
+Wire Wire Line
+	9000 5250 7100 5250
+Wire Wire Line
+	7100 4650 7100 5250
+Wire Wire Line
+	8550 4300 9000 4300
+$Comp
+L power:GND #PWR?
+U 1 1 5CB860A2
+P 7850 5050
+F 0 "#PWR?" H 7850 4800 50  0001 C CNN
+F 1 "GND" H 7850 4900 50  0000 C CNN
+F 2 "" H 7850 5050 50  0001 C CNN
+F 3 "" H 7850 5050 50  0001 C CNN
+	1    7850 5050
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	6600 3800 9100 3800
+Wire Notes Line
+	9100 3800 9100 5400
+Wire Notes Line
+	9100 5400 6600 5400
+Text Notes 8000 5150 0    50   ~ 6
+DNP allow for ADF4351\nto replace MAX2871
 $EndSCHEMATC
