@@ -219,9 +219,9 @@ F 3 "" H 800 5200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 1200 4700 0    50   ~ 10
-Dp
+D_P
 Text Label 1200 4800 0    50   ~ 10
-Dn
+D_N
 Text Notes 950  3700 0    100  ~ 20
 Power In / Data
 $Sheet
@@ -933,17 +933,14 @@ Text Label 6850 4700 0    50   ~ 10
 ATTEN_CLK
 Text Label 6850 4800 0    50   ~ 10
 ATTEN_LE
-Text Label 5250 4000 2    50   ~ 10
+Text Label 5250 4100 2    50   ~ 10
 RF_PWR_LEVEL
 Text Label 6850 4950 0    50   ~ 10
 PA_PWRDN
 Text Label 5250 4400 2    50   ~ 10
 AD8302_VREF
-Text Label 5250 4200 2    50   ~ 10
-AD8302_VPHASE
 Text Label 5250 4300 2    50   ~ 10
-AD8302_VMAG
-NoConn ~ 5250 4100
+AD8302_VPHASE
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB1
 U 1 1 5CC56F48
@@ -1104,9 +1101,9 @@ Text Label 5250 3750 2    50   ~ 10
 UART_TX
 Text Label 5250 3850 2    50   ~ 10
 UART_RX
-Text Label 4800 6300 0    50   ~ 10
-UART_TX
 Text Label 4800 6400 0    50   ~ 10
+UART_TX
+Text Label 4800 6300 0    50   ~ 10
 UART_RX
 Wire Wire Line
 	4800 6400 4750 6400
@@ -1195,4 +1192,7 @@ Wire Wire Line
 	1400 4900 2000 4900
 Wire Wire Line
 	1150 4700 1400 4700
+Text Label 5250 4000 2    50   ~ 10
+AD8302_VMAG
+NoConn ~ 5250 4200
 $EndSCHEMATC
