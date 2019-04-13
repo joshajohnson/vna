@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L VNA_Symbols:ADC-15-4+ FL1
+L VNA_Symbols:ADC-15-4+ HY1
 U 1 1 5C294AFE
 P 4050 1900
-F 0 "FL1" H 3700 2050 50  0000 C CNN
+F 0 "HY1" H 3700 2050 50  0000 C CNN
 F 1 "ADC-15-4+" H 3850 1950 50  0000 C CNN
 F 2 "VNA_Footprints:CD542" H 4050 1900 50  0001 C CNN
 F 3 "" H 4050 1900 50  0001 C CNN
@@ -67,13 +67,13 @@ Wire Wire Line
 	4950 2500 4950 2550
 Wire Wire Line
 	3300 2150 3300 2250
-Text Notes 3500 1650 0    100  ~ 6
+Text Notes 3500 1650 0    100  ~ 20
 Forward Coupler
 $Comp
-L VNA_Symbols:ADC-15-4+ FL2
+L VNA_Symbols:ADC-15-4+ HY2
 U 1 1 5CC49764
 P 6900 1900
-F 0 "FL2" H 7350 2050 50  0000 C CNN
+F 0 "HY2" H 7350 2050 50  0000 C CNN
 F 1 "ADC-15-4+" H 7200 1950 50  0000 C CNN
 F 2 "VNA_Footprints:CD542" H 6900 1900 50  0001 C CNN
 F 3 "" H 6900 1900 50  0001 C CNN
@@ -96,7 +96,7 @@ F 3 "" H 7650 2250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2150 7650 2250
-Text Notes 7450 1650 2    100  ~ 6
+Text Notes 7450 1650 2    100  ~ 20
 Reverse Coupler
 Wire Wire Line
 	4800 1950 6150 1950
@@ -136,12 +136,12 @@ Wire Wire Line
 	6000 2150 6000 2200
 Wire Wire Line
 	3400 2050 3350 2050
-Text HLabel 3350 2050 0    50   Input ~ 6
+Text HLabel 3350 2050 0    50   Input ~ 10
 Forward_CPL
-Text HLabel 7550 2050 2    50   Input ~ 6
+Text HLabel 7550 2050 2    50   Input ~ 10
 Reverse_CPL
-Text HLabel 3000 1950 0    50   Input ~ 6
+Text HLabel 3000 1950 0    50   Input ~ 10
 RF_IN
-Text HLabel 8500 1950 2    50   Input ~ 6
+Text HLabel 8500 1950 2    50   Input ~ 10
 RF_OUT
 $EndSCHEMATC

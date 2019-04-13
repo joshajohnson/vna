@@ -14,25 +14,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 1550 5000 0    50   Input ~ 6
+Text HLabel 1550 4000 0    50   Input ~ 10
 RF_THROUGH
-Wire Wire Line
-	1900 4000 1800 4000
-Wire Wire Line
-	1800 4000 1800 4100
-Wire Wire Line
-	2200 4000 2300 4000
-Wire Wire Line
-	2300 4000 2300 4100
-Wire Wire Line
-	1800 4400 1800 4450
-Wire Wire Line
-	2300 4400 2300 4450
-Wire Wire Line
-	1800 4000 1550 4000
-Connection ~ 1800 4000
-Text HLabel 1550 4000 0    50   Input ~ 6
-RF_REVERSE
 Wire Wire Line
 	1900 5000 1800 5000
 Wire Wire Line
@@ -48,15 +31,31 @@ Wire Wire Line
 Wire Wire Line
 	1800 5000 1550 5000
 Connection ~ 1800 5000
-Text Notes 1900 5450 0    50   ~ 6
--21 dB
-Connection ~ 2300 4000
+Text HLabel 1550 5000 0    50   Input ~ 10
+RF_REVERSE
 Wire Wire Line
-	4150 4150 2800 4150
-Connection ~ 2300 5000
-Text HLabel 3150 4350 0    50   Input ~ 6
+	1900 4000 1800 4000
+Wire Wire Line
+	1800 4000 1800 4100
+Wire Wire Line
+	2200 4000 2300 4000
+Wire Wire Line
+	2300 4000 2300 4100
+Wire Wire Line
+	1800 4400 1800 4450
+Wire Wire Line
+	2300 4400 2300 4450
+Wire Wire Line
+	1800 4000 1550 4000
+Connection ~ 1800 4000
+Text Notes 1900 4450 0    50   ~ 10
+-21 dB
+Wire Wire Line
+	4150 4150 2700 4150
+Connection ~ 2300 4000
+Text HLabel 3150 4350 0    50   Input ~ 10
 CTRL_1
-Text HLabel 3150 4450 0    50   Input ~ 6
+Text HLabel 3150 4450 0    50   Input ~ 10
 CTRL_2
 Wire Wire Line
 	5600 5100 5600 5050
@@ -107,7 +106,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 5150 5600 5100
 Connection ~ 5600 5100
-Text HLabel 1550 3000 0    50   Input ~ 6
+Text HLabel 1550 3000 0    50   Input ~ 10
 RF_FORWARD
 Wire Wire Line
 	1900 3000 1800 3000
@@ -129,13 +128,13 @@ Wire Wire Line
 Wire Wire Line
 	4900 3350 4900 3500
 Connection ~ 4900 3500
-Text HLabel 9800 2950 2    50   Output ~ 6
+Text HLabel 9800 2950 2    50   Output ~ 10
 VMAG
-Text HLabel 9800 3400 2    50   Output ~ 6
+Text HLabel 9800 3400 2    50   Output ~ 10
 VREF
-Text HLabel 9800 3600 2    50   Output ~ 6
+Text HLabel 9800 3600 2    50   Output ~ 10
 VPHS
-Text HLabel 4900 3350 1    50   Input ~ 6
+Text HLabel 4900 3350 1    50   Input ~ 10
 3V3A
 Wire Wire Line
 	8200 4250 8200 4350
@@ -241,7 +240,7 @@ Connection ~ 6800 4000
 Connection ~ 6800 3000
 Wire Wire Line
 	2300 3000 6800 3000
-Text HLabel 8100 2200 1    50   Input ~ 6
+Text HLabel 8100 2200 1    50   Input ~ 10
 3V3A
 Wire Wire Line
 	8100 2200 8100 2350
@@ -264,83 +263,39 @@ Wire Wire Line
 Connection ~ 8550 2700
 Wire Wire Line
 	8550 2700 8550 2850
-Text Notes 4250 2800 0    100  ~ 6
+Text Notes 4250 2800 0    100  ~ 20
 Path Select
-Text Notes 7400 1800 0    100  ~ 6
+Text Notes 7400 1800 0    100  ~ 20
 AD8302 Gain Phase Detector
-Text Notes 1900 4500 0    50   ~ 6
+Text Notes 1900 5500 0    50   ~ 10
 -6 dB
 $Comp
 L Device:R R37
 U 1 1 5CD9F648
-P 2050 4000
-F 0 "R37" V 1950 4000 50  0000 C CNN
-F 1 "37R" V 2150 4000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 1980 4000 50  0001 C CNN
-F 3 "~" H 2050 4000 50  0001 C CNN
-	1    2050 4000
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R34
-U 1 1 5CDA074A
-P 1800 4250
-F 0 "R34" H 1870 4296 50  0000 L CNN
-F 1 "150R" H 1870 4205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 1730 4250 50  0001 C CNN
-F 3 "~" H 1800 4250 50  0001 C CNN
-	1    1800 4250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR087
-U 1 1 5CDA106C
-P 2300 4450
-F 0 "#PWR087" H 2300 4200 50  0001 C CNN
-F 1 "GND" H 2305 4277 50  0000 C CNN
-F 2 "" H 2300 4450 50  0001 C CNN
-F 3 "" H 2300 4450 50  0001 C CNN
-	1    2300 4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR084
-U 1 1 5CDA1618
-P 1800 4450
-F 0 "#PWR084" H 1800 4200 50  0001 C CNN
-F 1 "GND" H 1805 4277 50  0000 C CNN
-F 2 "" H 1800 4450 50  0001 C CNN
-F 3 "" H 1800 4450 50  0001 C CNN
-	1    1800 4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R38
-U 1 1 5CDA4337
 P 2050 5000
-F 0 "R38" V 1950 5000 50  0000 C CNN
-F 1 "278R" V 2150 5000 50  0000 C CNN
+F 0 "R37" V 1950 5000 50  0000 C CNN
+F 1 "37R" V 2150 5000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" V 1980 5000 50  0001 C CNN
 F 3 "~" H 2050 5000 50  0001 C CNN
 	1    2050 5000
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R41
-U 1 1 5CDA433D
-P 2300 5250
-F 0 "R41" H 2370 5296 50  0000 L CNN
-F 1 "60R" H 2370 5205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 2230 5250 50  0001 C CNN
-F 3 "~" H 2300 5250 50  0001 C CNN
-	1    2300 5250
+L Device:R R34
+U 1 1 5CDA074A
+P 1800 5250
+F 0 "R34" H 1870 5296 50  0000 L CNN
+F 1 "150R" H 1870 5205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1730 5250 50  0001 C CNN
+F 3 "~" H 1800 5250 50  0001 C CNN
+	1    1800 5250
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR088
-U 1 1 5CDA434F
+L power:GND #PWR087
+U 1 1 5CDA106C
 P 2300 5450
-F 0 "#PWR088" H 2300 5200 50  0001 C CNN
+F 0 "#PWR087" H 2300 5200 50  0001 C CNN
 F 1 "GND" H 2305 5277 50  0000 C CNN
 F 2 "" H 2300 5450 50  0001 C CNN
 F 3 "" H 2300 5450 50  0001 C CNN
@@ -348,10 +303,10 @@ F 3 "" H 2300 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR085
-U 1 1 5CDA4355
+L power:GND #PWR084
+U 1 1 5CDA1618
 P 1800 5450
-F 0 "#PWR085" H 1800 5200 50  0001 C CNN
+F 0 "#PWR084" H 1800 5200 50  0001 C CNN
 F 1 "GND" H 1805 5277 50  0000 C CNN
 F 2 "" H 1800 5450 50  0001 C CNN
 F 3 "" H 1800 5450 50  0001 C CNN
@@ -359,14 +314,58 @@ F 3 "" H 1800 5450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
+L Device:R R38
+U 1 1 5CDA4337
+P 2050 4000
+F 0 "R38" V 1950 4000 50  0000 C CNN
+F 1 "278R" V 2150 4000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1980 4000 50  0001 C CNN
+F 3 "~" H 2050 4000 50  0001 C CNN
+	1    2050 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R41
+U 1 1 5CDA433D
+P 2300 4250
+F 0 "R41" H 2370 4296 50  0000 L CNN
+F 1 "60R" H 2370 4205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 2230 4250 50  0001 C CNN
+F 3 "~" H 2300 4250 50  0001 C CNN
+	1    2300 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR088
+U 1 1 5CDA434F
+P 2300 4450
+F 0 "#PWR088" H 2300 4200 50  0001 C CNN
+F 1 "GND" H 2305 4277 50  0000 C CNN
+F 2 "" H 2300 4450 50  0001 C CNN
+F 3 "" H 2300 4450 50  0001 C CNN
+	1    2300 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR085
+U 1 1 5CDA4355
+P 1800 4450
+F 0 "#PWR085" H 1800 4200 50  0001 C CNN
+F 1 "GND" H 1805 4277 50  0000 C CNN
+F 2 "" H 1800 4450 50  0001 C CNN
+F 3 "" H 1800 4450 50  0001 C CNN
+	1    1800 4450
+	1    0    0    -1  
+$EndComp
+$Comp
 L Device:R R35
 U 1 1 5CDA469F
-P 1800 5250
-F 0 "R35" H 1870 5296 50  0000 L CNN
-F 1 "60R" H 1870 5205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 1730 5250 50  0001 C CNN
-F 3 "~" H 1800 5250 50  0001 C CNN
-	1    1800 5250
+P 1800 4250
+F 0 "R35" H 1870 4296 50  0000 L CNN
+F 1 "60R" H 1870 4205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1730 4250 50  0001 C CNN
+F 3 "~" H 1800 4250 50  0001 C CNN
+	1    1800 4250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -697,12 +696,12 @@ $EndComp
 $Comp
 L Device:R R40
 U 1 1 5CFA7BB2
-P 2300 4250
-F 0 "R40" H 2370 4296 50  0000 L CNN
-F 1 "150R" H 2370 4205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 2230 4250 50  0001 C CNN
-F 3 "~" H 2300 4250 50  0001 C CNN
-	1    2300 4250
+P 2300 5250
+F 0 "R40" H 2370 5296 50  0000 L CNN
+F 1 "150R" H 2370 5205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 2230 5250 50  0001 C CNN
+F 3 "~" H 2300 5250 50  0001 C CNN
+	1    2300 5250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -869,11 +868,7 @@ F 3 "" H 4900 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2800 4150 2800 5000
-Wire Wire Line
-	2300 5000 2800 5000
-Wire Wire Line
-	2300 4000 4150 4000
+	2700 4150 2700 5000
 Connection ~ 3200 4350
 Connection ~ 3600 4450
 Wire Wire Line
@@ -918,8 +913,13 @@ Wire Wire Line
 Wire Wire Line
 	5750 4000 6800 4000
 Connection ~ 2300 3000
-Text Notes 3900 5100 0    50   ~ 6
+Text Notes 3900 5100 0    50   ~ 10
 Sets two \nwire ctrl
 Wire Wire Line
 	4900 3500 4900 3800
+Wire Wire Line
+	2300 4000 4150 4000
+Wire Wire Line
+	2700 5000 2300 5000
+Connection ~ 2300 5000
 $EndSCHEMATC

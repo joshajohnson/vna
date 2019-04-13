@@ -165,17 +165,17 @@ F 3 "" H 3550 1900 50  0001 C CNN
 	1    3550 1900
 	1    0    0    -1  
 $EndComp
-Text Label 4600 2250 2    50   ~ 6
+Text Label 4600 2250 2    50   ~ 10
 SW_1_RF_1
-Text Label 4600 2350 2    50   ~ 6
+Text Label 4600 2350 2    50   ~ 10
 SW_1_RF_2
-Text Label 4600 2450 2    50   ~ 6
+Text Label 4600 2450 2    50   ~ 10
 SW_1_RF_3
-Text Label 4600 2550 2    50   ~ 6
+Text Label 4600 2550 2    50   ~ 10
 SW_1_RF_4
-Text Label 6650 2250 2    50   ~ 6
+Text Label 6650 2250 2    50   ~ 10
 SW_2_RF_3
-Text Label 6650 2950 2    50   ~ 6
+Text Label 6650 2950 2    50   ~ 10
 SW_2_RF_4
 $Comp
 L VNA_Symbols:74AHC1G04 U10
@@ -188,7 +188,7 @@ F 3 "" H 1850 7250 50  0001 C CNN
 	1    1900 7050
 	1    0    0    -1  
 $EndComp
-Text Label 3000 6500 2    50   ~ 6
+Text Label 3000 6500 2    50   ~ 10
 SW_1_CTRL_1
 Wire Wire Line
 	1400 7000 1600 7000
@@ -209,9 +209,9 @@ F 3 "" H 1500 7200 50  0001 C CNN
 	1    1500 7200
 	1    0    0    -1  
 $EndComp
-Text Label 3000 7550 2    50   ~ 6
+Text Label 3000 7550 2    50   ~ 10
 SW_2_CTRL_1
-Text Label 3000 6600 2    50   ~ 6
+Text Label 3000 6600 2    50   ~ 10
 SW_1_CTRL_2
 Wire Wire Line
 	1200 6600 1200 7650
@@ -223,83 +223,83 @@ Wire Wire Line
 	2300 7550 3000 7550
 Wire Wire Line
 	1200 7650 3000 7650
-Text Label 3000 7650 2    50   ~ 6
+Text Label 3000 7650 2    50   ~ 10
 SW_2_CTRL_2
-Text Notes 750  5950 0    50   ~ 6
+Text Notes 750  5950 0    50   ~ 10
 SW 1
-Text Notes 800  6050 0    50   ~ 6
+Text Notes 800  6050 0    50   ~ 10
 1
-Text Notes 800  6150 0    50   ~ 6
+Text Notes 800  6150 0    50   ~ 10
 2
-Text Notes 800  6250 0    50   ~ 6
+Text Notes 800  6250 0    50   ~ 10
 3
-Text Notes 800  6350 0    50   ~ 6
+Text Notes 800  6350 0    50   ~ 10
 4
-Text Notes 1050 5950 0    50   ~ 6
+Text Notes 1050 5950 0    50   ~ 10
 CTRL 1
-Text Notes 1400 5950 0    50   ~ 6
+Text Notes 1400 5950 0    50   ~ 10
 CTRL 2
 Wire Notes Line
 	1000 5900 1000 6350
 Wire Notes Line
 	1350 5900 1350 6350
-Text Notes 1500 6050 0    50   ~ 6
+Text Notes 1500 6050 0    50   ~ 10
 0
-Text Notes 1500 6250 0    50   ~ 6
+Text Notes 1500 6250 0    50   ~ 10
 0
-Text Notes 1500 6150 0    50   ~ 6
+Text Notes 1500 6150 0    50   ~ 10
 1
-Text Notes 1500 6350 0    50   ~ 6
+Text Notes 1500 6350 0    50   ~ 10
 1
-Text Notes 1900 5950 0    50   ~ 6
+Text Notes 1900 5950 0    50   ~ 10
 SW 2
-Text Notes 1950 6250 0    50   ~ 6
+Text Notes 1950 6250 0    50   ~ 10
 1
-Text Notes 1950 6350 0    50   ~ 6
+Text Notes 1950 6350 0    50   ~ 10
 2
-Text Notes 1950 6050 0    50   ~ 6
+Text Notes 1950 6050 0    50   ~ 10
 3
-Text Notes 1950 6150 0    50   ~ 6
+Text Notes 1950 6150 0    50   ~ 10
 4
-Text Notes 2200 5950 0    50   ~ 6
+Text Notes 2200 5950 0    50   ~ 10
 CTRL 1
-Text Notes 2550 5950 0    50   ~ 6
+Text Notes 2550 5950 0    50   ~ 10
 CTRL 2
 Wire Notes Line
 	2150 5900 2150 6350
 Wire Notes Line
 	2500 5900 2500 6350
-Text Notes 2650 6050 0    50   ~ 6
+Text Notes 2650 6050 0    50   ~ 10
 0
-Text Notes 2650 6250 0    50   ~ 6
+Text Notes 2650 6250 0    50   ~ 10
 0
-Text Notes 2650 6150 0    50   ~ 6
+Text Notes 2650 6150 0    50   ~ 10
 1
-Text Notes 2650 6350 0    50   ~ 6
+Text Notes 2650 6350 0    50   ~ 10
 1
 Wire Notes Line
 	1850 5950 2850 5950
 Wire Notes Line
 	700  5950 1700 5950
-Text Notes 1150 6050 0    50   ~ 6
+Text Notes 1150 6050 0    50   ~ 10
 0
-Text Notes 1150 6150 0    50   ~ 6
+Text Notes 1150 6150 0    50   ~ 10
 0
-Text Notes 1150 6250 0    50   ~ 6
+Text Notes 1150 6250 0    50   ~ 10
 1
-Text Notes 1150 6350 0    50   ~ 6
+Text Notes 1150 6350 0    50   ~ 10
 1
-Text Notes 2300 6050 0    50   ~ 6
+Text Notes 2300 6050 0    50   ~ 10
 1
-Text Notes 2300 6150 0    50   ~ 6
+Text Notes 2300 6150 0    50   ~ 10
 1
-Text Notes 2300 6250 0    50   ~ 6
+Text Notes 2300 6250 0    50   ~ 10
 0
-Text Notes 2300 6350 0    50   ~ 6
+Text Notes 2300 6350 0    50   ~ 10
 0
-Text Notes 950  5400 0    100  ~ 6
+Text Notes 950  5400 0    100  ~ 20
 Switch Configuration\n
-Text Notes 850  5750 0    50   ~ 6
+Text Notes 850  5750 0    50   ~ 10
 74AHC1G04 is a not gate, used to allow the below \ntruth tables to be correct with only two control\nlines following the values in the first table
 Wire Wire Line
 	1200 6600 3000 6600
@@ -307,49 +307,49 @@ Wire Wire Line
 	1400 7000 1400 6500
 Wire Wire Line
 	1400 6500 3000 6500
-Text Label 6700 3650 2    50   ~ 6
+Text Label 6700 3650 2    50   ~ 10
 SW_2_RF_1
-Text Label 6700 4400 2    50   ~ 6
+Text Label 6700 4400 2    50   ~ 10
 SW_2_RF_2
 $Comp
-L VNA_Symbols:Filter_LFCN FL3
+L VNA_Symbols:Filter_LFCN FL1
 U 1 1 5C37DE93
 P 5700 2350
-F 0 "FL3" H 5725 2675 50  0000 C CNN
-F 1 "LFCN-105+" H 5725 2584 50  0000 C CNN
+F 0 "FL1" H 5725 2675 50  0000 C CNN
+F 1 "LFCN-225+" H 5725 2584 50  0000 C CNN
 F 2 "VNA_Footprints:FV1206" H 5700 2500 50  0001 C CNN
 F 3 "" H 5700 2500 50  0001 C CNN
 	1    5700 2350
 	1    0    0    -1  
 $EndComp
 $Comp
-L VNA_Symbols:Filter_LFCN FL4
+L VNA_Symbols:Filter_LFCN FL2
 U 1 1 5C3813C7
 P 5700 3050
-F 0 "FL4" H 5725 3375 50  0000 C CNN
-F 1 "LFCN-225+" H 5725 3284 50  0000 C CNN
+F 0 "FL2" H 5725 3375 50  0000 C CNN
+F 1 "LFCN-400+" H 5725 3284 50  0000 C CNN
 F 2 "VNA_Footprints:FV1206" H 5700 3200 50  0001 C CNN
 F 3 "" H 5700 3200 50  0001 C CNN
 	1    5700 3050
 	1    0    0    -1  
 $EndComp
 $Comp
-L VNA_Symbols:Filter_LFCN FL5
+L VNA_Symbols:Filter_LFCN FL3
 U 1 1 5C394D09
 P 5700 3750
-F 0 "FL5" H 5725 4075 50  0000 C CNN
-F 1 "LFCN-400+" H 5725 3984 50  0000 C CNN
+F 0 "FL3" H 5725 4075 50  0000 C CNN
+F 1 "LFCN-1000+" H 5725 3984 50  0000 C CNN
 F 2 "VNA_Footprints:FV1206" H 5700 3900 50  0001 C CNN
 F 3 "" H 5700 3900 50  0001 C CNN
 	1    5700 3750
 	1    0    0    -1  
 $EndComp
 $Comp
-L VNA_Symbols:Filter_LFCN FL6
+L VNA_Symbols:Filter_LFCN FL4
 U 1 1 5C3A1E64
 P 5700 4500
-F 0 "FL6" H 5725 4825 50  0000 C CNN
-F 1 "LFCN-1000+" H 5725 4734 50  0000 C CNN
+F 0 "FL4" H 5725 4825 50  0000 C CNN
+F 1 "LFCN-1500+" H 5725 4734 50  0000 C CNN
 F 2 "VNA_Footprints:FV1206" H 5700 4650 50  0001 C CNN
 F 3 "" H 5700 4650 50  0001 C CNN
 	1    5700 4500
@@ -455,11 +455,11 @@ $EndComp
 Connection ~ 3250 1800
 Wire Wire Line
 	3250 1800 3250 1950
-Text Notes 5300 1750 0    100  ~ 6
+Text Notes 5300 1750 0    100  ~ 20
 Filter Bank
-Text Notes 3050 1350 0    100  ~ 6
+Text Notes 3050 1350 0    100  ~ 20
 Switch 1
-Text Notes 8150 1400 0    100  ~ 6
+Text Notes 8150 1400 0    100  ~ 20
 Switch 2
 Connection ~ 1200 6600
 Connection ~ 1400 6500
@@ -467,13 +467,13 @@ Wire Wire Line
 	1200 6600 850  6600
 Wire Wire Line
 	1400 6500 850  6500
-Text HLabel 2500 2250 0    50   Input ~ 6
+Text HLabel 2500 2250 0    50   Input ~ 10
 RF_IN
-Text HLabel 9200 2300 2    50   Input ~ 6
+Text HLabel 9200 2300 2    50   Input ~ 10
 RF_OUT
-Text HLabel 850  6500 0    50   Input ~ 6
+Text HLabel 850  6500 0    50   Input ~ 10
 CTRL1
-Text HLabel 850  6600 0    50   Input ~ 6
+Text HLabel 850  6600 0    50   Input ~ 10
 CTRL2
 Wire Wire Line
 	5000 2350 5000 2950
@@ -497,9 +497,9 @@ Wire Wire Line
 	2600 2550 2050 2550
 Wire Wire Line
 	2600 2450 2050 2450
-Text Label 2050 2550 0    50   ~ 6
+Text Label 2050 2550 0    50   ~ 10
 SW_1_CTRL_2
-Text Label 2050 2450 0    50   ~ 6
+Text Label 2050 2450 0    50   ~ 10
 SW_1_CTRL_1
 $Comp
 L VNA_Symbols:PE42440 U11
@@ -516,9 +516,9 @@ Wire Wire Line
 	9100 2600 9650 2600
 Wire Wire Line
 	9100 2500 9650 2500
-Text Label 9650 2600 2    50   ~ 6
+Text Label 9650 2600 2    50   ~ 10
 SW_2_CTRL_2
-Text Label 9650 2500 2    50   ~ 6
+Text Label 9650 2500 2    50   ~ 10
 SW_2_CTRL_1
 Wire Wire Line
 	4050 2250 5300 2250
@@ -550,11 +550,11 @@ Wire Wire Line
 	7200 2400 7650 2400
 Wire Wire Line
 	6150 4400 7200 4400
-Text HLabel 3250 1650 1    50   Input ~ 6
+Text HLabel 3250 1650 1    50   Input ~ 10
 3V3A
-Text HLabel 8450 1700 1    50   Input ~ 6
+Text HLabel 8450 1700 1    50   Input ~ 10
 3V3A
-Text HLabel 2300 6850 2    50   Input ~ 6
+Text HLabel 2300 6850 2    50   Input ~ 10
 3V3A
 Wire Wire Line
 	2300 6850 2250 6850
@@ -588,13 +588,13 @@ F 3 "" H 4200 7200 50  0001 C CNN
 	1    4200 7200
 	1    0    0    -1  
 $EndComp
-Text HLabel 4200 6500 1    50   Input ~ 6
+Text HLabel 4200 6500 1    50   Input ~ 10
 3V3
 Wire Wire Line
 	4200 6500 4200 6700
-Text HLabel 4250 6850 0    50   Input ~ 6
+Text HLabel 4250 6850 0    50   Input ~ 10
 CTRL1
-Text HLabel 4250 6950 0    50   Input ~ 6
+Text HLabel 4250 6950 0    50   Input ~ 10
 CTRL2
 Wire Wire Line
 	4300 6850 4250 6850
@@ -655,7 +655,7 @@ Wire Wire Line
 Connection ~ 6200 7050
 Wire Wire Line
 	6200 7050 6200 7250
-Text HLabel 6200 6500 1    50   Input ~ 6
+Text HLabel 6200 6500 1    50   Input ~ 10
 3V3
 Wire Wire Line
 	6200 6500 6200 6650
@@ -737,14 +737,14 @@ F 3 "~" H 5800 7250 50  0001 C CNN
 	1    5800 7250
 	0    -1   -1   0   
 $EndComp
-Text Notes 5350 6650 0    50   ~ 6
+Text Notes 5350 6650 0    50   ~ 10
 F1
-Text Notes 5350 6850 0    50   ~ 6
+Text Notes 5350 6850 0    50   ~ 10
 F2
-Text Notes 5350 7050 0    50   ~ 6
+Text Notes 5350 7050 0    50   ~ 10
 F3
-Text Notes 5350 7250 0    50   ~ 6
+Text Notes 5350 7250 0    50   ~ 10
 F4
-Text Notes 4550 6300 0    100  ~ 6
+Text Notes 4550 6300 0    100  ~ 20
 LED Filter Indicator
 $EndSCHEMATC

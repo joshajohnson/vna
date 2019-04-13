@@ -476,7 +476,7 @@ Wire Wire Line
 	6550 4000 6550 4350
 Wire Notes Line
 	6600 5400 6600 3800
-Text Notes 6600 3800 0    50   ~ 6
+Text Notes 6600 3800 0    50   ~ 10
 PLL Loop Filter\n
 Wire Wire Line
 	2850 4050 3400 4050
@@ -517,9 +517,9 @@ Wire Wire Line
 	5450 4850 5850 4850
 Wire Wire Line
 	5450 4950 5850 4950
-Text Label 5850 4950 2    50   ~ 6
+Text Label 5850 4950 2    50   ~ 10
 RF_OUT_N
-Text Label 5850 4850 2    50   ~ 6
+Text Label 5850 4850 2    50   ~ 10
 RF_OUT_P
 Wire Wire Line
 	4050 2250 4500 2250
@@ -530,9 +530,9 @@ Wire Wire Line
 Wire Wire Line
 	4950 1900 4950 2250
 Connection ~ 4950 2250
-Text Label 9600 5100 2    50   ~ 6
+Text Label 9600 5100 2    50   ~ 10
 RF_OUT_N
-Text Label 9600 4600 2    50   ~ 6
+Text Label 9600 4600 2    50   ~ 10
 RF_OUT_P
 Wire Wire Line
 	5450 4350 6550 4350
@@ -602,7 +602,7 @@ Wire Wire Line
 	5900 5050 6000 5050
 Wire Wire Line
 	5450 5100 5900 5100
-Text Notes 9300 3600 0    100  ~ 6
+Text Notes 9300 3600 0    100  ~ 20
 RF OUT (single ended)\n\n
 Wire Wire Line
 	4050 1900 4050 2250
@@ -672,7 +672,7 @@ F 3 "" H 2550 2800 50  0001 C CNN
 	1    2550 2800
 	1    0    0    -1  
 $EndComp
-Text Notes 1250 2700 0    100  ~ 6
+Text Notes 1250 2700 0    100  ~ 20
 Clock Ref\n
 Wire Wire Line
 	2150 2600 2150 2750
@@ -781,23 +781,23 @@ Wire Wire Line
 	3600 2300 3600 2500
 Wire Wire Line
 	3150 2300 3150 2500
-Text HLabel 10300 4600 2    50   Input ~ 6
+Text HLabel 10300 4600 2    50   Input ~ 10
 RF_OUT_P
-Text HLabel 10300 5100 2    50   Input ~ 6
+Text HLabel 10300 5100 2    50   Input ~ 10
 RF_OUT_N
-Text HLabel 5850 4050 2    50   Input ~ 6
+Text HLabel 5850 4050 2    50   Input ~ 10
 LD
-Text HLabel 5850 4150 2    50   Input ~ 6
+Text HLabel 5850 4150 2    50   Input ~ 10
 MUX_OUT
-Text HLabel 3000 4200 0    50   Input ~ 6
+Text HLabel 3000 4200 0    50   Input ~ 10
 CLK
-Text HLabel 3000 4300 0    50   Input ~ 6
+Text HLabel 3000 4300 0    50   Input ~ 10
 DATA
-Text HLabel 3000 4400 0    50   Input ~ 6
+Text HLabel 3000 4400 0    50   Input ~ 10
 LE
-Text HLabel 3000 4500 0    50   Input ~ 6
+Text HLabel 3000 4500 0    50   Input ~ 10
 CE
-Text HLabel 3000 4650 0    50   Input ~ 6
+Text HLabel 3000 4650 0    50   Input ~ 10
 RFOUT_EN
 Connection ~ 3150 2500
 Wire Wire Line
@@ -857,19 +857,19 @@ Connection ~ 6750 4000
 Wire Wire Line
 	6750 4000 6900 4000
 Connection ~ 7300 4300
-Text Notes 3050 1350 0    100  ~ 6
+Text Notes 3050 1350 0    100  ~ 20
 MAX2871: 23.5 - 6000 MHz PLL\n
-Text HLabel 10000 3850 1    50   Input ~ 6
+Text HLabel 10000 3850 1    50   Input ~ 10
 3V3A
-Text HLabel 2150 2600 1    50   Input ~ 6
+Text HLabel 2150 2600 1    50   Input ~ 10
 1V8
-Text HLabel 3350 1800 1    50   Input ~ 6
+Text HLabel 3350 1800 1    50   Input ~ 10
 3V3A
-Text HLabel 4300 1800 1    50   Input ~ 6
+Text HLabel 4300 1800 1    50   Input ~ 10
 3V3A
-Text HLabel 6400 5000 1    50   Input ~ 6
+Text HLabel 6400 5000 1    50   Input ~ 10
 3V3A
-Text HLabel 3150 2200 1    50   Input ~ 6
+Text HLabel 3150 2200 1    50   Input ~ 10
 3V3
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB?
@@ -900,23 +900,23 @@ $EndComp
 Wire Wire Line
 	7300 4300 7850 4300
 $Comp
-L Device:C C?
+L Device:C C74
 U 1 1 5CB618D9
 P 7850 4500
-F 0 "C?" H 7965 4546 50  0000 L CNN
+F 0 "C74" H 7965 4546 50  0000 L CNN
 F 1 "DNP" H 7965 4455 50  0000 L CNN
-F 2 "" H 7888 4350 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 7888 4350 50  0001 C CNN
 F 3 "~" H 7850 4500 50  0001 C CNN
 	1    7850 4500
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R62
 U 1 1 5CB620B8
 P 7850 4850
-F 0 "R?" H 7920 4896 50  0000 L CNN
+F 0 "R62" H 7920 4896 50  0000 L CNN
 F 1 "DNP" H 7920 4805 50  0000 L CNN
-F 2 "" V 7780 4850 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7780 4850 50  0001 C CNN
 F 3 "~" H 7850 4850 50  0001 C CNN
 	1    7850 4850
 	1    0    0    -1  
@@ -944,10 +944,10 @@ Wire Wire Line
 Wire Wire Line
 	8550 4300 9000 4300
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0124
 U 1 1 5CB860A2
 P 7850 5050
-F 0 "#PWR?" H 7850 4800 50  0001 C CNN
+F 0 "#PWR0124" H 7850 4800 50  0001 C CNN
 F 1 "GND" H 7850 4900 50  0000 C CNN
 F 2 "" H 7850 5050 50  0001 C CNN
 F 3 "" H 7850 5050 50  0001 C CNN
@@ -960,6 +960,6 @@ Wire Notes Line
 	9100 3800 9100 5400
 Wire Notes Line
 	9100 5400 6600 5400
-Text Notes 8000 5150 0    50   ~ 6
+Text Notes 8000 5150 0    50   ~ 10
 DNP allow for ADF4351\nto replace MAX2871
 $EndSCHEMATC

@@ -104,7 +104,7 @@ Connection ~ 3450 3950
 Wire Wire Line
 	5150 3950 5150 3800
 Connection ~ 4950 3950
-Text Notes 4000 3550 0    100  ~ 6
+Text Notes 4000 3550 0    100  ~ 20
 1V8 LDO\n
 Wire Wire Line
 	4950 3950 5150 3950
@@ -193,13 +193,13 @@ F 3 "" H 2300 2950 50  0001 C CNN
 	1    2300 2950
 	1    0    0    -1  
 $EndComp
-Text Notes 1300 2150 0    100  ~ 6
+Text Notes 1300 2150 0    100  ~ 20
 5V (Filtered)
-Text HLabel 3350 3800 1    49   Input ~ 6
+Text HLabel 3350 3800 1    49   Input ~ 10
 3V3A
-Text HLabel 5150 3800 1    49   Input ~ 6
+Text HLabel 5150 3800 1    49   Input ~ 10
 1V8
-Text HLabel 2550 2400 1    49   Input ~ 6
+Text HLabel 2550 2400 1    49   Input ~ 10
 5V0
 Wire Wire Line
 	1550 3950 1500 3950
@@ -268,7 +268,7 @@ F 3 "" H 1200 4350 50  0001 C CNN
 	1    1200 4350
 	1    0    0    -1  
 $EndComp
-Text Notes 2250 3600 2    100  ~ 6
+Text Notes 2250 3600 2    100  ~ 20
 3V3A LDO
 Wire Wire Line
 	1100 3850 1100 3950
@@ -276,7 +276,7 @@ Wire Wire Line
 	2850 3950 2850 3850
 Wire Wire Line
 	2550 3950 2850 3950
-Text HLabel 2850 3850 1    49   Input ~ 6
+Text HLabel 2850 3850 1    49   Input ~ 10
 3V3A
 Connection ~ 2550 3950
 Wire Wire Line
@@ -340,7 +340,7 @@ Wire Wire Line
 	5250 2500 5250 2400
 Wire Wire Line
 	4950 2500 5250 2500
-Text HLabel 5250 2400 1    49   Input ~ 6
+Text HLabel 5250 2400 1    49   Input ~ 10
 3V3
 Connection ~ 4950 2500
 Wire Wire Line
@@ -402,7 +402,7 @@ F 3 "" H 4600 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 3750 2500
-Text Notes 4600 2200 2    100  ~ 6
+Text Notes 4600 2200 2    100  ~ 20
 3V3 LDO
 $Comp
 L Device:Polyfuse_Small F?
@@ -412,24 +412,24 @@ AR Path="/5CFF4CE3" Ref="F?"  Part="1"
 AR Path="/5CA96610/5CFF4CE3" Ref="F1"  Part="1" 
 F 0 "F1" V 1700 1400 50  0000 C CNN
 F 1 "500mA Polyfuse" V 1900 1400 50  0000 C CNN
-F 2 "VNA_Footprints:Fuse_1206_3216Metric" H 1850 1200 50  0001 L CNN
+F 2 "VNA_Footprints:Fuse_0805_2012Metric" H 1850 1200 50  0001 L CNN
 F 3 "~" H 1800 1400 50  0001 C CNN
 	1    1800 1400
 	0    1    1    0   
 $EndComp
-Text HLabel 1250 1400 0    49   Input ~ 6
+Text HLabel 1250 1400 0    49   Input ~ 10
 VBUS
 Wire Wire Line
 	1900 1400 2200 1400
-Text Label 2300 1400 0    50   ~ 6
+Text Label 2300 1400 0    50   ~ 10
 VIN
-Text Label 1050 2400 1    50   ~ 6
+Text Label 1050 2400 1    50   ~ 10
 VIN
-Text Label 3350 2400 1    50   ~ 6
+Text Label 3350 2400 1    50   ~ 10
 VIN
-Text Label 1100 3850 1    50   ~ 6
+Text Label 1100 3850 1    50   ~ 10
 VIN
-Text Notes 1200 1150 0    100  ~ 6
+Text Notes 1200 1150 0    100  ~ 20
 Input Protection
 Wire Wire Line
 	1250 1400 1350 1400
@@ -487,7 +487,7 @@ U 1 1 5D0A50E4
 P 6500 3500
 F 0 "Q1" H 6706 3546 50  0000 L CNN
 F 1 "RE1C002UN" H 6706 3455 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-89-3" H 6700 3600 50  0001 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-416" H 6700 3600 50  0001 C CNN
 F 3 "~" H 6500 3500 50  0001 C CNN
 	1    6500 3500
 	1    0    0    -1  
@@ -536,9 +536,9 @@ Wire Wire Line
 Connection ~ 6200 3500
 Wire Wire Line
 	6600 2600 6600 2550
-Text HLabel 6600 2550 1    50   Input ~ 6
+Text HLabel 6600 2550 1    50   Input ~ 10
 3V3A
-Text HLabel 6150 3500 0    50   Input ~ 6
+Text HLabel 6150 3500 0    50   Input ~ 10
 1V8
 Wire Wire Line
 	6600 2950 6600 2900
@@ -566,11 +566,11 @@ F 3 "~" H 6600 2750 50  0001 C CNN
 	1    6600 2750
 	1    0    0    -1  
 $EndComp
-Text Notes 6800 2200 0    100  ~ 6
+Text Notes 6800 2200 0    100  ~ 20
 Voltage Rail LEDs
 Wire Wire Line
 	7250 2600 7250 2550
-Text HLabel 7250 2550 1    50   Input ~ 6
+Text HLabel 7250 2550 1    50   Input ~ 10
 3V3A
 Wire Wire Line
 	7250 2950 7250 2900
@@ -611,7 +611,7 @@ F 3 "" H 7250 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2600 7650 2550
-Text HLabel 7650 2550 1    50   Input ~ 6
+Text HLabel 7650 2550 1    50   Input ~ 10
 3V3
 Wire Wire Line
 	7650 2950 7650 2900
@@ -652,7 +652,7 @@ F 3 "" H 7650 3300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8050 2600 8050 2550
-Text HLabel 8050 2550 1    50   Input ~ 6
+Text HLabel 8050 2550 1    50   Input ~ 10
 5V0
 Wire Wire Line
 	8050 2950 8050 2900
@@ -730,7 +730,7 @@ F 3 "" H 8400 3300 50  0001 C CNN
 	1    8400 3300
 	1    0    0    -1  
 $EndComp
-Text HLabel 8400 2550 1    49   Input ~ 6
+Text HLabel 8400 2550 1    49   Input ~ 10
 VBUS
 Connection ~ 5150 3950
 $Comp
@@ -922,7 +922,7 @@ F 3 "" H 10550 3000 50  0001 C CNN
 	1    10550 3000
 	1    0    0    -1  
 $EndComp
-Text Notes 9150 2200 0    100  ~ 6
+Text Notes 9150 2200 0    100  ~ 20
 Ground Test Points
 $Comp
 L Connector:TestPoint TP6
