@@ -372,10 +372,6 @@ F 3 "~" H 4950 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4550 2700 4600 2700
-Wire Wire Line
-	4600 2700 4600 2800
-Wire Wire Line
 	4550 3000 4600 3000
 Connection ~ 4600 3000
 Wire Wire Line
@@ -387,7 +383,6 @@ Wire Wire Line
 	4600 2900 4600 3000
 Wire Wire Line
 	4550 2800 4600 2800
-Connection ~ 4600 2800
 Wire Wire Line
 	4600 2800 4600 2900
 $Comp
@@ -487,7 +482,7 @@ U 1 1 5D0A50E4
 P 6500 3500
 F 0 "Q1" H 6706 3546 50  0000 L CNN
 F 1 "RE1C002UN" H 6706 3455 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-416" H 6700 3600 50  0001 C CNN
+F 2 "VNA_Footprints:SOT-416" H 6700 3600 50  0001 C CNN
 F 3 "~" H 6500 3500 50  0001 C CNN
 	1    6500 3500
 	1    0    0    -1  
@@ -1082,4 +1077,5 @@ Wire Wire Line
 	3750 2700 3950 2700
 Wire Wire Line
 	3750 2500 3950 2500
+NoConn ~ 4550 2700
 $EndSCHEMATC

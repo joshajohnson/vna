@@ -680,13 +680,9 @@ Connection ~ 1250 6300
 Text Label 2250 5950 0    50   ~ 10
 5V0
 Wire Wire Line
-	1150 6800 1550 6800
-Wire Wire Line
-	1350 6900 1350 7000
-Wire Wire Line
 	1350 7000 1550 7000
 Wire Wire Line
-	1150 6900 1350 6900
+	1150 6800 1350 6800
 Wire Wire Line
 	2250 3900 2500 3900
 Wire Wire Line
@@ -1083,7 +1079,7 @@ INPUT_SW_2
 Text Label 6850 5100 0    50   ~ 10
 INPUT_SW_1
 Text Label 6850 5200 0    50   ~ 10
-INPUT_SW_1
+INPUT_SW_2
 $Comp
 L Connector:Conn_01x04_Male J6
 U 1 1 5CAD1290
@@ -1195,4 +1191,12 @@ Wire Wire Line
 Text Label 5250 4000 2    50   ~ 10
 AD8302_VMAG
 NoConn ~ 5250 4200
+Wire Wire Line
+	1350 6800 1350 7000
+Wire Wire Line
+	1550 6800 1450 6800
+Wire Wire Line
+	1450 6800 1450 6900
+Wire Wire Line
+	1450 6900 1150 6900
 $EndSCHEMATC
