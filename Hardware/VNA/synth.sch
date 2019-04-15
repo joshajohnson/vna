@@ -942,7 +942,7 @@ Wire Wire Line
 Wire Wire Line
 	7100 4650 7100 5250
 Wire Wire Line
-	8550 4300 9000 4300
+	8550 4300 8850 4300
 $Comp
 L power:GND #PWR0124
 U 1 1 5CB860A2
@@ -962,4 +962,20 @@ Wire Notes Line
 	9100 5400 6600 5400
 Text Notes 8000 5150 0    50   ~ 10
 DNP allow for ADF4351\nto replace MAX2871
+$Comp
+L Connector:TestPoint TP11
+U 1 1 5CBE7782
+P 8850 4250
+F 0 "TP11" H 8908 4368 50  0000 L CNN
+F 1 "CP" H 8908 4277 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 9050 4250 50  0001 C CNN
+F 3 "~" H 9050 4250 50  0001 C CNN
+	1    8850 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8850 4250 8850 4300
+Connection ~ 8850 4300
+Wire Wire Line
+	8850 4300 9000 4300
 $EndSCHEMATC
