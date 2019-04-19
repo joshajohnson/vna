@@ -518,19 +518,19 @@ Text Label 3750 2700 0    50   ~ 10
 STATUS_LED_G
 Text Label 2250 4200 2    50   ~ 10
 STATUS_LED_R
-Text Label 2250 5100 2    50   ~ 10
+Text Label 3750 2600 0    50   ~ 10
 FLASH_nHOLD
 Wire Wire Line
 	2300 5100 2250 5100
-Text Label 2250 3600 2    50   ~ 10
+Text Label 2250 3700 2    50   ~ 10
 FLASH_nWP
 Wire Wire Line
 	2300 3600 2250 3600
-Text Label 2250 3700 2    50   ~ 10
+Text Label 3750 2500 0    50   ~ 10
 FLASH_nCS
 Wire Wire Line
 	2300 3700 2250 3700
-Text Label 2250 3400 2    50   ~ 10
+Text Label 3750 2800 0    50   ~ 10
 FLASH_SPI_SCK
 Text HLabel 3750 4700 2    50   Input ~ 10
 SDA
@@ -554,11 +554,11 @@ Wire Wire Line
 	2250 4100 2300 4100
 Wire Wire Line
 	2300 4000 2250 4000
-Text HLabel 3750 3000 2    50   Input ~ 10
+Text HLabel 2250 3900 0    50   Input ~ 10
 MAX2871_SPI_MOSI
-Text HLabel 3750 2900 2    50   Input ~ 10
+Text HLabel 2250 3800 0    50   Input ~ 10
 MAX2871_SPI_MISO
-Text HLabel 3750 2800 2    50   Input ~ 10
+Text HLabel 2250 3400 0    50   Input ~ 10
 MAX2871_SPI_SCK
 Wire Wire Line
 	3700 3000 3750 3000
@@ -566,9 +566,9 @@ Wire Wire Line
 	3700 2900 3750 2900
 Wire Wire Line
 	3700 2800 3750 2800
-Text Label 2250 3900 2    50   ~ 10
+Text Label 3750 3000 0    50   ~ 10
 FLASH_SPI_MOSI
-Text Label 2250 3800 2    50   ~ 10
+Text Label 3750 2900 0    50   ~ 10
 FLASH_SPI_MISO
 Wire Wire Line
 	2300 3900 2250 3900
@@ -817,7 +817,7 @@ Text HLabel 2250 3000 0    50   Input ~ 10
 SDADC_AIN8P
 Text HLabel 2250 3100 0    50   Input ~ 10
 SDADC_AIN7P
-Text HLabel 3750 2600 2    50   Input ~ 10
+Text HLabel 2250 5100 0    50   Input ~ 10
 MAX2871_CE
 Wire Wire Line
 	3750 2600 3700 2600
@@ -827,11 +827,11 @@ Wire Wire Line
 	3700 2400 3750 2400
 Wire Wire Line
 	3700 2300 3750 2300
-Text HLabel 3750 2500 2    50   Input ~ 10
-MAX2871_RF_EN
 Text HLabel 3750 2400 2    50   Input ~ 10
-MAX2871_LD
+MAX2871_RF_EN
 Text HLabel 3750 2300 2    50   Input ~ 10
+MAX2871_LD
+Text HLabel 2250 3600 0    50   Input ~ 10
 MAX2871_LE
 Wire Wire Line
 	3700 5000 3750 5000
@@ -1097,9 +1097,6 @@ F 3 "~" H 2850 1150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 NoConn ~ 2300 2700
-NoConn ~ 3700 3100
-NoConn ~ 3700 3200
-NoConn ~ 3700 3300
 $Comp
 L Device:CP C65
 U 1 1 5CC3A304
@@ -1498,17 +1495,6 @@ Wire Wire Line
 Wire Wire Line
 	2300 4800 2250 4800
 NoConn ~ 2300 4600
-$Comp
-L MCU_ST_STM32F3:STM32F373RCTx U16
-U 1 1 5CB87045
-P 3000 3400
-F 0 "U16" H 2450 5150 50  0000 C CNN
-F 1 "STM32F373RCTx" V 3000 3450 50  0000 C CNN
-F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 2400 1600 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00046749.pdf" H 3000 3400 50  0001 C CNN
-	1    3000 3400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2300 4700 2250 4700
 Wire Wire Line
@@ -1581,4 +1567,54 @@ F 3 "~" H 6500 6800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 6300 6800
+$Comp
+L MCU_ST_STM32F3:STM32F373RCTx U16
+U 1 1 5CB87045
+P 3000 3400
+F 0 "U16" H 2450 5150 50  0000 C CNN
+F 1 "STM32F373RCTx" V 3000 3450 50  0000 C CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 2400 1600 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00046749.pdf" H 3000 3400 50  0001 C CNN
+	1    3000 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP45
+U 1 1 5CBAC71B
+P 4900 3300
+F 0 "TP45" V 4854 3488 50  0000 L CNN
+F 1 "Test3" V 4945 3488 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5100 3300 50  0001 C CNN
+F 3 "~" H 5100 3300 50  0001 C CNN
+	1    4900 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3700 3300 4900 3300
+Wire Wire Line
+	3700 3200 3900 3200
+$Comp
+L Connector:TestPoint TP29
+U 1 1 5CBCBE24
+P 3900 3200
+F 0 "TP29" V 3854 3388 50  0000 L CNN
+F 1 "Test2" V 3945 3388 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 4100 3200 50  0001 C CNN
+F 3 "~" H 4100 3200 50  0001 C CNN
+	1    3900 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3700 3100 4900 3100
+$Comp
+L Connector:TestPoint TP42
+U 1 1 5CBDB702
+P 4900 3100
+F 0 "TP42" V 4854 3288 50  0000 L CNN
+F 1 "Test1" V 4945 3288 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5100 3100 50  0001 C CNN
+F 3 "~" H 5100 3100 50  0001 C CNN
+	1    4900 3100
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

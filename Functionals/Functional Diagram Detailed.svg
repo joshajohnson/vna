@@ -206,7 +206,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.79107744"
-     inkscape:cx="757.76108"
+     inkscape:cx="568.77832"
      inkscape:cy="568.59926"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1-7"
@@ -966,7 +966,7 @@
            x="701.3045"
            y="-71.035072"
            style="stroke-width:0.71868938"
-           id="tspan1567">F = 5 to 1000 HMz</tspan><tspan
+           id="tspan1567">F = 5 to 1000 MHz</tspan><tspan
            sodipodi:role="line"
            x="701.3045"
            y="-62.310223"
@@ -1159,7 +1159,7 @@
            id="tspan14093"
            x="359.46448"
            y="-149.88695"
-           style="stroke-width:0.54530293">30MHz to 1.5GHz VNA</tspan></text>
+           style="stroke-width:0.54530293">30MHz to 1GHz VNA</tspan></text>
       <path
          style="fill:none;stroke:#000000;stroke-width:2.06098755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 135.04902,-175.78102 0.19397,39.28326"
@@ -1660,7 +1660,7 @@
              height="18.961481"
              x="395.6629"
              y="1027.7123" /></flowRegion><flowPara
-           id="flowPara5353"></flowPara></flowRoot>      <text
+           id="flowPara5353" /></flowRoot>      <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10.17898846px;line-height:1em;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54530293"
          x="76.842239"
