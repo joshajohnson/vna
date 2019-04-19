@@ -14,7 +14,7 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 1550 4000 0    50   Input ~ 10
+Text HLabel 1550 4000 0    50   Input ~ 0
 RF_THROUGH
 Wire Wire Line
 	1900 5000 1800 5000
@@ -31,7 +31,7 @@ Wire Wire Line
 Wire Wire Line
 	1800 5000 1550 5000
 Connection ~ 1800 5000
-Text HLabel 1550 5000 0    50   Input ~ 10
+Text HLabel 1550 5000 0    50   Input ~ 0
 RF_REVERSE
 Wire Wire Line
 	1900 4000 1800 4000
@@ -48,14 +48,14 @@ Wire Wire Line
 Wire Wire Line
 	1800 4000 1550 4000
 Connection ~ 1800 4000
-Text Notes 1900 4450 0    50   ~ 10
+Text Notes 1900 4450 0    50   ~ 0
 -21 dB
 Wire Wire Line
 	4150 4150 2700 4150
 Connection ~ 2300 4000
-Text HLabel 3150 4350 0    50   Input ~ 10
+Text HLabel 3150 4350 0    50   Input ~ 0
 CTRL_1
-Text HLabel 3150 4450 0    50   Input ~ 10
+Text HLabel 3150 4450 0    50   Input ~ 0
 CTRL_2
 Wire Wire Line
 	5600 5100 5600 5050
@@ -106,7 +106,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 5150 5600 5100
 Connection ~ 5600 5100
-Text HLabel 1550 3000 0    50   Input ~ 10
+Text HLabel 1550 3000 0    50   Input ~ 0
 RF_FORWARD
 Wire Wire Line
 	1900 3000 1800 3000
@@ -128,13 +128,13 @@ Wire Wire Line
 Wire Wire Line
 	4900 3350 4900 3500
 Connection ~ 4900 3500
-Text HLabel 9800 2950 2    50   Output ~ 10
+Text HLabel 9800 2950 2    50   Output ~ 0
 VMAG
-Text HLabel 9800 3400 2    50   Output ~ 10
+Text HLabel 9800 3400 2    50   Output ~ 0
 VREF
-Text HLabel 9800 3600 2    50   Output ~ 10
+Text HLabel 9800 3600 2    50   Output ~ 0
 VPHS
-Text HLabel 4900 3350 1    50   Input ~ 10
+Text HLabel 4900 3350 1    50   Input ~ 0
 3V3A
 Wire Wire Line
 	8200 4250 8200 4350
@@ -240,7 +240,7 @@ Connection ~ 6800 4000
 Connection ~ 6800 3000
 Wire Wire Line
 	2300 3000 6800 3000
-Text HLabel 8100 2200 1    50   Input ~ 10
+Text HLabel 8100 2200 1    50   Input ~ 0
 3V3A
 Wire Wire Line
 	8100 2200 8100 2350
@@ -263,11 +263,11 @@ Wire Wire Line
 Connection ~ 8550 2700
 Wire Wire Line
 	8550 2700 8550 2850
-Text Notes 4250 2800 0    100  ~ 20
+Text Notes 4250 2800 0    100  ~ 0
 Path Select
-Text Notes 7400 1800 0    100  ~ 20
+Text Notes 7400 1800 0    100  ~ 0
 AD8302 Gain Phase Detector
-Text Notes 1900 5500 0    50   ~ 10
+Text Notes 1900 5500 0    50   ~ 0
 -6 dB
 $Comp
 L Device:R R37
@@ -913,7 +913,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 4000 6800 4000
 Connection ~ 2300 3000
-Text Notes 3900 5100 0    50   ~ 10
+Text Notes 3900 5100 0    50   ~ 0
 Sets two \nwire ctrl
 Wire Wire Line
 	4900 3500 4900 3800

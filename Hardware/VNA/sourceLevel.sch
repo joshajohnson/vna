@@ -66,7 +66,7 @@ Wire Wire Line
 Wire Wire Line
 	4050 1950 4050 2300
 Connection ~ 4050 2300
-Text Notes 2750 850  0    100  ~ 20
+Text Notes 2750 850  0    100  ~ 0
 Programmable Attenuator
 Wire Wire Line
 	2500 2900 2800 2900
@@ -117,7 +117,7 @@ Wire Wire Line
 	3250 4300 3350 4300
 Wire Wire Line
 	4400 2900 5000 2900
-Text HLabel 2500 2900 0    50   Input ~ 10
+Text HLabel 2500 2900 0    50   Input ~ 0
 RF_IN
 Wire Wire Line
 	4450 5200 4450 5300
@@ -336,7 +336,7 @@ Wire Wire Line
 Connection ~ 4350 6100
 Wire Wire Line
 	4850 6100 5050 6100
-Text Notes 2900 4900 0    100  ~ 20
+Text Notes 2900 4900 0    100  ~ 0
 Power Detector\n
 $Comp
 L Device:C C41
@@ -398,13 +398,13 @@ Wire Wire Line
 Connection ~ 5150 5700
 Wire Wire Line
 	5150 5700 5150 5750
-Text HLabel 2450 5200 0    50   Input ~ 10
+Text HLabel 2450 5200 0    50   Input ~ 0
 RF_PWR_IN
-Text HLabel 5250 6100 2    50   Output ~ 10
+Text HLabel 5250 6100 2    50   Output ~ 0
 PWR_LEVEL
-Text HLabel 3600 1750 1    50   Input ~ 10
+Text HLabel 3600 1750 1    50   Input ~ 0
 3V3A
-Text HLabel 4650 5350 1    50   Input ~ 10
+Text HLabel 4650 5350 1    50   Input ~ 0
 3V3A
 $Comp
 L Connector:TestPoint TP16
@@ -501,13 +501,13 @@ Wire Wire Line
 Connection ~ 2350 3800
 Wire Wire Line
 	2350 3800 2350 3850
-Text HLabel 2750 3250 0    50   Input ~ 10
+Text HLabel 2750 3250 0    50   Input ~ 0
 SDI
-Text HLabel 2750 3150 0    50   Input ~ 10
+Text HLabel 2750 3150 0    50   Input ~ 0
 CLK
-Text HLabel 2750 3450 0    50   Input ~ 10
+Text HLabel 2750 3450 0    50   Input ~ 0
 LE
-Text HLabel 2350 3400 1    50   Input ~ 10
+Text HLabel 2350 3400 1    50   Input ~ 0
 3V3A
 Wire Wire Line
 	3950 4300 3950 4350
@@ -519,7 +519,7 @@ NoConn ~ 4400 3800
 NoConn ~ 4400 3900
 Wire Wire Line
 	2800 3350 2750 3350
-Text HLabel 2750 3350 0    50   Input ~ 10
+Text HLabel 2750 3350 0    50   Input ~ 0
 SDO
 Wire Wire Line
 	4400 3150 4550 3150
@@ -541,13 +541,13 @@ F 3 "" H 4550 3300 50  0001 C CNN
 	1    4550 3300
 	1    0    0    -1  
 $EndComp
-Text Notes 4600 3300 0    50   ~ 10
+Text Notes 4600 3300 0    50   ~ 0
 Sets init state \nto full attenuation
 Wire Wire Line
 	5950 3200 6000 3200
 Wire Wire Line
 	7200 1650 7200 1700
-Text HLabel 5950 3200 0    50   Input ~ 10
+Text HLabel 5950 3200 0    50   Input ~ 0
 PWRDN
 Wire Wire Line
 	7250 3300 7250 3200
@@ -566,9 +566,9 @@ Wire Wire Line
 	7250 3200 7150 3200
 Wire Wire Line
 	6800 3800 6800 3700
-Text HLabel 7600 1350 1    50   Input ~ 10
+Text HLabel 7600 1350 1    50   Input ~ 0
 5V0
-Text HLabel 5850 1950 1    50   Input ~ 10
+Text HLabel 5850 1950 1    50   Input ~ 0
 5V0
 Wire Wire Line
 	7200 2350 7200 2400
@@ -658,9 +658,9 @@ Wire Wire Line
 	7550 1650 7600 1650
 Wire Wire Line
 	7600 1650 7600 1700
-Text Notes 5400 1000 0    100  ~ 20
+Text Notes 5400 1000 0    100  ~ 0
 Amplifier \n(Gain = 12dB P1dB = +18dBm IP3 = +32.5dBm)  
-Text HLabel 8000 2900 2    50   Input ~ 10
+Text HLabel 8000 2900 2    50   Input ~ 0
 RF_OUT
 Wire Wire Line
 	5300 2900 6000 2900
@@ -743,7 +743,7 @@ F 3 "" H 6800 3300 50  0001 C CNN
 	1    6550 3050
 	1    0    0    -1  
 $EndComp
-Text HLabel 5750 4650 3    50   Input ~ 10
+Text HLabel 5750 4650 3    50   Input ~ 0
 PWRDN
 Wire Wire Line
 	5750 4300 5750 4250
@@ -775,7 +775,7 @@ F 3 "~" H 5750 4100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5750 4600 5750 4650
-Text HLabel 5750 3900 1    50   Input ~ 10
+Text HLabel 5750 3900 1    50   Input ~ 0
 3V3A
 Wire Wire Line
 	5750 3900 5750 3950

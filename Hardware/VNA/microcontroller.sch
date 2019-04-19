@@ -49,7 +49,7 @@ F 3 "~" H 650 1300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	650  1450 650  1500
-Text HLabel 650  1100 1    50   Input ~ 10
+Text HLabel 650  1100 1    50   Input ~ 0
 3V3
 Wire Wire Line
 	650  1100 650  1150
@@ -71,7 +71,7 @@ Wire Wire Line
 Connection ~ 650  1500
 Wire Wire Line
 	650  1500 650  1550
-Text Label 800  1500 0    50   ~ 10
+Text Label 800  1500 0    50   ~ 0
 BOOT0
 Wire Wire Line
 	650  7450 650  7500
@@ -410,9 +410,9 @@ F 3 "~" H 1450 1600 50  0001 C CNN
 	1    1450 1400
 	1    0    0    -1  
 $EndComp
-Text HLabel 2000 1400 2    50   Input ~ 10
+Text HLabel 2000 1400 2    50   Input ~ 0
 nRST
-Text HLabel 6000 1650 1    50   Input ~ 10
+Text HLabel 6000 1650 1    50   Input ~ 0
 3V3
 $Comp
 L Device:C C73
@@ -472,19 +472,19 @@ F 3 "" H 6000 3050 50  0001 C CNN
 	1    6000 3050
 	1    0    0    -1  
 $EndComp
-Text Label 6650 2300 0    50   ~ 10
+Text Label 6650 2300 0    50   ~ 0
 FLASH_SPI_MISO
-Text Label 5350 2300 2    50   ~ 10
+Text Label 5350 2300 2    50   ~ 0
 FLASH_SPI_MOSI
-Text Label 5350 2400 2    50   ~ 10
+Text Label 5350 2400 2    50   ~ 0
 FLASH_SPI_SCK
-Text Label 5350 2500 2    50   ~ 10
+Text Label 5350 2500 2    50   ~ 0
 FLASH_nCS
-Text Label 5350 2600 2    50   ~ 10
+Text Label 5350 2600 2    50   ~ 0
 FLASH_nWP
-Text Label 5350 2700 2    50   ~ 10
+Text Label 5350 2700 2    50   ~ 0
 FLASH_nHOLD
-Text Notes 5700 1350 0    100  ~ 20
+Text Notes 5700 1350 0    100  ~ 0
 SPI Flash
 Wire Wire Line
 	5850 4600 5700 4600
@@ -496,15 +496,15 @@ Wire Wire Line
 	6250 4600 6300 4600
 Wire Wire Line
 	6250 4800 6300 4800
-Text HLabel 5700 4450 1    50   Input ~ 10
+Text HLabel 5700 4450 1    50   Input ~ 0
 3V3
-Text Label 6300 4400 0    50   ~ 10
+Text Label 6300 4400 0    50   ~ 0
 STATUS_LED_R
-Text Label 6300 4600 0    50   ~ 10
+Text Label 6300 4600 0    50   ~ 0
 STATUS_LED_G
-Text Label 6300 4800 0    50   ~ 10
+Text Label 6300 4800 0    50   ~ 0
 STATUS_LED_B
-Text Notes 5700 4000 0    100  ~ 20
+Text Notes 5700 4000 0    100  ~ 0
 Status LED
 Wire Wire Line
 	2300 4400 2250 4400
@@ -512,53 +512,53 @@ Wire Wire Line
 	2250 4200 2300 4200
 Wire Wire Line
 	3750 2700 3700 2700
-Text Label 2250 4400 2    50   ~ 10
+Text Label 2250 4400 2    50   ~ 0
 STATUS_LED_B
-Text Label 3750 2700 0    50   ~ 10
+Text Label 3750 2700 0    50   ~ 0
 STATUS_LED_G
-Text Label 2250 4200 2    50   ~ 10
+Text Label 2250 4200 2    50   ~ 0
 STATUS_LED_R
-Text Label 3750 2600 0    50   ~ 10
+Text Label 3750 2600 0    50   ~ 0
 FLASH_nHOLD
 Wire Wire Line
 	2300 5100 2250 5100
-Text Label 2250 3700 2    50   ~ 10
+Text Label 2250 3700 2    50   ~ 0
 FLASH_nWP
 Wire Wire Line
 	2300 3600 2250 3600
-Text Label 3750 2500 0    50   ~ 10
+Text Label 3750 2500 0    50   ~ 0
 FLASH_nCS
 Wire Wire Line
 	2300 3700 2250 3700
-Text Label 3750 2800 0    50   ~ 10
+Text Label 3750 2800 0    50   ~ 0
 FLASH_SPI_SCK
-Text HLabel 3750 4700 2    50   Input ~ 10
+Text HLabel 3750 4700 2    50   Input ~ 0
 SDA
 Wire Wire Line
 	3700 4700 3750 4700
 Wire Wire Line
 	3750 3800 3700 3800
-Text HLabel 2250 1800 0    50   Input ~ 10
+Text HLabel 2250 1800 0    50   Input ~ 0
 nRST
-Text HLabel 4600 3500 2    50   Input ~ 10
+Text HLabel 4600 3500 2    50   Input ~ 0
 USB_DP
-Text HLabel 4600 3400 2    50   Input ~ 10
+Text HLabel 4600 3400 2    50   Input ~ 0
 USB_DM
 Wire Wire Line
 	2300 3400 2250 3400
-Text HLabel 2250 4100 0    50   Input ~ 10
+Text HLabel 2250 4100 0    50   Input ~ 0
 USART1_RX
-Text HLabel 2250 4000 0    50   Input ~ 10
+Text HLabel 2250 4000 0    50   Input ~ 0
 USART1_TX
 Wire Wire Line
 	2250 4100 2300 4100
 Wire Wire Line
 	2300 4000 2250 4000
-Text HLabel 2250 3900 0    50   Input ~ 10
+Text HLabel 2250 3900 0    50   Input ~ 0
 MAX2871_SPI_MOSI
-Text HLabel 2250 3800 0    50   Input ~ 10
+Text HLabel 2250 3800 0    50   Input ~ 0
 MAX2871_SPI_MISO
-Text HLabel 2250 3400 0    50   Input ~ 10
+Text HLabel 2250 3400 0    50   Input ~ 0
 MAX2871_SPI_SCK
 Wire Wire Line
 	3700 3000 3750 3000
@@ -566,9 +566,9 @@ Wire Wire Line
 	3700 2900 3750 2900
 Wire Wire Line
 	3700 2800 3750 2800
-Text Label 3750 3000 0    50   ~ 10
+Text Label 3750 3000 0    50   ~ 0
 FLASH_SPI_MOSI
-Text Label 3750 2900 0    50   ~ 10
+Text Label 3750 2900 0    50   ~ 0
 FLASH_SPI_MISO
 Wire Wire Line
 	2300 3900 2250 3900
@@ -585,7 +585,7 @@ F 3 "~" H 1450 1600 50  0001 C CNN
 	1    1450 1600
 	0    1    1    0   
 $EndComp
-Text HLabel 2800 1500 0    50   Input ~ 10
+Text HLabel 2800 1500 0    50   Input ~ 0
 3V3
 Connection ~ 3100 1500
 Wire Wire Line
@@ -638,7 +638,7 @@ Wire Wire Line
 	2200 2300 2200 2250
 Wire Wire Line
 	2300 2300 2200 2300
-Text HLabel 2600 1150 0    50   Input ~ 10
+Text HLabel 2600 1150 0    50   Input ~ 0
 3V3A
 Wire Wire Line
 	2600 1150 2700 1150
@@ -680,7 +680,7 @@ F 3 "" H 3100 1450 50  0001 C CNN
 	1    3100 1450
 	1    0    0    -1  
 $EndComp
-Text Label 2250 2000 2    50   ~ 10
+Text Label 2250 2000 2    50   ~ 0
 BOOT0
 Wire Wire Line
 	2300 2000 2250 2000
@@ -690,7 +690,7 @@ Wire Wire Line
 	1750 2750 1750 2600
 Wire Wire Line
 	1700 2750 1750 2750
-Connection ~ 1050 2750
+Connection ~ 050 2750
 Wire Wire Line
 	1400 2750 1050 2750
 $Comp
@@ -704,9 +704,9 @@ F 3 "~" H 1550 2750 50  0001 C CNN
 	1    1550 2750
 	0    1    1    0   
 $EndComp
-Text Notes 1250 2350 0    50   ~ 10
+Text Notes 1250 2350 0    50   ~ 0
 HSE
-Connection ~ 1050 2350
+Connection ~ 050 2350
 Wire Wire Line
 	1750 2350 1050 2350
 Wire Wire Line
@@ -797,7 +797,7 @@ Wire Wire Line
 	3000 5350 3100 5350
 Wire Wire Line
 	3000 5300 3000 5350
-Text HLabel 3750 4000 2    50   Input ~ 10
+Text HLabel 3750 4000 2    50   Input ~ 0
 SDADC_AIN6P
 Wire Wire Line
 	3750 4000 3700 4000
@@ -809,15 +809,15 @@ Wire Wire Line
 	2300 3000 2250 3000
 Wire Wire Line
 	2250 3100 2300 3100
-Text HLabel 3750 4100 2    50   Input ~ 10
+Text HLabel 3750 4100 2    50   Input ~ 0
 SDADC_AIN5P
-Text HLabel 3750 4200 2    50   Input ~ 10
+Text HLabel 3750 4200 2    50   Input ~ 0
 SDADC_AIN4P
-Text HLabel 2250 3000 0    50   Input ~ 10
+Text HLabel 2250 3000 0    50   Input ~ 0
 SDADC_AIN8P
-Text HLabel 2250 3100 0    50   Input ~ 10
+Text HLabel 2250 3100 0    50   Input ~ 0
 SDADC_AIN7P
-Text HLabel 2250 5100 0    50   Input ~ 10
+Text HLabel 2250 5100 0    50   Input ~ 0
 MAX2871_CE
 Wire Wire Line
 	3750 2600 3700 2600
@@ -827,33 +827,33 @@ Wire Wire Line
 	3700 2400 3750 2400
 Wire Wire Line
 	3700 2300 3750 2300
-Text HLabel 3750 2400 2    50   Input ~ 10
+Text HLabel 3750 2400 2    50   Input ~ 0
 MAX2871_RF_EN
-Text HLabel 3750 2300 2    50   Input ~ 10
+Text HLabel 3750 2300 2    50   Input ~ 0
 MAX2871_LD
-Text HLabel 2250 3600 0    50   Input ~ 10
+Text HLabel 2250 3600 0    50   Input ~ 0
 MAX2871_LE
 Wire Wire Line
 	3700 5000 3750 5000
 Wire Wire Line
 	3700 5100 3750 5100
-Text HLabel 3750 5000 2    50   Input ~ 10
+Text HLabel 3750 5000 2    50   Input ~ 0
 INPUT_SW_1
-Text HLabel 3750 5100 2    50   Input ~ 10
+Text HLabel 3750 5100 2    50   Input ~ 0
 INPUT_SW_2
-Text HLabel 2250 4900 0    50   Input ~ 10
+Text HLabel 2250 4900 0    50   Input ~ 0
 ATTEN_MOSI
 Wire Wire Line
 	2300 3300 2250 3300
-Text HLabel 2250 5000 0    50   Input ~ 10
+Text HLabel 2250 5000 0    50   Input ~ 0
 ATTEN_CLK
-Text HLabel 2250 4800 0    50   Input ~ 10
+Text HLabel 2250 4800 0    50   Input ~ 0
 ATTEN_LE
-Text HLabel 2250 3300 0    50   Input ~ 10
+Text HLabel 2250 3300 0    50   Input ~ 0
 PA_PWRDN
-Text HLabel 3750 4800 2    50   Input ~ 10
+Text HLabel 3750 4800 2    50   Input ~ 0
 FILTER_SW_1
-Text HLabel 3750 4900 2    50   Input ~ 10
+Text HLabel 3750 4900 2    50   Input ~ 0
 FILTER_SW_2
 Wire Wire Line
 	3700 4800 3750 4800
@@ -1009,7 +1009,7 @@ F 3 "~" H 4650 4750 50  0001 C CNN
 	1    4650 4750
 	0    1    1    0   
 $EndComp
-Text Notes 4500 3950 0    100  ~ 20
+Text Notes 4500 3950 0    100  ~ 0
 Debug LEDs
 $Comp
 L power:GND #PWR098
@@ -1071,17 +1071,17 @@ Wire Wire Line
 	1250 4100 1250 4300
 Wire Wire Line
 	1250 4300 1500 4300
-Text Notes 650  3900 0    100  ~ 20
+Text Notes 650  3900 0    100  ~ 0
 For Testing
 Wire Wire Line
 	3700 3600 3750 3600
 Wire Wire Line
 	3700 3700 3750 3700
-Text HLabel 3750 3600 2    50   Input ~ 10
+Text HLabel 3750 3600 2    50   Input ~ 0
 SWD_IO
-Text HLabel 3750 3700 2    50   Input ~ 10
+Text HLabel 3750 3700 2    50   Input ~ 0
 SWD_CLK
-Text HLabel 3750 3800 2    50   Input ~ 10
+Text HLabel 3750 3800 2    50   Input ~ 0
 SCL
 $Comp
 L VNA_Symbols:Ferrite_Bead_PWR FB?
@@ -1130,7 +1130,7 @@ F 3 "~" H 4500 3650 50  0001 C CNN
 	1    4500 3650
 	0    1    1    0   
 $EndComp
-Text HLabel 4750 3650 2    50   Input ~ 10
+Text HLabel 4750 3650 2    50   Input ~ 0
 3V3
 $Comp
 L Device:R R56
@@ -1171,41 +1171,41 @@ Wire Wire Line
 	4300 3500 4600 3500
 Wire Wire Line
 	4650 3650 4750 3650
-Text Label 8600 2400 2    50   ~ 10
+Text Label 8600 2400 2    50   ~ 0
 FLASH_SPI_MOSI
-Text Label 8600 2600 2    50   ~ 10
+Text Label 8600 2600 2    50   ~ 0
 FLASH_SPI_SCK
-Text Label 8600 2700 2    50   ~ 10
+Text Label 8600 2700 2    50   ~ 0
 FLASH_nCS
-Text Label 8600 2800 2    50   ~ 10
+Text Label 8600 2800 2    50   ~ 0
 FLASH_nWP
-Text Label 8600 2900 2    50   ~ 10
+Text Label 8600 2900 2    50   ~ 0
 FLASH_nHOLD
-Text Label 8600 2500 2    50   ~ 10
+Text Label 8600 2500 2    50   ~ 0
 FLASH_SPI_MISO
-Text Notes 8400 2150 0    100  ~ 20
+Text Notes 8400 2150 0    100  ~ 0
 Test Points
-Text HLabel 8600 3050 0    50   Input ~ 10
+Text HLabel 8600 3050 0    50   Input ~ 0
 MAX2871_SPI_MOSI
-Text HLabel 8600 3150 0    50   Input ~ 10
+Text HLabel 8600 3150 0    50   Input ~ 0
 MAX2871_SPI_MISO
-Text HLabel 8600 3250 0    50   Input ~ 10
+Text HLabel 8600 3250 0    50   Input ~ 0
 MAX2871_SPI_SCK
-Text HLabel 8600 3350 0    50   Input ~ 10
+Text HLabel 8600 3350 0    50   Input ~ 0
 MAX2871_CE
-Text HLabel 8600 3450 0    50   Input ~ 10
+Text HLabel 8600 3450 0    50   Input ~ 0
 MAX2871_RF_EN
-Text HLabel 8600 3550 0    50   Input ~ 10
+Text HLabel 8600 3550 0    50   Input ~ 0
 MAX2871_LD
-Text HLabel 8600 3650 0    50   Input ~ 10
+Text HLabel 8600 3650 0    50   Input ~ 0
 MAX2871_LE
-Text HLabel 8550 4000 0    50   Input ~ 10
+Text HLabel 8550 4000 0    50   Input ~ 0
 ATTEN_CLK
-Text HLabel 8550 4100 0    50   Input ~ 10
+Text HLabel 8550 4100 0    50   Input ~ 0
 ATTEN_LE
-Text HLabel 8550 4250 0    50   Input ~ 10
+Text HLabel 8550 4250 0    50   Input ~ 0
 SDA
-Text HLabel 8550 4350 0    50   Input ~ 10
+Text HLabel 8550 4350 0    50   Input ~ 0
 SCL
 $Comp
 L Connector:TestPoint TP20
@@ -1441,7 +1441,7 @@ F 3 "~" H 8850 4350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8650 4350 8550 4350
-Text HLabel 2250 4700 0    50   Input ~ 10
+Text HLabel 2250 4700 0    50   Input ~ 0
 ATTEN_MISO
 Wire Wire Line
 	2250 2800 2300 2800
@@ -1449,9 +1449,9 @@ Wire Wire Line
 	1750 2600 2300 2600
 Wire Wire Line
 	1750 2500 2300 2500
-Text HLabel 8550 3900 0    50   Input ~ 10
+Text HLabel 8550 3900 0    50   Input ~ 0
 ATTEN_MISO
-Text HLabel 8550 3800 0    50   Input ~ 10
+Text HLabel 8550 3800 0    50   Input ~ 0
 ATTEN_MOSI
 $Comp
 L Connector:TestPoint TP44
@@ -1486,7 +1486,7 @@ Wire Wire Line
 Connection ~ 1850 1400
 Wire Wire Line
 	1850 1400 2000 1400
-Text HLabel 1850 1000 1    50   Input ~ 10
+Text HLabel 1850 1000 1    50   Input ~ 0
 3V3
 Wire Wire Line
 	2250 4900 2300 4900
