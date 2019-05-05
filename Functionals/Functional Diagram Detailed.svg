@@ -206,10 +206,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.79107744"
-     inkscape:cx="568.77832"
-     inkscape:cy="568.59926"
+     inkscape:cx="810.39072"
+     inkscape:cy="572.64653"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1-7"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-text-baseline="false"
      inkscape:window-width="1858"
@@ -734,8 +734,8 @@
              y="-111.50758"
              style="font-size:7.23722219px;stroke-width:0.54279166">Control</tspan></text>
         <path
-           style="fill:none;stroke:#000000;stroke-width:0.77395564;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.77395565, 1.5479113;stroke-dashoffset:0;stroke-opacity:1"
-           d="m -267.146,74.589772 c 0,32.540498 0,32.540498 0,32.540498"
+           style="fill:none;stroke:#000000;stroke-width:0.74855101;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.74855103, 1.49710206;stroke-dashoffset:0;stroke-opacity:1"
+           d="m -267.146,74.589772 c 0,30.439318 0,30.439318 0,30.439318"
            id="path12510-7"
            inkscape:connector-curvature="0" />
         <text
@@ -999,7 +999,7 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1.19023979px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:0.72134564;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
          d="M 593.33413,57.20299 718.1375,56.952842"
          id="path13398"
          inkscape:connector-curvature="0"
@@ -1159,7 +1159,7 @@
            id="tspan14093"
            x="359.46448"
            y="-149.88695"
-           style="stroke-width:0.54530293">30MHz to 1GHz VNA</tspan></text>
+           style="stroke-width:0.54530293">25MHz to 1GHz VNA</tspan></text>
       <path
          style="fill:none;stroke:#000000;stroke-width:2.06098755;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 135.04902,-175.78102 0.19397,39.28326"
@@ -1189,7 +1189,7 @@
            id="tspan14107-1"
            x="68.145767"
            y="-144.6463"
-           style="stroke-width:0.54530293">11/04/2019</tspan><tspan
+           style="stroke-width:0.54530293">05/05/2019</tspan><tspan
            sodipodi:role="line"
            x="68.145767"
            y="-142.10155"
@@ -1627,7 +1627,7 @@
            x="169.5497"
            y="185.30185"
            style="stroke-width:0.54530293"
-           id="tspan5306">16bit Delta-Sigma ADC</tspan><tspan
+           id="tspan5306">16bit Sigma-Delta ADC</tspan><tspan
            sodipodi:role="line"
            x="169.5497"
            y="195.48083"
@@ -1800,7 +1800,7 @@
          inkscape:connector-curvature="0"
          id="path2988"
          d="M 0,15 H 30"
-         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:0.54882649;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <path
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"
@@ -1880,7 +1880,7 @@
          inkscape:connector-curvature="0" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.7736727px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.35;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 258.83793,86.701057 66.64621,-0.187381"
        id="path12476"
        inkscape:connector-curvature="0"
@@ -1911,7 +1911,7 @@
          x="126.86253"
          y="69.457077"
          style="font-size:4.64948273px;stroke-width:0.34871119"
-         id="tspan5399">LFCN-225+</tspan><tspan
+         id="tspan5399">LFCN-105+</tspan><tspan
          sodipodi:role="line"
          x="126.86253"
          y="75.616066"
@@ -1927,7 +1927,7 @@
          x="126.76888"
          y="89.387787"
          style="font-size:4.64948273px;stroke-width:0.34871119"
-         id="tspan12650">LFCN-400+</tspan><tspan
+         id="tspan12650">LFCN-225+</tspan><tspan
          sodipodi:role="line"
          x="126.76888"
          y="95.546776"
@@ -1943,7 +1943,7 @@
          id="tspan12602-3-7"
          x="127.23643"
          y="109.1795"
-         style="font-size:4.64948273px;stroke-width:0.34871119">LFCN-1000+</tspan></text>
+         style="font-size:4.64948273px;stroke-width:0.34871119">LFCN-400+</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:13.94844723px;line-height:0.25em;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.34871119"
@@ -1951,10 +1951,10 @@
        y="129.90628"
        id="text12604-2-8"><tspan
          sodipodi:role="line"
-         id="tspan12602-3-71"
          x="125.0547"
          y="129.90628"
-         style="font-size:4.64948273px;stroke-width:0.34871119">LFCN-1500+</tspan></text>
+         style="font-size:4.64948273px;stroke-width:0.34871119"
+         id="tspan1371">LFCN-1000+</tspan></text>
     <g
        id="g1334"
        transform="rotate(90,294.24284,121.4941)">
@@ -2060,7 +2060,7 @@
          inkscape:connector-curvature="0"
          id="path2988-8"
          d="M 0,15 H 30"
-         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:0.54882648;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <path
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"

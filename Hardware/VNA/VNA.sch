@@ -1092,13 +1092,13 @@ F 3 "~" H 4550 6300 50  0001 C CNN
 $EndComp
 Text Notes 4450 5900 0    100  ~ 0
 UART Header
-Text Label 5250 3750 2    50   ~ 0
-UART_TX
 Text Label 5250 3850 2    50   ~ 0
-UART_RX
-Text Label 4800 6400 0    50   ~ 0
 UART_TX
+Text Label 5250 3750 2    50   ~ 0
+UART_RX
 Text Label 4800 6300 0    50   ~ 0
+UART_TX
+Text Label 4800 6400 0    50   ~ 0
 UART_RX
 Wire Wire Line
 	4800 6400 4750 6400
@@ -1198,6 +1198,4 @@ Wire Wire Line
 	1450 6800 1450 6900
 Wire Wire Line
 	1450 6900 1150 6900
-Text Notes 4450 3850 0    50   ~ 0
-NOTE: TX/\nRX swapped
 $EndSCHEMATC

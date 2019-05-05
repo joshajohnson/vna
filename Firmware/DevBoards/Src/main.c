@@ -154,7 +154,6 @@ int main(void)
 
 	if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin))
 	{
-		max2871ChipDisable(&max2871Status);
 		max2871PrintStatus(&max2871Status);
 		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 	}

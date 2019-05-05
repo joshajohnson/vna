@@ -690,7 +690,7 @@ Wire Wire Line
 	1750 2750 1750 2600
 Wire Wire Line
 	1700 2750 1750 2750
-Connection ~ 050 2750
+Connection ~ 50   2750
 Wire Wire Line
 	1400 2750 1050 2750
 $Comp
@@ -706,7 +706,7 @@ F 3 "~" H 1550 2750 50  0001 C CNN
 $EndComp
 Text Notes 1250 2350 0    50   ~ 0
 HSE
-Connection ~ 050 2350
+Connection ~ 50   2350
 Wire Wire Line
 	1750 2350 1050 2350
 Wire Wire Line

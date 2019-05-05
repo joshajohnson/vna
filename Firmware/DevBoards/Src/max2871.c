@@ -38,7 +38,7 @@ void max2871Setup(struct MAX2871Struct *max2871Status)
 		HAL_Delay(20);
 	}
 
-	// Set initial register Values
+	// Set initial register values
 	max2871Set_INT(0); 		// Frac N
 	max2871Set_N(83);		// Init to 50Mhz
 	max2871Set_FRAC(1365);
@@ -54,7 +54,7 @@ void max2871Setup(struct MAX2871Struct *max2871Status)
 	max2871Set_RDIV2(0);
 	max2871Set_R(1); 		// 38.4MHz f_PFD
 	max2871Set_REG4DB(0);
-	max2871Set_CP(0);
+	max2871Set_CP(15);
 	max2871Set_LDF(0);
 	max2871Set_LDP(0);
 	max2871Set_PDP(1);
@@ -72,7 +72,7 @@ void max2871Setup(struct MAX2871Struct *max2871Status)
 	max2871Set_SDDIV(0);
 	max2871Set_SDREF(0);
 	max2871Set_BS(768);		//BS = fPFD / 50KHz
-	max2871Set_FB(0);
+	max2871Set_FB(1);
 	max2871Set_DIVA(6);
 	max2871Set_SDVCO(0);
 	max2871Set_MTLD(1);

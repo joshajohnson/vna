@@ -579,7 +579,7 @@ F 3 "" H 9450 4150 50  0001 C CNN
 	1    9450 4150
 	1    0    0    -1  
 $EndComp
-Connection ~ 0000 4000
+Connection ~ 0    4000
 Wire Wire Line
 	10000 4000 10000 4100
 Wire Wire Line
@@ -750,7 +750,7 @@ Wire Wire Line
 	9600 5100 10300 5100
 Wire Wire Line
 	10000 4400 10000 4600
-Connection ~ 0000 4600
+Connection ~ 0    4600
 Wire Wire Line
 	10000 4600 10300 4600
 Wire Wire Line
