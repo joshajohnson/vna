@@ -72,12 +72,23 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
+#define  FIFO_SIZE 128  // must be 2^N
 
+typedef struct FIFO
+{
+	uint32_t head;
+	uint32_t tail;
+	uint8_t data[FIFO_SIZE];
+	uint8_t dataReady;
+	uint8_t charArray[FIFO_SIZE];
+} FIFO;
+
+extern FIFO RX_FIFO;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#define  FIFO_INCR(x) (((x)+1)&((FIFO_SIZE)-1))
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -144,8 +155,8 @@ void Error_Handler(void);
 #define TEST_POINT_1_GPIO_Port GPIOA
 #define TEST_POINT_2_Pin GPIO_PIN_9
 #define TEST_POINT_2_GPIO_Port GPIOA
-#define TEST_POINT_3_Pin GPIO_PIN_10
-#define TEST_POINT_3_GPIO_Port GPIOA
+#define USB_PULLUP_Pin GPIO_PIN_10
+#define USB_PULLUP_GPIO_Port GPIOA
 #define SWD_IO_Pin GPIO_PIN_13
 #define SWD_IO_GPIO_Port GPIOA
 #define SWD_CLK_Pin GPIO_PIN_14
@@ -158,8 +169,8 @@ void Error_Handler(void);
 #define ATTEN_LE_GPIO_Port GPIOC
 #define PA_PWRDN_Pin GPIO_PIN_2
 #define PA_PWRDN_GPIO_Port GPIOD
-#define LED1_Pin GPIO_PIN_3
-#define LED1_GPIO_Port GPIOB
+#define BROKEN_Pin GPIO_PIN_3
+#define BROKEN_GPIO_Port GPIOB
 #define LED2_Pin GPIO_PIN_4
 #define LED2_GPIO_Port GPIOB
 #define LED3_Pin GPIO_PIN_5

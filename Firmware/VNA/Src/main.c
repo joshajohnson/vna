@@ -60,12 +60,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+FIFO RX_FIFO = {.head = 0, .tail = 0};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -104,6 +104,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
+  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -111,7 +112,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  uint8_t HiMsg[] = "hello\r\n";
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -123,6 +124,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,0);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,1);
   MX_I2C1_Init();
   MX_SPI1_Init();
   MX_SDADC1_Init();
@@ -132,20 +136,23 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,1); // Turn PA off
-
+  HAL_Delay(10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		if (HAL_GPIO_ReadPin(SW_1_GPIO_Port, SW_1_Pin))
+		{
+			CDC_Transmit_FS(HiMsg, strlen(HiMsg));
+			HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
+			HAL_Delay(500);
+		}
+
+
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-	  HAL_Delay(500);
-	  HAL_GPIO_TogglePin(LED3_GPIO_Port,LED3_Pin);
-	  HAL_Delay(500);
-	  HAL_GPIO_TogglePin(LED4_GPIO_Port,LED4_Pin);
-	  HAL_Delay(500);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -161,7 +168,7 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-  /**Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -175,7 +182,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /**Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks 
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;

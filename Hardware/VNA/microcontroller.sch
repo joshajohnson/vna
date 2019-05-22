@@ -690,7 +690,6 @@ Wire Wire Line
 	1750 2750 1750 2600
 Wire Wire Line
 	1700 2750 1750 2750
-Connection ~ 50   2750
 Wire Wire Line
 	1400 2750 1050 2750
 $Comp
@@ -706,7 +705,6 @@ F 3 "~" H 1550 2750 50  0001 C CNN
 $EndComp
 Text Notes 1250 2350 0    50   ~ 0
 HSE
-Connection ~ 50   2350
 Wire Wire Line
 	1750 2350 1050 2350
 Wire Wire Line
@@ -1011,17 +1009,6 @@ F 3 "~" H 4650 4750 50  0001 C CNN
 $EndComp
 Text Notes 4500 3950 0    100  ~ 0
 Debug LEDs
-$Comp
-L power:GND #PWR098
-U 1 1 5CED3E6F
-P 650 4150
-F 0 "#PWR098" H 650 3900 50  0001 C CNN
-F 1 "GND" H 655 3977 50  0000 C CNN
-F 2 "" H 650 4150 50  0001 C CNN
-F 3 "" H 650 4150 50  0001 C CNN
-	1    650  4150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	700  4100 650  4100
 $Comp
@@ -1035,21 +1022,6 @@ F 3 "~" H 900 4700 50  0001 C CNN
 	1    900  4500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	650  4100 650  4150
-$Comp
-L power:GND #PWR099
-U 1 1 5CEF0A31
-P 650 4550
-F 0 "#PWR099" H 650 4300 50  0001 C CNN
-F 1 "GND" H 655 4377 50  0000 C CNN
-F 2 "" H 650 4550 50  0001 C CNN
-F 3 "" H 650 4550 50  0001 C CNN
-	1    650  4550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	700  4500 650  4500
 $Comp
 L Switch:SW_Push SW2
 U 1 1 5CEF0A38
@@ -1062,8 +1034,6 @@ F 3 "~" H 900 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	650  4500 650  4550
-Wire Wire Line
 	1100 4500 1200 4500
 Wire Wire Line
 	1100 4100 1250 4100
@@ -1071,7 +1041,7 @@ Wire Wire Line
 	1250 4100 1250 4300
 Wire Wire Line
 	1250 4300 1500 4300
-Text Notes 650  3900 0    100  ~ 0
+Text Notes 525  3825 0    100  ~ 0
 For Testing
 Wire Wire Line
 	3700 3600 3750 3600
@@ -1130,8 +1100,6 @@ F 3 "~" H 4500 3650 50  0001 C CNN
 	1    4500 3650
 	0    1    1    0   
 $EndComp
-Text HLabel 4750 3650 2    50   Input ~ 0
-3V3
 $Comp
 L Device:R R56
 U 1 1 5CC4EB0A
@@ -1169,8 +1137,6 @@ Wire Wire Line
 Connection ~ 4300 3500
 Wire Wire Line
 	4300 3500 4600 3500
-Wire Wire Line
-	4650 3650 4750 3650
 Text Label 8600 2400 2    50   ~ 0
 FLASH_SPI_MOSI
 Text Label 8600 2600 2    50   ~ 0
@@ -1578,19 +1544,6 @@ F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/da
 	1    3000 3400
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:TestPoint TP45
-U 1 1 5CBAC71B
-P 4900 3300
-F 0 "TP45" V 4854 3488 50  0000 L CNN
-F 1 "Test3" V 4945 3488 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5100 3300 50  0001 C CNN
-F 3 "~" H 5100 3300 50  0001 C CNN
-	1    4900 3300
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3700 3300 4900 3300
 Wire Wire Line
 	3700 3200 3900 3200
 $Comp
@@ -1617,4 +1570,21 @@ F 3 "~" H 5100 3100 50  0001 C CNN
 	1    4900 3100
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	700  4500 650  4500
+Wire Wire Line
+	650  4500 650  4100
+Connection ~ 650  4100
+Wire Wire Line
+	650  4100 650  4050
+Text HLabel 650  4050 1    50   Input ~ 0
+3V3
+Wire Wire Line
+	5100 3650 5100 3300
+Wire Wire Line
+	4650 3650 5100 3650
+Wire Wire Line
+	3700 3300 5100 3300
+Text Notes 5125 3525 0    50   ~ 0
+Used to fix enumeration \n'feature' in windows
 $EndSCHEMATC

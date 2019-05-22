@@ -2,10 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Enable" key="selection"/>
+		<item value="usbd_cdc" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="USBD_SetupReqTypedef"/>
+			<item value="USBD_CDC_Init"/>
+			<item value="hcdc-&gt;TxState"/>
 			<item value="enable"/>
 		</list>
 		<list key="replacehistory">
