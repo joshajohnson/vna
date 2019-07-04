@@ -1,0 +1,35 @@
+#include "main.h"
+#include "txChain.h"
+#include "max2871.h"
+#include "dwt_stm32_delay.h"
+#include "usbd_cdc_if.h"
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+
+void statusFucked(int8_t *str)
+{
+	CDC_Transmit_FS(str, strlen(str));
+	DWT_Delay_us(100);
+
+	HAL_GPIO_WRITE(STATUS_LED_R_GPIO_Port,STATUS_LED_R_GPIO_Port,0);
+	HAL_GPIO_WRITE(STATUS_LED_G_GPIO_Port,STATUS_LED_G_GPIO_Port,1);
+	HAL_GPIO_WRITE(STATUS_LED_B_GPIO_Port,STATUS_LED_B_GPIO_Port,1);
+}
+
+void statusThinking(int8_t *str)
+{
+	CDC_Transmit_FS(str, strlen(str));
+	DWT_Delay_us(100);
+
+	HAL_GPIO_WRITE(STATUS_LED_R_GPIO_Port,STATUS_LED_R_GPIO_Port,1);
+	HAL_GPIO_WRITE(STATUS_LED_G_GPIO_Port,STATUS_LED_G_GPIO_Port,1);
+	HAL_GPIO_WRITE(STATUS_LED_B_GPIO_Port,STATUS_LED_B_GPIO_Port,0);
+}
+
+void statusNominal(void)
+{
+	HAL_GPIO_WRITE(STATUS_LED_R_GPIO_Port,STATUS_LED_R_GPIO_Port,1);
+	HAL_GPIO_WRITE(STATUS_LED_G_GPIO_Port,STATUS_LED_G_GPIO_Port,0);
+	HAL_GPIO_WRITE(STATUS_LED_B_GPIO_Port,STATUS_LED_B_GPIO_Port,1);
+}

@@ -937,17 +937,6 @@ Text Label 5250 4400 2    50   ~ 0
 AD8302_VREF
 Text Label 5250 4300 2    50   ~ 0
 AD8302_VPHASE
-$Comp
-L VNA_Symbols:Ferrite_Bead_PWR FB1
-U 1 1 5CC56F48
-P 2100 3900
-F 0 "FB1" V 2050 3750 50  0000 C CNN
-F 1 "Bead" V 2150 4050 50  0000 C CNN
-F 2 "VNA_Footprints:BEADC1608X95N" V 2030 3900 50  0001 C CNN
-F 3 "~" H 2100 3900 50  0001 C CNN
-	1    2100 3900
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	2500 3900 2700 3900
 Wire Notes Line
@@ -1056,17 +1045,6 @@ F 3 "" H 6200 7500 50  0001 C CNN
 $EndComp
 Text Notes 5500 6650 0    100  ~ 0
 Mounting Holes
-$Comp
-L VNA_Symbols:Ferrite_Bead_PWR FB6
-U 1 1 5CB8C1DA
-P 1650 5950
-F 0 "FB6" V 1700 6050 50  0000 C CNN
-F 1 "Bead" V 1600 5800 50  0000 C CNN
-F 2 "VNA_Footprints:BEADC1608X95N" V 1580 5950 50  0001 C CNN
-F 3 "~" H 1650 5950 50  0001 C CNN
-	1    1650 5950
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	1800 5950 2050 5950
 Wire Wire Line
@@ -1200,4 +1178,26 @@ Wire Wire Line
 	1450 6900 1150 6900
 Text Notes 4450 3850 0    50   ~ 0
 NOTE: TX/\nRX swapped
+$Comp
+L VNA_Symbols:Ferrite_Bead_PWR FB2
+U 1 1 5D192DD5
+P 2100 3900
+F 0 "FB2" V 2050 3775 50  0000 C CNN
+F 1 "600R" V 2150 4050 50  0000 C CNN
+F 2 "" V 2030 3900 50  0001 C CNN
+F 3 "~" H 2100 3900 50  0001 C CNN
+	1    2100 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L VNA_Symbols:Ferrite_Bead_PWR FB1
+U 1 1 5D19418B
+P 1650 5950
+F 0 "FB1" V 1600 5825 50  0000 C CNN
+F 1 "600R" V 1700 6100 50  0000 C CNN
+F 2 "" V 1580 5950 50  0001 C CNN
+F 3 "~" H 1650 5950 50  0001 C CNN
+	1    1650 5950
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

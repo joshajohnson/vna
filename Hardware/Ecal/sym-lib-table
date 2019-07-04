@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name VNA_Symbols)(type Legacy)(uri C:/Users/jonno/Dropbox/ENGN4200/vna/Hardware/Libraries/VNA_Symbols/VNA_Symbols.lib)(options "")(descr ""))
+  (lib (name Ecal-rescue)(type Legacy)(uri ${KIPRJMOD}/Ecal-rescue.lib)(options "")(descr ""))
+)

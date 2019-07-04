@@ -28,9 +28,9 @@
 		<item value="377" key="DIALOG_HEIGHT"/>
 	</section>
 	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
-		<item value="1364" key="DIALOG_WIDTH"/>
+		<item value="872" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="ilg.gnumcueclipse.debug.gdbjtag.jlink.launchConfigurationType, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
+		<item value="ilg.gnumcueclipse.debug.gdbjtag.jlink.launchConfigurationType, fr.ac6.mcu.debug.config.launchConfigurationType, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
 		<item value="685" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
 		<item value="1080" key="DIALOG_HEIGHT"/>
 		<item value="314" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>

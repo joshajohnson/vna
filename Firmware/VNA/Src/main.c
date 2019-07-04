@@ -53,19 +53,31 @@
 #include "i2c.h"
 #include "sdadc.h"
 #include "spi.h"
-#include "tim.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <string.h>
 #include "usbd_cdc_if.h"
+#include "dwt_stm32_delay.h"
+#include "debug.h"
+#include "errorHandling.h"
+#include "max2871_registers.h"
+#include "max2871.h"
+#include "txChain.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 FIFO RX_FIFO = {.head = 0, .tail = 0};
+
+extern struct MAX2871Struct max2871Status;
+extern struct txStruct txStatus;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -112,7 +124,6 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  uint8_t HiMsg[] = "hello\r\n";
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -124,32 +135,65 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,0);
-  HAL_Delay(100);
-  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,1);
   MX_I2C1_Init();
   MX_SPI1_Init();
   MX_SDADC1_Init();
   MX_USART1_UART_Init();
-  MX_TIM3_Init();
   MX_SPI2_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,1); // Turn PA off
-  HAL_Delay(10);
+  DWT_Delay_Init();
+  // Ensure status LED starts OFF
+  statusThinking((uint8_t *) "\033[2J"); // User will not see this, just setting LEDs
+  // Cycle USB_PU to ensure re-enumeration on soft restart
+  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,0);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,1);
+  HAL_Delay(100);
+
+
+  // Clear UART terminal, then print status
+  printUSB((uint8_t *) "\033[2J");
+
+  // Calibrate SDADC
+  if (HAL_SDADC_CalibrationStart(&hsdadc1,SDADC_CALIBRATION_SEQ_2) != HAL_OK)
+  {
+	  statusFucked((uint8_t *)"SDADC Cal could not begin\r\n");
+	  while (1);
+  }
+
+  while (HAL_SDADC_PollForCalibEvent(&hsdadc1, HAL_MAX_DELAY) != HAL_OK)
+  {
+	  statusThinking((uint8_t *)"Calibrating ADC");
+	  DWT_Delay_us(100);
+  }
+
+  // Start SDADC
+  HAL_SDADC_InjectedStart(&hsdadc1);
+
+  // Init TX Chain
+  txChainInit(&max2871Status, &txStatus);
+
+  statusNominal((uint8_t *) "Init Complete /r/n");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		if (HAL_GPIO_ReadPin(SW_1_GPIO_Port, SW_1_Pin))
-		{
-			CDC_Transmit_FS(HiMsg, strlen(HiMsg));
-			HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-			HAL_Delay(500);
-		}
 
+	  if (HAL_GPIO_ReadPin(SW_1_GPIO_Port, SW_1_Pin))
+	  {
+		  sweep(25,1000,100,-10,5, &max2871Status, &txStatus);
+	  }
+
+	  if (HAL_GPIO_ReadPin(SW_2_GPIO_Port, SW_2_Pin))
+	  {
+		  HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,0);
+		  HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,1);
+		  HAL_GPIO_WritePin(STATUS_LED_B_GPIO_Port,STATUS_LED_B_Pin,1);
+	  }
 
     /* USER CODE END WHILE */
 

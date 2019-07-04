@@ -1,4 +1,4 @@
-(module MicroUSB_Aliexpress (layer F.Cu) (tedit 5C300721)
+(module MicroUSB_Aliexpress (layer F.Cu) (tedit 5CFC85C1)
   (fp_text reference J1 (at 6.55 -2.75) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )

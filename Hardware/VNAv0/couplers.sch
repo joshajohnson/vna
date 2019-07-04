@@ -14,17 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L VNA_Symbols:ADC-15-4+ HY1
-U 1 1 5C294AFE
-P 4050 1900
-F 0 "HY1" H 3700 2050 50  0000 C CNN
-F 1 "ADC-15-4+" H 3850 1950 50  0000 C CNN
-F 2 "VNA_Footprints:CD542" H 4050 1900 50  0001 C CNN
-F 3 "" H 4050 1900 50  0001 C CNN
-	1    4050 1900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3000 1950 3400 1950
 NoConn ~ 4800 2050
@@ -69,17 +58,6 @@ Wire Wire Line
 	3300 2150 3300 2250
 Text Notes 3500 1650 0    100  ~ 0
 Forward Coupler
-$Comp
-L VNA_Symbols:ADC-15-4+ HY2
-U 1 1 5CC49764
-P 6900 1900
-F 0 "HY2" H 7350 2050 50  0000 C CNN
-F 1 "ADC-15-4+" H 7200 1950 50  0000 C CNN
-F 2 "VNA_Footprints:CD542" H 6900 1900 50  0001 C CNN
-F 3 "" H 6900 1900 50  0001 C CNN
-	1    6900 1900
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	8500 1950 7550 1950
 NoConn ~ 6150 2050
@@ -144,4 +122,26 @@ Text HLabel 3000 1950 0    50   Input ~ 0
 RF_IN
 Text HLabel 8500 1950 2    50   Input ~ 0
 RF_OUT
+$Comp
+L VNA_Symbols:ADC-15-4+ HY1
+U 1 1 5D1726A9
+P 4050 1900
+F 0 "HY1" H 4100 2075 50  0000 C CNN
+F 1 "ADC-15-4+" H 4100 1984 50  0000 C CNN
+F 2 "" H 4050 1900 50  0001 C CNN
+F 3 "" H 4050 1900 50  0001 C CNN
+	1    4050 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L VNA_Symbols:ADC-15-4+ HY2
+U 1 1 5D173678
+P 6900 1900
+F 0 "HY2" H 6950 2075 50  0000 C CNN
+F 1 "ADC-15-4+" H 6950 1984 50  0000 C CNN
+F 2 "" H 6900 1900 50  0001 C CNN
+F 3 "" H 6900 1900 50  0001 C CNN
+	1    6900 1900
+	-1   0    0    -1  
+$EndComp
 $EndSCHEMATC

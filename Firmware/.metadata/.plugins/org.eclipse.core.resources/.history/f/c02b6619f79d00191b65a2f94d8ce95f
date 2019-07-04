@@ -1,0 +1,16 @@
+///*
+// * SKY12347.h
+// *
+// *  Created on: 3Jul.,2019
+// *      Author: Josh Johnson
+// */
+//
+//#ifndef SKY12347_H_
+//#define SKY12347_H_
+//
+//extern struct gainStruct gainStatus;
+//
+//extern void intToBinArray(uint8_t in, uint8_t* out);
+//extern uint8_t setAttenuation(float atten, struct gainStruct *gainStatus);
+//
+//#endif /* SKY12347_H_ */

@@ -49,7 +49,7 @@
   * @{
   */
 /* USER CODE BEGIN EXPORTED_DEFINES */
- void printUSB(int8_t *str);
+ void printUSB(uint8_t *str);
  uint8_t scanUSB(uint8_t *userBuf, uint8_t buffSize);
 /* USER CODE END EXPORTED_DEFINES */
 

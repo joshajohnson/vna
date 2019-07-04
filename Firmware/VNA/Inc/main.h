@@ -72,8 +72,13 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-#define  FIFO_SIZE 128  // must be 2^N
+#define FRAC_N 		0
+#define INT_N		1
 
+#define nVERBOSE 	0
+#define VERBOSE 	1
+
+#define  FIFO_SIZE 128  // must be 2^N
 typedef struct FIFO
 {
 	uint32_t head;
@@ -133,8 +138,6 @@ void Error_Handler(void);
 #define RF_PWR_LEVEL_GPIO_Port GPIOB
 #define AD8302_VMAG_Pin GPIO_PIN_2
 #define AD8302_VMAG_GPIO_Port GPIOB
-#define AD8302_VREF_Pin GPIO_PIN_8
-#define AD8302_VREF_GPIO_Port GPIOE
 #define AD8302_VPHASE_Pin GPIO_PIN_9
 #define AD8302_VPHASE_GPIO_Port GPIOE
 #define INPUT_SW_1_Pin GPIO_PIN_14

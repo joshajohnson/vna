@@ -321,7 +321,7 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
   *
   * @param  str: string to be send
   */
-void printUSB(int8_t *str)
+void printUSB(uint8_t *str)
 {
 	CDC_Transmit_FS(str, strlen(str));
 	DWT_Delay_us(100);

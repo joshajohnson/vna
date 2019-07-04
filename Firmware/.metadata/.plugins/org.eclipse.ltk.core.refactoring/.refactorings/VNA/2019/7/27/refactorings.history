@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;VNA/Src/errorHandling&apos; to &apos;errorHandling.c&apos;" description="Rename resource &apos;errorHandling&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/errorHandling" name="errorHandling.c" stamp="1562227341473" updateReferences="true"/>
+</session>

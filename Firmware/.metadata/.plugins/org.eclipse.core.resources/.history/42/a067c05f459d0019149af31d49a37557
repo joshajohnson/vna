@@ -1,0 +1,10 @@
+#ifndef TXCHAIN_H_
+#define TXCHAIN_H_
+
+extern struct MAX2871Struct max2871Status;
+int8_t setFilter(float frequency);
+void max2871Sweep(float startFreq, float endFreq, float numSteps, float sweepTime, struct MAX2871Struct *max2871Status);
+void max2871SweepUSB(struct MAX2871Struct *max2871Status);
+
+
+#endif

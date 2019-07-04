@@ -524,7 +524,7 @@ RF_OUT_P
 Wire Wire Line
 	4050 2250 4500 2250
 Wire Wire Line
-	4900 1900 4950 1900
+	4850 1900 4950 1900
 Wire Wire Line
 	4950 2250 5400 2250
 Wire Wire Line
@@ -579,7 +579,6 @@ F 3 "" H 9450 4150 50  0001 C CNN
 	1    9450 4150
 	1    0    0    -1  
 $EndComp
-Connection ~ 0    4000
 Wire Wire Line
 	10000 4000 10000 4100
 Wire Wire Line
@@ -589,9 +588,9 @@ Wire Wire Line
 Wire Wire Line
 	3350 1900 3650 1900
 Wire Wire Line
-	4300 1900 4300 1800
+	4250 1900 4250 1800
 Wire Wire Line
-	4300 1900 4600 1900
+	4250 1900 4550 1900
 Wire Wire Line
 	5900 5250 5900 5200
 Wire Wire Line
@@ -722,35 +721,12 @@ F 3 "" H 5250 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9600 4600 10000 4600
-$Comp
-L VNA_Symbols:ASTXR-12-19.200MHz X1
-U 1 1 5C321785
-P 1500 3150
-F 0 "X1" H 1600 3425 50  0000 C CNN
-F 1 "ASTXR-12-19.200MHz" H 1600 3334 50  0000 C CNN
-F 2 "VNA_Footprints:ASTXR-12" H 1400 3300 50  0001 C CNN
-F 3 "" H 1400 3300 50  0001 C CNN
-	1    1500 3150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2100 3300 2300 3300
-$Comp
-L VNA_Symbols:MAX2871 U3
-U 1 1 5C32C1BE
-P 4400 4650
-F 0 "U3" H 3650 5650 50  0000 C CNN
-F 1 "MAX2871" H 3750 5550 50  0000 C CNN
-F 2 "VNA_Footprints:QFN-32-1EP_5x5mm_Pitch0.5mm_Thermal_Vias" H 5600 5800 50  0001 L CNN
-F 3 "https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf" H 4850 5550 50  0001 L CNN
-	1    4400 4650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9600 5100 10300 5100
 Wire Wire Line
 	10000 4400 10000 4600
-Connection ~ 0    4600
 Wire Wire Line
 	10000 4600 10300 4600
 Wire Wire Line
@@ -865,38 +841,12 @@ Text HLabel 2150 2600 1    50   Input ~ 0
 1V8
 Text HLabel 3350 1800 1    50   Input ~ 0
 3V3A
-Text HLabel 4300 1800 1    50   Input ~ 0
+Text HLabel 4250 1800 1    50   Input ~ 0
 3V3A
 Text HLabel 6400 5000 1    50   Input ~ 0
 3V3A
 Text HLabel 3150 2200 1    50   Input ~ 0
 3V3
-$Comp
-L VNA_Symbols:Ferrite_Bead_PWR FB?
-U 1 1 5CCC81FC
-P 3800 1900
-AR Path="/5CCC81FC" Ref="FB?"  Part="1" 
-AR Path="/5CA81007/5CCC81FC" Ref="FB2"  Part="1" 
-F 0 "FB2" V 3750 1750 50  0000 C CNN
-F 1 "Bead" V 3850 2050 50  0000 C CNN
-F 2 "VNA_Footprints:BEADC1608X95N" V 3730 1900 50  0001 C CNN
-F 3 "~" H 3800 1900 50  0001 C CNN
-	1    3800 1900
-	0    1    1    0   
-$EndComp
-$Comp
-L VNA_Symbols:Ferrite_Bead_PWR FB?
-U 1 1 5CCCD1B3
-P 4750 1900
-AR Path="/5CCCD1B3" Ref="FB?"  Part="1" 
-AR Path="/5CA81007/5CCCD1B3" Ref="FB3"  Part="1" 
-F 0 "FB3" V 4700 1750 50  0000 C CNN
-F 1 "Bead" V 4800 2050 50  0000 C CNN
-F 2 "VNA_Footprints:BEADC1608X95N" V 4680 1900 50  0001 C CNN
-F 3 "~" H 4750 1900 50  0001 C CNN
-	1    4750 1900
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	7300 4300 7850 4300
 $Comp
@@ -978,4 +928,48 @@ Wire Wire Line
 Connection ~ 8850 4300
 Wire Wire Line
 	8850 4300 9000 4300
+$Comp
+L VNA_Symbols:ASTXR-12-19.200MHz XO1
+U 1 1 5D15B7DE
+P 1500 3150
+F 0 "XO1" H 1600 3425 50  0000 C CNN
+F 1 "ASTXR-12-19.200MHz" H 1600 3334 50  0000 C CNN
+F 2 "" H 1400 3300 50  0001 C CNN
+F 3 "" H 1400 3300 50  0001 C CNN
+	1    1500 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L VNA_Symbols:MAX2871 U3
+U 1 1 5D15C200
+P 4400 4650
+F 0 "U3" H 3650 5625 50  0000 C CNN
+F 1 "MAX2871" H 3775 5550 50  0000 C CNN
+F 2 "" H 5600 5800 50  0001 L CNN
+F 3 "" H 4850 5550 50  0001 L CNN
+	1    4400 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L VNA_Symbols:Ferrite_Bead_PWR FB5
+U 1 1 5D19C9EF
+P 3800 1900
+F 0 "FB5" V 3750 1775 50  0000 C CNN
+F 1 "600R" V 3850 2025 50  0000 C CNN
+F 2 "" V 3730 1900 50  0001 C CNN
+F 3 "~" H 3800 1900 50  0001 C CNN
+	1    3800 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L VNA_Symbols:Ferrite_Bead_PWR FB6
+U 1 1 5D19D7ED
+P 4700 1900
+F 0 "FB6" V 4650 1775 50  0000 C CNN
+F 1 "600R" V 4750 2025 50  0000 C CNN
+F 2 "" V 4630 1900 50  0001 C CNN
+F 3 "~" H 4700 1900 50  0001 C CNN
+	1    4700 1900
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

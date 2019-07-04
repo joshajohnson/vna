@@ -1,0 +1,16 @@
+#ifndef TXCHAIN_H_
+#define TXCHAIN_H_
+
+extern struct MAX2871Struct max2871Status;
+extern struct gainStruct gainStatus;
+
+
+int8_t setFilter(float frequency);
+void max2871Sweep(float startFreq, float endFreq, float numSteps, float sweepTime, struct MAX2871Struct *max2871Status);
+void max2871SweepUSB(struct MAX2871Struct *max2871Status);
+
+extern void intToBinArray(uint8_t in, uint8_t* out);
+extern uint8_t setAttenuation(float atten, struct gainStruct *gainStatus);
+
+
+#endif

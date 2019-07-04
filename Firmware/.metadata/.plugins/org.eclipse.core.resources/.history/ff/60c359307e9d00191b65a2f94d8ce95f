@@ -1,0 +1,60 @@
+#include "main.h"
+#include "ad8319.h"
+#include "gainBlock.h"
+#include "dwt_stm32_delay.h"
+#include <string.h>
+#include <stdlib.h>
+#include "usb_device.h"
+#include "usbd_cdc_if.h"
+
+extern SDADC_HandleTypeDef hsdadc1;
+
+void printPower(struct gainStruct *gainStatus)
+{
+	gainStatus->measOutputPower = readAD8319();
+
+	int8_t str1[64] = "";
+	sprintf((char *)str1, "Power = %0.2f dBm\n", gainStatus->measOutputPower);
+	printUSB(str1);
+}
+
+float adcToVolts(uint32_t adcValue, uint32_t resolution)
+{
+	float result = (3.3F * adcValue) / (float) resolution; // 3.3F is the Vadc voltage
+	return result;
+}
+
+float readAD8319(void)
+{
+	float voltage;
+	uint32_t adcValue = 0;
+	uint32_t retVal;
+	uint32_t ch;
+
+	uint8_t i = 0;
+	// Get a 32 sample average of the ADC data
+	while (i < 32)
+	{
+		while(HAL_SDADC_PollForInjectedConversion(&hsdadc1, 100) != HAL_OK)
+		{
+			// Wait
+		}
+
+		if(HAL_SDADC_PollForInjectedConversion(&hsdadc1, 100) == HAL_OK)
+		{
+			retVal = HAL_SDADC_InjectedGetValue(&hsdadc1, &ch);
+			// As we can't choose what channel to sample, only store value if it is channel 5 (AD8319)
+			if (ch ==  5)
+			{
+				adcValue += retVal;
+			}
+		}
+		DWT_Delay_us(1);
+	}
+
+	adcValue = adcValue / 32; // Divide by 32 to get average value
+
+	voltage = adcToVolts(adcValue, 65536);
+
+	return ((voltage - 0.33) / (-0.022)); // Vout -> P (dBm) for Ad8317
+}

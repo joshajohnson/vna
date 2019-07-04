@@ -1,0 +1,15 @@
+#include "main.h"
+#include "txChain.h"
+#include "max2871.h"
+#include "dwt_stm32_delay.h"
+#include "usbd_cdc_if.h"
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+
+void shitsFuckedYo(int8_t *str)
+{
+	CDC_Transmit_FS(str, strlen(str));
+	DWT_Delay_us(100);
+
+}

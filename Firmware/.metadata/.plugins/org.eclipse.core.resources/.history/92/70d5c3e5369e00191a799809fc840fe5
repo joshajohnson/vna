@@ -1,0 +1,8 @@
+#ifndef ERRORHANDLING_H_
+#define ERRORHANDLING_H_
+
+void statusFucked(int8_t *str);
+void statusThinking(int8_t *str);
+void statusNominal(int8_t *str);
+
+#endif /* ERRORHANDLING_H_ */
