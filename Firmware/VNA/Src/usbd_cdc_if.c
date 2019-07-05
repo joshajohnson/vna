@@ -284,7 +284,8 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 	    		RX_FIFO.head = FIFO_INCR(RX_FIFO.head);
 	    	}
 	    }
-	    RX_FIFO.dataReady = 1;					// Set flag to allow data to be read
+	    if ((RX_FIFO).data[RX_FIFO.head-1] == '\n')
+	    	RX_FIFO.dataReady = 1;					// Set flag to allow data to be read
 	    return (USBD_OK);
   /* USER CODE END 6 */
 }
@@ -321,7 +322,7 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
   *
   * @param  str: string to be send
   */
-void printUSB(uint8_t *str)
+void printUSB(char *str)
 {
 	CDC_Transmit_FS(str, strlen(str));
 	DWT_Delay_us(100);
@@ -338,7 +339,11 @@ void printUSB(uint8_t *str)
 uint8_t scanUSB(uint8_t *userBuf, uint8_t bufSize)
 {
 
-    while (!RX_FIFO.dataReady); // Wait for data to be ready
+    while (!RX_FIFO.dataReady)
+    {
+    	// Wait for data to be ready
+    }
+
 
 	if (RX_FIFO.dataReady)
 	{

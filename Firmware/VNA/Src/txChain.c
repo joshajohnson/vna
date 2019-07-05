@@ -28,7 +28,7 @@ void sweep(float lowerFreq, float higherFreq, float numSteps, float power, float
 		DWT_Delay_us(delay);
 		currentFrequency += stepSize;
 
-		#if DEBUG
+		#if DEBUG == 2
 			uint8_t str1[128] = "";
 			sprintf((char *) str1, "Frequency = %0.2f MHz, \t Attenuation = %0.1f, \t Power = %0.2f dBm\n", max2871Status->frequency, txStatus->attenuation, txStatus->measOutputPower);
 			printUSB(str1);
@@ -40,8 +40,14 @@ void sweep(float lowerFreq, float higherFreq, float numSteps, float power, float
 // Sets up output for given frequency and power level
 void sigGen(float frequency, float power, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
 {
+	statusThinking((char *) "Setting Frequency\r\n");
 	setFrequency(frequency, max2871Status, txStatus);
+
+	while (!max2871CheckLD(max2871Status));
+	// Don't go any further until PLL has lock
+
 	setOutputPower(power, txStatus);
+	statusNominal((char *) "sigGen Done\r\n");
 }
 
 // Configures output for required frequency
@@ -53,42 +59,39 @@ void setFrequency(float frequency, struct MAX2871Struct *max2871Status, struct t
 
 void txChainInit(struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
 {
-	// Disable PA
-	HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,1);
+	disablePA(txStatus);
 	// Init attenuator LE high
 	HAL_GPIO_WritePin(ATTEN_LE_GPIO_Port,ATTEN_LE_Pin,1);
-	// Set full attenuation
 	setAttenuation(MAX_ATTENUATION,txStatus);
-	// Init MAX2871
 	max2871Setup(max2871Status);
-	// Enable PA
-	HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,0);
-	// Enable MAX2871 RF out
+	txStatus->filter = setFilter(1);
+	enablePA(txStatus);
 	max2871RFEnable(max2871Status);
 }
 
 // Output filters to remove harmonics
+// Pass in either the frequency desired or the exact filter number (1-4)
 int8_t setFilter(float frequency)
 {
-	if ((frequency > 23.5) && (frequency < 105))
+	if (((frequency > 23.5) && (frequency < 105)) || (frequency == 1))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 0);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 0);
 		return 1;
 	}
-	else if (frequency < 225)
+	else if (((frequency >= 105) && (frequency < 225))  || (frequency == 2))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 0);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 1);
 		return 2;
 	}
-	else if (frequency < 400)
+	else if (((frequency >= 225) && (frequency < 400))  || (frequency == 3))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 1);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 0);
 		return 3;
 	}
-	else if (frequency <= 1000)
+	else if (((frequency >= 400) && (frequency < 1000))  || (frequency == 4))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 1);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 1);
@@ -96,7 +99,7 @@ int8_t setFilter(float frequency)
 	}
 	else
 	{
-		statusFucked((uint8_t *) "Bad input frequency to setFilter");
+		statusFucked((char *) "Bad input frequency to setFilter");
 		return -1; 	// A bad frequency got passed in
 	}
 }
@@ -222,12 +225,26 @@ float readAD8319(struct txStruct *txStatus)
 	return voltage;
 }
 
+void enablePA(struct txStruct *txStatus)
+{
+	HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,0);
+	txStatus->pa_pdwn = 0;
+}
+
+void disablePA(struct txStruct *txStatus)
+{
+	HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,1);
+	txStatus->pa_pdwn = 1;
+}
+
+
+
 void txChainPrintStatus(struct txStruct *txStatus)
 {
 
-	uint8_t str1[128] = "";
+	char str1[128] = "";
 
-	printUSB((uint8_t *)"\n----  TX Chain  ----\n\n");
+	printUSB((char *)"\n----  TX Chain  ----\n\n");
 
 	sprintf((char *)str1, "Filter = %d\n", txStatus->filter);
 	printUSB(str1);
@@ -235,8 +252,13 @@ void txChainPrintStatus(struct txStruct *txStatus)
 	sprintf((char *)str1, "Attenuation = %0.1f dB\n", txStatus->attenuation);
 	printUSB(str1);
 
+	sprintf((char *)str1, "PA Powerdown = %d\n", txStatus->pa_pdwn);
+	printUSB(str1);
+
 	sprintf((char *)str1, "Set Output Power= %0.2f dBm\n", txStatus->setOutputPower);
 	printUSB(str1);
+
+	readAD8319(txStatus);
 
 	sprintf((char *)str1, "Measured Output Power = %0.2f dBm\n", txStatus->measOutputPower);
 	printUSB(str1);
@@ -244,5 +266,5 @@ void txChainPrintStatus(struct txStruct *txStatus)
 	sprintf((char *)str1, "Measured Voltage= %0.2f V\n", readAD8319(txStatus));
 	printUSB(str1);
 
-	printUSB((uint8_t *)"\n");
+	printUSB((char *)"\n");
 }

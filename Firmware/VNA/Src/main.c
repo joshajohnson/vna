@@ -68,6 +68,7 @@
 #include "max2871_registers.h"
 #include "max2871.h"
 #include "txChain.h"
+#include "commandParser.h"
 
 /* USER CODE END Includes */
 
@@ -183,6 +184,12 @@ int main(void)
   while (1)
   {
 
+	  // Command Parser
+	  if (RX_FIFO.dataReady == 1)
+	  {
+		  commandParser(&max2871Status, &txStatus);
+	  }
+
 	  if (HAL_GPIO_ReadPin(SW_1_GPIO_Port, SW_1_Pin))
 	  {
 		  sweep(25,1000,100,-10,5, &max2871Status, &txStatus);
@@ -190,9 +197,7 @@ int main(void)
 
 	  if (HAL_GPIO_ReadPin(SW_2_GPIO_Port, SW_2_Pin))
 	  {
-		  HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,0);
-		  HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,1);
-		  HAL_GPIO_WritePin(STATUS_LED_B_GPIO_Port,STATUS_LED_B_Pin,1);
+		  sigGen(30,-15,&max2871Status, &txStatus);
 	  }
 
     /* USER CODE END WHILE */

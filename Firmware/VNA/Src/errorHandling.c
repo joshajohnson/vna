@@ -21,7 +21,9 @@ void statusFucked(char *str)
 
 void statusThinking(char *str)
 {
-	printUSB((uint8_t *) str);
+	#if DEBUG == 1
+		printUSB((uint8_t *) str);
+	#endif
 
 	HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,1);
 	HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,1);
@@ -30,7 +32,9 @@ void statusThinking(char *str)
 
 void statusNominal(char *str)
 {
-	printUSB((uint8_t *) str);
+	#if DEBUG == 1
+		printUSB((uint8_t *) str);
+	#endif
 
 	HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,1);
 	HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,0);
@@ -39,7 +43,12 @@ void statusNominal(char *str)
 
 void logError(char *str)
 {
-	printUSB((uint8_t *) str);
+	#if DEBUG == 1
+		printUSB((uint8_t *) str);
+	#endif
+	#if DEBUG == 2
+		printUSB((uint8_t *) str);
+	#endif
 
 	HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,0);
 	HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,1);

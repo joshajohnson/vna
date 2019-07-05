@@ -3,6 +3,7 @@
 #include "max2871_registers.h"
 #include "dwt_stm32_delay.h"
 #include "debug.h"
+#include "errorHandling.h"
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
@@ -91,6 +92,7 @@ void max2871Setup(struct MAX2871Struct *max2871Status)
 	// Update info in struct
 	max2871Status->RFA_EN = 0;
 	max2871Status->rfPower = 3;
+	max2871Status->frequency = 50;
 
 	// Send updated registers over SPI
 	max2871WriteRegisters();
@@ -241,6 +243,7 @@ void max2871RFEnable(struct MAX2871Struct *max2871Status)
 	HAL_GPIO_WritePin(MAX2871_RF_EN_GPIO_Port, MAX2871_RF_EN_Pin, 1);
 	max2871ChipEnable(max2871Status);
 	max2871Status->RFA_EN = 1;
+	max2871Status->RF_CHIP_EN = 1;
 	max2871WriteRegisters();
 }
 
@@ -259,31 +262,39 @@ void max2871SetPower(int8_t dbm, struct MAX2871Struct *max2871Status)
 	{
 		case -4:
 			max2871Status->rfPower = 0;
+			statusNominal((char*) "Power set to -4 dBm\r\n");
 			break;
 
 		case -1:
 			max2871Status->rfPower = 1;
+			statusNominal((char*) "Power set to -1 dBm\r\n");
 			break;
 
 		case 2:
 			max2871Status->rfPower = 2;
+			statusNominal((char*) "Power set to 2 dBm\r\n");
 			break;
 
 		case 5:
 			max2871Status->rfPower = 3;
+			statusNominal((char*) "Power set to 5 dBm\r\n");
 			break;
 		default:
-			statusFucked((uint8_t *) "Bad input power to max2871SetPower");
+			logError((uint8_t *) "Bad input power to max2871SetPower");
 	}
 
 	max2871Set_APWR(max2871Status->rfPower);
 	max2871WriteRegisters();
 }
 
-void max2871CheckLD(struct MAX2871Struct *max2871Status)
+int8_t max2871CheckLD(struct MAX2871Struct *max2871Status)
 {
 	max2871Status->ldState = HAL_GPIO_ReadPin(MAX2871_LD_GPIO_Port, MAX2871_LD_Pin);
 
+	if (max2871Status->ldState)
+		return 1;
+	else
+		return -1;
 }
 
 void max2871PrintRegisters(void)
@@ -335,8 +346,6 @@ void max2871PrintStatus(uint8_t verbose, struct MAX2871Struct *max2871Status)
 
 	if (verbose)
 		max2871PrintRegisters();
-
-	printUSB("\n");
 }
 
 
