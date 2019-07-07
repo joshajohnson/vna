@@ -129,7 +129,7 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 	{
 		if (strncmp("verbose", args[0], 7) == 0)
 		{
-			args[0][0] = "";
+			args[0][0] = (int32_t) "";
 			max2871PrintStatus(VERBOSE,max2871Status);
 		}
 		else
@@ -137,22 +137,30 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 
 		txChainPrintStatus(txStatus);
 	}
-	else if (strncmp("ls", command, 2) == 0)
-		{
-			printUSB((char *)"-------------------------- \r\n");
-			printUSB((char *)"--  Available Commands  --\r\n");
-			printUSB((char *)"-------------------------- \r\n");
-			printUSB((char *)"sigGen(frequency, power)\r\n");
-			printUSB((char *)"sweep(startFreq, stopFreq, numSteps, power, time)\r\n");
-			printUSB((char *)"setFilter(filterNum OR frequency)\r\n");
-			printUSB((char *)"setMaxPower(power(dBm))\r\n");
-			printUSB((char *)"setAttenuation(atten(dB))\r\n");
-			printUSB((char *)"enableRF()\r\n");
-			printUSB((char *)"disableRF()\r\n");
-			printUSB((char *)"enablePA()\r\n");
-			printUSB((char *)"disablePA()\r\n");
-			printUSB((char *)"status(verbose)\r\n\n");
-		}
+
+	else if (strncmp("WHOAMI", command, 6) == 0)
+	{
+		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
+		printUSB("Josh's VNA\r\n");
+	}
+
+	else if ((strncmp("ls", command, 2) == 0) || (strncmp("help", command, 4) == 0))
+	{
+		printUSB((char *)"-------------------------- \r\n");
+		printUSB((char *)"--  Available Commands  --\r\n");
+		printUSB((char *)"-------------------------- \r\n");
+		printUSB((char *)"sigGen(frequency, power)\r\n");
+		printUSB((char *)"sweep(startFreq, stopFreq, numSteps, power, time)\r\n");
+		printUSB((char *)"status(verbose)\r\n\n");
+		printUSB((char *)"setFilter(filterNum OR frequency)\r\n");
+		printUSB((char *)"setMaxPower(power(dBm))\r\n");
+		printUSB((char *)"setAttenuation(atten(dB))\r\n");
+		printUSB((char *)"enableRF\r\n");
+		printUSB((char *)"disableRF\r\n");
+		printUSB((char *)"enablePA\r\n");
+		printUSB((char *)"disablePA\r\n");
+		printUSB((char *)"WHOAMI\r\n\n");
+	}
 	else
 	{
 		printUSB("Not found, try again\r\n");

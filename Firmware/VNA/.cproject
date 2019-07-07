@@ -79,7 +79,7 @@
 							</tool>
 							<tool id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.2016384833" name="MCU GCC Linker" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker">
 								<option id="fr.ac6.managedbuild.tool.gnu.cross.c.linker.script.937621232" name="Linker Script (-T)" superClass="fr.ac6.managedbuild.tool.gnu.cross.c.linker.script" useByScannerDiscovery="false" value="../STM32F373RCTx_FLASH.ld" valueType="string" />
-								<option id="gnu.c.link.option.libs.2105184156" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs" />
+								<option id="gnu.c.link.option.libs.2105184156" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" />
 								<option id="gnu.c.link.option.paths.674313578" name="Library search path (-L)" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" />
 								<option id="gnu.c.link.option.ldflags.85429398" name="Linker flags" superClass="gnu.c.link.option.ldflags" useByScannerDiscovery="false" value="-specs=nosys.specs -specs=nano.specs -u _printf_float" valueType="string" />
 								<option id="gnu.c.link.option.other.2025497439" name="Other options (-Xlinker [option])" superClass="gnu.c.link.option.other" useByScannerDiscovery="false" />
@@ -247,9 +247,10 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders" />
 	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration artifactName="${ProjName}" configurationName="Debug">
+		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="VNA" />
 		</configuration>
+		<configuration configurationName="Release" />
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets" />
 </cproject>
