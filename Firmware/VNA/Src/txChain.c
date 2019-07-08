@@ -16,38 +16,31 @@ extern SDADC_HandleTypeDef hsdadc1;
 // Optional param sweepTime to add delays in for human viewing pleasure. Set to 0 for no injected delays
 void sweep(float lowerFreq, float higherFreq, float numSteps, float power, float sweepTime, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
 {
-	statusThinking((char *) "Beginning Sweep\r\n");
+	statusThinking();
 	float stepSize = ((higherFreq - lowerFreq) / numSteps);
 	uint32_t delay = sweepTime * 1000000 / numSteps; 	// Delay is in uS
 
 	float currentFrequency = lowerFreq;
 
-	while (currentFrequency < higherFreq)
+	while (currentFrequency <= higherFreq)
 	{
 		sigGen(currentFrequency, power, max2871Status, txStatus);
 		DWT_Delay_us(delay);
 		currentFrequency += stepSize;
 
-		#if DEBUG == 2
-			uint8_t str1[128] = "";
-			sprintf((char *) str1, "Frequency = %0.2f MHz, \t Attenuation = %0.1f, \t Power = %0.2f dBm\n", max2871Status->frequency, txStatus->attenuation, txStatus->measOutputPower);
-			printUSB(str1);
-		#endif
 	}
-	statusNominal((char *) "Sweep Ended\r\n");
+	statusNominal();
 }
 
 // Sets up output for given frequency and power level
 void sigGen(float frequency, float power, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
 {
-	statusThinking((char *) "Setting Frequency\r\n");
 	setFrequency(frequency, max2871Status, txStatus);
 
 	while (!max2871CheckLD(max2871Status));
 	// Don't go any further until PLL has lock
 
 	setOutputPower(power, txStatus);
-	statusNominal((char *) "sigGen Done\r\n");
 }
 
 // Configures output for required frequency
@@ -91,7 +84,7 @@ int8_t setFilter(float frequency)
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 0);
 		return 3;
 	}
-	else if (((frequency >= 400) && (frequency < 1000))  || (frequency == 4))
+	else if (((frequency >= 400) && (frequency <= 1000))  || (frequency == 4))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 1);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 1);
@@ -99,8 +92,8 @@ int8_t setFilter(float frequency)
 	}
 	else
 	{
-		statusFucked((char *) "Bad input frequency to setFilter");
-		return -1; 	// A bad frequency got passed in
+		logError((char *) "Bad input frequency to setFilter\r\n");
+		return -1;
 	}
 }
 
@@ -216,11 +209,10 @@ float readAD8319(struct txStruct *txStatus)
 
 	voltage = (VREF * adcValue) / NUM_STATES_16_BIT;	// Convert to voltage
 
-	power = ((voltage - 0.33) / (-0.022)); 				// Convert voltage to dBm for AD8317
+//	power = ((voltage - 0.33) / (-0.022)); 				// Convert voltage to dBm for AD8317
+	power = -45.11 * voltage + 14.6; 				// Convert voltage to dBm for AD8317
 
-	power += IL_6DB_SPLITTER + IL_15DB_COUPLING;		// Take into account losses before AD8319
-
-	txStatus->measOutputPower = power;
+	txStatus->measOutputPower = power + IL_15DB_COUPLING + IL_6DB_SPLITTER;
 
 	return voltage;
 }
@@ -236,7 +228,6 @@ void disablePA(struct txStruct *txStatus)
 	HAL_GPIO_WritePin(PA_PWRDN_GPIO_Port,PA_PWRDN_Pin,1);
 	txStatus->pa_pdwn = 1;
 }
-
 
 
 void txChainPrintStatus(struct txStruct *txStatus)
@@ -267,4 +258,46 @@ void txChainPrintStatus(struct txStruct *txStatus)
 	printUSB(str1);
 
 	printUSB((char *)"\n");
+}
+
+void outputLevelTest(float startFreq, float stopFreq, float numSteps, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
+{
+	statusThinking();
+	setAttenuation(0,txStatus);
+	float stepSize = ((stopFreq - startFreq) / numSteps);
+
+	float currentFrequency = startFreq;
+	while (currentFrequency <= stopFreq)
+	{
+		max2871SetFrequency(currentFrequency, FRAC_N, max2871Status);
+		currentFrequency += stepSize;
+
+		char str1[128] = "";
+		sprintf((char *)str1, "%0.0f %0.2f %0.2f\n", max2871Status->frequency, readAD8319(txStatus),txStatus->measOutputPower);
+		printUSB(str1);
+
+		while(HAL_GPIO_ReadPin(SW_1_GPIO_Port,SW_1_Pin) == 0); // Wait for the button to be pressed
+		HAL_Delay(200);
+	}
+	statusNominal();
+}
+
+void powerDetectorCal(float deltaAtten, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
+{
+	statusThinking();
+	max2871SetFrequency(50,FRAC_N, max2871Status);
+
+
+	for(txStatus->attenuation = 0; txStatus->attenuation <= 31.5; txStatus->attenuation += deltaAtten)
+	{
+		setAttenuation(txStatus->attenuation, txStatus);
+
+		char str1[128] = "";
+		sprintf((char *)str1, "%0.1f %0.2f %0.2f\n", txStatus->attenuation, readAD8319(txStatus),txStatus->measOutputPower);
+		printUSB(str1);
+
+		while(HAL_GPIO_ReadPin(SW_1_GPIO_Port,SW_1_Pin) == 0); // Wait for the button to be pressed
+		HAL_Delay(200);
+	}
+	statusNominal();
 }

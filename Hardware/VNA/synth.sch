@@ -530,7 +530,7 @@ Wire Wire Line
 Wire Wire Line
 	4950 1900 4950 2250
 Connection ~ 4950 2250
-Text Label 9600 5100 2    50   ~ 0
+Text Label 9600 5650 2    50   ~ 0
 RF_OUT_N
 Text Label 9600 4600 2    50   ~ 0
 RF_OUT_P
@@ -579,7 +579,6 @@ F 3 "" H 9450 4150 50  0001 C CNN
 	1    9450 4150
 	1    0    0    -1  
 $EndComp
-Connection ~ 0    4000
 Wire Wire Line
 	10000 4000 10000 4100
 Wire Wire Line
@@ -747,10 +746,9 @@ F 3 "https://componentsearchengine.com/Datasheets/1/MAX2871ETJ+.pdf" H 4850 5550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9600 5100 10300 5100
+	9600 5650 10000 5650
 Wire Wire Line
 	10000 4400 10000 4600
-Connection ~ 0    4600
 Wire Wire Line
 	10000 4600 10300 4600
 Wire Wire Line
@@ -783,7 +781,7 @@ Wire Wire Line
 	3150 2300 3150 2500
 Text HLabel 10300 4600 2    50   Input ~ 0
 RF_OUT_P
-Text HLabel 10300 5100 2    50   Input ~ 0
+Text HLabel 10300 5650 2    50   Input ~ 0
 RF_OUT_N
 Text HLabel 5850 4050 2    50   Input ~ 0
 LD
@@ -978,4 +976,55 @@ Wire Wire Line
 Connection ~ 8850 4300
 Wire Wire Line
 	8850 4300 9000 4300
+$Comp
+L Device:R R?
+U 1 1 5D23DFFB
+P 10000 5300
+F 0 "R?" H 10070 5346 50  0000 L CNN
+F 1 "49.9" H 10070 5255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 9930 5300 50  0001 C CNN
+F 3 "~" H 10000 5300 50  0001 C CNN
+	1    10000 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5D23E001
+P 9700 5050
+F 0 "C?" V 9550 5050 50  0000 C CNN
+F 1 "100p" V 9850 5050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 9738 4900 50  0001 C CNN
+F 3 "~" H 9700 5050 50  0001 C CNN
+	1    9700 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9850 5050 10000 5050
+Wire Wire Line
+	9550 5050 9450 5050
+Wire Wire Line
+	9450 5050 9450 5200
+$Comp
+L power:GND #PWR?
+U 1 1 5D23E00A
+P 9450 5200
+F 0 "#PWR?" H 9450 4950 50  0001 C CNN
+F 1 "GND" H 9455 5027 50  0000 C CNN
+F 2 "" H 9450 5200 50  0001 C CNN
+F 3 "" H 9450 5200 50  0001 C CNN
+	1    9450 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 5050 10000 5150
+Wire Wire Line
+	10000 4900 10000 5050
+Wire Wire Line
+	10000 5450 10000 5650
+Text HLabel 10000 4900 1    50   Input ~ 0
+3V3A
+Connection ~ 10000 5650
+Wire Wire Line
+	10000 5650 10300 5650
+Connection ~ 10000 5050
 $EndSCHEMATC
