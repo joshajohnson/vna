@@ -1,4 +1,4 @@
-(module SMA_EDGE_MOUNT (layer F.Cu) (tedit 5C2973E8)
+(module SMA_EDGE_MOUNT (layer F.Cu) (tedit 5D231307)
   (descr http://suddendocs.samtec.com/prints/sma-j-p-x-st-em1-mkt.pdf)
   (tags SMA)
   (attr smd)
@@ -29,9 +29,9 @@
     (zone_connect 2))
   (pad 2 smd rect (at 0 2.825 90) (size 1.35 4.2) (layers B.Cu B.Mask)
     (zone_connect 2))
-  (model ${KISYS_USER_3D_MOD}/SMA_CONN_EDGE_MOUNT.step
+  (model "C:/Users/Josh Johnson/Dropbox/ENGN4200/vna/Hardware/Libraries/VNA_3D_Models/SMA_CONN_EDGE_MOUNT.step"
     (offset (xyz 4 -3.2 3.5))
     (scale (xyz 1 1 1))
-    (rotate (xyz -90 -180 -90))
+    (rotate (xyz -90 -180 -91))
   )
 )
