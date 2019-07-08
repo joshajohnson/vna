@@ -138,9 +138,19 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 		txChainPrintStatus(txStatus);
 	}
 
+	else if (strcmp("outputLevelTest", command) == 0)
+	{
+		outputLevelTest(atof(args[0]), atof(args[1]), atof(args[2]), &max2871Status, &txStatus);
+	}
+
+	else if (strcmp("powerDetectorCal", command) == 0)
+	{
+		powerDetectorCal(atof(args[0]), &max2871Status, &txStatus);
+	}
+
+
 	else if (strncmp("WHOAMI", command, 6) == 0)
 	{
-		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
 		printUSB("Josh's VNA\r\n");
 	}
 

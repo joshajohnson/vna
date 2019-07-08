@@ -176,7 +176,7 @@ void max2871SetFrequency(float mhz, uint8_t intN, struct MAX2871Struct *max2871S
 	else if (mhz < 6000)
 		diva = 0;
 	else
-		statusFucked((uint8_t *) "Bad input frequency to max2871SetFrequency");
+		logError((uint8_t *) "Bad input frequency to max2871SetFrequency");
 
 	// Calculate fOUT
 	float fComp = 38.4;
@@ -262,22 +262,18 @@ void max2871SetPower(int8_t dbm, struct MAX2871Struct *max2871Status)
 	{
 		case -4:
 			max2871Status->rfPower = 0;
-			statusNominal((char*) "Power set to -4 dBm\r\n");
 			break;
 
 		case -1:
 			max2871Status->rfPower = 1;
-			statusNominal((char*) "Power set to -1 dBm\r\n");
 			break;
 
 		case 2:
 			max2871Status->rfPower = 2;
-			statusNominal((char*) "Power set to 2 dBm\r\n");
 			break;
 
 		case 5:
 			max2871Status->rfPower = 3;
-			statusNominal((char*) "Power set to 5 dBm\r\n");
 			break;
 		default:
 			logError((uint8_t *) "Bad input power to max2871SetPower");

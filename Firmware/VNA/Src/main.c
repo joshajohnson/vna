@@ -145,7 +145,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   DWT_Delay_Init();
   // Ensure status LED starts OFF
-  statusThinking((uint8_t *) "\033[2J"); // User will not see this, just setting LEDs
+  statusThinking();
   // Cycle USB_PU to ensure re-enumeration on soft restart
   HAL_GPIO_WritePin(USB_PULLUP_GPIO_Port,USB_PULLUP_Pin,0);
   HAL_Delay(100);
@@ -165,7 +165,7 @@ int main(void)
 
   while (HAL_SDADC_PollForCalibEvent(&hsdadc1, HAL_MAX_DELAY) != HAL_OK)
   {
-	  statusThinking((uint8_t *)"Calibrating ADC");
+	  statusThinking();
 	  DWT_Delay_us(100);
   }
 
@@ -175,7 +175,7 @@ int main(void)
   // Init TX Chain
   txChainInit(&max2871Status, &txStatus);
 
-  statusNominal((uint8_t *) "Init Complete /r/n");
+  statusNominal();
 
   /* USER CODE END 2 */
 
