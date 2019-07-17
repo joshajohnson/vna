@@ -1,6 +1,0 @@
-#ifndef COMMANDPARSER_H_
-#define COMMANDPARSER_H_
-
-void commandParser(struct max2871Struct *max2871Status, struct txStruct *txStatus);
-
-#endif /* COMMANDPARSER_H_ */

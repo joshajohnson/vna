@@ -6,6 +6,7 @@
 #include "errorHandling.h"
 #include "max2871.h"
 #include "txChain.h"
+#include "receiver.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -148,6 +149,29 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 		powerDetectorCal(atof(args[0]), &max2871Status, &txStatus);
 	}
 
+	else if (strncmp("inputSwitch", command, 11) == 0)
+	{
+		if (strncmp("off", args[0], 3) == 0)
+		{
+			setInputSwitch(SWITCH_OFF, &receiverStatus);
+		}
+		else if (strncmp("thru", args[0], 4) == 0)
+		{
+
+			setInputSwitch(SWITCH_THROUGH, &receiverStatus);
+		}
+		else if (strncmp("rev", args[0], 3) == 0)
+		{
+
+			setInputSwitch(SWITCH_REV, &receiverStatus);
+		}
+		args[0][0] = (int32_t) "";
+	}
+
+	else if (strncmp("test", command, 4) == 0)
+	{
+		test(&max2871Status, &txStatus, &receiverStatus);
+	}
 
 	else if (strncmp("WHOAMI", command, 6) == 0)
 	{
@@ -169,6 +193,7 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 		printUSB((char *)"disableRF\r\n");
 		printUSB((char *)"enablePA\r\n");
 		printUSB((char *)"disablePA\r\n");
+		printUSB((char *)"inputSwitch({off,thru,rev})\r\n");
 		printUSB((char *)"WHOAMI\r\n\n");
 	}
 	else

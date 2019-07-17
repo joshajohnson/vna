@@ -68,6 +68,7 @@
 #include "max2871_registers.h"
 #include "max2871.h"
 #include "txChain.h"
+#include "receiver.h"
 #include "commandParser.h"
 
 /* USER CODE END Includes */

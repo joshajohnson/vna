@@ -40,7 +40,7 @@ void sigGen(float frequency, float power, struct MAX2871Struct *max2871Status, s
 	while (!max2871CheckLD(max2871Status));
 	// Don't go any further until PLL has lock
 
-	setOutputPower(power, txStatus);
+	setOutputPower(power, max2871Status, txStatus);
 }
 
 // Configures output for required frequency
@@ -78,13 +78,13 @@ int8_t setFilter(float frequency)
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 1);
 		return 2;
 	}
-	else if (((frequency >= 225) && (frequency < 400))  || (frequency == 3))
+	else if (((frequency >= 225) && (frequency < 600))  || (frequency == 3))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 1);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 0);
 		return 3;
 	}
-	else if (((frequency >= 400) && (frequency <= 1000))  || (frequency == 4))
+	else if (((frequency >= 600) && (frequency <= 1250))  || (frequency == 4))
 	{
 		HAL_GPIO_WritePin(FILTER_SW_1_GPIO_Port, FILTER_SW_1_Pin, 1);
 		HAL_GPIO_WritePin(FILTER_SW_2_GPIO_Port, FILTER_SW_2_Pin, 1);
@@ -126,8 +126,13 @@ void setAttenuation(float atten, struct txStruct *txStatus)
 
 // Very simple control of attenuator to set desired output power.
 // Changes attenuation until AD8319 reads correct value or runs out of attenuation.
-void setOutputPower(float setPower, struct txStruct *txStatus)
+void setOutputPower(float setPower, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)
 {
+	if (setPower >= 0)
+		max2871SetPower(5, max2871Status);
+	else
+		max2871SetPower(-4, max2871Status);
+
 	txStatus->setOutputPower = setPower;
 	readAD8319(txStatus);
 
@@ -209,10 +214,9 @@ float readAD8319(struct txStruct *txStatus)
 
 	voltage = (VREF * adcValue) / NUM_STATES_16_BIT;	// Convert to voltage
 
-//	power = ((voltage - 0.33) / (-0.022)); 				// Convert voltage to dBm for AD8317
-	power = -45.11 * voltage + 14.6; 				// Convert voltage to dBm for AD8317
+	power = -44.4 * voltage + 40; 				// Convert voltage to dBm for AD8317, check matlab script for numbers
 
-	txStatus->measOutputPower = power + IL_15DB_COUPLING + IL_6DB_SPLITTER;
+	txStatus->measOutputPower = power;
 
 	return voltage;
 }

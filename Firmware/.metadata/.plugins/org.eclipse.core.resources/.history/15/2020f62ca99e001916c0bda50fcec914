@@ -1,6 +1,0 @@
-#ifndef COMMANDPARSER_H_
-#define COMMANDPARSER_H_
-
-void commandParser(&max2871Status, &txStatus);
-
-#endif /* COMMANDPARSER_H_ */

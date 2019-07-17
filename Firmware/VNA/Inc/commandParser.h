@@ -3,7 +3,8 @@
 
 extern struct MAX2871Struct max2871Status;
 extern struct txStruct txStatus;
+extern struct receiverStruct receiverStatus;
 
 void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatus);
 
-#endif /* COMMANDPARSER_H_ */
+#endif
