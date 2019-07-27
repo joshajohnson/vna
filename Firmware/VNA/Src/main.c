@@ -79,6 +79,7 @@ FIFO RX_FIFO = {.head = 0, .tail = 0};
 
 extern struct MAX2871Struct max2871Status;
 extern struct txStruct txStatus;
+extern struct receiverStruct receiverStatus;
 
 /* USER CODE END PTD */
 
@@ -160,7 +161,7 @@ int main(void)
   // Calibrate SDADC
   if (HAL_SDADC_CalibrationStart(&hsdadc1,SDADC_CALIBRATION_SEQ_2) != HAL_OK)
   {
-	  statusFucked((uint8_t *)"SDADC Cal could not begin\r\n");
+	  statusFucked((uint8_t *)"> SDADC Cal could not begin\r\n");
 	  while (1);
   }
 
@@ -188,7 +189,7 @@ int main(void)
 	  // Command Parser
 	  if (RX_FIFO.dataReady == 1)
 	  {
-		  commandParser(&max2871Status, &txStatus);
+		  commandParser(&max2871Status, &txStatus, &receiverStatus);
 	  }
 
 	  if (HAL_GPIO_ReadPin(SW_1_GPIO_Port, SW_1_Pin))

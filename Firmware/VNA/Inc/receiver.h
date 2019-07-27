@@ -36,6 +36,5 @@ void setInputSwitch(uint8_t direction, struct receiverStruct *recieverStatus);
 void readGainPhaseVoltage(struct receiverStruct *recieverStatus);
 void gainVoltageToDB(struct receiverStruct *recieverStatus);
 void phaseVoltageToDeg(struct receiverStruct *recieverStatus);
-void test(struct MAX2871Struct *max2871Status, struct txStruct *txStatus, struct receiverStruct *receiverStatus);
 
 #endif

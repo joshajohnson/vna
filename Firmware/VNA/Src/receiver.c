@@ -97,27 +97,3 @@ void phaseVoltageToDeg(struct receiverStruct *recieverStatus)
 	// Values calculated from MATLAB
 	recieverStatus->phaseDeg = A11 * pow(v,11) +A10 * pow(v,10) + A9 * pow(v,9) + A8 * pow(v,8) + A7 * pow(v,7) + A6 * pow(v,6) + A5 * pow(v,5) + A4 * pow(v,4) + A3 * pow(v,3) + A2 * pow(v,2) + A1 * v + A0;
 }
-
-void test(struct MAX2871Struct *max2871Status, struct txStruct *txStatus, struct receiverStruct *receiverStatus)
-{
-	statusThinking();
-	float stepSize = 10;
-
-	float currentFrequency = 25;
-
-	while (currentFrequency <= 1250)
-	{
-		sigGen(currentFrequency, -10, max2871Status, txStatus);
-		readGainPhaseVoltage(receiverStatus);
-		gainVoltageToDB(receiverStatus);
-		phaseVoltageToDeg(receiverStatus);
-
-		char str1[128] = "";
-		sprintf((char *)str1, "%0.1f %0.2f %0.2f\r\n", max2871Status->frequency, receiverStatus->gainDB, receiverStatus->phaseDeg);
-		printUSB(str1);
-
-		currentFrequency += stepSize;
-
-	}
-	statusNominal();
-}

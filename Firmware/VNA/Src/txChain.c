@@ -92,7 +92,7 @@ int8_t setFilter(float frequency)
 	}
 	else
 	{
-		logError((char *) "Bad input frequency to setFilter\r\n");
+		logError((char *) "> Bad input frequency to setFilter\r\n");
 		return -1;
 	}
 }
@@ -150,7 +150,7 @@ void setOutputPower(float setPower, struct MAX2871Struct *max2871Status, struct 
 			}
 			else
 			{
-				logError((char *) "Ran out of attenuation!\r\n");
+				logError((char *) "> Ran out of attenuation!\r\n");
 				break;
 			}
 		}
@@ -169,7 +169,7 @@ void setOutputPower(float setPower, struct MAX2871Struct *max2871Status, struct 
 			}
 			else
 			{
-				logError((char *) "Ran out of attenuation!\r\n");
+				logError((char *) "> Ran out of attenuation!\r\n");
 				break;
 			}
 		}
@@ -239,29 +239,27 @@ void txChainPrintStatus(struct txStruct *txStatus)
 
 	char str1[128] = "";
 
-	printUSB((char *)"\n----  TX Chain  ----\n\n");
+	printUSB((char *)"> ----  TX Chain  ----\n");
 
-	sprintf((char *)str1, "Filter = %d\n", txStatus->filter);
+	sprintf((char *)str1, "> Filter = %d\n", txStatus->filter);
 	printUSB(str1);
 
-	sprintf((char *)str1, "Attenuation = %0.1f dB\n", txStatus->attenuation);
+	sprintf((char *)str1, "> Attenuation = %0.1f dB\n", txStatus->attenuation);
 	printUSB(str1);
 
-	sprintf((char *)str1, "PA Powerdown = %d\n", txStatus->pa_pdwn);
+	sprintf((char *)str1, "> PA Powerdown = %d\n", txStatus->pa_pdwn);
 	printUSB(str1);
 
-	sprintf((char *)str1, "Set Output Power= %0.2f dBm\n", txStatus->setOutputPower);
+	sprintf((char *)str1, "> Set Output Power= %0.2f dBm\n", txStatus->setOutputPower);
 	printUSB(str1);
 
 	readAD8319(txStatus);
 
-	sprintf((char *)str1, "Measured Output Power = %0.2f dBm\n", txStatus->measOutputPower);
+	sprintf((char *)str1, "> Measured Output Power = %0.2f dBm\n", txStatus->measOutputPower);
 	printUSB(str1);
 
-	sprintf((char *)str1, "Measured Voltage= %0.2f V\n", readAD8319(txStatus));
+	sprintf((char *)str1, "> Measured Voltage= %0.2f V\n", readAD8319(txStatus));
 	printUSB(str1);
-
-	printUSB((char *)"\n");
 }
 
 void outputLevelTest(float startFreq, float stopFreq, float numSteps, struct MAX2871Struct *max2871Status, struct txStruct *txStatus)

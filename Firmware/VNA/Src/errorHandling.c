@@ -36,9 +36,7 @@ void statusNominal(void)
 
 void logError(char *str)
 {
-	#ifdef DEBUG
-		printUSB((uint8_t *) str);
-	#endif
+	printUSB((uint8_t *) str);
 
 	HAL_GPIO_WritePin(STATUS_LED_R_GPIO_Port,STATUS_LED_R_Pin,0);
 	HAL_GPIO_WritePin(STATUS_LED_G_GPIO_Port,STATUS_LED_G_Pin,1);

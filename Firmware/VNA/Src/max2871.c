@@ -176,7 +176,7 @@ void max2871SetFrequency(float mhz, uint8_t intN, struct MAX2871Struct *max2871S
 	else if (mhz < 6000)
 		diva = 0;
 	else
-		logError((uint8_t *) "Bad input frequency to max2871SetFrequency");
+		logError((uint8_t *) "> Bad input frequency to max2871SetFrequency");
 
 	// Calculate fOUT
 	float fComp = 38.4;
@@ -276,7 +276,7 @@ void max2871SetPower(int8_t dbm, struct MAX2871Struct *max2871Status)
 			max2871Status->rfPower = 3;
 			break;
 		default:
-			logError((uint8_t *) "Bad input power to max2871SetPower");
+			logError((uint8_t *) "> Bad input power to max2871SetPower");
 	}
 
 	max2871Set_APWR(max2871Status->rfPower);
@@ -300,14 +300,14 @@ void max2871PrintRegisters(void)
 	for (int8_t i = 0; i <= 5; i++)
 	{
 		txReg = max2871GetRegister(i);
-		sprintf((char *)str1, "Register %d = 0x%x\n", i, (unsigned int) txReg);
+		sprintf((char *)str1, "> Register %d = 0x%x\n", i, (unsigned int) txReg);
 		printUSB(str1);
 		HAL_Delay(10);
 
 	}
 
 	txReg = max2871SpiRead();
-	sprintf((char *)str1, "Register 6 = 0x%x\n\n", (unsigned int) txReg);
+	sprintf((char *)str1, "> Register 6 = 0x%x\n", (unsigned int) txReg);
 	printUSB(str1);
 }
 
@@ -316,28 +316,28 @@ void max2871PrintStatus(uint8_t verbose, struct MAX2871Struct *max2871Status)
 	uint8_t str1[128] = "";
 	int8_t powerArray[4] = {-4, -1, 2, 5};
 
-	printUSB("----  MAX2871  ----\n\n");
+	printUSB("> ----  MAX2871  ----\n");
 
-	sprintf(str1, "Chip Enable = %d\n", max2871Status->CHIP_EN);
+	sprintf(str1, "> Chip Enable = %d\n", max2871Status->CHIP_EN);
 	printUSB(str1);
 
 	max2871CheckLD(max2871Status);
-	sprintf(str1, "LD Status = %d\n", max2871Status->ldState);
+	sprintf(str1, "> LD Status = %d\n", max2871Status->ldState);
 	printUSB(str1);
 
-	sprintf(str1, "Set Frequency = %0.2f MHz\n", max2871Status->frequency);
+	sprintf(str1, "> Set Frequency = %0.2f MHz\n", max2871Status->frequency);
 	printUSB(str1);
 
-	sprintf(str1, "Int-N / nFrac-N = %d\n", max2871Status->intN_nFracN);
+	sprintf(str1, "> Int-N / nFrac-N = %d\n", max2871Status->intN_nFracN);
 	printUSB(str1);
 
-	sprintf(str1, "RFA Enable = %d\n", max2871Status->RFA_EN);
+	sprintf(str1, "> RFA Enable = %d\n", max2871Status->RFA_EN);
 	printUSB(str1);
 
-	sprintf(str1, "RF Out Enable = %d\n", max2871Status->RF_CHIP_EN);
+	sprintf(str1, "> RF Out Enable = %d\n", max2871Status->RF_CHIP_EN);
 	printUSB(str1);
 
-	sprintf(str1, "RF Power = %d dBm\n", powerArray[max2871Status->rfPower]);
+	sprintf(str1, "> RF Power = %d dBm\n", powerArray[max2871Status->rfPower]);
 	printUSB(str1);
 
 	if (verbose)
