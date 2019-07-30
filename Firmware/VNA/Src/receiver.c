@@ -88,12 +88,14 @@ void readGainPhaseVoltage(struct receiverStruct *recieverStatus)
 
 void gainVoltageToDB(struct receiverStruct *recieverStatus)
 {
-	recieverStatus->gainDB = recieverStatus->gainVoltage * 33.3;
+	recieverStatus->gainDB = - (recieverStatus->gainVoltage * 30 - 30);
+//	recieverStatus->gainDB = recieverStatus->gainVoltage;
 }
 
 void phaseVoltageToDeg(struct receiverStruct *recieverStatus)
 {
 	float v = receiverStatus.phaseVoltage;
+//	recieverStatus->phaseDeg = receiverStatus.phaseVoltage;
 	// Values calculated from MATLAB
 	recieverStatus->phaseDeg = A11 * pow(v,11) +A10 * pow(v,10) + A9 * pow(v,9) + A8 * pow(v,8) + A7 * pow(v,7) + A6 * pow(v,6) + A5 * pow(v,5) + A4 * pow(v,4) + A3 * pow(v,3) + A2 * pow(v,2) + A1 * v + A0;
 }

@@ -65,31 +65,31 @@ void MX_SDADC1_Init(void)
   {
     Error_Handler();
   }
-  /** Set parameters for SDADC configuration 1 Register 
+  /** Set parameters for SDADC configuration 0 Register 
   */
   ConfParamStruct.InputMode = SDADC_INPUT_MODE_SE_OFFSET;
-  ConfParamStruct.Gain = SDADC_GAIN_1;
+  ConfParamStruct.Gain = SDADC_GAIN_1_2;
   ConfParamStruct.CommonMode = SDADC_COMMON_MODE_VSSA;
   ConfParamStruct.Offset = 0;
-  if (HAL_SDADC_PrepareChannelConfig(&hsdadc1, SDADC_CONF_INDEX_1, &ConfParamStruct) != HAL_OK)
+  if (HAL_SDADC_PrepareChannelConfig(&hsdadc1, SDADC_CONF_INDEX_0, &ConfParamStruct) != HAL_OK)
   {
     Error_Handler();
   }
   /** Configure the Injected Channel 
   */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONF_INDEX_1) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_4, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     Error_Handler();
   }
   /** Configure the Injected Channel 
   */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_5, SDADC_CONF_INDEX_1) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_5, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     Error_Handler();
   }
   /** Configure the Injected Channel 
   */
-  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_7, SDADC_CONF_INDEX_1) != HAL_OK)
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_7, SDADC_CONF_INDEX_0) != HAL_OK)
   {
     Error_Handler();
   }

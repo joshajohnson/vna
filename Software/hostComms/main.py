@@ -80,7 +80,7 @@ class VNA:
 
     def receive_data(self):
         """ Receives data from the COM port. Finishes when it detects an empty line. """
-
+        self.data = [];
         while True:
             self.ser_recv = self.ser_text.readline().rstrip().lstrip()
             self.ser_recv_line_split = self.ser_recv.splitlines()
@@ -162,7 +162,7 @@ class VNA:
 
         if plotType.lower() == "mag":
             plt.figure()
-            plt.semilogy(freq, mag)
+            plt.plot(freq, mag)
             plt.ylabel("Power dB")
             plt.xlabel("Frequency MHz")
             plt.show()
