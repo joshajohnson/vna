@@ -85,17 +85,49 @@ void readGainPhaseVoltage(struct receiverStruct *recieverStatus)
 	recieverStatus->phaseVoltage = phaseVoltage;
 
 }
+void readAD8302vRef(struct receiverStruct *recieverStatus)
+{
+	uint32_t adcVal = 0;
+	uint32_t ch;
+	uint32_t retVal;
+
+	// Get an average of the ADC data
+	uint8_t i = 0;
+	while ((i < NUM_SAMPLES))
+	{
+		while(HAL_SDADC_PollForInjectedConversion(&hsdadc1, 100) != HAL_OK)
+		{
+			// Wait until SDADC is ready
+		}
+
+		if(HAL_SDADC_PollForInjectedConversion(&hsdadc1, 100) == HAL_OK)
+		{
+			retVal = HAL_SDADC_InjectedGetValue(&hsdadc1, &ch);
+			// As we can't choose what channel to sample, only store value if it is channel 8 (VREF), and we need more samples
+			if (ch == 8)
+			{
+				adcVal += retVal;
+				i++;
+			}
+
+		}
+		DWT_Delay_us(10);
+	}
+
+	//	Average out results
+	adcVal /= NUM_SAMPLES;
+
+	receiverStatus.refVoltage = (VREF * adcVal) / NUM_STATES_16_BIT;
+	receiverStatus.refDelta = receiverStatus.refVoltage - 1.8;
+
+}
 
 void gainVoltageToDB(struct receiverStruct *recieverStatus)
 {
-	recieverStatus->gainDB = - (recieverStatus->gainVoltage * 30 - 30);
-//	recieverStatus->gainDB = recieverStatus->gainVoltage;
+	recieverStatus->gainDB = - ((recieverStatus->gainVoltage - receiverStatus.refDelta) * 30 - 30);
 }
 
 void phaseVoltageToDeg(struct receiverStruct *recieverStatus)
 {
-	float v = receiverStatus.phaseVoltage;
-//	recieverStatus->phaseDeg = receiverStatus.phaseVoltage;
-	// Values calculated from MATLAB
-	recieverStatus->phaseDeg = A11 * pow(v,11) +A10 * pow(v,10) + A9 * pow(v,9) + A8 * pow(v,8) + A7 * pow(v,7) + A6 * pow(v,6) + A5 * pow(v,5) + A4 * pow(v,4) + A3 * pow(v,3) + A2 * pow(v,2) + A1 * v + A0;
+	recieverStatus->phaseDeg = (receiverStatus.phaseVoltage - receiverStatus.refDelta) * 100;
 }

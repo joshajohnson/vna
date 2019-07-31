@@ -61,7 +61,7 @@ void MX_SDADC1_Init(void)
     Error_Handler();
   }
   if (HAL_SDADC_InjectedConfigChannel(&hsdadc1, SDADC_CHANNEL_4|SDADC_CHANNEL_5
-                              |SDADC_CHANNEL_7, SDADC_CONTINUOUS_CONV_ON) != HAL_OK)
+                              |SDADC_CHANNEL_7|SDADC_CHANNEL_8, SDADC_CONTINUOUS_CONV_ON) != HAL_OK)
   {
     Error_Handler();
   }
@@ -93,6 +93,12 @@ void MX_SDADC1_Init(void)
   {
     Error_Handler();
   }
+  /** Configure the Injected Channel 
+  */
+  if (HAL_SDADC_AssociateChannelConfig(&hsdadc1, SDADC_CHANNEL_8, SDADC_CONF_INDEX_0) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
 }
 
@@ -113,6 +119,7 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     /**SDADC1 GPIO Configuration    
     PB1     ------> SDADC1_AIN5P
     PB2     ------> SDADC1_AIN4P
+    PE8     ------> SDADC1_AIN8P
     PE9     ------> SDADC1_AIN7P 
     */
     GPIO_InitStruct.Pin = RF_PWR_LEVEL_Pin|AD8302_VMAG_Pin;
@@ -120,10 +127,10 @@ void HAL_SDADC_MspInit(SDADC_HandleTypeDef* sdadcHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = AD8302_VPHASE_Pin;
+    GPIO_InitStruct.Pin = AD8302_VREF_Pin|AD8302_VPHASE_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(AD8302_VPHASE_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /* USER CODE BEGIN SDADC1_MspInit 1 */
 
@@ -145,11 +152,12 @@ void HAL_SDADC_MspDeInit(SDADC_HandleTypeDef* sdadcHandle)
     /**SDADC1 GPIO Configuration    
     PB1     ------> SDADC1_AIN5P
     PB2     ------> SDADC1_AIN4P
+    PE8     ------> SDADC1_AIN8P
     PE9     ------> SDADC1_AIN7P 
     */
     HAL_GPIO_DeInit(GPIOB, RF_PWR_LEVEL_Pin|AD8302_VMAG_Pin);
 
-    HAL_GPIO_DeInit(AD8302_VPHASE_GPIO_Port, AD8302_VPHASE_Pin);
+    HAL_GPIO_DeInit(GPIOE, AD8302_VREF_Pin|AD8302_VPHASE_Pin);
 
   /* USER CODE BEGIN SDADC1_MspDeInit 1 */
 

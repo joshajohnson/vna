@@ -29,6 +29,9 @@ void measure(int8_t Sxx, float startFreq, float stopFreq, uint32_t numSteps, flo
 
 	statusThinking();
 
+	// Calculate AD8302 offset
+	readAD8302vRef(receiverStatus);
+
 	float stepSize = ((stopFreq - startFreq) / numSteps);
 	float currentFreq = startFreq;
 
@@ -47,4 +50,28 @@ void measure(int8_t Sxx, float startFreq, float stopFreq, uint32_t numSteps, flo
 	}
 	statusNominal();
 
+}
+
+void setEcal(uint8_t position)
+{
+	if (position == SHORT)
+	{
+		HAL_GPIO_WritePin(ECAL_DP_GPIO_Port, ECAL_DP_Pin, 1);
+		HAL_GPIO_WritePin(ECAL_DM_GPIO_Port, ECAL_DM_Pin, 0);
+	}
+	else if (position == OPEN)
+	{
+		HAL_GPIO_WritePin(ECAL_DP_GPIO_Port, ECAL_DP_Pin, 0);
+		HAL_GPIO_WritePin(ECAL_DM_GPIO_Port, ECAL_DM_Pin, 0);
+	}
+	else if (position == LOAD)
+	{
+		HAL_GPIO_WritePin(ECAL_DP_GPIO_Port, ECAL_DP_Pin, 1);
+		HAL_GPIO_WritePin(ECAL_DM_GPIO_Port, ECAL_DM_Pin, 1);
+	}
+	else if (position == THRU)
+	{
+		HAL_GPIO_WritePin(ECAL_DP_GPIO_Port, ECAL_DP_Pin, 0);
+		HAL_GPIO_WritePin(ECAL_DM_GPIO_Port, ECAL_DM_Pin, 1);
+	}
 }

@@ -109,7 +109,7 @@ class VNA:
             self.send_command(user_cmd)
             self.receive_data()
 
-    def measure(self,Sxx):
+    def measure(self,Sxx,shutup):
         """ Generates command for measuring S params. """
 
         if not self.connected:
@@ -122,32 +122,33 @@ class VNA:
         else:
             print("Cannot measure that S Parameter, enter S11 or S21.")
 
-        usr_same = input("Use default / previous values? y/n:")
+        if shutup != True:
+            usr_same = input("Use default / previous values? y/n:")
 
-        if usr_same.lower() != "y":
-            usr_start_freq = input("Enter start frequency in MHz:")
-            while (float(usr_start_freq) < 25) or (float(usr_start_freq) > 1250):
-                print("Frequency too high or low. Enter frequency between 25 and 1250 MHz")
+            if usr_same.lower() != "y":
                 usr_start_freq = input("Enter start frequency in MHz:")
-            self.startFreq = float(usr_start_freq)
+                while (float(usr_start_freq) < 25) or (float(usr_start_freq) > 1250):
+                    print("Frequency too high or low. Enter frequency between 25 and 1250 MHz")
+                    usr_start_freq = input("Enter start frequency in MHz:")
+                self.startFreq = float(usr_start_freq)
 
-            usr_stop_freq = input("Enter stop frequency in MHz:")
-            while (float(usr_stop_freq) < 25) or (float(usr_stop_freq) > 1250):
-                print("Frequency too high or low. Enter frequency between 25 and 1250 MHz")
                 usr_stop_freq = input("Enter stop frequency in MHz:")
-            self.stopFreq = float(usr_stop_freq)
+                while (float(usr_stop_freq) < 25) or (float(usr_stop_freq) > 1250):
+                    print("Frequency too high or low. Enter frequency between 25 and 1250 MHz")
+                    usr_stop_freq = input("Enter stop frequency in MHz:")
+                self.stopFreq = float(usr_stop_freq)
 
-            usr_num_samples = input("Enter number of samples:")
-            while not usr_num_samples.isnumeric():
-                print("That is not a number. Please try again.")
                 usr_num_samples = input("Enter number of samples:")
-            self.numSamples = int(usr_num_samples)
+                while not usr_num_samples.isnumeric():
+                    print("That is not a number. Please try again.")
+                    usr_num_samples = input("Enter number of samples:")
+                self.numSamples = int(usr_num_samples)
 
-            usr_output_power = input("Enter output power in dBm:")
-            while (float(usr_output_power) < -20) or (float(usr_output_power) > 10):
-                print("Power too high or low. Enter power between -20 and +10 dBm")
                 usr_output_power = input("Enter output power in dBm:")
-            self.outputPower = float(usr_output_power)
+                while (float(usr_output_power) < -20) or (float(usr_output_power) > 10):
+                    print("Power too high or low. Enter power between -20 and +10 dBm")
+                    usr_output_power = input("Enter output power in dBm:")
+                self.outputPower = float(usr_output_power)
 
         self.send_command("measure({0},{1:.2f},{2:.2f},{3},{4:.2f})".format(self.Sxx, self.startFreq, self.stopFreq, self.numSamples, self.outputPower))
         self.receive_data()
@@ -174,6 +175,104 @@ class VNA:
             plt.xlabel("Frequency MHz")
             plt.show()
 
+        if plotType == "cal":
+            self.data = np.loadtxt("cal_short.csv", delimiter=",")
+            freq = self.data[:, 0]
+            mag = self.data[:, 1]
+            phase = self.data[:, 2]
+
+            plt.figure()
+            plt.subplot(2,4,1)
+            plt.plot(freq, mag)
+            plt.title("Short")
+            plt.ylabel("Power dB")
+            plt.xlabel("Frequency MHz")
+
+            plt.subplot(2,4,5)
+            plt.plot(freq, phase)
+            plt.ylabel("Phase deg")
+            plt.xlabel("Frequency MHz")
+
+            self.data = np.loadtxt("cal_open.csv", delimiter=",")
+            freq = self.data[:, 0]
+            mag = self.data[:, 1]
+            phase = self.data[:, 2]
+
+            plt.subplot(2,4,2)
+            plt.plot(freq, mag)
+            plt.title("Open")
+            plt.ylabel("Power dB")
+            plt.xlabel("Frequency MHz")
+
+            plt.subplot(2,4,6)
+            plt.plot(freq, phase)
+            plt.ylabel("Phase deg")
+            plt.xlabel("Frequency MHz")
+
+            self.data = np.loadtxt("cal_load.csv", delimiter=",")
+            freq = self.data[:, 0]
+            mag = self.data[:, 1]
+            phase = self.data[:, 2]
+
+            plt.subplot(2,4,3)
+            plt.plot(freq, mag)
+            plt.title("Load")
+            plt.ylabel("Power dB")
+            plt.xlabel("Frequency MHz")
+
+            plt.subplot(2,4,7)
+            plt.plot(freq, phase)
+            plt.ylabel("Phase deg")
+            plt.xlabel("Frequency MHz")
+
+            self.data = np.loadtxt("cal_thru.csv", delimiter=",")
+            freq = self.data[:, 0]
+            mag = self.data[:, 1]
+            phase = self.data[:, 2]
+
+            plt.subplot(2,4,4)
+            plt.plot(freq, mag)
+            plt.title("Through")
+            plt.ylabel("Power dB")
+            plt.xlabel("Frequency MHz")
+
+            plt.subplot(2,4,8)
+            plt.plot(freq, phase)
+            plt.ylabel("Phase deg")
+            plt.xlabel("Frequency MHz")
+
+
+            plt.show()
+
+    def calibrate(self):
+
+        if not self.connected:
+            self.connect_serial()
+
+        self.send_command("setCal(short)")
+        self.receive_data()
+        time.sleep(0.2)
+        self.measure(11,True)
+        self.save("cal_short")
+
+        self.send_command("setCal(open)")
+        self.receive_data()
+        time.sleep(0.2)
+        self.measure(11,True)
+        self.save("cal_open")
+
+        self.send_command("setCal(load)")
+        self.receive_data()
+        time.sleep(0.2)
+        self.measure(11,True)
+        self.save("cal_load")
+
+        self.send_command("setCal(thru)")
+        self.receive_data()
+        time.sleep(0.2)
+        self.measure(21,True)
+        self.save("cal_thru")
+
     def save(self, file_name):
         np.savetxt("{}.csv".format(file_name), self.data, delimiter=",")
 
@@ -197,6 +296,7 @@ if __name__ == '__main__':
             print("plot mag - plots magnitude vs frequency")
             print("plot phase - plots phase vs frequency")
             print("plot smith - plots a smith chart (NOT WORKING YET)")
+            print("calibrate - calibrates with ecal unit")
             print("save - saves loaded data")
             print("load - loads saved data")
         elif user_input.lower() == "connect":
@@ -204,17 +304,21 @@ if __name__ == '__main__':
         elif user_input.lower() == "talk":
             vna.talk()
         elif user_input.lower() == "measure":
-            vna.measure(input("Enter 11 to measure S11, 21 to measure S21"))
+            vna.measure(input("Enter 11 to measure S11, 21 to measure S21:"),False)
         elif user_input.lower() == "s11":
-            vna.measure(11)
+            vna.measure(11,False)
         elif user_input.lower() == "s21":
-            vna.measure(21)
+            vna.measure(21,False)
         elif user_input.lower() == "plot mag":
             vna.plot("mag")
         elif user_input.lower() == "plot phase":
             vna.plot("phase")
         elif user_input.lower() == "plot smith":
             vna.plot("smith")
+        elif user_input.lower() == "plot cal":
+            vna.plot("cal")
+        elif user_input.lower() == "calibrate":
+            vna.calibrate()
         elif user_input.lower() == "save":
             vna.save(input("Enter file name, excluding extension:"))
         elif user_input.lower() == "load":

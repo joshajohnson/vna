@@ -89,6 +89,35 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 		measure(atoi(args[0]), atof(args[1]), atof(args[2]), atoi(args[3]), atof(args[4]), max2871Status, txStatus, receiverStatus);
 	}
 
+	else if (strncmp("setCal", command, 6) == 0)
+		{
+				if (strncmp("short", args[0], 4) == 0)
+				{
+					setEcal(SHORT);
+					sprintf((char *)txStr, "> ECal set to short\n");
+				}
+				else if (strncmp("open", args[0], 4) == 0)
+				{
+					setEcal(OPEN);
+					sprintf((char *)txStr, "> ECal set to open\n");
+				}
+				else if (strncmp("load", args[0], 4) == 0)
+				{
+					setEcal(LOAD);
+					sprintf((char *)txStr, "> ECal set to load\n");
+				}
+				else if (strncmp("thru", args[0], 4) == 0)
+				{
+					setEcal(THRU);
+					sprintf((char *)txStr, "> ECal set to through\n");
+				}
+				args[0][0] = (int32_t) "";
+
+				printUSB(txStr);
+		}
+
+
+
 	else if (strncmp("setFilter", command, 9) == 0)
 	{
 		txStatus->filter = setFilter(atof(args[0]));
@@ -146,6 +175,11 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 			max2871PrintStatus(nVERBOSE,max2871Status);
 
 		txChainPrintStatus(txStatus);
+
+		readAD8302vRef(receiverStatus);
+		sprintf((char *)txStr, "> AD8302 VREF = %0.3f, VDELTA = %0.3f\n", receiverStatus->refVoltage, receiverStatus->refDelta);
+		printUSB(txStr);
+
 	}
 
 	else if (strcmp("outputLevelTest", command) == 0)
@@ -188,6 +222,7 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 		printUSB((char *)"> sigGen(frequency, power)\r\n");
 		printUSB((char *)"> sweep(startFreq, stopFreq, numSteps, power, time)\r\n");
 		printUSB((char *)"> measure(Sxx,startFreq,stopFreq,numSteps,power)\r\n");
+		printUSB((char *)"> setEcal({short,open,load,thru}\r\n");
 		printUSB((char *)"> status(verbose)\r\n");
 		printUSB((char *)"> WHOAMI\r\n");
 		printUSB((char *)"> Use the below at your own risk:\r\n");
@@ -203,6 +238,9 @@ void commandParser(struct MAX2871Struct *max2871Status, struct txStruct *txStatu
 	else
 	{
 		printUSB("> Not found, try again\r\n");
+		sprintf((char *)txStr, "> %s\n", command);
+		printUSB(txStr);
+
 	}
 
 }

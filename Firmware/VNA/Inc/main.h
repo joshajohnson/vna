@@ -138,6 +138,8 @@ void Error_Handler(void);
 #define RF_PWR_LEVEL_GPIO_Port GPIOB
 #define AD8302_VMAG_Pin GPIO_PIN_2
 #define AD8302_VMAG_GPIO_Port GPIOB
+#define AD8302_VREF_Pin GPIO_PIN_8
+#define AD8302_VREF_GPIO_Port GPIOE
 #define AD8302_VPHASE_Pin GPIO_PIN_9
 #define AD8302_VPHASE_GPIO_Port GPIOE
 #define INPUT_SW_1_Pin GPIO_PIN_14
@@ -164,6 +166,8 @@ void Error_Handler(void);
 #define SWD_IO_GPIO_Port GPIOA
 #define SWD_CLK_Pin GPIO_PIN_14
 #define SWD_CLK_GPIO_Port GPIOA
+#define ECAL_DP_Pin GPIO_PIN_15
+#define ECAL_DP_GPIO_Port GPIOA
 #define ATTEN_MOSIC10_Pin GPIO_PIN_10
 #define ATTEN_MOSIC10_GPIO_Port GPIOC
 #define ATTEN_CLKC11_Pin GPIO_PIN_11
@@ -180,6 +184,8 @@ void Error_Handler(void);
 #define LED3_GPIO_Port GPIOB
 #define LED4_Pin GPIO_PIN_6
 #define LED4_GPIO_Port GPIOB
+#define ECAL_DM_Pin GPIO_PIN_7
+#define ECAL_DM_GPIO_Port GPIOB
 #define FILTER_SW_1_Pin GPIO_PIN_8
 #define FILTER_SW_1_GPIO_Port GPIOB
 #define FILTER_SW_2_Pin GPIO_PIN_9

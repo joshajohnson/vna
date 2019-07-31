@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:Filter_Bank_Dev_Rev_0-cache
-LIBS:SAO101-cache
+LIBS:Ecal-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -391,7 +390,7 @@ $EndComp
 Wire Wire Line
 	1050 3225 1050 3275
 $Comp
-L VNA_Symbols:LP5912 U1
+L Ecal-rescue:LP5912-VNA_Symbols U1
 U 1 1 5CFAAA40
 P 1700 3125
 F 0 "U1" H 1550 3575 49  0000 C CNN

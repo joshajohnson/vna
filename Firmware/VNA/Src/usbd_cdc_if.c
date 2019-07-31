@@ -273,7 +273,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 	    {
 	    	if ((FIFO_INCR(RX_FIFO.head)) == RX_FIFO.tail)
 	    	{
-	    		printUSB("Buffer Overrun!\n"); 	// Notify user and reset buffer, not ideal
+	    		printUSB("> Buffer Overrun!\n"); 	// Notify user and reset buffer, not ideal
 	    		RX_FIFO.head = 0;
 	    		RX_FIFO.tail = 0;
 	    		return USBD_FAIL; 				// Buffer overrun
