@@ -37,10 +37,10 @@ class VNA:
             return
 
         # Find and connect to a VNA
-        print("\nConnecting to VNA!\n")
         vna_port = None
         ports = serial.tools.list_ports.comports()
-        print("Found COM Ports:\n")
+        if ports != []:
+            print("Found COM Ports:\n")
         for port, desc, hwid in sorted(ports):
             print("{}: {} [{}]".format(port, desc, hwid))
 
@@ -113,12 +113,13 @@ class VNA:
         if not self.connected:
             self.connect_serial()
 
-        while True:
-            user_cmd = input("Enter a command for the VNA:\n")
-            if user_cmd.lower() == "exit":
-                break
-            self.send_command(user_cmd)
-            self.receive_data()
+        if self.connected:
+            while True:
+                user_cmd = input("Enter a command for the VNA:\n")
+                if user_cmd.lower() == "exit":
+                    break
+                self.send_command(user_cmd)
+                self.receive_data()
 
     def set_measurement_params(self):
         """ Gets Start, Stop, num samples, and output power from user. """
@@ -154,23 +155,24 @@ class VNA:
         if not self.connected:
             self.connect_serial()
 
-        if ask_params:
-            self.set_measurement_params()
+        if self.connected:
+            if ask_params:
+                self.set_measurement_params()
 
-        if s_param.lower() == "s11":
-            self.s_param = 11
-        elif s_param.lower() == "s21":
-            self.s_param = 21
-        else:
-            print("Cannot measure that S Parameter, enter S11 or S21.")
+            if s_param.lower() == "s11":
+                self.s_param = 11
+            elif s_param.lower() == "s21":
+                self.s_param = 21
+            else:
+                print("Cannot measure that S Parameter, enter S11 or S21.")
 
-        try:
-            self.send_command("measure({0},{1:.2f},{2:.2f},{3},{4:.2f})".format(self.s_param, self.start_freq, self.stop_freq, self.num_samples, self.output_power))
-        except:
-            print("Sorry, a bad command was probably entered. Please try again.")
+            try:
+                self.send_command("measure({0},{1:.2f},{2:.2f},{3},{4:.2f})".format(self.s_param, self.start_freq, self.stop_freq, self.num_samples, self.output_power))
+            except:
+                print("Sorry, a bad command was probably entered. Please try again.")
 
-        self.receive_data()
-        self.save("measurement")
+            self.receive_data()
+            self.save("measurement")
 
     def measure_ecal(self):
         """ Measures S-Parameters of Josh's ECal unit and stores the results. """
@@ -338,68 +340,70 @@ if __name__ == '__main__':
     plot = PLOT()
 
     while True:
+        
         user_input = input("\nWhat would you like to do?\n")
         input_args = user_input.split(" ")
 
         # Lookup table for commands
 
-        # Connect the VNA
-        if input_args[0].lower() == "connect":
-            if len(input_args) == 2:
-                vna.connect_serial(input_args[1].lower())
-            else:
-                vna.connect_serial()
-
-        # Measure S Params
-        elif input_args[0].lower() == "measure":
-            if len(input_args) == 2:
-                vna.measure(input_args[1].lower())
-            else:
-                s_param = input("Enter S11 to measure S11, S22 to measure S22.\n")
-                vna.measure(s_param)
-            plot.load("measurement")
-
-        # Run Calibration
-        elif input_args[0].lower() == "calibrate":
-            vna.calibrate()
-
-        # Plot all the things
-        elif input_args[0].lower() == "plot":
-            if len(input_args) == 2:
-                plot.plot(input_args[1].lower())
-            else:
-                plot_type = input("Enter mag, phase, smith or cal.\n")
-                plot.plot(plot_type)
-
-        # Have a chat to the VNA
-        elif input_args[0].lower() == "talk":
-            vna.talk()
-
-        # Load a file to plot
-        elif input_args[0].lower() == "save":
-            vna.save(input_args[1].lower())
-
-        # Load a file to plot
-        elif input_args[0].lower() == "load":
-            plot.load(input_args[1].lower())
-
         # Exit this script
-        elif input_args[0].lower() == "killme":
+        if input_args[0].lower() == "killme":
             exit(1337)
+        try: 
+            # Connect the VNA
+            if input_args[0].lower() == "connect":
+                if len(input_args) == 2:
+                    vna.connect_serial(input_args[1].lower())
+                else:
+                    vna.connect_serial()
 
-        # Print a help message with all of the available commands
-        elif input_args[0].lower() == "help":
-            print("If you are after help you have come to the right place!")
-            print("Commands in [] are required, in {} are optional:\n")
-            print("connect {com_port} - connects to VNA at {com_port}")
-            print("measure {s11, s21} - measures given S Parameter")
-            print("calibrate - calibrates VNA using eCal unit")
-            print("plot {mag, phase, mag_phase, smith, cal} - plots data in given format")
-            print("talk - opens a COM port with the VNA for the user to use")
-            print("save [file_name] - saves most recent measurement to file_name.csv")
-            print("load [file_name] - loads saved measurement from file_name.csv")
-            print("killme - exits this python script")
+            # Measure S Params
+            elif input_args[0].lower() == "measure":
+                if len(input_args) == 2:
+                    vna.measure(input_args[1].lower())
+                else:
+                    s_param = input("Enter S11 to measure S11, S22 to measure S22.\n")
+                    vna.measure(s_param)
+                plot.load("measurement")
 
-        else:
-            print("Command not found. Type 'help' for a list of commands")
+            # Run Calibration
+            elif input_args[0].lower() == "calibrate":
+                vna.calibrate()
 
+            # Plot all the things
+            elif input_args[0].lower() == "plot":
+                if len(input_args) == 2:
+                    plot.plot(input_args[1].lower())
+                else:
+                    plot_type = input("Enter mag, phase, smith or cal.\n")
+                    plot.plot(plot_type)
+
+            # Have a chat to the VNA
+            elif input_args[0].lower() == "talk":
+                vna.talk()
+
+            # Load a file to plot
+            elif input_args[0].lower() == "save":
+                vna.save(input_args[1].lower())
+
+            # Load a file to plot
+            elif input_args[0].lower() == "load":
+                plot.load(input_args[1].lower())
+
+            # Print a help message with all of the available commands
+            elif input_args[0].lower() == "help":
+                print("If you are after help you have come to the right place!")
+                print("Commands in [] are required, in {} are optional:\n")
+                print("connect {com_port} - connects to VNA at {com_port}")
+                print("measure {s11, s21} - measures given S Parameter")
+                print("calibrate - calibrates VNA using eCal unit")
+                print("plot {mag, phase, mag_phase, smith, cal} - plots data in given format")
+                print("talk - opens a COM port with the VNA for the user to use")
+                print("save [file_name] - saves most recent measurement to file_name.csv")
+                print("load [file_name] - loads saved measurement from file_name.csv")
+                print("killme - exits this python script")
+
+            else:
+                print("Command not found. Type 'help' for a list of commands")
+        except:
+            print("Something went wrong, please try again.")
