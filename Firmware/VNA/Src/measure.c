@@ -41,7 +41,7 @@ void measure(int8_t Sxx, float startFreq, float stopFreq, uint32_t numSteps, flo
 		sigGen(currentFreq, power, max2871Status, txStatus);
 		readGainPhaseVoltage(receiverStatus);
 		gainVoltageToDB(receiverStatus);
-		phaseVoltageToDeg(receiverStatus);
+		phaseVoltageToDeg(receiverStatus, max2871Status);
 
 		sprintf((char *)str1, "%0.2f,%0.2f,%0.2f\n", currentFreq, receiverStatus->gainDB, receiverStatus->phaseDeg);
 		printUSB(str1);

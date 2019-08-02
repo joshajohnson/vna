@@ -127,7 +127,33 @@ void gainVoltageToDB(struct receiverStruct *recieverStatus)
 	recieverStatus->gainDB = - ((recieverStatus->gainVoltage - receiverStatus.refDelta) * 30 - 30);
 }
 
-void phaseVoltageToDeg(struct receiverStruct *recieverStatus)
+void phaseVoltageToDeg(struct receiverStruct *recieverStatus, struct MAX2871Struct *max2817Status)
 {
 	recieverStatus->phaseDeg = (receiverStatus.phaseVoltage - receiverStatus.refDelta) * 100;
+
+	// Compensate for AD8302 amplitude drop with frequency
+
+	// Offset and normalise
+	recieverStatus->phaseDeg = (recieverStatus->phaseDeg + 1) - 90;
+	recieverStatus->phaseDeg = recieverStatus->phaseDeg * 0.95;
+	recieverStatus->phaseDeg = recieverStatus->phaseDeg + 90;
+
+	float phaseComp = 0;
+	// Calculate compensation amount based on frequency
+	if (recieverStatus->phaseDeg >= 90)
+		phaseComp = M1 * max2817Status->frequency + B1;
+	else if (recieverStatus->phaseDeg < 90)
+		phaseComp = -(M2 * max2817Status->frequency + B2);
+
+	// Calculate weighting based on proximity to 0 / 180
+
+	float weight = 0;
+	if (recieverStatus->phaseDeg > 160)
+		weight = (recieverStatus->phaseDeg - 160) * 0.05;
+	else if (recieverStatus->phaseDeg < 20)
+			weight = (20 - recieverStatus->phaseDeg) * 0.05;
+
+	// Apply corrections to phase
+	recieverStatus->phaseDeg = recieverStatus->phaseDeg + (phaseComp * weight);
+
 }
