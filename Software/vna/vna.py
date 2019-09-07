@@ -4,6 +4,7 @@ import io
 import numpy as np
 import matplotlib.pyplot as plt
 import skrf as rf
+import os
 
 class VNA:
     def __init__(self):
@@ -26,15 +27,10 @@ class VNA:
 
         # Plotting Vars
         self.data = []
-
         self.user_input = ""
 
     def connect_serial(self, com_port=None):
         """ Connect to VNA over a COM port. """
-
-        if self.connected:
-            print("Already Connected!")
-            return
 
         # Find and connect to a VNA
         vna_port = None
@@ -172,30 +168,33 @@ class VNA:
                 print("Sorry, a bad command was probably entered. Please try again.")
 
             self.receive_data()
-            self.save("measurement")
+            self.data[:, 0] = self.data[:, 0] * 1E6 # convert from MHz to Hz
+            self.save("meas{}".format(s_param.upper()))
 
     def measure_ecal(self):
         """ Measures S-Parameters of Josh's ECal unit and stores the results. """
 
+        self.num_samples = 1226
         self.send_command("setCal(short)")
         self.receive_data()
         self.measure("S11", False)
-        self.save("ecal_short")
+        self.save("ecal/ecal_short")
 
         self.send_command("setCal(open)")
         self.receive_data()
         self.measure("S11", False)
-        self.save("ecal_open")
+        self.save("ecal/ecal_open")
 
         self.send_command("setCal(load)")
         self.receive_data()
         self.measure("S11", False)
-        self.save("ecal_load")
+        self.save("ecal/ecal_load")
 
         self.send_command("setCal(thru)")
         self.receive_data()
         self.measure("S21", False)
-        self.save("ecal_thru")
+        self.save("ecal/ecal_thru")
+        self.num_samples = 245
 
     def calibrate(self):
         """ Connects to VNA and measures calibration coefficients, then calibrates VNA. """
@@ -211,7 +210,6 @@ class VNA:
         np.savetxt("{}.csv".format(file_name), self.data, delimiter=",")
 
 
-
 class PLOT:
     def __init__(self):
         # Data Variables
@@ -219,6 +217,26 @@ class PLOT:
         self.freq = []
         self.mag = []
         self.phase = []
+        self.file_name = "measurementS11"
+        self.network = rf.Network
+
+    def data_to_network(self, file_name, freq, mag, phase):
+        s = np.zeros((len(freq), 2, 2), dtype=complex)
+        fn = file_name.lower()
+        if 's11' in fn or 'open' in fn or 'short' in fn or 'load' in fn or 'one' in fn:
+            s[:, 0, 0] = rf.dbdeg_2_reim(mag, phase)
+        elif 's21' in fn or 'thru' in fn or 'through' in fn or 'two' in fn:
+            s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
+        else:
+            var = input("Unable to determine S param, please enter S11 or S21")
+            if "s11" in var:
+                s[:, 0, 0] = rf.dbdeg_2_reim(mag, phase)
+            elif "s21" in var:
+                s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
+            else:
+                print("Still unable to figure it out, try changing file name")
+
+        self.network = rf.Network(f=freq, s=s, name=file_name)
 
     def load(self, file_name):
         """ Loads CSV from file. """
@@ -227,110 +245,153 @@ class PLOT:
             self.freq = self.data[:, 0]
             self.mag = self.data[:, 1]
             self.phase = self.data[:, 2]
+
         except:
-            print("File not found.")
+            print("File import failed: {}".format(file_name))
 
-    def plot_mag(self, freq, mag, title="Recent Measurement"):
+        try:
+            self.data_to_network(file_name, self.freq, self.mag, self.phase)
+            self.network.frequency = self.network.frequency * 1E-6
+
+        except:
+            print("Network transform failed: {}".format(file_name))
+
+    def plot_mag(self, network, show=True):
         """ Plots magnitude vs frequency. """
-        plt.figure()
-        plt.plot(freq, mag)
-        plt.title(title)
-        plt.ylabel("Power (dB)")
-        plt.xlabel("Frequency (MHz)")
-        plt.show()
+        fn = network.name.lower()
+        if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
+            network.plot_s_db(m=0, n=0, label="S11")
+        elif 's21' in fn or 'through' in fn or 'thru' in fn or 'two' in fn:
+            network.plot_s_db(m=1, n=0, label="S21")
+        else:
+            var = input("Unable to determine S param, please enter S11 or S21")
+            network.plot_s_db(m=1, n=0, label=var)
 
-    def plot_phase(self, freq, phase, title="Recent Measurement"):
-        """ Plots phase vs frequency. """
-        plt.figure()
-        plt.plot(freq, phase)
-        plt.title(title)
-        plt.ylabel("Phase (deg)")
         plt.xlabel("Frequency (MHz)")
-        plt.show()
+        if show:
+            plt.title(network.name)
+            plt.show()
 
-    def plot_mag_phase(self, freq, mag, phase, title="Recent Measurement"):
+    def plot_phase(self, network, show=True):
         """ Plots phase vs frequency. """
-        plt.figure()
+        fn = network.name.lower()
+        if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
+            network.plot_s_deg(m=0, n=0, label="S11")
+        elif 's21' in fn or 'through' in fn or 'thru' in fn or 'two' in fn:
+            network.plot_s_deg(m=1, n=0, label="S21")
+        else:
+            var = input("Unable to determine S param, please enter S11 or S21")
+            network.plot_s_db(m=1, n=0, label=var)
+
+        plt.xlabel("Frequency (MHz)")
+        if show:
+            plt.title(network.name)
+            plt.show()
+
+    def plot_mag_phase(self, network):
+        """ Plots phase vs frequency. """
         plt.subplot(2,1,1)
-        plt.plot(freq, mag)
-        plt.title(title)
-        plt.ylabel("Power (dB)")
-        plt.xlabel("Frequency (MHz)")
+        self.plot_mag(network, False)
+        plt.title(network.name)
         plt.subplot(2,1,2)
-        plt.plot(freq, phase)
-        plt.ylabel("Phase (deg)")
-        plt.xlabel("Frequency (MHz)")
+        self.plot_phase(network, False)
         plt.show()
+
+    def plot_smith(self, network, show=True):
+        """ Plots Smith Chart. """
+        network.plot_s_smith(0, 0, label="S11")
+
+        if show:
+            plt.title(network.name)
+            plt.show()
 
     def plot_cal(self):
         """ Subplot with Mag then phase, SOLT in a 2 * 4 array.
             Pulls from saved calibration files. """
         # Short
-        self.load("ecal_short")
+        self.load("ecal/ecal_short")
         plt.figure()
         plt.subplot(2, 4, 1)
-        plt.plot(self.freq, self.mag)
+        self.plot_mag(self.network, False)
+        plt.xlabel("Frequency (MHz)")
         plt.title("Short")
-        plt.ylabel("Power (dB)")
-        plt.xlabel("Frequency (MHz)")
         plt.subplot(2, 4, 5)
-        plt.plot(self.freq, self.phase)
-        plt.ylabel("Phase (deg)")
+        self.plot_phase(self.network, False)
         plt.xlabel("Frequency (MHz)")
 
         # Open
-        self.load("ecal_open")
+        self.load("ecal/ecal_open")
         plt.subplot(2, 4, 2)
-        plt.plot(self.freq, self.mag)
-        plt.title("Open")
-        plt.ylabel("Power (dB)")
+        self.plot_mag(self.network, False)
         plt.xlabel("Frequency (MHz)")
+        plt.title("Open")
         plt.subplot(2, 4, 6)
-        plt.plot(self.freq, self.phase)
-        plt.ylabel("Phase (deg)")
+        self.plot_phase(self.network, False)
         plt.xlabel("Frequency (MHz)")
 
         # Open
-        self.load("ecal_load")
+        self.load("ecal/ecal_load")
         plt.subplot(2, 4, 3)
-        plt.plot(self.freq, self.mag)
-        plt.title("Load")
-        plt.ylabel("Power (dB)")
+        self.plot_mag(self.network, False)
         plt.xlabel("Frequency (MHz)")
+        plt.title("Load")
         plt.subplot(2, 4, 7)
-        plt.plot(self.freq, self.phase)
-        plt.ylabel("Phase (deg)")
+        self.plot_phase(self.network, False)
         plt.xlabel("Frequency (MHz)")
 
         # Thru
-        self.load("ecal_thru")
+        self.load("ecal/ecal_thru")
         plt.subplot(2, 4, 4)
-        plt.plot(self.freq, self.mag)
+        self.plot_mag(self.network, False)
+        plt.xlabel("Frequency (MHz)")
         plt.title("Thru")
-        plt.ylabel("Power (dB)")
-        plt.xlabel("Frequency (MHz)")
         plt.subplot(2, 4, 8)
-        plt.plot(self.freq, self.phase)
-        plt.ylabel("Phase (deg)")
+        self.plot_phase(self.network, False)
         plt.xlabel("Frequency (MHz)")
+        plt.show()
+
+    def plot_cal_smith(self):
+        """ Subplot SOL Smith Charts """
+        # Short
+        self.load("ecal/ecal_short")
+        plt.figure()
+        plt.subplot(1, 3, 1)
+        self.plot_smith(self.network, False)
+        plt.title("Short")
+
+        # Open
+        self.load("ecal/ecal_open")
+        plt.subplot(1, 3, 2)
+        self.plot_smith(self.network, False)
+        plt.title("Open")
+
+        # Load
+        self.load("ecal/ecal_load")
+        plt.subplot(1, 3, 3)
+        self.plot_smith(self.network, False)
+        plt.title("Load")
+
         plt.show()
 
     def plot(self, plot_type):
         """ Allows user to select magnitude, phase, smith, or calibration to plot. """
         if plot_type.lower() == "mag":
-            self.plot_mag(self.freq, self.mag, "Recent Measurement")
+            self.plot_mag(self.network)
 
         elif plot_type.lower() == "phase":
-            self.plot_mag(self.freq, self.phase, "Recent Measurement")
+            self.plot_phase(self.network)
 
         elif plot_type.lower() == "mag_phase":
-            self.plot_mag_phase(self.freq, self.mag, self.phase, "Recent Measurement")
+            self.plot_mag_phase(self.network)
 
         elif plot_type.lower() == "smith":
-            print("Not implemented yet.")
+            self.plot_smith(self.network)
 
         elif plot_type.lower() == "cal":
             self.plot_cal()
+
+        elif plot_type.lower() == "cal_smith":
+            self.plot_cal_smith()
 
         else:
             print("Plot type not found.")
@@ -349,7 +410,7 @@ if __name__ == '__main__':
         # Exit this script
         if input_args[0].lower() == "killme":
             exit(1337)
-        try: 
+        try:
             # Connect the VNA
             if input_args[0].lower() == "connect":
                 if len(input_args) == 2:
@@ -361,10 +422,11 @@ if __name__ == '__main__':
             elif input_args[0].lower() == "measure":
                 if len(input_args) == 2:
                     vna.measure(input_args[1].lower())
+                    plot.load("meas{}".format(input_args[1]))
                 else:
                     s_param = input("Enter S11 to measure S11, S22 to measure S22.\n")
                     vna.measure(s_param)
-                plot.load("measurement")
+                    plot.load("meas{}".format(s_param))
 
             # Run Calibration
             elif input_args[0].lower() == "calibrate":
@@ -375,20 +437,24 @@ if __name__ == '__main__':
                 if len(input_args) == 2:
                     plot.plot(input_args[1].lower())
                 else:
-                    plot_type = input("Enter mag, phase, smith or cal.\n")
+                    plot_type = input("Enter mag, phase, smith, cal, or cal_smith.\n")
                     plot.plot(plot_type)
 
             # Have a chat to the VNA
             elif input_args[0].lower() == "talk":
                 vna.talk()
 
-            # Load a file to plot
+            # Save a file
             elif input_args[0].lower() == "save":
                 vna.save(input_args[1].lower())
 
             # Load a file to plot
             elif input_args[0].lower() == "load":
                 plot.load(input_args[1].lower())
+
+            # List files in dir
+            elif input_args[0].lower() == "dir" or input_args[0].lower() == "ls":
+                os.system("dir")
 
             # Print a help message with all of the available commands
             elif input_args[0].lower() == "help":

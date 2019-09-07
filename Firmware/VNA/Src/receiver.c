@@ -156,4 +156,10 @@ void phaseVoltageToDeg(struct receiverStruct *recieverStatus, struct MAX2871Stru
 	// Apply corrections to phase
 	recieverStatus->phaseDeg = recieverStatus->phaseDeg + (phaseComp * weight);
 
+	// Limit to 0 < angle < 180
+	if (recieverStatus->phaseDeg >= 180)
+		recieverStatus->phaseDeg = 179.99;
+	else if (recieverStatus->phaseDeg <= 0)
+		recieverStatus->phaseDeg = 0.01;
+
 }
