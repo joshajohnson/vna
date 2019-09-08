@@ -446,7 +446,7 @@ if __name__ == '__main__':
 
             # Save a file
             elif input_args[0].lower() == "save":
-                vna.save(input_args[1].lower())
+                vna.save(input_args[1])
 
             # Load a file to plot
             elif input_args[0].lower() == "load":

@@ -74,7 +74,7 @@ def load(file_name):
     network.frequency = network.frequency * 1E-6
     return network
 
-network = load("ecal/ecal_thru")
+network = load("thrutwocoax")
 
 network.plot_s_deg(m=1, n=0)
 freq = network.f
