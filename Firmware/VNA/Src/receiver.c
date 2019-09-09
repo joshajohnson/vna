@@ -124,7 +124,7 @@ void readAD8302vRef(struct receiverStruct *recieverStatus)
 
 void gainVoltageToDB(struct receiverStruct *recieverStatus)
 {
-	recieverStatus->gainDB = - ((recieverStatus->gainVoltage - receiverStatus.refDelta) * 30 - 30);
+	recieverStatus->gainDB = - ((recieverStatus->gainVoltage - receiverStatus.refDelta) * 30 - 30 + 5);
 }
 
 void phaseVoltageToDeg(struct receiverStruct *recieverStatus, struct MAX2871Struct *max2817Status)

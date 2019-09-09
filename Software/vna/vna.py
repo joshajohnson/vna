@@ -29,6 +29,7 @@ class VNA:
         # Plotting Vars
         self.data = []
         self.user_input = ""
+        self.network = rf.Network()
 
     def connect_serial(self, com_port=None):
         """ Connect to VNA over a COM port. """
@@ -166,6 +167,8 @@ class VNA:
 
         height = 168
         distance = len(phase_filt) / 10
+        if distance < 1:
+            distance = 1
 
         # find peaks and valleys
         peaks = signal.find_peaks(phase_filt, height=height, distance=distance)
@@ -181,11 +184,11 @@ class VNA:
         key_freq.append(freq[0])
         key_phase.append(phase[0])
 
+        peaks_first = 0
+
         if len(peaks_freq) and len(valleys_freq):
             if peaks_freq[0] < valleys_freq[0]:
                 peaks_first = 1
-            else:
-                peaks_first = 0
 
         while len(peaks_freq) or len(valleys_freq):
 
@@ -211,12 +214,12 @@ class VNA:
         while i < len(freq):
             # if between key frequencies
             if freq[i] >= key_freq[j] and freq[i] <= key_freq[j + 1]:
-                # if slope positive, phase positive
+                # if slope positive, phase negative
                 if key_phase[j] <= key_phase[j + 1]:
-                    phase_corr.append(phase[i])
-                # if slope negative, phase negative
-                else:
                     phase_corr.append(-phase[i])
+                # if slope negative, phase positive
+                else:
+                    phase_corr.append(phase[i])
                 i = i + 1
             # if above freq, increase ref frequencies
             else:
@@ -257,6 +260,9 @@ class VNA:
     def measure_ecal(self):
         """ Measures S-Parameters of Josh's ECal unit and stores the results. """
 
+        if not self.connected:
+            self.connect_serial()
+
         self.num_samples = 1226
         self.send_command("setCal(short)")
         self.receive_data()
@@ -275,8 +281,72 @@ class VNA:
 
         self.send_command("setCal(thru)")
         self.receive_data()
+        self.measure("S11", False)
+        s11 = self.data
         self.measure("S21", False)
-        self.save("ecal/ecal_thru")
+        s21 = self.data
+
+        # convert to network
+        freq = s11[:, 0]
+
+        mag_s11 = s11[:, 1]
+        phase_s11 = s11[:, 2]
+
+        mag_s21 = s21[:, 1]
+        phase_s21 = s21[:, 2]
+
+        s = np.zeros((len(freq), 2, 2), dtype=complex)
+        s[:, 0, 0] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+        s[:, 0, 1] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+        s[:, 1, 0] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+        s[:, 1, 1] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+
+        self.network = rf.Network(f=freq, s=s, name="ecal_thru", f_unit="Hz")
+        self.network.write_touchstone("ecal/ecal_load")
+        self.num_samples = 245
+
+    def measure_cal(self):
+        """ Measures S-Parameters of SOLT standards and stores the results. """
+
+        if not self.connected:
+            self.connect_serial()
+
+        self.num_samples = 1226
+        var = input("Connect Short standard, then press any key to continue.")
+        self.measure("S11", False)
+        self.save("cal/cal_short")
+
+        var = input("Connect Open standard, then press any key to continue.")
+        self.measure("S11", False)
+        self.save("cal/cal_open")
+
+        var = input("Connect Load standard, then press any key to continue.")
+        self.measure("S11", False)
+        self.save("cal/cal_load")
+
+        var = input("Connect Through standard, then press any key to continue.")
+        self.measure("S11", False)
+        s11 = self.data
+        self.measure("S21", False)
+        s21 = self.data
+
+        # convert to network
+        freq = s11[:, 0]
+
+        mag_s11 = s11[:, 1]
+        phase_s11 = s11[:, 2]
+
+        mag_s21 = s21[:, 1]
+        phase_s21 = s21[:, 2]
+
+        s = np.zeros((len(freq), 2, 2), dtype=complex)
+        s[:, 0, 0] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+        s[:, 0, 1] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+        s[:, 1, 0] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+        s[:, 1, 1] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+
+        self.network = rf.Network(f=freq, s=s, name="cal_thru", f_unit="Hz")
+        self.network.write_touchstone("cal/cal_load")
         self.num_samples = 245
 
     def calibrate(self):
@@ -311,15 +381,9 @@ class PLOT:
         elif 's21' in fn or 'thru' in fn or 'through' in fn or 'two' in fn:
             s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
         else:
-            var = input("Unable to determine S param, please enter S11 or S21")
-            if "s11" in var:
-                s[:, 0, 0] = rf.dbdeg_2_reim(mag, phase)
-            elif "s21" in var:
-                s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
-            else:
-                print("Still unable to figure it out, try changing file name")
+            print("Unable to determine S param, please add to file name and try again.")
 
-        self.network = rf.Network(f=freq, s=s, name=file_name)
+        self.network = rf.Network(f=freq, s=s, name=file_name, f_unit="Hz")
 
     def load(self, file_name):
         """ Loads CSV from file. """
@@ -388,11 +452,11 @@ class PLOT:
             plt.title(network.name)
             plt.show()
 
-    def plot_cal(self):
+    def plot_cal(self, e_cal):
         """ Subplot with Mag then phase, SOLT in a 2 * 4 array.
             Pulls from saved calibration files. """
         # Short
-        self.load("ecal/ecal_short")
+        self.load("{}/{}_short".format(e_cal, e_cal))
         plt.figure()
         plt.subplot(2, 4, 1)
         self.plot_mag(self.network, False)
@@ -403,7 +467,7 @@ class PLOT:
         plt.xlabel("Frequency (MHz)")
 
         # Open
-        self.load("ecal/ecal_open")
+        self.load("{}/{}_open".format(e_cal, e_cal))
         plt.subplot(2, 4, 2)
         self.plot_mag(self.network, False)
         plt.xlabel("Frequency (MHz)")
@@ -412,8 +476,8 @@ class PLOT:
         self.plot_phase(self.network, False)
         plt.xlabel("Frequency (MHz)")
 
-        # Open
-        self.load("ecal/ecal_load")
+        # Load
+        self.load("{}/{}_load".format(e_cal, e_cal))
         plt.subplot(2, 4, 3)
         self.plot_mag(self.network, False)
         plt.xlabel("Frequency (MHz)")
@@ -423,7 +487,7 @@ class PLOT:
         plt.xlabel("Frequency (MHz)")
 
         # Thru
-        self.load("ecal/ecal_thru")
+        self.load("{}/{}_thru".format(e_cal, e_cal))
         plt.subplot(2, 4, 4)
         self.plot_mag(self.network, False)
         plt.xlabel("Frequency (MHz)")
@@ -433,23 +497,23 @@ class PLOT:
         plt.xlabel("Frequency (MHz)")
         plt.show()
 
-    def plot_cal_smith(self):
+    def plot_cal_smith(self, e_cal):
         """ Subplot SOL Smith Charts """
         # Short
-        self.load("ecal/ecal_short")
+        self.load("{}/{}_short".format(e_cal, e_cal))
         plt.figure()
         plt.subplot(1, 3, 1)
         self.plot_smith(self.network, False)
         plt.title("Short")
 
         # Open
-        self.load("ecal/ecal_open")
+        self.load("{}/{}_open".format(e_cal, e_cal))
         plt.subplot(1, 3, 2)
         self.plot_smith(self.network, False)
         plt.title("Open")
 
         # Load
-        self.load("ecal/ecal_load")
+        self.load("{}/{}_load".format(e_cal, e_cal))
         plt.subplot(1, 3, 3)
         self.plot_smith(self.network, False)
         plt.title("Load")
@@ -470,11 +534,17 @@ class PLOT:
         elif plot_type.lower() == "smith":
             self.plot_smith(self.network)
 
+        elif plot_type.lower() == "ecal":
+            self.plot_cal("ecal")
+
+        elif plot_type.lower() == "ecal_smith":
+            self.plot_cal_smith("ecal")
+
         elif plot_type.lower() == "cal":
-            self.plot_cal()
+            self.plot_cal("cal")
 
         elif plot_type.lower() == "cal_smith":
-            self.plot_cal_smith()
+            self.plot_cal_smith("cal")
 
         else:
             print("Plot type not found.")
@@ -511,16 +581,22 @@ if __name__ == '__main__':
                 vna.measure(s_param)
                 plot.load("meas{}".format(s_param))
 
-        # Run Calibration
-        elif input_args[0].lower() == "calibrate":
-            vna.calibrate()
+        # Run ECal
+        elif input_args[0].lower() == "ecal":
+            vna.measure_ecal()
+            # vna.calibrate("ecal")
+
+        # Run ECal
+        elif input_args[0].lower() == "cal":
+            vna.measure_cal()
+            # vna.calibrate("cal")
 
         # Plot all the things
         elif input_args[0].lower() == "plot":
             if len(input_args) == 2:
                 plot.plot(input_args[1].lower())
             else:
-                plot_type = input("Enter mag, phase, smith, cal, or cal_smith.\n")
+                plot_type = input("Enter mag, phase, smith, {e}cal, or {e}cal_smith.\n")
                 plot.plot(plot_type)
 
         # Have a chat to the VNA
@@ -546,7 +622,7 @@ if __name__ == '__main__':
             print("connect {com_port} - connects to VNA at {com_port}")
             print("measure {s11, s21} - measures given S Parameter")
             print("calibrate - calibrates VNA using eCal unit")
-            print("plot {mag, phase, mag_phase, smith, cal} - plots data in given format")
+            print("plot {mag, phase, mag_phase, smith, {e}cal{_smith}} - plots data in given format")
             print("talk - opens a COM port with the VNA for the user to use")
             print("save [file_name] - saves most recent measurement to file_name.csv")
             print("load [file_name] - loads saved measurement from file_name.csv")
