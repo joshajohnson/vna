@@ -413,6 +413,7 @@ class VNA:
 
         if dut.f[-1] > meas_short.f[-1]:
             dut.crop(meas_short.f[0], meas_short.f[-1])
+<<<<<<< HEAD
 
         frequency = dut.frequency
 
@@ -462,6 +463,57 @@ class VNA:
         meas_open_open = rf.two_port_reflect(meas_open, meas_open)
         meas_load_load = rf.two_port_reflect(meas_load, meas_load)
 
+=======
+
+        frequency = dut.frequency
+
+        meas_short = meas_short.interpolate(frequency)
+        meas_open = meas_open.interpolate(frequency)
+        meas_load = meas_load.interpolate(frequency)
+
+        # Load cal kit files
+        cal_kit_short = self.load("data/cal_kit/cal_short_interp")
+        cal_kit_open = self.load("data/cal_kit/cal_open_interp")
+        cal_kit_load = self.load("data/cal_kit/cal_load_interp")
+
+        cal_kit_short = cal_kit_short.interpolate(frequency)
+        cal_kit_open = cal_kit_open.interpolate(frequency)
+        cal_kit_load = cal_kit_load.interpolate(frequency)
+
+        cal = rf.OnePort(
+            ideals=[cal_kit_open, cal_kit_short, cal_kit_load],
+            measured=[meas_open, meas_short, meas_load],
+        )
+        cal.run()
+
+        self.network = cal.apply_cal(dut)
+
+    def cal_two_port(self):
+
+        dut = self.network
+
+        # Measured with VNA
+        meas_short = self.load("cal/cal_short")
+        meas_open = self.load("cal/cal_open")
+        meas_load = self.load("cal/cal_load")
+        meas_thru = rf.Network("cal/cal_thru.s2p")
+
+        if dut.f[-1] > meas_short.f[-1]:
+            dut.crop(meas_short.f[0], meas_short.f[-1])
+
+        frequency = dut.frequency
+        freqs = dut.f
+
+        meas_short = meas_short.interpolate(frequency)
+        meas_open = meas_open.interpolate(frequency)
+        meas_load = meas_load.interpolate(frequency)
+        meas_thru = meas_thru.interpolate(frequency)
+
+        meas_short_short = rf.two_port_reflect(meas_short, meas_short)
+        meas_open_open = rf.two_port_reflect(meas_open, meas_open)
+        meas_load_load = rf.two_port_reflect(meas_load, meas_load)
+
+>>>>>>> 5fb3a236e394b80c7e8ce0ffb5262def0d96c9b8
         # Load cal kit files
         cal_kit_short = self.load("data/cal_kit/cal_short_interp")
         cal_kit_open = self.load("data/cal_kit/cal_open_interp")
@@ -713,6 +765,7 @@ if __name__ == '__main__':
                 else:
                     vna.connect_serial()
 
+
             # Measure S Params
             elif input_args[0].lower() == "measure":
                 if len(input_args) == 2:
@@ -767,7 +820,7 @@ if __name__ == '__main__':
                 print("save [file_name] - saves most recent measurement to file_name.csv")
                 print("load [file_name] - loads saved measurement from file_name.csv")
                 print("killme - exits this python script")
-
+                
             else:
                 print("Command not found. Type 'help' for a list of commands")
         except:
