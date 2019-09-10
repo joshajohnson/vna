@@ -135,11 +135,14 @@ class VNA:
                 usr_stop_freq = input("Enter stop frequency in MHz:\n")
             self.stop_freq = float(usr_stop_freq)
 
-            usr_num_samples = input("Enter number of samples:\n")
+            usr_num_samples = input("Enter number of samples, must be greater than 255:\n")
             while not usr_num_samples.isnumeric():
                 print("That is not a number. Please try again.")
                 usr_num_samples = input("Enter number of samples:\n")
-            self.num_samples = int(usr_num_samples)
+            if int(usr_num_samples) >= 255:
+                self.num_samples = int(usr_num_samples)
+            else:
+                self.num_samples = 255
 
             usr_output_power = input("Enter output power in dBm:\n")
             while (float(usr_output_power) < -20) or (float(usr_output_power) > 10):
@@ -230,7 +233,7 @@ class VNA:
         self.data[:, 1] = np.array(mag)
         self.data[:, 2] = np.array(phase_corr)
 
-    def measure(self, s_param, ask_params=True):
+    def measure(self, s_param, ask_params=True, cal=True):
         """ Generates command for measuring S params. """
 
         if not self.connected:
@@ -255,7 +258,16 @@ class VNA:
             self.receive_data()
             self.data[:, 0] = self.data[:, 0] * 1E6 # convert from MHz to Hz
             self.correct_phase()
-            self.save("meas{}".format(s_param.upper()))
+            self.network = self.data_to_network(s_param, self.data[:, 0], self.data[:, 1], self.data[:, 2])
+
+            if cal:
+                if "11" in s_param:
+                    self.cal_one_port()
+
+                elif "21" in s_param:
+                    self.cal_two_port()
+
+            self.save("meas{}".format(s_param))
 
     def measure_ecal(self):
         """ Measures S-Parameters of Josh's ECal unit and stores the results. """
@@ -266,24 +278,24 @@ class VNA:
         self.num_samples = 1226
         self.send_command("setCal(short)")
         self.receive_data()
-        self.measure("S11", False)
+        self.measure("S11", False, False)
         self.save("ecal/ecal_short")
 
         self.send_command("setCal(open)")
         self.receive_data()
-        self.measure("S11", False)
+        self.measure("S11", False, False)
         self.save("ecal/ecal_open")
 
         self.send_command("setCal(load)")
         self.receive_data()
-        self.measure("S11", False)
+        self.measure("S11", False, False)
         self.save("ecal/ecal_load")
 
         self.send_command("setCal(thru)")
         self.receive_data()
-        self.measure("S11", False)
+        self.measure("S11", False, False)
         s11 = self.data
-        self.measure("S21", False)
+        self.measure("S21", False, False)
         s21 = self.data
 
         # convert to network
@@ -302,7 +314,7 @@ class VNA:
         s[:, 1, 1] = rf.dbdeg_2_reim(mag_s21, phase_s21)
 
         self.network = rf.Network(f=freq, s=s, name="ecal_thru", f_unit="Hz")
-        self.network.write_touchstone("ecal/ecal_load")
+        self.network.write_touchstone("ecal/ecal_thru")
         self.num_samples = 245
 
     def measure_cal(self):
@@ -311,57 +323,178 @@ class VNA:
         if not self.connected:
             self.connect_serial()
 
-        self.num_samples = 1226
-        var = input("Connect Short standard, then press any key to continue.")
-        self.measure("S11", False)
-        self.save("cal/cal_short")
+        if self.connected:
+            self.num_samples = 1226
+            var = input("Connect Short standard, then press any key to continue.")
+            self.measure("S11", False)
+            self.save("cal/cal_short")
 
-        var = input("Connect Open standard, then press any key to continue.")
-        self.measure("S11", False)
-        self.save("cal/cal_open")
+            var = input("Connect Open standard, then press any key to continue.")
+            self.measure("S11", False)
+            self.save("cal/cal_open")
 
-        var = input("Connect Load standard, then press any key to continue.")
-        self.measure("S11", False)
-        self.save("cal/cal_load")
+            var = input("Connect Load standard, then press any key to continue.")
+            self.measure("S11", False)
+            self.save("cal/cal_load")
 
-        var = input("Connect Through standard, then press any key to continue.")
-        self.measure("S11", False)
-        s11 = self.data
-        self.measure("S21", False)
-        s21 = self.data
+            var = input("Connect Through standard, then press any key to continue.")
+            self.measure("S11", False)
+            s11 = self.data
+            self.measure("S21", False)
+            s21 = self.data
 
-        # convert to network
-        freq = s11[:, 0]
+            # convert to network
+            freq = s11[:, 0]
 
-        mag_s11 = s11[:, 1]
-        phase_s11 = s11[:, 2]
+            mag_s11 = s11[:, 1]
+            phase_s11 = s11[:, 2]
 
-        mag_s21 = s21[:, 1]
-        phase_s21 = s21[:, 2]
+            mag_s21 = s21[:, 1]
+            phase_s21 = s21[:, 2]
 
+            s = np.zeros((len(freq), 2, 2), dtype=complex)
+            s[:, 0, 0] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+            s[:, 0, 1] = rf.dbdeg_2_reim(mag_s11, phase_s11)
+            s[:, 1, 0] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+            s[:, 1, 1] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+
+            self.network = rf.Network(f=freq, s=s, name="cal_thru", f_unit="Hz")
+            self.network.write_touchstone("cal/cal_thru")
+            self.num_samples = 245
+
+    def data_to_network(self, file_name, freq, mag, phase):
+        """ Converts CSV into skrf network. """
         s = np.zeros((len(freq), 2, 2), dtype=complex)
-        s[:, 0, 0] = rf.dbdeg_2_reim(mag_s11, phase_s11)
-        s[:, 0, 1] = rf.dbdeg_2_reim(mag_s11, phase_s11)
-        s[:, 1, 0] = rf.dbdeg_2_reim(mag_s21, phase_s21)
-        s[:, 1, 1] = rf.dbdeg_2_reim(mag_s21, phase_s21)
+        fn = file_name.lower()
+        if 's11' in fn or 'open' in fn or 'short' in fn or 'load' in fn or 'one' in fn:
+            s[:, 0, 0] = rf.dbdeg_2_reim(mag, phase)
+            network = rf.Network(f=freq, s=s[:, 0, 0], name=file_name, f_unit='Hz')
+        elif 's21' in fn or 'thru' in fn or 'through' in fn or 'two' in fn:
+            s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
+            s[:, 1, 1] = rf.dbdeg_2_reim(mag, phase)
+            network = rf.Network(f=freq, s=s, name=file_name, f_unit='Hz')
+        else:
+            var = input("Unable to determine S param, please enter S11 or S21")
+            if "s11" in var:
+                s[:, 0, 0] = rf.dbdeg_2_reim(mag, phase)
+                network = rf.Network(f=freq, s=s[:, 0, 0], name=file_name, f_unit='Hz')
+            elif "s21" in var:
+                s[:, 1, 0] = rf.dbdeg_2_reim(mag, phase)
+                network = rf.Network(f=freq, s=s[:, 0, 0], name=file_name, f_unit='Hz')
+            else:
+                print("Still unable to figure it out, try changing file name")
+        return network
 
-        self.network = rf.Network(f=freq, s=s, name="cal_thru", f_unit="Hz")
-        self.network.write_touchstone("cal/cal_load")
-        self.num_samples = 245
+    def load(self, file_name):
+        """ Loads CSV or touchstone from file. """
 
-    def calibrate(self):
-        """ Connects to VNA and measures calibration coefficients, then calibrates VNA. """
-        if not self.connected:
-            self.connect_serial()
+        try:
+            network = rf.Network("{}.s1p".format(file_name))
+        except:
+            try:
+                network = rf.Network("{}.s1p".format(file_name))
+            except:
+                data = np.loadtxt("{}.csv".format(file_name), delimiter=",")
+                freq = data[:, 0]
+                mag = data[:, 1]
+                phase = data[:, 2]
+                network = self.data_to_network(file_name, freq, mag, phase)
 
-        self.measure_ecal()
+        return network
 
-        # TODO: use scikit-rf to calibrate VNA
+    def cal_one_port(self):
+
+        dut = self.network
+
+        # Load recently measured files
+        meas_short = self.load("cal/cal_short")
+        meas_open = self.load("cal/cal_open")
+        meas_load = self.load("cal/cal_load")
+
+        if dut.f[-1] > meas_short.f[-1]:
+            dut.crop(meas_short.f[0], meas_short.f[-1])
+
+        frequency = dut.frequency
+
+        meas_short = meas_short.interpolate(frequency)
+        meas_open = meas_open.interpolate(frequency)
+        meas_load = meas_load.interpolate(frequency)
+
+        # Load cal kit files
+        cal_kit_short = self.load("data/cal_kit/cal_short_interp")
+        cal_kit_open = self.load("data/cal_kit/cal_open_interp")
+        cal_kit_load = self.load("data/cal_kit/cal_load_interp")
+
+        cal_kit_short = cal_kit_short.interpolate(frequency)
+        cal_kit_open = cal_kit_open.interpolate(frequency)
+        cal_kit_load = cal_kit_load.interpolate(frequency)
+
+        cal = rf.OnePort(
+            ideals=[cal_kit_open, cal_kit_short, cal_kit_load],
+            measured=[meas_open, meas_short, meas_load],
+        )
+        cal.run()
+
+        self.network = cal.apply_cal(dut)
+
+    def cal_two_port(self):
+
+        dut = self.network
+
+        # Measured with VNA
+        meas_short = self.load("cal/cal_short")
+        meas_open = self.load("cal/cal_open")
+        meas_load = self.load("cal/cal_load")
+        meas_thru = rf.Network("cal/cal_thru.s2p")
+
+        if dut.f[-1] > meas_short.f[-1]:
+            dut.crop(meas_short.f[0], meas_short.f[-1])
+
+        frequency = dut.frequency
+        freqs = dut.f
+
+        meas_short = meas_short.interpolate(frequency)
+        meas_open = meas_open.interpolate(frequency)
+        meas_load = meas_load.interpolate(frequency)
+        meas_thru = meas_thru.interpolate(frequency)
+
+        meas_short_short = rf.two_port_reflect(meas_short, meas_short)
+        meas_open_open = rf.two_port_reflect(meas_open, meas_open)
+        meas_load_load = rf.two_port_reflect(meas_load, meas_load)
+
+        # Load cal kit files
+        cal_kit_short = self.load("data/cal_kit/cal_short_interp")
+        cal_kit_open = self.load("data/cal_kit/cal_open_interp")
+        cal_kit_load = self.load("data/cal_kit/cal_load_interp")
+
+        cal_kit_short_short = rf.two_port_reflect(cal_kit_short, cal_kit_short)
+        cal_kit_open_open = rf.two_port_reflect(cal_kit_open, cal_kit_open)
+        cal_kit_load_load = rf.two_port_reflect(cal_kit_load, cal_kit_load)
+
+        cal_kit_short_short = cal_kit_short_short.interpolate(frequency)
+        cal_kit_open_open = cal_kit_open_open.interpolate(frequency)
+        cal_kit_load_load = cal_kit_load_load.interpolate(frequency)
+
+        # Generate thru standard
+
+        through_delay = 51.1e-12
+        d = 2 * np.pi * through_delay
+        through_s = [[[0, np.exp(-1j * d * f)], [np.exp(-1j * d * f), 0]] for f in freqs]
+        through_i = rf.Network(s=through_s, f=freqs, f_unit='Hz')
+
+        cal = rf.TwelveTerm(
+            measured=[meas_open_open, meas_short_short, meas_load_load, meas_thru],
+            ideals=[cal_kit_open_open, cal_kit_short_short, cal_kit_load_load, through_i],
+            n_thrus=1,
+            isolation=meas_load_load,
+            rcond=None
+        )
+        cal.run()
+        self.network = cal.apply_cal(dut)
 
     def save(self, file_name):
-        """ Saves file as a CSV. """
-        np.savetxt("{}.csv".format(file_name), self.data, delimiter=",")
-
+        """ Saves file as a touchstone. """
+        self.network.write_touchstone(filename="{}".format(file_name))
 
 class PLOT:
     def __init__(self):
@@ -386,26 +519,34 @@ class PLOT:
         self.network = rf.Network(f=freq, s=s, name=file_name, f_unit="Hz")
 
     def load(self, file_name):
-        """ Loads CSV from file. """
+        """ Loads CSV or touchstone from file. """
+
+        fn = file_name
+        if 's11' in fn or 'open' in fn or 'short' in fn or 'load' in fn or 'one' in fn:
+            ext = "s1p"
+        elif 's21' in fn or 'thru' in fn or 'through' in fn or 'two' in fn:
+            ext = "s2p"
+
         try:
-            self.data = np.loadtxt("{}.csv".format(file_name), delimiter=",")
-            self.freq = self.data[:, 0]
-            self.mag = self.data[:, 1]
-            self.phase = self.data[:, 2]
+            self.network = rf.Network("{}.{}".format(file_name, ext), name=file_name, f_unit="Hz")
+            self.network.name = file_name
 
         except:
-            print("File import failed: {}".format(file_name))
-
-        try:
+            data = np.loadtxt("{}.csv".format(file_name), delimiter=",")
+            self.freq = data[:, 0]
+            self.mag = data[:, 1]
+            self.phase = data[:, 2]
             self.data_to_network(file_name, self.freq, self.mag, self.phase)
-            self.network.frequency = self.network.frequency * 1E-6
+            self.network.name = file_name
 
-        except:
-            print("Network transform failed: {}".format(file_name))
+    def save(self, file_name):
+        """ Saves file as a touchstone. """
+        self.network.write_touchstone(filename="{}".format(file_name))
 
     def plot_mag(self, network, show=True):
         """ Plots magnitude vs frequency. """
         fn = network.name.lower()
+        network.f = network.f * 1E-6
         if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
             network.plot_s_db(m=0, n=0, label="S11")
         elif 's21' in fn or 'through' in fn or 'thru' in fn or 'two' in fn:
@@ -413,7 +554,7 @@ class PLOT:
         else:
             var = input("Unable to determine S param, please enter S11 or S21")
             network.plot_s_db(m=1, n=0, label=var)
-
+        network.f = network.f * 1E6
         plt.xlabel("Frequency (MHz)")
         if show:
             plt.title(network.name)
@@ -422,6 +563,7 @@ class PLOT:
     def plot_phase(self, network, show=True):
         """ Plots phase vs frequency. """
         fn = network.name.lower()
+        network.f = network.f * 1E-6
         if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
             network.plot_s_deg(m=0, n=0, label="S11")
         elif 's21' in fn or 'through' in fn or 'thru' in fn or 'two' in fn:
@@ -429,7 +571,7 @@ class PLOT:
         else:
             var = input("Unable to determine S param, please enter S11 or S21")
             network.plot_s_db(m=1, n=0, label=var)
-
+        network.f = network.f * 1E6
         plt.xlabel("Frequency (MHz)")
         if show:
             plt.title(network.name)
@@ -446,7 +588,7 @@ class PLOT:
 
     def plot_smith(self, network, show=True):
         """ Plots Smith Chart. """
-        network.plot_s_smith(0, 0, label="S11")
+        network.plot_s_smith(label="S11")
 
         if show:
             plt.title(network.name)
@@ -563,72 +705,70 @@ if __name__ == '__main__':
         # Exit this script
         if input_args[0].lower() == "killme":
             exit(1337)
-        # try:
+        try:
         # Connect the VNA
-        if input_args[0].lower() == "connect":
-            if len(input_args) == 2:
-                vna.connect_serial(input_args[1].lower())
+            if input_args[0].lower() == "connect":
+                if len(input_args) == 2:
+                    vna.connect_serial(input_args[1].lower())
+                else:
+                    vna.connect_serial()
+
+            # Measure S Params
+            elif input_args[0].lower() == "measure":
+                if len(input_args) == 2:
+                    vna.measure(input_args[1].lower())
+                    plot.load("meas{}".format(input_args[1]))
+                else:
+                    s_param = input("Enter S11 to measure S11, S22 to measure S22.\n")
+                    vna.measure(s_param)
+                    plot.load("meas{}".format(s_param))
+
+            # Run ECal
+            elif input_args[0].lower() == "ecal":
+                vna.measure_ecal()
+
+            # Run ECal
+            elif input_args[0].lower() == "cal":
+                vna.measure_cal()
+
+            # Plot all the things
+            elif input_args[0].lower() == "plot":
+                if len(input_args) == 2:
+                    plot.plot(input_args[1].lower())
+                else:
+                    plot_type = input("Enter mag, phase, smith, {e}cal, or {e}cal_smith.\n")
+                    plot.plot(plot_type)
+
+            # Have a chat to the VNA
+            elif input_args[0].lower() == "talk":
+                vna.talk()
+
+            # Save a file
+            elif input_args[0].lower() == "save":
+                plot.save(input_args[1])
+
+            # Load a file to plot
+            elif input_args[0].lower() == "load":
+                plot.load(input_args[1].lower())
+
+            # List files in dir
+            elif input_args[0].lower() == "dir" or input_args[0].lower() == "ls":
+                os.system("dir")
+
+            # Print a help message with all of the available commands
+            elif input_args[0].lower() == "help":
+                print("If you are after help you have come to the right place!")
+                print("Commands in [] are required, in {} are optional:\n")
+                print("connect {com_port} - connects to VNA at {com_port}")
+                print("measure {s11, s21} - measures given S Parameter")
+                print("calibrate - calibrates VNA using eCal unit")
+                print("plot {mag, phase, mag_phase, smith, {e}cal{_smith}} - plots data in given format")
+                print("talk - opens a COM port with the VNA for the user to use")
+                print("save [file_name] - saves most recent measurement to file_name.csv")
+                print("load [file_name] - loads saved measurement from file_name.csv")
+                print("killme - exits this python script")
+
             else:
-                vna.connect_serial()
-
-        # Measure S Params
-        elif input_args[0].lower() == "measure":
-            if len(input_args) == 2:
-                vna.measure(input_args[1].lower())
-                plot.load("meas{}".format(input_args[1]))
-            else:
-                s_param = input("Enter S11 to measure S11, S22 to measure S22.\n")
-                vna.measure(s_param)
-                plot.load("meas{}".format(s_param))
-
-        # Run ECal
-        elif input_args[0].lower() == "ecal":
-            vna.measure_ecal()
-            # vna.calibrate("ecal")
-
-        # Run ECal
-        elif input_args[0].lower() == "cal":
-            vna.measure_cal()
-            # vna.calibrate("cal")
-
-        # Plot all the things
-        elif input_args[0].lower() == "plot":
-            if len(input_args) == 2:
-                plot.plot(input_args[1].lower())
-            else:
-                plot_type = input("Enter mag, phase, smith, {e}cal, or {e}cal_smith.\n")
-                plot.plot(plot_type)
-
-        # Have a chat to the VNA
-        elif input_args[0].lower() == "talk":
-            vna.talk()
-
-        # Save a file
-        elif input_args[0].lower() == "save":
-            vna.save(input_args[1])
-
-        # Load a file to plot
-        elif input_args[0].lower() == "load":
-            plot.load(input_args[1].lower())
-
-        # List files in dir
-        elif input_args[0].lower() == "dir" or input_args[0].lower() == "ls":
-            os.system("dir")
-
-        # Print a help message with all of the available commands
-        elif input_args[0].lower() == "help":
-            print("If you are after help you have come to the right place!")
-            print("Commands in [] are required, in {} are optional:\n")
-            print("connect {com_port} - connects to VNA at {com_port}")
-            print("measure {s11, s21} - measures given S Parameter")
-            print("calibrate - calibrates VNA using eCal unit")
-            print("plot {mag, phase, mag_phase, smith, {e}cal{_smith}} - plots data in given format")
-            print("talk - opens a COM port with the VNA for the user to use")
-            print("save [file_name] - saves most recent measurement to file_name.csv")
-            print("load [file_name] - loads saved measurement from file_name.csv")
-            print("killme - exits this python script")
-
-        else:
-            print("Command not found. Type 'help' for a list of commands")
-        # except:
-        #     print("Something went wrong, please try again.")
+                print("Command not found. Type 'help' for a list of commands")
+        except:
+            print("Something went wrong, please try again.")

@@ -13,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vna/vna.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="531">
+              <caret line="770" column="17" lean-forward="true" selection-start-line="770" selection-start-column="17" selection-end-line="770" selection-end-column="17" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -39,9 +39,13 @@
       <find>file not found</find>
       <find>mhz</find>
       <find>hz</find>
-      <find>load</find>
       <find>rf.network</find>
       <find>ecal</find>
+      <find>correct</find>
+      <find>load</find>
+      <find>save</find>
+      <find>def save</find>
+      <find>cal_two</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -66,6 +70,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -93,7 +98,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +203,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30010384" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29283488" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3219107" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -244,10 +248,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="309" selection-start-line="309" selection-end-line="309" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/skrf/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="1654" selection-start-line="1654" selection-end-line="1654" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vna/vna.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="531">
+          <caret line="770" column="17" lean-forward="true" selection-start-line="770" selection-start-column="17" selection-end-line="770" selection-end-column="17" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
