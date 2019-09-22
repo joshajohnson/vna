@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+
+\input{header-footer/packages.tex}
+
+\begin{document}
+	\input{header-footer/title.tex}
+	\pagenumbering{gobble} 
+	\input{header-footer/copying.tex}
+	\pagenumbering{roman}
+	\setcounter{page}{0}
+	\newpage
+	
+	\section*{Abstract}
+	\input{header-footer/abstract.tex}
+	\pagebreak
+	
+	\tableofcontents
+	\pagebreak
+	
+	\listoffigures
+	\pagebreak
+	\listoftables
+	\pagebreak
+	\section*{Glossary}
+	\input{header-footer/glossary}
+	\pagebreak
+	
+	\pagenumbering{arabic}
+	\section{Introduction}
+	\label{sec:intro}
+	\input{chapters/introduction.tex}
+	
+	\section{Requirements, Constraints and Specifications}
+	\label{sec:requirements}
+	\input{chapters/requirements_constraints.tex}
+	\pagebreak
+	
+	\section{Design}
+	\label{sec:design}
+	\input{chapters/design.tex}
+	\pagebreak
+	
+ 	\section{Implementation and Assembly}
+ 	\label{sec:implementation}
+	\input{chapters/implementation_assembly.tex}
+	\pagebreak
+	
+	\section{Calibration and Testing}
+	\label{sec:calibration}
+	\input{chapters/calibration_testing.tex}
+	\pagebreak
+	
+	\section{References}
+	\label{sec:ref}
+	\printbibliography[heading=none]
+	\pagebreak
+	
+	\section{Appendix}
+	\label{sec:appendix}
+	\input{header-footer/appendix.tex}
+	
+\end{document}

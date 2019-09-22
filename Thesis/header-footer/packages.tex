@@ -1,0 +1,79 @@
+\usepackage[utf8]{inputenc}
+%slippery gypsy packages that need to come first, since others call them after
+\usepackage[x11names,dvipsnames,svgnames,table]{xcolor}
+
+% general incantations
+\usepackage[export]{adjustbox}
+\usepackage{afterpage}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{pdfpages}
+\usepackage{algorithm2e}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[most]{tcolorbox}
+\usepackage{calligra}
+\usepackage{caption}
+\usepackage{datetime}
+\usepackage{dblfnote}
+\usepackage{dsfont}
+\usepackage{etex}
+\usepackage{fancyhdr}
+\usepackage{fix-cm}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{transparent}
+\usepackage[everyline=true,framemethod=tikz]{mdframed}
+\usepackage{mparhack}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{placeins}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage[normalem]{ulem}
+\usepackage{verbatim}
+\usepackage{soul} %highlighting, strike through etc.
+
+%Automated appendices
+\usepackage[titletoc,title,header]{appendix} %advanced functionality
+
+%language settings
+\usepackage[utf8]{inputenc}
+\usepackage[australian]{babel}
+\usepackage{csquotes}
+
+%page setup
+%this where we adjust the binding offset, if relevant
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,headheight=1cm]{geometry}
+\usepackage{lastpage} % for page 1 of n footers
+
+%cross referencing
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+%maths stuff
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\setcounter{secnumdepth}{5}
+
+%lists
+\usepackage{enumitem}
+
+%reference list 
+\usepackage[backend=biber,style=ieee]{biblatex} %Sbliography with IEEE style.
+\addbibresource{header-footer/ref.bib} %Imports bibliography file
+\usepackage{url} %for URL fonts
+\urlstyle{same}
+
+% image dir
+\graphicspath{ {images/} }

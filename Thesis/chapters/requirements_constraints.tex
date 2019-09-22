@@ -1,0 +1,22 @@
+\subsection{Requirements}
+\label{subsec:requirements}
+At a high level, to be useful the VNA must be able to measure the gain and phase response of a DUT over a given frequency range, and have industry standard features including plotting and file handling which would allow it to replace a commercial VNA in certain situations. 
+
+\subsection{Constraints}
+\label{subsec:contraints}
+There are an number of constraints acting upon the project which will constrain the design and function of the device. The desire of the project is to build the most performant VNA that can be designed within the below constraints. 
+
+\begin{itemize}
+	\item \textbf{Cost -} as outlined in the introduction, the major goal of this project is to build a VNA at a significantly lower price than commercial offerings. As such, there will be a large number of trade-offs required to bring the price down, and as a result the accuracy, dynamic range, bandwidth, and numerous other performance characteristics will be traded off in an attempt to reach the desired price point.
+	\item \textbf{Component Selection -} in an attempt to decrease the cost of low volume manufacture, along with the engineering time and resources required, all components in the design must be commercial off-the-shelf, as this will reduce the cost and time required during development and manufacturing. 
+	\item \textbf{Resources -} due to a number of factors including skill level of the designer, limited time frame, monetary resources available, and the lack to access to test gear and industry specific tools such as Keysight's Advanced Design System and CST Microwave Studio, the complexity of the project needs to be limited to ensure that a minimum viable product is able to be produced within the given time frame.   
+\end{itemize}
+
+\subsection{Specifications}
+\label{subsec:specifications}
+Taking the above outlined requirements and constraints into consideration, specifications for the VNA can be determined. Given that there are no hard numbers specified, and that the goal for the VNA is one which is as performant and feature complete as possible given the constraints, many of the exact specifications of the VNA will be determined during the design process. This allows cost to be a key factor during the architecture design and components selection, as small decreases in performance are able to be made to save significant cost, which would not be possible if the system requirements were highly specified. In saying this, there are some key minimum specifications and high level architectural choices which will help narrow the design scope:
+\begin{itemize}
+	\item \textbf{Bandwidth -} the VNA should have at least 1GHz of bandwidth, as this will allow both the 433MHz and 915 MHz ISM bands to be within the frequency span, and as such enable testing of components which can be utilised without a amateur radio licence. 
+	\item \textbf{Interface -} controlling the VNA from a computer will not only remove the need for a display on device which will lower cost, but also significantly reduce the embedded compute power required whilst allowing for use of tools such as Python's NumPy and scikit-rf for data processing and VNA calibration, along with Qt and Matplotlib to provide a user interface with a much lower time investment than developing the required functionality from scratch on embedded hardware. 
+	\item \textbf{Licencing -} the VNA should be able to be designed, manufactured, programmed, and operated using solely free tools, and where practicable open source tools. This ensures the VNA is able to be operated without any expenses other than the cost of hardware, whilst also ensuring that the hardware, firmware, and software is able to be viewed and modified by anyone without having to purchase proprietary tools, which may be prohibitively expensive and become obsolete, preventing access to the source files used during design. 
+\end{itemize}
