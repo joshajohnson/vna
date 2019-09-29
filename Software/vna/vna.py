@@ -136,14 +136,11 @@ class VNA:
                 usr_stop_freq = input("Enter stop frequency in MHz:\n")
             self.stop_freq = float(usr_stop_freq)
 
-            usr_num_samples = input("Enter number of samples, must be greater than 255:\n")
+            usr_num_samples = input("Enter number of samples:\n")
             while not usr_num_samples.isnumeric():
                 print("That is not a number. Please try again.")
                 usr_num_samples = input("Enter number of samples:\n")
-            if int(usr_num_samples) >= 255:
                 self.num_samples = int(usr_num_samples)
-            else:
-                self.num_samples = 255
 
             usr_output_power = input("Enter output power in dBm:\n")
             while (float(usr_output_power) < -20) or (float(usr_output_power) > 10):
@@ -393,7 +390,7 @@ class VNA:
             network = rf.Network("{}.s1p".format(file_name))
         except:
             try:
-                network = rf.Network("{}.s1p".format(file_name))
+                network = rf.Network("{}.s2p".format(file_name))
             except:
                 data = np.loadtxt("{}.csv".format(file_name), delimiter=",")
                 freq = data[:, 0]
@@ -515,6 +512,8 @@ class PLOT:
         self.phase = []
         self.file_name = "measurementS11"
         self.network = rf.Network
+        self.title = ""
+        self.xkcd = False
 
     def data_to_network(self, file_name, freq, mag, phase):
         s = np.zeros((len(freq), 2, 2), dtype=complex)
@@ -559,6 +558,8 @@ class PLOT:
     def plot_mag(self, network, show=True):
         """ Plots magnitude vs frequency. """
         fn = network.name.lower()
+        if self.xkcd == True:
+            plt.xkcd()
         network.f = network.f * 1E-6
         if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
             network.plot_s_db(m=0, n=0, label="S11 {}".format(network.name))
@@ -570,12 +571,14 @@ class PLOT:
         network.f = network.f * 1E6
         plt.xlabel("Frequency (MHz)")
         if show:
-            plt.title(network.name)
+            plt.title(self.title)
             plt.show()
 
     def plot_phase(self, network, show=True):
         """ Plots phase vs frequency. """
         fn = network.name.lower()
+        if self.xkcd == True:
+            plt.xkcd()
         network.f = network.f * 1E-6
         if 's11' in fn or 'short' in fn or 'open' in fn or 'load' in fn or 'one' in fn:
             network.plot_s_deg(m=0, n=0, label="S11 {}".format(fn))
@@ -587,24 +590,36 @@ class PLOT:
         network.f = network.f * 1E6
         plt.xlabel("Frequency (MHz)")
         if show:
-            plt.title(fn)
+            plt.title(self.title)
             plt.show()
 
     def plot_mag_phase(self, network):
         """ Plots phase vs frequency. """
         plt.subplot(2,1,1)
         self.plot_mag(network, False)
-        plt.title(network.name)
+        plt.title(self.title)
         plt.subplot(2,1,2)
         self.plot_phase(network, False)
         plt.show()
 
     def plot_smith(self, network, show=True):
         """ Plots Smith Chart. """
+        if self.xkcd == True:
+            plt.xkcd()
         network.plot_s_smith(m=0, n=0, label="S11 {}".format(network.name))
 
         if show:
-            plt.title(network.name)
+            plt.title(self.title)
+            plt.show()
+
+    def plot_polar(self, network, show=True):
+        """ Plots Polar Plot. """
+        if self.xkcd == True:
+            plt.xkcd()
+        network.plot_s_polar(m=1, n=0, label="S21 {}".format(network.name))
+
+        if show:
+            plt.title(self.title)
             plt.show()
 
     def plot_cal(self, e_cal):
@@ -689,6 +704,9 @@ class PLOT:
         elif plot_type.lower() == "smith":
             self.plot_smith(self.network, show)
 
+        elif plot_type.lower() == "polar":
+            self.plot_polar(self.network, show)
+
         elif plot_type.lower() == "ecal":
             self.plot_cal("ecal")
 
@@ -756,7 +774,7 @@ if __name__ == '__main__':
                 plot.load(input_args[1])
                 plot.plot(input_args[2].lower())
             else:
-                plot_type = input("Enter mag, phase, smith, mag_phase, {e}cal, or {e}cal_smith.\n")
+                plot_type = input("Enter mag, phase, smith, mag_phase, polar, {e}cal, or {e}cal_smith.\n")
                 plot.plot(plot_type)
 
         # Compare two plots
@@ -794,6 +812,7 @@ if __name__ == '__main__':
                 plot.load(input_args[1].lower())
                 plot.plot(input_args[2].lower(), True)
                 plot.load("meass{}".format(vna.s_param))
+
             elif len(input_args) == 4:
                 plot.load("meass{}".format(vna.s_param))
                 plot.load(input_args[1].lower())
@@ -816,6 +835,19 @@ if __name__ == '__main__':
         elif input_args[0].lower() == "load":
             plot.load(input_args[1].lower())
 
+        # Set plot title
+        elif input_args[0].lower() == "title":
+            plot.title = input_args[1]
+
+        # Toggle XKCD mode
+        elif input_args[0].lower() == "xkcd":
+            if input_args[1].lower() == "on":
+                plot.xkcd = True
+                print("XKCD ON")
+            elif input_args[1].lower() == "off":
+                plot.xkcd = False
+                print("XKCD OFF")
+
         # List files in dir
         elif input_args[0].lower() == "dir" or input_args[0].lower() == "ls":
             os.system("dir")
@@ -828,10 +860,11 @@ if __name__ == '__main__':
             print("measure {s11, s21} - measures given S Parameter")
             print("{e}cal - calibrates VNA using standards or ecal unit")
             print("cal [on, off] - enables / disables calibration")
-            print("plot {mag, phase, mag_phase, smith, {e}cal{_smith}} - plots data in given format")
+            print("plot {mag, phase, mag_phase, smith, polar, {e}cal{_smith}} - plots data in given format")
             print("talk - opens a COM port with the VNA for the user to use")
             print("save [file_name] - saves most recent measurement to file_name.csv")
             print("load [file_name] - loads saved measurement from file_name.csv")
+            print("title [title] - sets plot title")
             print("killme - exits this python script")
 
         else:

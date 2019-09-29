@@ -13,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vna/vna.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="756" column="48" selection-start-line="756" selection-start-column="48" selection-end-line="756" selection-end-column="48" />
+            <state relative-caret-position="551">
+              <caret line="612" lean-forward="true" selection-start-line="612" selection-end-line="612" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -76,6 +76,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,7 +110,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,8 +266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vna/vna.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="756" column="48" selection-start-line="756" selection-start-column="48" selection-end-line="756" selection-end-column="48" />
+        <state relative-caret-position="551">
+          <caret line="612" lean-forward="true" selection-start-line="612" selection-end-line="612" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

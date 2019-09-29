@@ -15,7 +15,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="Functional Diagram Detailed.svg">
+   sodipodi:docname="Functional Diagram Detailed.svg"
+   inkscape:export-filename="C:\Users\Josh Johnson\Dropbox\ENGN4200\vna\Functionals\Functional Diagram Detailed.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <title
      id="title12530">Functional Diagram</title>
   <defs
@@ -205,11 +208,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.79107744"
-     inkscape:cx="810.39072"
-     inkscape:cy="572.64653"
+     inkscape:zoom="0.55937622"
+     inkscape:cx="393.38599"
+     inkscape:cy="519.8171"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1-7"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-text-baseline="false"
      inkscape:window-width="1858"
@@ -733,11 +736,6 @@
              x="-68.463364"
              y="-111.50758"
              style="font-size:7.23722219px;stroke-width:0.54279166">Control</tspan></text>
-        <path
-           style="fill:none;stroke:#000000;stroke-width:0.74855101;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.74855103, 1.49710206;stroke-dashoffset:0;stroke-opacity:1"
-           d="m -267.146,74.589772 c 0,30.439318 0,30.439318 0,30.439318"
-           id="path12510-7"
-           inkscape:connector-curvature="0" />
         <text
            xml:space="preserve"
            style="font-style:normal;font-weight:normal;font-size:7.6877017px;line-height:1em;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.41184115"
@@ -747,16 +745,9 @@
            transform="scale(1.0073947,0.99265958)"><tspan
              sodipodi:role="line"
              x="-283.39929"
-             y="126.41982"
+             y="132.47258"
              style="stroke-width:0.41184115"
-             id="tspan5302-7-9">SPI Flash</tspan></text>
-        <rect
-           style="fill:none;stroke:#000000;stroke-width:0.51178104;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect13674-2-6-3"
-           width="38.664169"
-           height="33.709946"
-           x="-286.83389"
-           y="104.967" />
+             id="tspan5302-7-9" /></text>
         <path
            style="fill:none;stroke:#000000;stroke-width:0.77395564;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.77395564, 1.54791128;stroke-dashoffset:0;stroke-opacity:1"
            d="m -302.03201,34.401231 c -33.02168,0.344824 -33.02168,0.344824 -33.02168,0.344824"
@@ -2202,16 +2193,6 @@
        cx="388.85822"
        cy="241.07858"
        r="1.3179636" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.34871119px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 136.88806,237.60765 h 5.61054"
-       id="path13758"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.34871119px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 137.11794,194.43771 h 5.61054"
-       id="path13758-4"
-       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.50927544px;line-height:0.25em;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.34871119"

@@ -1,6 +1,6 @@
 \subsection{Requirements}
 \label{subsec:requirements}
-At a high level, to be useful the VNA must be able to measure the gain and phase response of a DUT over a given frequency range, and have industry standard features including plotting and file handling which would allow it to replace a commercial VNA in certain situations. 
+To be useful the VNA must be able to measure the gain and phase response of a DUT over a given frequency range, and have industry standard features including plotting and file handling which would allow it to replace a commercial VNA in certain situations. 
 
 \subsection{Constraints}
 \label{subsec:contraints}
@@ -18,5 +18,6 @@ Taking the above outlined requirements and constraints into consideration, speci
 \begin{itemize}
 	\item \textbf{Bandwidth -} the VNA should have at least 1GHz of bandwidth, as this will allow both the 433MHz and 915 MHz ISM bands to be within the frequency span, and as such enable testing of components which can be utilised without a amateur radio licence. 
 	\item \textbf{Interface -} controlling the VNA from a computer will not only remove the need for a display on device which will lower cost, but also significantly reduce the embedded compute power required whilst allowing for use of tools such as Python's NumPy and scikit-rf for data processing and VNA calibration, along with Qt and Matplotlib to provide a user interface with a much lower time investment than developing the required functionality from scratch on embedded hardware. 
+	\item \textbf{Ports -} whilst most modern VNAs allow for all S-parameters of a DUT to be measured, this requires extra hardware for the routing of signals around the board which drives up cost and complexity. Given that the majority of measurements only involve S\textsubscript{11} and S\textsubscript{21}, through only measuring these two parameters the complexity and cost of the VNA can be reduced whilst not significantly impeding function of the device. If S\textsubscript{22}, S\textsubscript{12}, or a DUT with more than two ports is required to be measured, external connections to the DUT can be altered to allow these measurements to take place.  
 	\item \textbf{Licencing -} the VNA should be able to be designed, manufactured, programmed, and operated using solely free tools, and where practicable open source tools. This ensures the VNA is able to be operated without any expenses other than the cost of hardware, whilst also ensuring that the hardware, firmware, and software is able to be viewed and modified by anyone without having to purchase proprietary tools, which may be prohibitively expensive and become obsolete, preventing access to the source files used during design. 
 \end{itemize}

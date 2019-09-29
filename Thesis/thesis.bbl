@@ -1,0 +1,211 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{henrik_1}{online}{}
+      \name{author}{1}{}{%
+        {{hash=75d0a360f86e504fc0eb5236778b5d15}{%
+           family={Forsten},
+           familyi={F\bibinitperiod},
+           given={Henrik},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{75d0a360f86e504fc0eb5236778b5d15}
+      \strng{fullhash}{75d0a360f86e504fc0eb5236778b5d15}
+      \strng{bibnamehash}{75d0a360f86e504fc0eb5236778b5d15}
+      \strng{authorbibnamehash}{75d0a360f86e504fc0eb5236778b5d15}
+      \strng{authornamehash}{75d0a360f86e504fc0eb5236778b5d15}
+      \strng{authorfullhash}{75d0a360f86e504fc0eb5236778b5d15}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cheap homemade 30 MHz - 6 GHz vector network analyzer}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://hforsten.com/cheap-homemade-30-mhz-6-ghz-vector-network-analyzer.html
+      \endverb
+      \verb{url}
+      \verb http://hforsten.com/cheap-homemade-30-mhz-6-ghz-vector-network-analyzer.html
+      \endverb
+    \endentry
+    \entry{henrik_2}{online}{}
+      \name{author}{1}{}{%
+        {{hash=488b88b10a40b148f62322a79f562225}{%
+           family={{H. Forsten}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{488b88b10a40b148f62322a79f562225}
+      \strng{fullhash}{488b88b10a40b148f62322a79f562225}
+      \strng{bibnamehash}{488b88b10a40b148f62322a79f562225}
+      \strng{authorbibnamehash}{488b88b10a40b148f62322a79f562225}
+      \strng{authornamehash}{488b88b10a40b148f62322a79f562225}
+      \strng{authorfullhash}{488b88b10a40b148f62322a79f562225}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Improved homemade VNA}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://hforsten.com/improved-homemade-vna.html
+      \endverb
+      \verb{url}
+      \verb http://hforsten.com/improved-homemade-vna.html
+      \endverb
+    \endentry
+    \entry{nagy_vna}{online}{}
+      \name{author}{1}{}{%
+        {{hash=24d7ba1a2223b062f0143de97be20432}{%
+           family={Nagy},
+           familyi={N\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{24d7ba1a2223b062f0143de97be20432}
+      \strng{fullhash}{24d7ba1a2223b062f0143de97be20432}
+      \strng{bibnamehash}{24d7ba1a2223b062f0143de97be20432}
+      \strng{authorbibnamehash}{24d7ba1a2223b062f0143de97be20432}
+      \strng{authornamehash}{24d7ba1a2223b062f0143de97be20432}
+      \strng{authorfullhash}{24d7ba1a2223b062f0143de97be20432}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Remotely Operated Reflectometer}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://kb.osu.edu/bitstream/handle/1811/56990/Remotely_Operated_Reflectometer_Thesis.pdf?sequence=1&isAllowed=y
+      \endverb
+      \verb{url}
+      \verb https://kb.osu.edu/bitstream/handle/1811/56990/Remotely_Operated_Reflectometer_Thesis.pdf?sequence=1&isAllowed=y
+      \endverb
+    \endentry
+    \entry{torre_vna}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b4b0a9d5fff9872b334fb5f01440bdcd}{%
+           family={{J. Verhaevert and P. V. Torre}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \strng{fullhash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \strng{bibnamehash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \strng{authorbibnamehash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \strng{authornamehash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \strng{authorfullhash}{b4b0a9d5fff9872b334fb5f01440bdcd}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A low-cost vector network analyzer: Design and realization}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8363957
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8363957
+      \endverb
+    \endentry
+    \entry{keysight_vna_basics}{online}{}
+      \name{author}{1}{}{%
+        {{hash=0a1dc9ba6382e13835002ad4d9099b4e}{%
+           family={{Keysight Technologies}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \strng{fullhash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \strng{bibnamehash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \strng{authorbibnamehash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \strng{authornamehash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \strng{authorfullhash}{0a1dc9ba6382e13835002ad4d9099b4e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Network Analyser Basics}}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://literature.cdn.keysight.com/litweb/pdf/5965-7917E.pdf
+      \endverb
+      \verb{url}
+      \verb http://literature.cdn.keysight.com/litweb/pdf/5965-7917E.pdf
+      \endverb
+    \endentry
+    \entry{ad8302_datasheet}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{AD8302 Datasheet}}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8302.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/ad8302.pdf
+      \endverb
+    \endentry
+    \entry{resistive_coupler}{online}{}
+      \name{author}{1}{}{%
+        {{hash=27be8310135cbbfcfb7956a4e737b68b}{%
+           family={{N. Drobotun and P. Mikheev}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{27be8310135cbbfcfb7956a4e737b68b}
+      \strng{fullhash}{27be8310135cbbfcfb7956a4e737b68b}
+      \strng{bibnamehash}{27be8310135cbbfcfb7956a4e737b68b}
+      \strng{authorbibnamehash}{27be8310135cbbfcfb7956a4e737b68b}
+      \strng{authornamehash}{27be8310135cbbfcfb7956a4e737b68b}
+      \strng{authorfullhash}{27be8310135cbbfcfb7956a4e737b68b}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A 300khz-13.5ghz directional bridge}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/7345756
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/7345756
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
