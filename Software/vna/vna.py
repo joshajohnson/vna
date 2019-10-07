@@ -140,7 +140,7 @@ class VNA:
             while not usr_num_samples.isnumeric():
                 print("That is not a number. Please try again.")
                 usr_num_samples = input("Enter number of samples:\n")
-                self.num_samples = int(usr_num_samples)
+            self.num_samples = int(usr_num_samples)
 
             usr_output_power = input("Enter output power in dBm:\n")
             while (float(usr_output_power) < -20) or (float(usr_output_power) > 10):

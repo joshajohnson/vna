@@ -14,7 +14,7 @@ A VNA has four main functional blocks as shown in Figure \ref{fig:keysight_vna_b
 \label{subsec:signal source}
 The signal source is the first functional block in the signal path of a VNA, and is responsible for providing the stimulus used for the test system. This source is typically swept over frequency, but can also be swept over power to measure the required parameters. Two primary considerations for the signal source are the phase noise of the signal, which can cause issues with narrow bandwidth measurement if it is too large, and the spectral purity of the signal, which can result in incorrect frequency response measurements if there are spurious tones or harmonics in the output spectrum. 
 
-Typically the signal sources utilise a voltage controller oscillator, which is able to generate continuous wave signals over a wide bandwidth through the use of a PLL to multiply a reference clock to the required frequency. Single chip solutions are available which contain a PLL and multiple VCOs to enable a wide frequency range with only a few external passives, and whilst these PLLs are easy to implement and control, they typically have increased phase noise compared to a PLL which uses multiple discrete components to close the loop, which is seen on higher end devices where phase noise is of increasing performance. 
+Typically the signal sources utilise a voltage controller oscillator, which is able to generate continuous wave signals over a wide bandwidth through the use of a PLL to multiply a reference clock to the required frequency. Single chip solutions are available which contain a PLL and multiple VCOs to enable a wide frequency range with only a few external passives, and whilst these PLLs are easy to implement and control, they typically have increased phase noise, harmonics, and spurs compared to a PLL which uses multiple discrete components to close the loop, which is seen on higher end devices where the quality of the output spectrum is key. 
 
 To allow control over the output power level, a power amplifier, programmable attenuator, and power detector can be utilised to provide closed loop control over the output power level. Key features of the source levelling components are that they can provide the required power level over the frequency range being swept, along with not distorting the signal being output by the source. 
 
@@ -42,7 +42,7 @@ Depending on the amount of processing required, the compute requirements may var
 \label{subsubsec:chosen architecture}
 Taking into account the constraints and specifications in combination with the common architectures outlined above, the desired architecture for the device can be decided so that the scope can be narrowed for detailed design. 
 \begin{itemize}
-	\item \textbf{Signal Source -} a single chip PLL with integrated VCO would be well suited for the VNA, as the benefits from a single chip solution which is cheaper, takes up less board space, and is easier to configure than a PLL made of discrete components far outweighs the loss of performance which will result from increased phase noise. 
+	\item \textbf{Signal Source -} a single chip PLL with integrated VCO would be well suited for the VNA, as the benefits from a single chip solution which is cheaper, takes up less board space, and is easier to configure than a PLL made of discrete components far outweighs the loss of performance which will result the single chip solution. 
 	\item \textbf{Signal Separation -} whilst a directional bridge would be ideal as it has high directivity whilst working over a wide frequency range, the desire for all components to be COTS rules this out, as they are typically designed into the PCB and as such would require extensive simulation and testing, even if a reference design such as the work of of N. Drobotun and P. Mikheev in their paper "A 300khz-13.5ghz directional bridge" \cite{resistive_coupler} was to be implemented. As such a directional coupler will be the best option, with the main limitation being the availability of broadband directional couplers in the desired frequency range. 
 	\item \textbf{Receiver / Detector -} whilst a tuned narrowband detector would be ideal, the cost of a high sample rate ADC along with a FPGA to do the signal processing would exceed the desired BOM of the VNA. As such, the AD8302 from Analog Devices will form the receiver as it has sufficient performance characteristics whilst being significantly cheaper than a digital front end. 
 	\item \textbf{Processor / Display -} given the use of an AD8302 for gain and phase detection, a microcontroller will have sufficient processing power and can be utilised to keep costs low. Furthermore, offloading data processing and visualisation to a host computer will allow for further reduction in cost due to not requiring the extra processing power, display, or user interface controls to be added to the device.
@@ -50,10 +50,10 @@ Taking into account the constraints and specifications in combination with the c
 
 \subsection{Detailed Design}
 \label{subsec:detailed_design}
-With the architecture of the VNA outlined and constraints which influence component selection documented, detailed design of the VNA can begin. The following section outlined key considerations in component choice, low level design details, along with some of the testing and characterisation which was done prior to finalising the first schematic. A block diagram of the system can be found in Figure \ref{fig:vna_block_diag}, with the full schematic for the VNA in Appendix \ref
+With the architecture of the VNA outlined and constraints which influence component selection documented, detailed design of the VNA can begin. The following section outlines key considerations in component choice, low level design details, along with some of the testing and characterisation which was done prior to finalising the first schematic. A block diagram of the system can be found in Figure \ref{fig:vna_block_diag}, with the full schematic for the VNA in Appendix \ref{appen:vna_design_files}.
 
 \subsubsection{LO Generation}
-The first part of the RF chain begins with the LO, as it generates the signal used throughout. As outlined in the architecture section, a single chip solution is desired and resulting from research two primary options were found: ADF4351 from Analog Devices, and the MAX2871 from Maxim. The below table summaries their specifications. 
+The first part of the RF chain begins with the LO, as it generates the signal used throughout the VNA. As outlined in the architecture section, a single chip solution is desired and resulting from research two primary options were found: ADF4351 from Analog Devices, and the MAX2871 from Maxim. The below table summaries their specifications. 
 
 \begin{table}[H]
 	\caption{Comparison of LO generation ICs}
@@ -70,10 +70,19 @@ The first part of the RF chain begins with the LO, as it generates the signal us
 \end{tabular}
 \end{table}
 
-As can be seen from Table \ref{table:lo_comparison}, the MAX2871 has a wider frequency range, whilst having a lower cost and having the same maximum output power and Fractional-N PLL as the AD4351. The only downside of it for our application is that there is no example code provided by Maxim, and this combined with a poor data sheet may result in issue with firmware development, whereas Analog Devices provides example code along with an extremely well documented data sheet and application notes. Given there is no cost associated with firmware development and that the goal for the device is to have the widest frequency band at the lowest cost possible, the MAX2871 was chosen due to it's superior specifications. 
+As can be seen from Table \ref{table:lo_comparison}, the MAX2871 has a wider frequency range, whilst having a lower cost and having the same maximum output power and Fractional-N PLL as the AD4351. The only downside of it for our application is that there is no example code provided by Maxim, and this combined with it's poor data sheet may result in extended firmware development time, whereas Analog Devices provides example code along with an extremely well documented data sheet and application notes. Given there is no cost associated with firmware development and that the goal for the device is to have the widest frequency band at the lowest cost possible, the MAX2871 was chosen due to it's superior specifications. 
+
+\begin{landscape}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{josh_block_diag.png}
+		\caption{Functional Block Diagram of VNA}
+		\label{fig:vna_block_diag}
+	\end{figure}
+\end{landscape}
 
 \subsubsection{LO Filtering}
-Due to the LO utilising a divided down output for frequencies below 3 GHz, there are significant harmonics in the output signal which need to be filtered out. As will be discussed later, the directional couplers chosen operate up to 1 GHz, and as such filters need to be chosen which operate up to this frequency. Four filters from Mini-Circuits's LFCN series were chosen, with the goal of only frequencies below the second harmonic of a signal passing through, as this would remove most of the unwanted harmonics. In an ideal world would prevent all harmonics from a fundamental greater than 50 MHz from passing through the RF chain,  however due to the roll off of the filter, along with some poor decisions resulting from not paying enough attention to the data sheets and not fully understanding of the importance of an harmonic free output, the filter selection resulted in issues which will be discussed in \S \ref{sec:implementation}. The chosen filters are tabulated below, along with the frequencies at which 1, 3, and 40 dB of attenuation are measured. 
+Due to the LO utilising a divided down output for frequencies below 3 GHz, there are significant harmonics in the output signal which need to be filtered out. As will be discussed later, the directional couplers chosen operate up to 1 GHz, and as such filters need to be chosen which operate up to this frequency. Four filters from Mini-Circuits's LFCN series were chosen, with the goal of only frequencies below the second harmonic of a signal being able to pass through, as this would remove most of the unwanted harmonics. In an ideal world this would prevent all harmonics from a fundamental greater than 50 MHz from passing through the RF chain,  however due to the roll off of the filter, along with some poor decisions resulting from not paying enough attention to the data sheets and not fully understanding of the importance of an harmonic free output, the filter selection resulted in issues which will be discussed in \S \ref{sec:implementation}. The chosen filters are tabulated below, along with the frequencies at which 1, 3, and 40 dB of attenuation are measured. 
 
 \begin{table}[H]
 	\caption{Selected Filters}
@@ -93,7 +102,7 @@ During the design of the VNA, filters were chosen based off their 1 dB attenuati
 For the filters to be switched in and out of the signal path, two SP4T switches capable of functioning down to 25 MHz were required. The PE42440 from pSemi was chosen due to it's flat insertion loss across the frequency band of interest, along with low price. 
 
 \subsubsection{LO Levelling}
-With the hardware described above a signal can be generated over a broad frequency range, however other than the 3 dB steps programmable from the MAX2871, there is no control over the output power. A flat power profile is required as a DUTs performance may vary as a function of power, and as such being able to keep the output power at a constant value is crucial. This is implemented through the use of a programmable attenuator and power amplifier to set a given output power, and a logarithmic power detector and firmware to provide a feedback path to fine tune the output power. 
+With the hardware described above a signal can be generated over a broad frequency range, however other than the 3 dB steps programmable from the MAX2871, there is no control over the output power. A flat power profile is required as a DUTs performance may vary as a function of power, and as such being able to keep the output power at a constant value is crucial. This is implemented through the use of a programmable attenuator and power amplifier to set a given output power, and a logarithmic power detector and firmware to measure and provide closed loop control over the output power. 
 
 With the desired programmable attenuator having a flat insertion loss from 25 MHz to 1 GHz and fine power control, the PE43711 from pSemi was chosen as it allowed for 0.25 dB attenuation steps up to 31.75 dB whilst having a flat frequency response throughout. A HMC313 from Hittite was chosen as the PA, once again due to it's flat frequency response across the operating frequencies. Finally, an AD8319 log power detector was chosen to provide the power sensing, as it's logarithmic output would allow for easy measurement of the logarithmic RF power from an analog pin on the host microcontroller. 
 
@@ -133,19 +142,53 @@ Directional couplers are one of the key components in a VNA, as they set the fre
 \end{tabular}
 \end{table}
 
+During qualification of the ADC-15-4+, the directivity was measured out to 2000 MHz and it was noted that whilst it decreased after 1000 MHz, directivity stayed above 24 dB until 1300 MHz, and coupling was also flat out to that frequency. As such the operational range of the coupler can be increased to 5 - 1300 MHz for our use in the VNA. 
 
 \subsubsection{Gain and Phase Detection}
+With the AD8302 by Analog Devices being chosen for gain and phase detection, there is little design work do be done due to reference designs being available. However there are a few challenges which need to be overcome to successfully transform it's outputs to gain and phase values, and understanding these will be key to selecting the correct processor to sample and process the information. Figure \ref{fig:ad8302_block_diag} highlights the Functional Block Diagram of the AD8302 which may assist with understanding the function of the device. 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{ad8302_blockdiagram.png}
+	\caption{Functional Block Diagram of AD8302}
+	\label{fig:ad8302_block_diag}
+\end{figure}
+
+Given RF inputs on INPA and INPB, the AD8302 outputs two analog signals ranging from 0 to 1.8V on VMAG and VPHS which correspond to the gain and phase difference between the two RF signals. However these outputs are not perfect, and as such there are various considerations which need to be taken into account to ensure that the gain and phase differences are represented accurately. 
+
+\textbf{VMAG Log Conformance Error} \\
+The VMAG output of the AD8302 shown in Figure \ref{fig:ad8302_VMAG_conformance}, which represents the magnitude ratio of the two RF inputs, has decreased linearity towards the ends of its span. Although this could be compensated for through using a non linear model for the voltage to gain conversion, given that the error exceeds 0.5 dB at $\pm$27 dB, which is not only enough dynamic range for many measurements but only 3 dB from the limits of the output, it will not be compensated for due to the limited time available for this project.  
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{ad8302_gain_conformance_error.png}
+	\caption{VMAG Log Conformance Error}
+	\label{fig:ad8302_VMAG_conformance}
+\end{figure}
+
+\textbf{VPHS Sign Ambiguity} \\
+As shown in Figure \ref{fig:ad8302_VPHS_frequency}, the output voltage representing the phase difference is unable to differentiate between positive and negative phase, due to the output voltage being symmetrical around zero phase difference. It should however be noted that the gradient between -180 and 0 phase is different to 0 to +180 degrees, and as such by looking at how the phase changes as a function of frequency the sign of phase can be determined. The implementation of the signal processing required to make this determination will be explained in \S \ref{sec:implementation}. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{ad8302_phase_frequency.png}
+	\caption{VPHS Output over Frequency and Phase}
+	\label{fig:ad8302_VPHS_frequency}
+\end{figure}
+
+\newpage
+\textbf{VPHS Log Conformance Error}\\
+Like VMAG, VPHS has log conformance errors at the limits of the internal detectors, which manifest in increased errors when the phase difference is small between the two signals. This is highlighted in Figure \ref{fig:ad8302_VPHS_conformance}, which shows the phase error at 900 MHz can be up to 8 degrees when comparing the actual voltage output to the ideal linear fit. Measuring this flattening out of the output voltage and ensuring that the resolution of the sampling ADC is sufficiently high that it can detect the difference at low phase difference values is crucial, as this would allow reconstruction of the actual phase output with sufficient signal processing, which will be outlined in \S \ref{sec:implementation}. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{ad8302_phase_error.png}
+	\caption{VPHS Log Conformance Error at 900 MHz}
+	\label{fig:ad8302_VPHS_conformance}
+\end{figure}
+
+\textbf{VPHS Frequency Dependence} \\
+It should also be noted that as shown in Figure \ref{fig:ad8302_VPHS_frequency}, the log conformance error increases as a function of frequency. This will need to be compensated for in addition to the error increasing at small phase differences, and this will be covered in \S \ref{sec:implementation}. 
 
 \subsubsection{Processor}
-\begin{landscape}
-	\begin{figure}
-		\centering
-		\includegraphics[width=\linewidth]{josh_block_diag.png}
-		\caption{Functional Block Diagram of VNA}
-		\label{fig:vna_block_diag}
-	\end{figure}
-\end{landscape}
+Sampling of the ADC, control of all onboard devices, along with communications with the host machine will require an embedded processor. As such, a microcontroller with sufficient pins and peripherals to connect to all required hardware, along with inbuilt USB and DSP instructions would be ideally suited to the task. Furthermore, an integrated ADC with at least 12 bits would be ideal, as this would ensure that sampling of the AD8302 could be done with the accuracy required. The STM32F373 series from STMicroelectronics is a great fit for this, as the line-up has 16 bit sigma-delta ADCs with programmable gain, a Cortex-M4 core which has DSP instructions capable of floating point add, multiply, and subtraction in a single clock, along with 64 to 256 Kbytes of flash, and packages with between 48 and 100 pins which will allow the hardware to scale once final specifications and code size are determined. 
 
 \subsection{Firmware and Software}
 \label{subsec:firmware_software}
