@@ -1,0 +1,31 @@
+Quantity,Part Number,Description,Price ,Price Inc GST,Total,Cost for 10
+1,MAX2871,PLL with VCO,17.23,18.953,18.953,17.0577
+1,ASTXR-12-19.200MHz,Reference Clock,4.32,4.752,4.752,4.2768
+2,PE42440,SP4T Switch,1.76,1.936,3.872,3.4848
+1,LFCN-105+,Low Pass Filter,13.89,15.279,15.279,13.7511
+1,LFCN-225+,Low Pass Filter,10.41,11.451,11.451,10.3059
+1,LFCN-400+,Low Pass Filter,10.41,11.451,11.451,10.3059
+1,LFCN-1000+,Low Pass Filter,6.92,7.612,7.612,6.8508
+1,TRF37A75,Power Amplifier,2.58,2.838,2.838,2.5542
+1,SKY12347-362LF,Programmable Attenuator,9.13,10.043,10.043,9.0387
+2,ADC-15-4+,Directional Coupler,17.47,19.217,38.434,34.5906
+1,AD8319,Log Power Detector,7.9,8.69,8.69,7.821
+1,AD8302,Gain Phase Detector,41,45.1,45.1,40.59
+1,F2923,SPDT RF Switch,7.46,8.206,8.206,7.3854
+2,SMA,DUT Connector,1.93,2.123,4.246,3.8214
+1,Micro USB,Connection to PC,0.11,0.121,0.121,0.1089
+1,USB A,Connection to Ecal / DUT,0.39,0.429,0.429,0.3861
+2,LP5912,3V3 LDO,1.83,2.013,4.026,3.6234
+1,MIC5366-1.8,1V8 LDO,0.34,0.374,0.374,0.3366
+1,Polyfuse,Overcurrent protection,0.36,0.396,0.396,0.3564
+2,TPD2S017,ESD Protection,0.96,1.056,2.112,1.9008
+1,STM32F373RCTx,Micrcontroller,8.07,8.877,8.877,7.9893
+1,8 MHz Crystal,For MCU,0.83,0.913,0.913,0.8217
+1,RGB LED,Status LED,0.88,0.968,0.968,0.8712
+1,Assorted Capacitors,,2,2.2,2.2,1.98
+1,Assorted Resistors / Beads,,1,1.1,1.1,0.99
+1,VNA PCB,(Price for 5),41.52,45.672,45.672,4.5672
+1,Enclosure,,7.48,8.228,8.228,7.4052
+2,Front / Rear Panel,(Price for 5),2.97,3.267,6.534,1.3068
+,,,,,,
+,,,,,272.877,204.478

@@ -51,6 +51,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Implementation and Assembly}{16}{section.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Calibration and Testing}{17}{section.5}% 
+\contentsline {subsection}{\numberline {4.1}Schematic Capture}{16}{subsection.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}VNA Design Files}{19}{appendix.A}% 
+\contentsline {subsection}{\numberline {4.2}Layout Planning}{16}{subsection.4.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}PCB Layout}{18}{subsection.4.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}Mechanical Design}{22}{subsection.4.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5}Assembly + Bill of Materials}{23}{subsection.4.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.6}Board Errata}{24}{subsection.4.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.7}ECal Design}{24}{subsection.4.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.8}Firmware Development}{24}{subsection.4.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.9}Software Development}{24}{subsection.4.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Calibration and Testing}{25}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}VNA Design Files}{27}{appendix.A}% 

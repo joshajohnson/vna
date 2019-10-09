@@ -23,5 +23,14 @@
 \BOOKMARK [3][-]{subsubsection.3.2.6}{Processor}{subsection.3.2}% 23
 \BOOKMARK [2][-]{subsection.3.3}{Firmware and Software}{section.3}% 24
 \BOOKMARK [1][-]{section.4}{Implementation and Assembly}{}% 25
-\BOOKMARK [1][-]{section.5}{Calibration and Testing}{}% 26
-\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Schematic Capture}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.2}{Layout Planning}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.3}{PCB Layout}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.4}{Mechanical Design}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.5}{Assembly + Bill of Materials}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.6}{Board Errata}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.7}{ECal Design}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.8}{Firmware Development}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.9}{Software Development}{section.4}% 34
+\BOOKMARK [1][-]{section.5}{Calibration and Testing}{}% 35
+\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 36

@@ -192,3 +192,13 @@ Sampling of the ADC, control of all onboard devices, along with communications w
 
 \subsection{Firmware and Software}
 \label{subsec:firmware_software}
+Originally it was planned that the VNA would be a self contained device, capable of all correction and calibration required on device, and would expose itself via a serial port over which it could be controlled and calibrated data returned. However due to the complexity of this architecture and the time constraints on the project, most of the correction and calibration was moved over to the host computer, where Python tools such as NumPy, SciPy, and scikit-rf, could be utilised to decrease the development time required, along with allowing decreased compute power for the embedded processor which would help reduce cost. 
+
+Figure \ref{fig:sw_flowchart} shows the primary functions implemented in Software / Firmware, with the blue functions implemented host side in Python, and the purple functions running on the microprocessor in C. The interface between the two sides is done in plain text, and as such the VNA is capable of being controlled over a serial port if desired, with it returning a non calibrated, non phase corrected frequency / magnitude / phase triplet, which could be copied from the terminal and processed as desired. Further detail of the primary functional blocks will be discussed in \S \ref{sec:implementation}, as the architecture was developed during board bring-up and implementation. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{sw_flowchart.png}
+	\caption{Flowchart of Primary Software / Firmware Steps}
+	\label{fig:sw_flowchart}
+\end{figure}
