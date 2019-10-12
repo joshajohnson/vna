@@ -55,6 +55,15 @@ With the architecture of the VNA outlined and constraints which influence compon
 \subsubsection{LO Generation}
 The first part of the RF chain begins with the LO, as it generates the signal used throughout the VNA. As outlined in the architecture section, a single chip solution is desired and resulting from research two primary options were found: ADF4351 from Analog Devices, and the MAX2871 from Maxim. The below table summaries their specifications. 
 
+\begin{landscape}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{josh_block_diag.png}
+		\caption{Functional Block Diagram of VNA}
+		\label{fig:vna_block_diag}
+	\end{figure}
+\end{landscape}
+
 \begin{table}[H]
 	\caption{Comparison of LO generation ICs}
 	\label{table:lo_comparison}
@@ -72,15 +81,6 @@ The first part of the RF chain begins with the LO, as it generates the signal us
 
 As can be seen from Table \ref{table:lo_comparison}, the MAX2871 has a wider frequency range, whilst having a lower cost and having the same maximum output power and Fractional-N PLL as the AD4351. The only downside of it for our application is that there is no example code provided by Maxim, and this combined with it's poor data sheet may result in extended firmware development time, whereas Analog Devices provides example code along with an extremely well documented data sheet and application notes. Given there is no cost associated with firmware development and that the goal for the device is to have the widest frequency band at the lowest cost possible, the MAX2871 was chosen due to it's superior specifications. 
 
-\begin{landscape}
-	\begin{figure}
-		\centering
-		\includegraphics[width=\linewidth]{josh_block_diag.png}
-		\caption{Functional Block Diagram of VNA}
-		\label{fig:vna_block_diag}
-	\end{figure}
-\end{landscape}
-
 \subsubsection{LO Filtering}
 Due to the LO utilising a divided down output for frequencies below 3 GHz, there are significant harmonics in the output signal which need to be filtered out. As will be discussed later, the directional couplers chosen operate up to 1 GHz, and as such filters need to be chosen which operate up to this frequency. Four filters from Mini-Circuits's LFCN series were chosen, with the goal of only frequencies below the second harmonic of a signal being able to pass through, as this would remove most of the unwanted harmonics. In an ideal world this would prevent all harmonics from a fundamental greater than 50 MHz from passing through the RF chain,  however due to the roll off of the filter, along with some poor decisions resulting from not paying enough attention to the data sheets and not fully understanding of the importance of an harmonic free output, the filter selection resulted in issues which will be discussed in \S \ref{sec:implementation}. The chosen filters are tabulated below, along with the frequencies at which 1, 3, and 40 dB of attenuation are measured. 
 
@@ -97,7 +97,7 @@ Due to the LO utilising a divided down output for frequencies below 3 GHz, there
 	\end{tabular}
 \end{table}
 
-During the design of the VNA, filters were chosen based off their 1 dB attenuation, as that is the headline figure which Mini-Circuits names their products by. At the time of choosing, the amplitude and number of harmonics in the output were unknown, along with the significance of a harmonic free output. In hindsight, now knowing the importance of harmonics being attenuated by more than the $\sim$ 35 dB of dynamic range of the VNA, filters would be chosen based upon their frequency at with 40 dB of attenuation is measured, as shown by the bottom row of Table \ref{table:selected_filters}. 
+During the design of the VNA, filters were chosen based off their 1 dB attenuation, as that is the headline figure which Mini-Circuits names their products by. At the time of choosing, the amplitude and number of harmonics in the output were unknown, along with the significance of a harmonic free output. In hindsight, now knowing the importance of harmonics being attenuated by more than the $\sim$ 35 dB of dynamic range of the VNA, filters would be chosen based upon their frequency at with 40 dB of insertion loss is measured, as shown by the bottom row of Table \ref{table:selected_filters}. 
 
 For the filters to be switched in and out of the signal path, two SP4T switches capable of functioning down to 25 MHz were required. The PE42440 from pSemi was chosen due to it's flat insertion loss across the frequency band of interest, along with low price. 
 
@@ -149,7 +149,7 @@ With the AD8302 by Analog Devices being chosen for gain and phase detection, the
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{ad8302_blockdiagram.png}
+	\includegraphics[width=0.55\linewidth]{ad8302_blockdiagram.png}
 	\caption{Functional Block Diagram of AD8302}
 	\label{fig:ad8302_block_diag}
 \end{figure}
@@ -160,7 +160,7 @@ Given RF inputs on INPA and INPB, the AD8302 outputs two analog signals ranging 
 The VMAG output of the AD8302 shown in Figure \ref{fig:ad8302_VMAG_conformance}, which represents the magnitude ratio of the two RF inputs, has decreased linearity towards the ends of its span. Although this could be compensated for through using a non linear model for the voltage to gain conversion, given that the error exceeds 0.5 dB at $\pm$27 dB, which is not only enough dynamic range for many measurements but only 3 dB from the limits of the output, it will not be compensated for due to the limited time available for this project.  
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{ad8302_gain_conformance_error.png}
+	\includegraphics[width=0.55\linewidth]{ad8302_gain_conformance_error.png}
 	\caption{VMAG Log Conformance Error}
 	\label{fig:ad8302_VMAG_conformance}
 \end{figure}
@@ -169,17 +169,16 @@ The VMAG output of the AD8302 shown in Figure \ref{fig:ad8302_VMAG_conformance},
 As shown in Figure \ref{fig:ad8302_VPHS_frequency}, the output voltage representing the phase difference is unable to differentiate between positive and negative phase, due to the output voltage being symmetrical around zero phase difference. It should however be noted that the gradient between -180 and 0 phase is different to 0 to +180 degrees, and as such by looking at how the phase changes as a function of frequency the sign of phase can be determined. The implementation of the signal processing required to make this determination will be explained in \S \ref{sec:implementation}. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{ad8302_phase_frequency.png}
+	\includegraphics[width=0.55\linewidth]{ad8302_phase_frequency.png}
 	\caption{VPHS Output over Frequency and Phase}
 	\label{fig:ad8302_VPHS_frequency}
 \end{figure}
 
-\newpage
 \textbf{VPHS Log Conformance Error}\\
 Like VMAG, VPHS has log conformance errors at the limits of the internal detectors, which manifest in increased errors when the phase difference is small between the two signals. This is highlighted in Figure \ref{fig:ad8302_VPHS_conformance}, which shows the phase error at 900 MHz can be up to 8 degrees when comparing the actual voltage output to the ideal linear fit. Measuring this flattening out of the output voltage and ensuring that the resolution of the sampling ADC is sufficiently high that it can detect the difference at low phase difference values is crucial, as this would allow reconstruction of the actual phase output with sufficient signal processing, which will be outlined in \S \ref{sec:implementation}. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{ad8302_phase_error.png}
+	\includegraphics[width=0.55\linewidth]{ad8302_phase_error.png}
 	\caption{VPHS Log Conformance Error at 900 MHz}
 	\label{fig:ad8302_VPHS_conformance}
 \end{figure}
@@ -196,9 +195,11 @@ Originally it was planned that the VNA would be a self contained device, capable
 
 Figure \ref{fig:sw_flowchart} shows the primary functions implemented in Software / Firmware, with the blue functions implemented host side in Python, and the purple functions running on the microprocessor in C. The interface between the two sides is done in plain text, and as such the VNA is capable of being controlled over a serial port if desired, with it returning a non calibrated, non phase corrected frequency / magnitude / phase triplet, which could be copied from the terminal and processed as desired. Further detail of the primary functional blocks will be discussed in \S \ref{sec:implementation}, as the architecture was developed during board bring-up and implementation. 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{sw_flowchart.png}
-	\caption{Flowchart of Primary Software / Firmware Steps}
-	\label{fig:sw_flowchart}
-\end{figure}
+\begin{landscape}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{sw_flowchart.png}
+		\caption{Flowchart of Primary Software / Firmware Steps}
+		\label{fig:sw_flowchart}
+	\end{figure}
+\end{landscape}

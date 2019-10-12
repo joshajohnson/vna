@@ -7,68 +7,78 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2}Aim}{1}{subsection.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}Previous Work}{1}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.3}Previous Work}{2}{subsection.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4}Overview}{2}{subsection.1.4}% 
+\contentsline {subsection}{\numberline {1.4}Overview}{3}{subsection.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Requirements, Constraints and Specifications}{3}{section.2}% 
+\contentsline {section}{\numberline {2}Requirements, Constraints and Specifications}{4}{section.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Requirements}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.1}Requirements}{4}{subsection.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Constraints}{3}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.2}Constraints}{4}{subsection.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Specifications}{3}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.3}Specifications}{5}{subsection.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Design}{5}{section.3}% 
+\contentsline {section}{\numberline {3}Design}{7}{section.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Architecture}{5}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.1}Architecture}{7}{subsection.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.1}Signal Source}{5}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}Signal Source}{7}{subsubsection.3.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.2}Signal Separation}{6}{subsubsection.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.2}Signal Separation}{8}{subsubsection.3.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.3}Receiver / Detector}{6}{subsubsection.3.1.3}% 
+\contentsline {subsubsection}{\numberline {3.1.3}Receiver / Detector}{9}{subsubsection.3.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.4}Processor / Display}{7}{subsubsection.3.1.4}% 
+\contentsline {subsubsection}{\numberline {3.1.4}Processor / Display}{10}{subsubsection.3.1.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.1.5}Chosen Architecture}{7}{subsubsection.3.1.5}% 
+\contentsline {subsubsection}{\numberline {3.1.5}Chosen Architecture}{10}{subsubsection.3.1.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Detailed Design}{8}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.2}Detailed Design}{11}{subsection.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.1}LO Generation}{8}{subsubsection.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.1}LO Generation}{11}{subsubsection.3.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.2}LO Filtering}{10}{subsubsection.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.2}LO Filtering}{13}{subsubsection.3.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.3}LO Levelling}{10}{subsubsection.3.2.3}% 
+\contentsline {subsubsection}{\numberline {3.2.3}LO Levelling}{14}{subsubsection.3.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.4}Directional Couplers}{11}{subsubsection.3.2.4}% 
+\contentsline {subsubsection}{\numberline {3.2.4}Directional Couplers}{15}{subsubsection.3.2.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.5}Gain and Phase Detection}{12}{subsubsection.3.2.5}% 
+\contentsline {subsubsection}{\numberline {3.2.5}Gain and Phase Detection}{16}{subsubsection.3.2.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.2.6}Processor}{14}{subsubsection.3.2.6}% 
+\contentsline {subsubsection}{\numberline {3.2.6}Processor}{19}{subsubsection.3.2.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Firmware and Software}{15}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.3}Firmware and Software}{20}{subsection.3.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Implementation and Assembly}{16}{section.4}% 
+\contentsline {section}{\numberline {4}Implementation and Assembly}{22}{section.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Schematic Capture}{16}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.1}Schematic Capture}{22}{subsection.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Layout Planning}{16}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.2}Layout Planning}{23}{subsection.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}PCB Layout}{18}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.3}PCB Layout}{24}{subsection.4.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Mechanical Design}{22}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.4}Mechanical Design}{28}{subsection.4.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Assembly + Bill of Materials}{23}{subsection.4.5}% 
+\contentsline {subsection}{\numberline {4.5}Assembly + Bill of Materials}{29}{subsection.4.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}Board Errata}{24}{subsection.4.6}% 
+\contentsline {subsection}{\numberline {4.6}Board Errata}{31}{subsection.4.6}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7}ECal Design}{24}{subsection.4.7}% 
+\contentsline {subsection}{\numberline {4.7}ECal Design}{32}{subsection.4.7}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.8}Firmware Development}{24}{subsection.4.8}% 
+\contentsline {subsection}{\numberline {4.8}Firmware Development}{33}{subsection.4.8}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.9}Software Development}{24}{subsection.4.9}% 
+\contentsline {subsubsection}{\numberline {4.8.1}Start-up and Initialisation}{33}{subsubsection.4.8.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Calibration and Testing}{25}{section.5}% 
+\contentsline {subsubsection}{\numberline {4.8.2}USB and Command Parsing}{34}{subsubsection.4.8.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A}VNA Design Files}{27}{appendix.A}% 
+\contentsline {subsubsection}{\numberline {4.8.3}Measurement Control}{34}{subsubsection.4.8.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.8.4}Transmit Chain Configuration}{35}{subsubsection.4.8.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.8.5}AD8302 Sampling and Conversion}{37}{subsubsection.4.8.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.9}Software Development}{39}{subsection.4.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Calibration and Testing}{40}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}VNA Design Files}{46}{appendix.A}% 

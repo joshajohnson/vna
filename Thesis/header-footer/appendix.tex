@@ -4,7 +4,7 @@
 All files used in the design of the VNA can be found at \url{https://github.com/joshajohnson/vna}. 
 Some of the files, such as the schematic, images of the PCB, and functional block diagrams are included either in the body of this thesis, or in the following pages. 
 
-Schematics for the test boards, ECal unit, along with the code written for the VNA is not included in the thesis, as there are numerous schematics and thousands of lines of code and as such appending them would not be reasonable. The below dot points link through to the GitHub repository where the files can be found if desired. \\
+Schematics for the test boards, ECal unit, along with the code written for the VNA is not included in the thesis, as there are numerous schematics and thousands of lines of code and as such appending them would not be reasonable. The below dot points link through to the GitHub repository where some of the key files can be found if desired. \\
 
 \textbf{Hardware}
 \begin{itemize}
@@ -43,6 +43,7 @@ Schematics for the test boards, ECal unit, along with the code written for the V
 	\begin{itemize}
 		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/vna.py}{VNA Control Software}
 		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/phase_correction.ipynb}{Phase Correction Jupyter Notebook}
+		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/justTesting/ad8302Cal.m}{MATLAB Phase Compensation Script}
 		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/calibration.ipynb}{Calibration Jupyter Notebook}
 		\item \href{https://github.com/joshajohnson/vna/blob/master/Firmware/DevBoards/freqGen.py}{Python Implementation of PLL Configuration}
 	\end{itemize}
@@ -51,6 +52,14 @@ Schematics for the test boards, ECal unit, along with the code written for the V
 
 
 \begin{landscape}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{thirdDayRender.png}
+		\caption{3D render of the PCB}
+		\label{fig:pcb_render}
+	\end{figure}
+
 	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth, page = 1]{vna.pdf}

@@ -12,7 +12,7 @@ With all the components imported into CAD, the approximate size of the PCB was a
 
 The PCB stackup and manufacturer also needed to be determined, as this plays a key role in the cost of the boards, along with key PCB features such as minimum space / trace, via size, and the with of a 50 ohm microstrip trace. Due to cost and prior experience, JLCPCB was chosen as the manufacturer, and their 4 layer FR4 "JLC7628" stackup (Table \ref{table:pcb_stackup}) was chosen as it is a very common stackup well suited to the feature and component sizes used by the components, along with the ability for it to be ordered from other manufacturers with ease. Furthermore, a Signal / GND / PWR / Signal configuration would be designed for during layout, with flood fills of ground on layers 1 and 4. 
 
-\begin{table}[H]
+\begin{table}[h!]
 	\centering
 	\caption{Chosen PCB stackup}
 	\includegraphics[width=0.8\linewidth]{jlc_stackup.png}
@@ -20,7 +20,7 @@ The PCB stackup and manufacturer also needed to be determined, as this plays a k
 \end{table}
 
 Other key feature sizes for the chosen stackup and manufacturing process are outlined in Table \ref{table:pcb_specs}. It should be noted that whilst JLCPCB are able to do quite small trace / space and via drill size, 6 / 6 trace / space and 0.25 / 0.5 drill / via were chosen for the design, as this would allow it to be fabricated at common fabricators such as OSHPark and PCBWay without paying for advanced processes. 
-\begin{table}[H]
+\begin{table}[h!]
 	\caption{Key specifications of PCB design rules and feature size}
 	\label{table:pcb_specs}
 	\centering
@@ -35,7 +35,6 @@ Other key feature sizes for the chosen stackup and manufacturing process are out
 	\end{tabular}
 \end{table} 
 
-\newpage
 \subsection{PCB Layout}
 Given the mechanical dimensions, stackup, and design rules have be determined, these parameters can be loaded into KiCad and the PCB can be laid out. An image of the laid out board can be found in Figure \ref{fig:pcb_layout}, with a 3D render available in Figure \ref{fig:pcb_render}.
 
@@ -56,31 +55,24 @@ Given the operating frequencies seen on the board, a number of key layout consid
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{ground_cutouts.png}
+	\includegraphics[width=0.45\linewidth]{ground_cutouts.png}
 	\caption{Ground cut-outs under large pads to reduce inter-planar capacitance and ensure a 50 $\Omega$ transmission line}
 	\label{fig:pcb_cap_comp}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\linewidth]{layer_change.png}
-	\caption{Layer change for on the signal path}
+	\includegraphics[width=0.3\linewidth]{layer_change.png}
+	\caption{Layer change mistake on the signal path}
 	\label{fig:pcb_layer_change}
 \end{figure}
 
 \begin{landscape}
-	\begin{figure}[H]
+	\begin{figure}
 		\centering
 		\includegraphics[width=\linewidth]{pcb_layout.png}
 		\caption{PCB Layout, with Red = Layer 1, Yellow = Layer 2, Pink = Layer 3, Green = Layer 4. Flood fill of each layer is not shown.}
 		\label{fig:pcb_layout}
-	\end{figure}
-
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\linewidth]{thirdDayRender.png}
-		\caption{3D render of the PCB}
-		\label{fig:pcb_render}
 	\end{figure}
 \end{landscape}
 
@@ -120,7 +112,7 @@ Table \ref{table:BOM} outlines the cost to manufacture one VNA, with removal of 
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Quantity} & \textbf{Part Number}       & \textbf{Description}     & \textbf{\begin{tabular}[c]{@{}c@{}}Price Each \\ (\$AUD)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Cost per Board \\ (\$AUD)\end{tabular}} \\ \hline
+		\textbf{Quantity} & \textbf{Part Number}       & \textbf{Description}     & \textbf{\begin{tabular}[c]{@{}c@{}}Price Each \\ (\$AUD)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Per Board \\ (\$AUD)\end{tabular}} \\ \hline
 		1                 & MAX2871                    & PLL with VCO             & 18.95                                                                 & 18.95                                                                     \\ \hline
 		1                 & ASTXR-12         & Reference Clock          & 4.75                                                                  & 4.75                                                                      \\ \hline
 		2                 & PE42440                    & SP4T Switch              & 1.93                                                                  & 3.87                                                                      \\ \hline
@@ -156,10 +148,104 @@ Table \ref{table:BOM} outlines the cost to manufacture one VNA, with removal of 
 \end{table} 
 
 \subsection{Board Errata}
+There were a few issues found during board bring-up which required hardware changes. Firstly, buttons which were placed on device to aide debugging were drawn up incorrectly in the schematic and resulted in both sides of the button being tied to ground. This was resolved by lifting pads of the button and connecting them to 3V3 as required.
+
+A more challenging issue to resolve was found in that upon reset of the microcontroller, it would not re-enumerate with the host however Windows would still show it as connected. Following some googling it was found that Windows requires the 1K5 pull-up resistor on D+ to be pulled to ground during reset, as this triggers re-enumeration of the device. This issue was resolved by connecting the pull-up resistor to an unused GPIO pin which upon start-up would pull the pin low, wait a few milliseconds, and then assert it high to force re-enumeration. 
+
+The only other hardware issue found on the board was to do with the configuration of the MAX2871's output signals. Upon bring-up of the transmit chain, it was noted that the RF power was far too low and this was narrowed down to the output of the MAX2871 being tens of dB too low. The issue was found to be incorrect termination of the unused RF- output to ground through a 50$\Omega$ resistor, instead of being pulled up to 3V3 through a resistor before being tied to ground. This was resolved with reworking some 0402 components and adding a flying wire as shown in Figure \ref{fig:max_rework}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{max_rework.jpg}
+	\caption{Rework of the MAX2871 RF- output}
+	\label{fig:max_rework}
+\end{figure}
 
 \subsection{ECal Design}
+To aide with use of the VNA, a low cost ECal unit was designed which switches in calibrations standards based on commands from the VNA. It is controlled through the use of a USB cable, where the data pins are either I2C so a port expander with up to 16 control pins can be utilised, or GPIO, so a SP4T switch can be controlled by toggling two pins. Furthermore, the design utilises a two layer board with a grounded coplanar waveguide for the RF trace, as the trace width required on a 1.6mm substrate for a 50$\Omega$ transmission line is far too wide for easy design and would result in increased impedance mismatch during tapering of the trace to meet the 0.3mm pads of the QFN switch. 
 
+For the ECal to be utilised, it's S-parameters must be measured with a VNA as this effectively transfers the calibration from the VNA's calibration standards to the ECal unit, and from there the ECal's generated touchstone file can be used as a reference of the expected frequency response. Unfortunately due to the VNA accessed at ANU not having a SMA calibration kit it the ECal was not able to be used during development, but it has been shown to function and as such if it was measured there is nothing stopping it from being used as a substitute for discrete calibration standards.
+
+The schematic for the RF section of the VNA can be found in Figure \ref{fig:ecal_schematic}, with an image of it in Figure \ref{fig:ecal_photo}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{ecal_schematic.png}
+	\caption{Schematic of the ECal RF circuit}
+	\label{fig:ecal_schematic}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{ecal_board.jpg}
+	\caption{Image of the ECal Unit}
+	\label{fig:ecal_photo}
+\end{figure}
 
 \subsection{Firmware Development}
+Firmware development for the STM32F373 was done in C, with the use of ST's Hardware Abstraction Library (HAL) configured through STM32CubeMX which allowed easy configuration and interaction with the onboard peripherals. An Eclipse based IDE, along with numerous programmers / debuggers were used for development and debugging of the firmware, which was complied with GCC to meet the requirement for an open source toolchain. As outlined in Figure \ref{fig:sw_flowchart}, there are numerous steps required to receive, process, command, measure, and return the required information for function of the VNA, and the firmware blocks developed for each of these steps will be discussed below, along with some of the challenges overcome during development. 
+
+\subsubsection{Start-up and Initialisation}
+Upon start-up, initialisation of a number of peripherals is required. Along with configuring the GPIO, SPI, timer, and USB peripherals, the ADC is initialised and calibrated, which results in reducing the offset and gain errors through an internal alignment process \cite{st_sdadc}. The pull-up on USB D+ is also cycled, as this forces re-enumeration of the device if the VNA had underdone a warm reset. 
+
+\subsubsection{USB and Command Parsing}
+A virtual COM port is used for communicating with the host computer, as due to the low data rates required and the universal compatibility of a COM port it is well suited to the task. ST's HAL provides a function which is called from an interrupt every time a character is received, however the implementation of code which handles the received data is left to the user. As such, a circular buffer was implemented which allows for receiving data, along with error checking and warnings to be sent over serial and indicated on the onboard status LED if the buffer becomes overrun or an unexpected error occurs. A function \texttt{scanUSB} was implemented to wait for a completed transmission from the VCOM port, and move the received characters into a null terminator padded string which would allow other sections of the code to parse the string without concern for it's location in the circular buffer. 
+
+A command parser was also written which splits the received string into commands and arguments based upon defined delimiters, and then using a lookup table finds the intended function and calls it with the passed arguments. Minimal error checking is done at this stage, as it is expected that either the user or Python script which calls the function is passing correct values, and if any bad variables are passed the low level hardware control code will catch the issue. 
+
+Along with the \texttt{measure} command which measures S-parameters, the VNA can also be commanded to act as a signal generator, sweep frequencies, configure the ECal unit, along with low level control such as configuring the output filter used, level of attenuation, enabling / disabling the PA and LO, along with reporting the status of various settings which was not only helpful during development but can be used to demonstrate the internal function for educational purposes. 
+
+\subsubsection{Measurement Control}
+When the user chooses to measure S-parameters, they pass in which parameter (S\textsubscript{11}, S\textsubscript{21}), start and stop frequency, number of steps, along with the output power level to be held throughout. From this, there are a number of steps which occur:
+\begin{itemize}
+	\item To indicate that the VNA is working, it illuminates a status LED blue before beginning measurement.
+	\item The input switch is configured to either allow the reflected or transmitted RF to pass through to the AD8302 gain / phase detector. 
+	\item The AD8302 VREF is read, as it will be used later on to remove any offset between the AD8302 and ADCs in the STM32.
+	\item The required frequency step is determined, and a while loop is entered which preforms the following functions, whose workings will be described below:
+	\begin{itemize}
+		\item The transmit chain is configured to have the correct frequency, filters, and output power level. 
+		\item The AD8302 is sampled numerous times and returns averaged voltages corresponding to the gain and phase measurements. 
+		\item Conversion is then done to convert the raw voltages into gain and phase values in dB and degrees respectively, which includes the first step in phase correction. 
+		\item The frequency, gain, and phase measurements are then sent over serial to the host computer, before incrementing the frequency. 
+	\end{itemize}
+	\item Once all required frequencies have been measured, the VNA turns its status LED green to indicate it is finished, and waits for a new command. 
+\end{itemize}
+
+\subsubsection{Transmit Chain Configuration}
+Transmit chain configuration begins with the MAX2871 PLL, which was the single most challenging part of the project, as it has six 32 bit registers which all need to be configured correctly for function, however the data sheet is light on detail and I was unable to find an application note detailing configuration of it. Maxim do however provide a tool 'MAX287X' which graphically shows the user settings at each point of the internal configuration, and this in combination with the data sheet and projects found online \cite{max2871_trans} \cite{max2871_synth} enabled a Python script to be written which would match the required register values. From there, the code was ported to the STM32, and after some bit shifting to swap the endianness around the SPI transfers allowed control over the MAX2871's frequency and power. 
+
+With respect to configuration during use, the VNA calculates the multiply and divide coefficients which need to be set to correctly multiply up the reference frequency, and in addition calculates the actual frequency the MAX2871 will output, although due to the use of a fractional-N PLL these is typically sub hertz differences between the desired and set frequencies. The VNA can also control the output power of the MAX2871 in 3dB increments, and depending on the required output power will set the output power such that the attenuator can meet the required attenuation or gain. Before configuring the MAX2871, the VNA switches in the correct filter according to a lookup table and then sends the SPI commands for the correct frequency and power settings. It then waits until the PLL has achieved lock to ensue the frequency has been set before configuring the gain. 
+
+To set the output power, the VNA implements a loop as outlined below:
+\begin{itemize}
+	\item Measure output power with the AD8319 log power detector.
+	\item Convert voltage to dBm at port 1.
+	\item Increase / decrease attenuation at programmable attenuator by one step (0.5 dB).
+	\item If within 0.5 dB break, else return to top. 
+\end{itemize}
+Whilst this sequence could be made much smarter by changing by the exact number of steps required, it works quite quickly and does not run often as the power output from the MAX2871 is fairly flat, and as such has been left as is. The conversion of the AD8319 voltage to dBm was originally determined by the data sheet, where the relationship between voltage and power in a 50$\Omega$ system is given by $$ V\textsubscript{out} = V\textsubscript{slope/dB} \cdot  20\log_{10}(V\textsubscript{in} / V\textsubscript{Intercept}) $$ where the slope is -22 mV / dB, and intercept is 15 dBm as per Figure 27 in the data sheet \cite{ad8319}. Due to the power detector being nominally 21 dB down from the power at port 1 as shown in the schematics, additional offset was required to compensate for this. The output power flatness was then confirmed though observing how the output power varied over frequency on a spectrum analyser, and it was seen that the VNA was within 1dB across the operating range, with the discrepancy being explained by the spectrum analyser looking at the power at the set frequency, whereas the AD8319 measures the total power, including harmonics. 
+
+\subsubsection{AD8302 Sampling and Conversion}
+With the frequency and power at port 1 set, measurement of the gain and phase measurements can occur. This is achieved by sampling the analog outputs of the AD8302, and converting them to the gain difference in dB, and phase difference in degrees respectively. 
+
+To decrease the influence of noise and to increase the ENOB of the measurement, the analog voltage is sampled 16 times for both gain and phase, jumping between the two channels and waiting between samples in an attempt to better represent the actual signal, and pick up on the small voltage changes when the phase angle is low. These samples are then averaged, and converted to the required units. 
+
+The gain calculation is identical to what was outlined above for the AD8319 due to the IC internals being the same, and no compensation being required for non ideal behaviour. Phase compensation on the other hand is required as the output voltage decreases as a function of frequency, and as such at higher frequencies the ideal best fit shows the phase never reaching 180$^\circ$, which is obviously not possible. The other issue with levelling off of the voltage output as the phase angle becomes small is also corrected for, and is done by proportionally 'stretching' the peaks of the phase to 180$^\circ$, ensuring that the corrected waveform always reaches 180$^\circ$ before decreasing again. The process for this was calculated using a MATLAB script then implemented in C, with the results of the correction shown in Figure \ref{fig:phase_comp}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{log_conformance_compensation_zoomed.png}
+	\caption{Correction of non idealities of the AD8302 phase detector output}
+	\label{fig:phase_comp}
+\end{figure}
 
 \subsection{Software Development}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{phase_correction.png}
+	\caption{Absolute phase to actual phase correction}
+	\label{fig:phase_correction}
+\end{figure}
+
+

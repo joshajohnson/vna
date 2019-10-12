@@ -165,6 +165,7 @@
       \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
       \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{extraname}{1}
       \field{sortinit}{8}
       \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
@@ -203,6 +204,113 @@
       \endverb
       \verb{url}
       \verb https://ieeexplore.ieee.org/document/7345756
+      \endverb
+    \endentry
+    \entry{st_sdadc}{online}{}
+      \name{author}{1}{}{%
+        {{hash=c38884ab3cf908c2798725960369391b}{%
+           family={{ST Microelectronics}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c38884ab3cf908c2798725960369391b}
+      \strng{fullhash}{c38884ab3cf908c2798725960369391b}
+      \strng{bibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorbibnamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authornamehash}{c38884ab3cf908c2798725960369391b}
+      \strng{authorfullhash}{c38884ab3cf908c2798725960369391b}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Getting started with STM32F37x/38x SDADC (Sigma-Delta ADC)}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.st.com/content/ccc/resource/technical/document/application_note/d9/90/d7/70/7c/ff/45/6d/DM00070480.pdf/files/DM00070480.pdf/jcr:content/translations/en.DM00070480.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.st.com/content/ccc/resource/technical/document/application_note/d9/90/d7/70/7c/ff/45/6d/DM00070480.pdf/files/DM00070480.pdf/jcr:content/translations/en.DM00070480.pdf
+      \endverb
+    \endentry
+    \entry{max2871_trans}{online}{}
+      \name{author}{1}{}{%
+        {{hash=395ecbacb074abd39dd09c0b28b015cd}{%
+           family={PeraZvea},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{395ecbacb074abd39dd09c0b28b015cd}
+      \strng{fullhash}{395ecbacb074abd39dd09c0b28b015cd}
+      \strng{bibnamehash}{395ecbacb074abd39dd09c0b28b015cd}
+      \strng{authorbibnamehash}{395ecbacb074abd39dd09c0b28b015cd}
+      \strng{authornamehash}{395ecbacb074abd39dd09c0b28b015cd}
+      \strng{authorfullhash}{395ecbacb074abd39dd09c0b28b015cd}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Microwave Transmitter}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/PeraZver/Microwave-Transmitter
+      \endverb
+      \verb{url}
+      \verb https://github.com/PeraZver/Microwave-Transmitter
+      \endverb
+    \endentry
+    \entry{max2871_synth}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a63f2226e09efc3e355332c50d4e92ab}{%
+           family={Gisler},
+           familyi={G\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{a63f2226e09efc3e355332c50d4e92ab}
+      \strng{fullhash}{a63f2226e09efc3e355332c50d4e92ab}
+      \strng{bibnamehash}{a63f2226e09efc3e355332c50d4e92ab}
+      \strng{authorbibnamehash}{a63f2226e09efc3e355332c50d4e92ab}
+      \strng{authornamehash}{a63f2226e09efc3e355332c50d4e92ab}
+      \strng{authorfullhash}{a63f2226e09efc3e355332c50d4e92ab}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Arduino / Genuino UHF Synthesiser "SUPERMOD"}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.changpuak.ch/electronics/Arduino-Shield-SUPERMOD.php
+      \endverb
+      \verb{url}
+      \verb https://www.changpuak.ch/electronics/Arduino-Shield-SUPERMOD.php
+      \endverb
+    \endentry
+    \entry{ad8319}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a12ff886a2379a9ee6efaa9acfb54df4}{%
+           family={{Analog Devices}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{fullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{bibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorbibnamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authornamehash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \strng{authorfullhash}{a12ff886a2379a9ee6efaa9acfb54df4}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{AD8319 Data Sheet}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/AD8319.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.analog.com/media/en/technical-documentation/data-sheets/AD8319.pdf
       \endverb
     \endentry
   \enddatalist

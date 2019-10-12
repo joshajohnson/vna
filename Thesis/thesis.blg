@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.13
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[33] biber-MSWIN64:315> INFO - === 
-[53] Biber.pm:375> INFO - Reading 'thesis.bcf'
-[167] Biber.pm:905> INFO - Found 7 citekeys in bib section 0
-[186] Biber.pm:4196> INFO - Processing section 0
-[188] Utils.pm:75> INFO - Globbing data source 'header-footer/ref.bib'
-[199] Utils.pm:91> INFO - Globbed data source 'header-footer/ref.bib' to header-footer/ref.bib
-[212] Biber.pm:4373> INFO - Looking for bibtex format file 'header-footer/ref.bib' for section 0
+[36] biber-MSWIN64:315> INFO - === 
+[56] Biber.pm:375> INFO - Reading 'thesis.bcf'
+[171] Biber.pm:905> INFO - Found 11 citekeys in bib section 0
+[190] Biber.pm:4196> INFO - Processing section 0
+[192] Utils.pm:75> INFO - Globbing data source 'header-footer/ref.bib'
+[203] Utils.pm:91> INFO - Globbed data source 'header-footer/ref.bib' to header-footer/ref.bib
+[218] Biber.pm:4373> INFO - Looking for bibtex format file 'header-footer/ref.bib' for section 0
 [222] bibtex.pm:1462> INFO - LaTeX decoding ...
-[236] bibtex.pm:1281> INFO - Found BibTeX data source 'header-footer/ref.bib'
-[282] UCollate.pm:68> INFO - Overriding locale 'en-AU' defaults 'variable = shifted' with 'variable = non-ignorable'
-[282] UCollate.pm:68> INFO - Overriding locale 'en-AU' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[282] Biber.pm:4024> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-AU'
-[282] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-AU'
-[293] bbl.pm:648> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[296] bbl.pm:751> INFO - Output to thesis.bbl
+[232] bibtex.pm:1281> INFO - Found BibTeX data source 'header-footer/ref.bib'
+[295] UCollate.pm:68> INFO - Overriding locale 'en-AU' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[296] UCollate.pm:68> INFO - Overriding locale 'en-AU' defaults 'variable = shifted' with 'variable = non-ignorable'
+[296] Biber.pm:4024> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-AU'
+[296] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-AU'
+[309] bbl.pm:648> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[314] bbl.pm:751> INFO - Output to thesis.bbl

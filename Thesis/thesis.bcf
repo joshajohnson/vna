@@ -2138,6 +2138,10 @@
     <bcf:citekey order="7">keysight_vna_basics</bcf:citekey>
     <bcf:citekey order="8">ad8302_datasheet</bcf:citekey>
     <bcf:citekey order="9">resistive_coupler</bcf:citekey>
+    <bcf:citekey order="10">st_sdadc</bcf:citekey>
+    <bcf:citekey order="11">max2871_trans</bcf:citekey>
+    <bcf:citekey order="12">max2871_synth</bcf:citekey>
+    <bcf:citekey order="13">ad8319</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

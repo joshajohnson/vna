@@ -31,6 +31,11 @@
 \BOOKMARK [2][-]{subsection.4.6}{Board Errata}{section.4}% 31
 \BOOKMARK [2][-]{subsection.4.7}{ECal Design}{section.4}% 32
 \BOOKMARK [2][-]{subsection.4.8}{Firmware Development}{section.4}% 33
-\BOOKMARK [2][-]{subsection.4.9}{Software Development}{section.4}% 34
-\BOOKMARK [1][-]{section.5}{Calibration and Testing}{}% 35
-\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 36
+\BOOKMARK [3][-]{subsubsection.4.8.1}{Start-up and Initialisation}{subsection.4.8}% 34
+\BOOKMARK [3][-]{subsubsection.4.8.2}{USB and Command Parsing}{subsection.4.8}% 35
+\BOOKMARK [3][-]{subsubsection.4.8.3}{Measurement Control}{subsection.4.8}% 36
+\BOOKMARK [3][-]{subsubsection.4.8.4}{Transmit Chain Configuration}{subsection.4.8}% 37
+\BOOKMARK [3][-]{subsubsection.4.8.5}{AD8302 Sampling and Conversion}{subsection.4.8}% 38
+\BOOKMARK [2][-]{subsection.4.9}{Software Development}{section.4}% 39
+\BOOKMARK [1][-]{section.5}{Calibration and Testing}{}% 40
+\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 41
