@@ -1,5 +1,5 @@
 \subsection{Background}
-A Vector Network Analyser is a radio frequency test and measurement instrument which measures the s-parameters of a device under test. VNAs are used extensively in the design of RF devices as they allow the gain and phase response of RF components such as antennas, filters, amplifiers, and mixers to be characterised over the their operating frequencies, which is crucial for successful design and manufacturing of RF devices.
+A Vector Network Analyser is a radio frequency test and measurement instrument which measures the S-parameters of a device under test. VNAs are used extensively in the design of RF devices as they allow the gain and phase response of RF components such as antennas, filters, amplifiers, and mixers to be characterised over the their operating frequencies, which is crucial for successful design and manufacturing of RF devices.
 
 Vector network analysers work by generating a reference frequency which is passed into a device under test (DUT), and through comparing the incident and reflected RF signals from ports of the DUT the change in waveform caused by the DUT can be determined. Through sweeping the frequency, the response at each port of the VNA can be determined over a frequency range, and through signal processing the gain and phase response of each port of the DUT can be determined. From this data, S-paramater, VSWR, along with Smith chart and polar plots are able to be generated, which allows analysis of the DUT along with informed decisions regarding the function of the DUT to be made, which is required for the engineering of modern devices. 
 
@@ -11,9 +11,9 @@ The aim of this thesis is design and build a VNA which is significantly cheaper 
 \subsection{Previous Work}
 Numerous people have attempted to make their own VNAs with varying specifications and architectures, and the work outlined in this thesis has been heavily inspired by many of these projects. 
 
-Henrik Forsten has designed two VNAs, both of which cost less than \$1000 and operate upto 6 GHz. His first design \cite{henrik_1} utilised printed microstrip couplers to couple the RF, along with a microcontroller with a 12 bit ADC sampling at 10 MSPS to sample downconverted RF. This design worked, however due to port to port leakage, variances with coupling over the frequency range, and slow processing due to the microcontroller struggling to keep up with the ADC sampling speed required. 
+Henrik Forsten has designed two VNAs, both of which cost less than \$1000 and operate upto 6 GHz. His first design \cite{henrik_1} utilised printed microstrip couplers to couple the RF, along with a microcontroller with a 12 bit ADC sampling at 10 MSPS to sample downconverted RF. This design worked, however due to port to port leakage, variances with coupling over the frequency range, and slow processing due to the microcontroller struggling to keep up with the ADC sampling speed required, it did not function well enough for day to day use.  
 
-Forsten's second design \cite{henrik_2} replaced the microcontroller with an FPGA and external 14 bit, 40 MSPS ADC, which allowed both data capture and signal processing to be completed in real time. He also designed resistive bridge couplers which had significantly better performance over the required frequency range, and whilst this design preformed significantly better, the extra components resulted in an increased BOM and the couplers took up significant space. He did however show that a feature complete VNA could be manufactured for significantly less than commercial offerings, using processes and components which can be easily acquired by hobbyists.  
+Forsten's second design \cite{henrik_2} replaced the microcontroller with an FPGA and external 14 bit, 40 MSPS ADC, which allowed both data capture and signal processing to be completed in real time. He also designed resistive bridge couplers which had significantly better performance over the operating frequency range, and whilst this design preformed significantly better, the extra components resulted in an increased BOM and the couplers took up significant space. He did however show that a feature complete VNA could be manufactured for significantly less than commercial offerings, using processes and components which can be easily acquired by hobbyists.  
 
 Other architectures have utilised a dedicated RFIC in the form of Analog Devices' AD8302 gain and phase detector, which handles all of the gain and phase detection in silicon, and allows for low frequency sampling of two analogue outputs to determine gain and phase. This results in a significant decrease in signal processing required, allowing for lower cost embedded processors being utilised in the design. 
 
@@ -22,6 +22,7 @@ One such design \cite{nagy_vna} utilised an AD8302 and COTS components in the fo
 Another design based around the AD8302 \cite{torre_vna} utilised a direct digital synthesis IC with I and Q outputs to feed two AD8302 ICs, which enabled them to work around the zero crossing issue outlined above. However, due to the inherit limitations of DDS architecture, they were limited to 5 - 80 MHz, significantly less than the bandwidth of most VNAs. 
 
 \subsection{Overview}
+An overview of the sections within this thesis is outlined below.
 
 \textbf{Chapter 2 - Requirements, Constraints, and Specifications} details the requirements and constraints of the VNA, and will enable the design scope and device specifications to be determined. 
 
@@ -29,4 +30,4 @@ Another design based around the AD8302 \cite{torre_vna} utilised a direct digita
 
 \textbf{Chapter 4 - Implementation and Assembly} details printed circuit board layout along with assembly of the PCB. Furthermore, mechanical design of an enclosure along with firmware and software implementation is discussed. 
 
-\textbf{Chapter 5 - Calibration and Testing} covers calibration of the VNA, comparison of measurements to commercial VNAs, along with a discussion of the results and proposes future avenues for improvement of the VNA. 
+\textbf{Chapter 5 - Testing and Conclusion} covers a comparison of measurements to commercial VNAs, along with a discussion of the results and proposes future avenues for improvement of the VNA. 

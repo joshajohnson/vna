@@ -35,32 +35,34 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {17}{\ignorespaces Correction of non idealities of the AD8302 phase detector output\relax }}{38}{figure.caption.29}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Absolute phase to actual phase correction\relax }}{39}{figure.caption.30}% 
+\contentsline {figure}{\numberline {18}{\ignorespaces Absolute phase to actual phase correction\relax }}{40}{figure.caption.30}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces S\textsubscript {11} comparison of a 900 MHz low pass filter\relax }}{40}{figure.caption.31}% 
+\contentsline {figure}{\numberline {19}{\ignorespaces Sources of error in a two port VNA\relax }}{41}{figure.caption.31}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {20}{\ignorespaces S\textsubscript {21} comparison of a 900 MHz low pass filter\relax }}{41}{figure.caption.32}% 
+\contentsline {figure}{\numberline {20}{\ignorespaces S\textsubscript {11} comparison of a 900 MHz low pass filter\relax }}{42}{figure.caption.32}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {21}{\ignorespaces S\textsubscript {21} comparison of a LFCN-400+ low pass filter\relax }}{42}{figure.caption.33}% 
+\contentsline {figure}{\numberline {21}{\ignorespaces S\textsubscript {21} comparison of a 900 MHz low pass filter\relax }}{43}{figure.caption.33}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces S\textsubscript {11} comparison of a LFCN-400+ low pass filter\relax }}{43}{figure.caption.34}% 
+\contentsline {figure}{\numberline {22}{\ignorespaces S\textsubscript {21} comparison of a LFCN-400+ low pass filter\relax }}{44}{figure.caption.34}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces Power flatness from TX chain, measurements shown S\textsubscript {21} with both ports terminated into 50$\Omega $\relax }}{44}{figure.caption.35}% 
+\contentsline {figure}{\numberline {23}{\ignorespaces S\textsubscript {11} comparison of a LFCN-400+ low pass filter\relax }}{45}{figure.caption.35}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {24}{\ignorespaces 3D render of the PCB\relax }}{48}{figure.caption.37}% 
+\contentsline {figure}{\numberline {24}{\ignorespaces Power flatness from TX chain, measurements shown S\textsubscript {21} with both ports terminated into 50$\Omega $\relax }}{46}{figure.caption.36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {25}{\ignorespaces VNA Schematic - Overview\relax }}{49}{figure.caption.38}% 
+\contentsline {figure}{\numberline {25}{\ignorespaces 3D render of the PCB\relax }}{51}{figure.caption.38}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {26}{\ignorespaces VNA Schematic - LO Generation\relax }}{50}{figure.caption.39}% 
+\contentsline {figure}{\numberline {26}{\ignorespaces VNA Schematic - Overview\relax }}{52}{figure.caption.39}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {27}{\ignorespaces VNA Schematic - Filter Bank\relax }}{51}{figure.caption.40}% 
+\contentsline {figure}{\numberline {27}{\ignorespaces VNA Schematic - LO Generation\relax }}{53}{figure.caption.40}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {28}{\ignorespaces VNA Schematic - Source Levelling\relax }}{52}{figure.caption.41}% 
+\contentsline {figure}{\numberline {28}{\ignorespaces VNA Schematic - Filter Bank\relax }}{54}{figure.caption.41}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {29}{\ignorespaces VNA Schematic - Coupling\relax }}{53}{figure.caption.42}% 
+\contentsline {figure}{\numberline {29}{\ignorespaces VNA Schematic - Source Levelling\relax }}{55}{figure.caption.42}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {30}{\ignorespaces VNA Schematic - Gain and Phase Detection\relax }}{54}{figure.caption.43}% 
+\contentsline {figure}{\numberline {30}{\ignorespaces VNA Schematic - Coupling\relax }}{56}{figure.caption.43}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {31}{\ignorespaces VNA Schematic - Microcontroller\relax }}{55}{figure.caption.44}% 
+\contentsline {figure}{\numberline {31}{\ignorespaces VNA Schematic - Gain and Phase Detection\relax }}{57}{figure.caption.44}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {32}{\ignorespaces VNA Schematic - Power\relax }}{56}{figure.caption.45}% 
+\contentsline {figure}{\numberline {32}{\ignorespaces VNA Schematic - Microcontroller\relax }}{58}{figure.caption.45}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {33}{\ignorespaces VNA Schematic - Power\relax }}{59}{figure.caption.46}% 
