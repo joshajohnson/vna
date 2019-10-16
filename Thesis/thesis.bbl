@@ -223,7 +223,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Getting started with STM32F37x/38x SDADC (Sigma-Delta ADC)}
+      \field{title}{{Getting started with STM32F37x/38x SDADC (Sigma-Delta ADC)}}
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
@@ -249,7 +249,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Microwave Transmitter}
+      \field{title}{{Microwave Transmitter}}
       \field{year}{2017}
       \field{dateera}{ce}
       \verb{urlraw}
@@ -277,7 +277,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Arduino / Genuino UHF Synthesiser "SUPERMOD"}
+      \field{title}{{Arduino / Genuino UHF Synthesiser "SUPERMOD"}}
       \field{year}{2019}
       \field{dateera}{ce}
       \verb{urlraw}
@@ -304,7 +304,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{AD8319 Data Sheet}
+      \field{title}{{AD8319 Data Sheet}}
       \field{year}{2017}
       \field{dateera}{ce}
       \verb{urlraw}
@@ -339,6 +339,32 @@
       \endverb
       \verb{url}
       \verb http://literature.cdn.keysight.com/litweb/pdf/5965-7709E.pdf
+      \endverb
+    \endentry
+    \entry{nanoVNA}{online}{}
+      \name{author}{1}{}{%
+        {{hash=2f79a4a8a7a6159fa6237d0154229d01}{%
+           family={Nuclearrambo},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \strng{fullhash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \strng{bibnamehash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \strng{authorbibnamehash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \strng{authornamehash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \strng{authorfullhash}{2f79a4a8a7a6159fa6237d0154229d01}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Comparing NanoVNA with the Keysight Fieldfox N9952A}}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://nuclearrambo.com/wordpress/comparing-nanovna-with-the-keysight-fieldfox-n9952a/
+      \endverb
+      \verb{url}
+      \verb https://nuclearrambo.com/wordpress/comparing-nanovna-with-the-keysight-fieldfox-n9952a/
       \endverb
     \endentry
   \enddatalist

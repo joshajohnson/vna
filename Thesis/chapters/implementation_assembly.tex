@@ -12,7 +12,7 @@ With all the components imported into CAD, the approximate size of the PCB was a
 
 The PCB stackup and manufacturer also needed to be determined, as this plays a key role in the cost of the boards, along with key PCB features such as minimum space / trace, via size, and the with of a 50 ohm microstrip trace. Due to cost and prior experience, JLCPCB was chosen as the manufacturer, and their 4 layer FR4 "JLC7628" stackup (Table \ref{table:pcb_stackup}) was chosen as it is a very common stackup well suited to the feature and component sizes used on the board, along with the ability for it to be ordered from other manufacturers with ease. Furthermore, a Signal / GND / PWR / Signal configuration would be designed for during layout, with additional flood fills of ground on layers 1 and 4. 
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\caption{Chosen PCB stackup}
 	\includegraphics[width=0.8\linewidth]{jlc_stackup.png}
@@ -20,7 +20,7 @@ The PCB stackup and manufacturer also needed to be determined, as this plays a k
 \end{table}
 
 Other key feature sizes for the chosen stackup and manufacturing process are outlined in Table \ref{table:pcb_specs}. It should be noted that whilst JLCPCB are able to do quite small trace / space and via drill size, 6/6 trace/space and 0.25/0.5 drill/via were chosen for the design, as this would allow it to be fabricated at common fabricators such as OSHPark and PCBWay without paying for advanced processes. 
-\begin{table}[h!]
+\begin{table}[H]
 	\caption{Key specifications of PCB design rules and feature size}
 	\label{table:pcb_specs}
 	\centering
@@ -47,24 +47,16 @@ Given the operating frequencies seen on the board, a number of key layout consid
 		
 		Unfortunately a mistake was made during layout in that the signal was routed on layer 4 instead of 3, as with the signal on 4 its reference plane is layer 3, VCC, which does not have a low inductance path to layer 2, as the closest decoupling capacitor is located in the top left of the figure, near the 8 pin DFN IC. Ideally the signal would have been routed on layer 3,  allowing the ground pour on layer 4 to be the reference plane, with the multiple vias providing a low inductance path between the two planes. Fortunately, due to upper bounds of the frequencies seen on the board at 1.25 GHz, this is not a major issue which has caused issues with the function of the device. 
 		\item Low impedance between layers was also ensured through the use of ample stitching vias, both around the signal path and the entire board. 
-	\end{itemize}
-	\item \textbf{EMI Reduction} is crucial to ensure that there is no coupling of unwanted signals onto the key signals. This has been achieved by routing the digital signals on the left side of the board, allowing the RF and analog signals from the AD8302 to have as much clearance as possible from the digital signals. Furthermore, the output drivers on the STM32 were set to a low slew rate, as this will decrease the frequency content seen when a signal is switched. 
+	\end{itemize} 
 	\item \textbf{Power Integrity} was achieved through the use of linear regulators to decrease noise on the power rails, low inductance connections to components through large power planes and multiple vias when changing layers to ensure the added inductance is kept to a minimum. Furthermore, ensuring the decoupling capacitors specified in application notes for each component are placed close the power pins, with the smaller capacitors closer to the pin, and a dedicated via for each capacitor placed as close as possible to the pad ensures that the impedance and noise seen at the power pin to each component is kept at a minimum, which leads to optimum performance of the IC and minimal coupling of noise onto the RF and analog signals.
 	\item \textbf{Following reference layouts} ensured that the device would preform as specified on the data sheet, along with being able to rule out bad component placement and routing as possible causes for improper function of device. Where reference designs were not available, best RF layout practices including those described above were utilised to ensure optimal performance of the device.  
 \end{itemize} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\linewidth]{ground_cutouts.png}
-	\caption{Ground cut-outs under large pads to reduce inter-planar capacitance and ensure a 50 $\Omega$ transmission line}
+	\includegraphics[width=0.6\linewidth]{ground_cutouts.png}
+	\caption{Ground cut-outs under large pads to reduce inter-planar capacitance and ensure a 50 $\Omega$ transition}
 	\label{fig:pcb_cap_comp}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\linewidth]{layer_change.png}
-	\caption{Layer change mistake on the signal path}
-	\label{fig:pcb_layer_change}
 \end{figure}
 
 \begin{landscape}
@@ -76,26 +68,19 @@ Given the operating frequencies seen on the board, a number of key layout consid
 	\end{figure}
 \end{landscape}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{layer_change.png}
+	\caption{Layer change mistake on the signal path}
+	\label{fig:pcb_layer_change}
+\end{figure}
+
 \subsection{Mechanical Design}
 To ensure there will be no mechanical clearance issues, a 3D model of the board was exported from KiCad in to Fusion360 and placed into a model of the extrusion, and is was seen that there were no mechanical issues. Having the 3D model in MCAD, together with the decision to use an extruded aluminium enclosure results in easy design of custom front and rear panels, as key features from the 3D model can be referenced when designing cut-outs for the connectors and light pipe. DXFs were exported from Fusion360 back into KiCad where they had silkscreen added, and they were then sent off to be manufactured with the main VNA PCB. Renders of the front and rear panels can be found in Figures \ref{fig:pcb_front_render} and \ref{fig:pcb_rear_render}, and the assembled VNA without the top extruded section in Figure \ref{fig:pcb_assembled}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{frontPanel.png}
-	\caption{Render of the VNA Front Panel}
-	\label{fig:pcb_front_render}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth]{rearPanel.png}
-	\caption{Render of the VNA Rear Panel}
-	\label{fig:pcb_rear_render}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{assembledVNA.jpg}
+	\includegraphics[width=0.75\linewidth]{assembledVNA.jpg}
 	\caption{Assembled VNA in enclosure, with top section removed}
 	\label{fig:pcb_assembled}
 \end{figure}
@@ -104,7 +89,15 @@ To ensure there will be no mechanical clearance issues, a 3D model of the board 
 Upon arrival of the PCBs and solder paste stencil, assembly was undertaken. This followed a fairly standard SMT process, with solder paste being deposited onto the PCB through the use of a stencil, placement of components under a microscope due to their size (down to 0402 and 0.5 mm QFN), and reflow in a reflow oven. Rework was required for a few components due to tomb stoning, along with some shorted pins on the QFNs, along with hand soldering of the through hole components and SMA connectors. The board was then cleaned in an ultrasonic cleaner to remove any remaining flux, and left to dry for an hour in the reflow oven. This process went quite smoothly with the whole process taking less than 6 hours from start to finish. 
 
 Table \ref{table:BOM} outlines the cost to manufacture one VNA, with removal of components such as debug headers and ground test points which are only required on the development boards. As can be seen, the cost for one VNA comes out to \$272.88, including the full cost of 5 PCBs and the enclosure. It should be noted that the per board cost at quantity 10 is reduced to \$204.78 due to the cost of PCBs being split between multiple boards and a slight reduction in component price, and that if free samples are requested from Analog Devices and Maxim and no case is utilised, the cost of assembling a VNA can be as little as \$185.37. Pricing is correct as of 10/10/19.
-\begin{table}[H]
+
+\subsection{Board Errata}
+There were a few issues found during board bring-up which required hardware changes. Firstly, buttons which were placed on device to aide debugging were drawn up incorrectly in the schematic and resulted in both sides of the button being tied to ground. This was resolved by lifting pads of the button and connecting them to 3V3 as required.
+
+A more challenging issue to resolve was found in that upon reset of the microcontroller, it would not re-enumerate with the host however Windows would still show it as connected. Following some googling it was found that Windows requires the 1K5 pull-up resistor on D+ to be pulled to ground during reset, as this triggers re-enumeration of the device. This issue was resolved by connecting the pull-up resistor to an unused GPIO pin which upon start-up would pull the pin low, wait a few milliseconds, and then assert it high to force re-enumeration. 
+
+The only other hardware issue found on the board was to do with the configuration of the MAX2871's output signals. Upon bring-up of the transmit chain, it was noted that the RF power was far too low and this was narrowed down to the output of the MAX2871 being tens of dB below the expected output power. The issue was found to be incorrect termination of the unused RF- output to ground through a 50$\Omega$ resistor, instead of being pulled up to 3V3 through a resistor before being tied to ground. This was resolved with reworking some 0402 components and adding a flying wire as shown in Figure \ref{fig:max_rework}.
+
+\begin{table}[h!]
 	\caption{Bill of Materials for VNA}
 	\label{table:BOM}
 	\centering
@@ -145,20 +138,7 @@ Table \ref{table:BOM} outlines the cost to manufacture one VNA, with removal of 
 	\end{tabular}
 \end{table} 
 
-\subsection{Board Errata}
-There were a few issues found during board bring-up which required hardware changes. Firstly, buttons which were placed on device to aide debugging were drawn up incorrectly in the schematic and resulted in both sides of the button being tied to ground. This was resolved by lifting pads of the button and connecting them to 3V3 as required.
-
-A more challenging issue to resolve was found in that upon reset of the microcontroller, it would not re-enumerate with the host however Windows would still show it as connected. Following some googling it was found that Windows requires the 1K5 pull-up resistor on D+ to be pulled to ground during reset, as this triggers re-enumeration of the device. This issue was resolved by connecting the pull-up resistor to an unused GPIO pin which upon start-up would pull the pin low, wait a few milliseconds, and then assert it high to force re-enumeration. 
-
-The only other hardware issue found on the board was to do with the configuration of the MAX2871's output signals. Upon bring-up of the transmit chain, it was noted that the RF power was far too low and this was narrowed down to the output of the MAX2871 being tens of dB below the expected output power. The issue was found to be incorrect termination of the unused RF- output to ground through a 50$\Omega$ resistor, instead of being pulled up to 3V3 through a resistor before being tied to ground. This was resolved with reworking some 0402 components and adding a flying wire as shown in Figure \ref{fig:max_rework}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\linewidth]{max_rework.jpg}
-	\caption{Rework of the MAX2871 RF- output}
-	\label{fig:max_rework}
-\end{figure}
-
+\newpage
 \subsection{ECal Design}
 To aide with use of the VNA, a low cost ECal unit was designed which switches in calibrations standards based on commands from the VNA. It is controlled through the use of a USB cable, where the data pins are either I2C so a port expander with up to 16 control pins can be utilised, or GPIO, so a SP4T switch can be controlled by toggling two pins. Furthermore, the design utilises a two layer board with a grounded coplanar waveguide for the RF trace, as the trace width required on a 1.6mm substrate for a 50$\Omega$ transmission line is far too wide for easy design and would result in increased impedance mismatch during tapering of the trace to meet the 0.3mm pads of the QFN switch. 
 
@@ -168,18 +148,12 @@ The schematic for the RF section of the VNA can be found in Figure \ref{fig:ecal
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{ecal_schematic.png}
+	\includegraphics[width=\linewidth]{ecal_schematic.png}
 	\caption{Schematic of the ECal RF circuit}
 	\label{fig:ecal_schematic}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\linewidth]{ecal_board.jpg}
-	\caption{Image of the ECal Unit}
-	\label{fig:ecal_photo}
-\end{figure}
-
+\newpage
 \subsection{Firmware Development}
 Firmware development for the STM32F373 was done in C, with the use of ST's Hardware Abstraction Library (HAL) configured through STM32CubeMX which allowed easy configuration and interaction with the onboard peripherals. An Eclipse based IDE, along with numerous programmers / debuggers were used for development and debugging of the firmware, which was complied with GCC to meet the requirement for an open source toolchain. As outlined in Figure \ref{fig:sw_flowchart}, there are numerous steps required to receive, process, command, measure, and return the required information for function of the VNA, and the firmware blocks developed for each of these steps will be discussed below, along with some of the challenges overcome during development. 
 
@@ -209,6 +183,7 @@ When the user chooses to measure S-parameters, they pass in which parameter (S\t
 	\item Once all required frequencies have been measured, the VNA turns its status LED green to indicate it is finished, and waits for a new command. 
 \end{itemize}
 
+\newpage
 \subsubsection{Transmit Chain Configuration}
 Transmit chain configuration begins with the MAX2871 PLL, which was the single most challenging part of the project, as it has six 32 bit registers which all need to be configured correctly for function, however the data sheet is light on detail and there is no application note detailing configuration of it. Maxim do however provide a tool 'MAX287X' which graphically shows the user settings at each point of the internal configuration, and this in combination with the data sheet and projects found online \cite{max2871_trans} \cite{max2871_synth} enabled a Python script to be written which would match the required register values. From there, the code was ported to the STM32, and after some bit shifting to swap the endianness around the SPI transfers allowed control over the MAX2871's frequency and power. 
 
@@ -232,7 +207,7 @@ The gain calculation is identical to what was outlined above for the AD8319 due 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{log_conformance_compensation_zoomed.png}
+	\includegraphics[width=0.8\linewidth]{log_conformance_compensation_zoomed.png}
 	\caption{Correction of non idealities of the AD8302 phase detector output}
 	\label{fig:phase_comp}
 \end{figure}
@@ -259,7 +234,7 @@ Phase correction is required as the phase numbers returned from the VNA are abso
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\linewidth]{phase_correction.png}
+	\includegraphics[width=0.8\linewidth]{phase_correction.png}
 	\caption{Absolute phase to actual phase correction}
 	\label{fig:phase_correction}
 \end{figure}
@@ -269,13 +244,13 @@ Phase correction is required as the phase numbers returned from the VNA are abso
 Calibration is crucial for a VNA as not only does it compensate for non idealities in the VNA, but is able to change the reference plane at which measurements are taken, which allows for the use of cables and de embedding of DUTs on a PCB when the correct test fixtures and standards are used. For a two port VNA, there are six types of systematic errors, \cite{keysight_vna_cal} which are shown in Figure \ref{fig:vna_error}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{vna_errors.png}
+	\includegraphics[width=0.85\linewidth]{vna_errors.png}
 	\caption{Sources of error in a two port VNA}
 	\label{fig:vna_error}
 \end{figure}
 When a one port measurement is being taken, the number of possible errors is reduced as port B is no longer being utilised, and as such the transmission tracking, load mismatch, and crosstalk errors are eliminated. For a typical VNA capable of measuring all four S-parameters of a two port device these error terms exists in both the forward and reverse directions, as as such there are twelve error terms. This is where the common twelve term (or SOLT) calibration process results from, as it is a form of vector error correction capable of correcting the systematic errors outlined above. It requires known short, open, load, and through calibration standards, and by measuring those standards it is able to generate an error model which can be used to remove systematic errors from the measurements. 
 
-This is achieved by measuring home-made calibration standards which were measured on a commercial VNA, effectively transferring the calibration from the expensive calibration kit to the home-made version. The software prompts the user through measuring the required standards, before utilising the inbuilt one port and SOLT calibration methods available in scikit-rf to calculate the error model, which is then applied to future measurements. 
+This was achieved by measuring home-made calibration standards on a commercial VNA, effectively transferring the calibration from the expensive calibration kit to the home-made version. After selecting to calibrate the VNA from the Python CLI, it prompts the user through measuring the required standards, before utilising the inbuilt one port and SOLT calibration methods available in scikit-rf to calculate the error model, which is then applied to future measurements.
 
 
 

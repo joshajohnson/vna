@@ -41,4 +41,8 @@
 \BOOKMARK [3][-]{subsubsection.4.9.1}{Phase Correction}{subsection.4.9}% 41
 \BOOKMARK [3][-]{subsubsection.4.9.2}{Calibration}{subsection.4.9}% 42
 \BOOKMARK [1][-]{section.5}{Testing and Conclusion}{}% 43
-\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 44
+\BOOKMARK [2][-]{subsection.5.1}{Comparison to Commercial VNAs}{section.5}% 44
+\BOOKMARK [2][-]{subsection.5.2}{Calibration Efficacy}{section.5}% 45
+\BOOKMARK [2][-]{subsection.5.3}{Conclusion and Future Work}{section.5}% 46
+\BOOKMARK [1][-]{appendix.A}{VNA Design Files}{}% 47
+\BOOKMARK [1][-]{appendix.B}{Board Images}{}% 48

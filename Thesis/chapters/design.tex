@@ -82,6 +82,7 @@ The first part of the RF chain begins with the LO, as it generates the signal us
 As can be seen from Table \ref{table:lo_comparison}, the MAX2871 has a wider frequency range, whilst having a lower cost and having the same maximum output power and Fractional-N PLL as the AD4351. The only downside of it for our application is that there is no example code provided by Maxim, and this combined with it's poor data sheet may result in extended firmware development time, whereas Analog Devices provides example code along with an extremely well documented data sheet and application notes. Given there is no cost associated with firmware development and that the goal for the device is to have the widest frequency band at the lowest cost possible, the MAX2871 was chosen due to it's superior specifications. 
 
 \subsubsection{LO Filtering}
+\label{subsubsec:lo filtering}
 Due to the LO utilising a divided down output for frequencies below 3 GHz, there are significant harmonics in the output signal which need to be filtered out. As will be discussed later, the directional couplers chosen operate up to 1 GHz, and as such filters need to be chosen which operate up to this frequency. Four filters from Mini-Circuits's LFCN series were chosen, with the goal of only frequencies below the second harmonic of a signal being able to pass through, as this would remove most of the unwanted harmonics. In an ideal world this would prevent all harmonics from a fundamental greater than 50 MHz from passing through the RF chain,  however due to the roll off of the filter, along with some poor decisions resulting from not paying enough attention to the data sheets and not fully understanding of the importance of an harmonic free output, the filter selection resulted in issues which will be discussed in \S \ref{sec:implementation}. The chosen filters are tabulated below, along with the frequencies at which 1, 3, and 40 dB of attenuation are measured. 
 
 \begin{table}[H]
@@ -148,7 +149,7 @@ With the AD8302 by Analog Devices being chosen for gain and phase detection, the
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\linewidth]{ad8302_blockdiagram.png}
+	\includegraphics[width=0.8\linewidth]{ad8302_blockdiagram.png}
 	\caption{Functional Block Diagram of AD8302}
 	\label{fig:ad8302_block_diag}
 \end{figure}
@@ -159,7 +160,7 @@ Given RF inputs on INPA and INPB, the AD8302 outputs two analog signals ranging 
 The VMAG output of the AD8302 shown in Figure \ref{fig:ad8302_VMAG_conformance}, which represents the magnitude ratio of the two RF inputs, has decreased linearity towards the ends of its span. Although this could be compensated for through using a non linear model for the voltage to gain conversion, given that the error exceeds 0.5 dB at $\pm$27 dB, which is not only enough dynamic range for many measurements but only 3 dB from the limits of the output, it will not be compensated for due to the limited time available for this project.  
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{ad8302_gain_conformance_error.png}
+	\includegraphics[width=0.6\linewidth]{ad8302_gain_conformance_error.png}
 	\caption{VMAG Log Conformance Error}
 	\label{fig:ad8302_VMAG_conformance}
 \end{figure}
@@ -168,7 +169,7 @@ The VMAG output of the AD8302 shown in Figure \ref{fig:ad8302_VMAG_conformance},
 As shown in Figure \ref{fig:ad8302_VPHS_frequency}, the output voltage representing the phase difference is unable to differentiate between positive and negative phase, due to the output voltage being symmetrical around zero phase difference. It should however be noted that the gradient between -180 and 0 phase is different to 0 to +180 degrees, and as such by looking at how the phase changes as a function of frequency the sign of phase can be determined. The implementation of the signal processing required to make this determination will be explained in \S \ref{sec:implementation}. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{ad8302_phase_frequency.png}
+	\includegraphics[width=0.6\linewidth]{ad8302_phase_frequency.png}
 	\caption{VPHS Output over Frequency and Phase}
 	\label{fig:ad8302_VPHS_frequency}
 \end{figure}
@@ -177,7 +178,7 @@ As shown in Figure \ref{fig:ad8302_VPHS_frequency}, the output voltage represent
 Like VMAG, VPHS has log conformance errors at the limits of the internal detectors, which manifest in increased errors when the phase difference is small between the two signals. This is highlighted in Figure \ref{fig:ad8302_VPHS_conformance}, which shows the phase error at 900 MHz can be up to 8 degrees when comparing the actual voltage output to the ideal linear fit. Measuring this flattening out of the output voltage and ensuring that the resolution of the sampling ADC is sufficiently high that it can detect the difference at low phase difference values is crucial, as this would allow reconstruction of the actual phase output with sufficient signal processing, which will be outlined in \S \ref{sec:implementation}. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.65\linewidth]{ad8302_phase_error.png}
+	\includegraphics[width=0.6\linewidth]{ad8302_phase_error.png}
 	\caption{VPHS Log Conformance Error at 900 MHz}
 	\label{fig:ad8302_VPHS_conformance}
 \end{figure}
