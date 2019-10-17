@@ -10,7 +10,7 @@ Before PCB layout can begin, there are a few key steps and decisions which need 
 
 With all the components imported into CAD, the approximate size of the PCB was able to be determined. This allowed for COTS aluminium case options to be explored, and once an enclosure was found which was large enough for the PCB to fit, the exact dimensions of the PCB were able to be fixed to that dimension, allowing the positioning of connectors, mounting holes, and other key features of the PCB to be placed. 
 
-The PCB stackup and manufacturer also needed to be determined, as this plays a key role in the cost of the boards, along with key PCB features such as minimum space / trace, via size, and the with of a 50 ohm microstrip trace. Due to cost and prior experience, JLCPCB was chosen as the manufacturer, and their 4 layer FR4 "JLC7628" stackup (Table \ref{table:pcb_stackup}) was chosen as it is a very common stackup well suited to the feature and component sizes used on the board, along with the ability for it to be ordered from other manufacturers with ease. Furthermore, a Signal / GND / PWR / Signal configuration would be designed for during layout, with additional flood fills of ground on layers 1 and 4. 
+The PCB stackup and manufacturer also needed to be determined, as this plays a key role in the cost of the boards, along with key PCB features such as minimum space / trace, via size, and the width of a 50 ohm microstrip trace. Due to cost and prior experience, JLCPCB was chosen as the manufacturer, and their 4 layer FR4 "JLC7628" stackup (Table \ref{table:pcb_stackup}) was chosen as it is a very common stackup well suited to the feature and component sizes used on the board, along with the ability for it to be ordered from other manufacturers with ease. Furthermore, a Signal / GND / PWR / Signal configuration would be designed for during layout, with additional flood fills of ground on layers 1 and 4. 
 
 \begin{table}[H]
 	\centering
@@ -36,7 +36,7 @@ Other key feature sizes for the chosen stackup and manufacturing process are out
 \end{table} 
 
 \subsection{PCB Layout}
-Given the mechanical dimensions, stackup, and design rules have be determined, these parameters can be loaded into KiCad and the PCB can be laid out. An image of the laid out board can be found in Figure \ref{fig:pcb_layout}, with a 3D render available in Figure \ref{fig:pcb_render}.
+Given the mechanical dimensions, stackup, and design rules have be determined, these parameters can be loaded into KiCad and the PCB can be laid out. An image of the laid out board can be found in Figure \ref{fig:pcb_layout}, with an image of the assembled board available in Figure \ref{fig:pcb_render}.
 
 Given the operating frequencies seen on the board, a number of key layout considerations were taken into account to ensure optimal function of the board, and are detailed below.
 \begin{itemize}
@@ -48,13 +48,13 @@ Given the operating frequencies seen on the board, a number of key layout consid
 		Unfortunately a mistake was made during layout in that the signal was routed on layer 4 instead of 3, as with the signal on 4 its reference plane is layer 3, VCC, which does not have a low inductance path to layer 2, as the closest decoupling capacitor is located in the top left of the figure, near the 8 pin DFN IC. Ideally the signal would have been routed on layer 3,  allowing the ground pour on layer 4 to be the reference plane, with the multiple vias providing a low inductance path between the two planes. Fortunately, due to upper bounds of the frequencies seen on the board at 1.25 GHz, this is not a major issue which has caused issues with the function of the device. 
 		\item Low impedance between layers was also ensured through the use of ample stitching vias, both around the signal path and the entire board. 
 	\end{itemize} 
-	\item \textbf{Power Integrity} was achieved through the use of linear regulators to decrease noise on the power rails, low inductance connections to components through large power planes and multiple vias when changing layers to ensure the added inductance is kept to a minimum. Furthermore, ensuring the decoupling capacitors specified in application notes for each component are placed close the power pins, with the smaller capacitors closer to the pin, and a dedicated via for each capacitor placed as close as possible to the pad ensures that the impedance and noise seen at the power pin to each component is kept at a minimum, which leads to optimum performance of the IC and minimal coupling of noise onto the RF and analog signals.
+	\item \textbf{Power Integrity} was achieved through the use of linear regulators to decrease noise on the power rails, low inductance connections to components through large power planes, and multiple vias when changing layers to ensure the added inductance is kept to a minimum. Furthermore, ensuring the decoupling capacitors specified in application notes for each component are placed close the power pins, with the smaller capacitors closer to the pin, and a dedicated via for each capacitor placed as close as possible to the pad ensures that the impedance and noise seen at the power pin to each component is kept at a minimum, which leads to optimum performance of the IC and minimal coupling of noise onto the RF and analog signals.
 	\item \textbf{Following reference layouts} ensured that the device would preform as specified on the data sheet, along with being able to rule out bad component placement and routing as possible causes for improper function of device. Where reference designs were not available, best RF layout practices including those described above were utilised to ensure optimal performance of the device.  
 \end{itemize} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\linewidth]{ground_cutouts.png}
+	\includegraphics[width=0.7\linewidth]{ground_cutouts.png}
 	\caption{Ground cut-outs under large pads to reduce inter-planar capacitance and ensure a 50 $\Omega$ transition}
 	\label{fig:pcb_cap_comp}
 \end{figure}
@@ -70,17 +70,17 @@ Given the operating frequencies seen on the board, a number of key layout consid
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.3\linewidth]{layer_change.png}
+	\includegraphics[width=0.35\linewidth]{layer_change.png}
 	\caption{Layer change mistake on the signal path}
 	\label{fig:pcb_layer_change}
 \end{figure}
 
 \subsection{Mechanical Design}
-To ensure there will be no mechanical clearance issues, a 3D model of the board was exported from KiCad in to Fusion360 and placed into a model of the extrusion, and is was seen that there were no mechanical issues. Having the 3D model in MCAD, together with the decision to use an extruded aluminium enclosure results in easy design of custom front and rear panels, as key features from the 3D model can be referenced when designing cut-outs for the connectors and light pipe. DXFs were exported from Fusion360 back into KiCad where they had silkscreen added, and they were then sent off to be manufactured with the main VNA PCB. Renders of the front and rear panels can be found in Figures \ref{fig:pcb_front_render} and \ref{fig:pcb_rear_render}, and the assembled VNA without the top extruded section in Figure \ref{fig:pcb_assembled}.
+To ensure there will be no mechanical clearance issues, a 3D model of the board was exported from KiCad into Fusion360 and placed into a model of the extrusion, and it was seen that there were no mechanical issues. Having the 3D model in MCAD, together with the decision to use an extruded aluminium enclosure results in easy design of custom front and rear panels, as key features from the 3D model can be referenced when designing cut-outs for the connectors and light pipe. DXFs were exported from Fusion360 back into KiCad where they had silkscreen added, and they were then sent off to be manufactured with the main VNA PCB. Renders of the front and rear panels can be found in Figures \ref{fig:pcb_front_render} and \ref{fig:pcb_rear_render}, and the assembled VNA without the top extruded section in Figure \ref{fig:pcb_assembled}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{assembledVNA.jpg}
+	\includegraphics[width=0.7\linewidth]{assembledVNA.jpg}
 	\caption{Assembled VNA in enclosure, with top section removed}
 	\label{fig:pcb_assembled}
 \end{figure}
@@ -142,7 +142,7 @@ The only other hardware issue found on the board was to do with the configuratio
 \subsection{ECal Design}
 To aide with use of the VNA, a low cost ECal unit was designed which switches in calibrations standards based on commands from the VNA. It is controlled through the use of a USB cable, where the data pins are either I2C so a port expander with up to 16 control pins can be utilised, or GPIO, so a SP4T switch can be controlled by toggling two pins. Furthermore, the design utilises a two layer board with a grounded coplanar waveguide for the RF trace, as the trace width required on a 1.6mm substrate for a 50$\Omega$ transmission line is far too wide for easy design and would result in increased impedance mismatch during tapering of the trace to meet the 0.3mm pads of the QFN switch. 
 
-For the ECal to be utilised, it's S-parameters must be measured with a VNA as this effectively transfers the calibration from the VNA's calibration standards to the ECal unit, and from there the ECal's generated touchstone file can be used as a reference of the expected frequency response. Unfortunately due to the VNA accessed at ANU not having a SMA calibration kit it the ECal was not able to be used during development, but it has been shown to function and as such if it was measured there is nothing stopping it from being used as a substitute for discrete calibration standards.
+For the ECal to be utilised, it's S-parameters must be measured with a VNA as this effectively transfers the calibration from the VNA's calibration standards to the ECal unit, and from there the ECal's generated touchstone file can be used as a reference of the expected frequency response. Unfortunately due to the VNA accessed at ANU not having a SMA calibration kit the ECal was not able to be measured and as such used during development, but it has been shown to function and as such if it was measured there is nothing stopping it from being used as a substitute for discrete calibration standards.
 
 The schematic for the RF section of the VNA can be found in Figure \ref{fig:ecal_schematic}, with an image of the assembled unit in Figure \ref{fig:ecal_photo}.
 
@@ -158,7 +158,7 @@ The schematic for the RF section of the VNA can be found in Figure \ref{fig:ecal
 Firmware development for the STM32F373 was done in C, with the use of ST's Hardware Abstraction Library (HAL) configured through STM32CubeMX which allowed easy configuration and interaction with the onboard peripherals. An Eclipse based IDE, along with numerous programmers / debuggers were used for development and debugging of the firmware, which was complied with GCC to meet the requirement for an open source toolchain. As outlined in Figure \ref{fig:sw_flowchart}, there are numerous steps required to receive, process, command, measure, and return the required information for function of the VNA, and the firmware blocks developed for each of these steps will be discussed below, along with some of the challenges overcome during development. 
 
 \subsubsection{Start-up and Initialisation}
-Upon start-up, initialisation of a number of peripherals is required. Along with configuring the GPIO, SPI bus, timers, and USB peripherals, the ADC is initialised and calibrated, which results in reducing the offset and gain errors through an internal alignment process \cite{st_sdadc}. The pull-up on USB D+ is also cycled, as this forces re-enumeration of the device if the VNA had underdone a warm reset. 
+Upon start-up, initialisation of a number of peripherals is required. Along with configuring the GPIO, SPI bus, timers, and USB peripherals, the ADC is initialised and calibrated, which results in reducing the offset and gain errors through an internal alignment process \cite{st_sdadc}. The pull-up on USB D+ is also cycled, as this forces re-enumeration of the device if the VNA had undergone a warm reset. 
 
 \subsubsection{USB and Command Parsing}
 A virtual COM port is used for communicating with the host computer, as due to the low data rates required and the universal compatibility of a COM port it is well suited to the task. ST's HAL provides a function which is called from an interrupt every time a character is received, however the implementation of code which handles the received data is left to the user. As such, a circular buffer was implemented which allows for receiving data, along with error checking and warnings to be sent over serial and indicated on the onboard status LED if the buffer becomes overrun or an unexpected error occurs. A function \texttt{scanUSB} was implemented to wait for a completed transmission from the COM port, and move the received characters into a null terminator padded string which would allow other sections of the code to parse the string without concern for it's location in the circular buffer. 
@@ -187,7 +187,7 @@ When the user chooses to measure S-parameters, they pass in which parameter (S\t
 \subsubsection{Transmit Chain Configuration}
 Transmit chain configuration begins with the MAX2871 PLL, which was the single most challenging part of the project, as it has six 32 bit registers which all need to be configured correctly for function, however the data sheet is light on detail and there is no application note detailing configuration of it. Maxim do however provide a tool 'MAX287X' which graphically shows the user settings at each point of the internal configuration, and this in combination with the data sheet and projects found online \cite{max2871_trans} \cite{max2871_synth} enabled a Python script to be written which would match the required register values. From there, the code was ported to the STM32, and after some bit shifting to swap the endianness around the SPI transfers allowed control over the MAX2871's frequency and power. 
 
-With respect to configuration during use, the VNA calculates the multiply and divide coefficients which need to be set to correctly multiply up the reference frequency, and in addition calculates the actual frequency the MAX2871 will output, although due to the use of a fractional-N PLL these is typically sub hertz differences between the desired and set frequencies. The VNA can also control the output power of the MAX2871 in 3dB increments, and depending on the required output power will set the output power such that the attenuator can meet the required attenuation or gain. Before configuring the MAX2871, the VNA switches in the correct filter according to a lookup table and then sends the SPI commands for the correct frequency and power settings. It then waits until the PLL has achieved lock to ensue the frequency has been set before configuring the gain. 
+With respect to configuration during use, the VNA calculates the multiply and divide coefficients which need to be set to correctly multiply up the reference frequency, and in addition calculates the actual frequency the MAX2871 will output, although due to the use of a fractional-N PLL there are typically sub hertz differences between the desired and set frequencies. The VNA can also control the output power of the MAX2871 in 3dB increments, and depending on the required output power will set the output power such that the attenuator can meet the required attenuation or gain. Before configuring the MAX2871, the VNA switches in the correct filter according to a lookup table and then sends the SPI commands for the correct frequency and power settings. It then waits until the PLL has achieved lock to ensue the frequency has been set before configuring the gain. 
 
 To set the output power, the VNA implements a loop as outlined below:
 \begin{itemize}
@@ -213,7 +213,7 @@ The gain calculation is identical to what was outlined above for the AD8319 due 
 \end{figure}
 
 \subsection{Software Development}
-The host software is written in Python which allows the utilisation of numerous libraries, along with being cross platform such that any computer, including small devices such as a Raspberry Pi can be used to control the VNA. It consists of two classes, \texttt{VNA} and \texttt{Plot} which control the interaction with the VNA and calibration, and plotting and file IO respectively. Due to time constraints a GUI was unable to be designed for the interface, and instead there is a command line interface which enables full control over all required actions. A command parser is utilised to determine what the user would like to do, however unlike on the VNA there are a number of assertions utilised to ensure that the user is only able to select correct values for settings such as frequency span and output power. 
+The host software is written in Python which allows the utilisation of numerous libraries, along with being cross platform such that any computer, including small devices such as a Raspberry Pi can be used to control the VNA. It consists of two classes, \texttt{VNA} and \texttt{Plot} which control the interaction with the VNA and calibration, along with plotting and file IO respectively. Due to time constraints a GUI was unable to be designed for the interface, and instead there is a command line interface which enables full control over all required actions. A command parser is utilised to determine what the user would like to do, however unlike on the VNA there are a number of assertions utilised to ensure that the user is only able to select correct values for settings such as frequency span and output power. 
 
 To connect to the VNA, the script searches all connected COM ports and until it finds a device with the expected VID:PID pair as set in firmware. It then sends a \texttt{WHOAMI} command to the VNA, and upon confirmation that it returns the correct value \texttt{Josh's VNA!} it will finalise the connection. The second step is required at the VID:PID pair has been set during development without licencing it from the USB consortium and as such there is the possibility of conflicts if another device is connected with the same ID. 
 
@@ -224,17 +224,17 @@ S-parameter data is then processed, starting with phase correction and if enable
 Plotting is achieved by loading the recently saved file and using the methods within scikit-rf to plot in formats such as S-parameter, Smith Chart, phase, and polar measurement, and if implemented there are other options such as group delay and VSWR which can be displayed with ease. Custom plotting options such as \texttt{mag-phase} which utilise the subplot command to show multiple figures at once, along with \texttt{compare} which loads a previously saved touchstone files and allows comparison between them are available which enables easy comprehension of the recorded measurements.  
 
 \subsubsection{Phase Correction}
-Phase correction is required as the phase numbers returned from the VNA are absolute in value due to function of the AD8302 gain and phase detector, and need to be mapped to the +180$^\circ$ to -180$^\circ$ range which exists in the phase domain. Figure \ref{fig:phase_correction} shows an example of the correction, and the key steps in the remapping function are described below:
+Phase correction is required as the phase numbers returned from the VNA are absolute in value due to the function of the AD8302 gain and phase detector, and need to be mapped to the +180$^\circ$ to -180$^\circ$ range which exists in the phase domain. Figure \ref{fig:phase_correction} shows an example of the correction, and the key steps in the remapping function are described below:
 \begin{itemize}
 	\item The raw phase data is smoothed with a running mean low pass filter to remove any high or low outliers which will affect peak detection.
 	\item SciPy's \texttt{find\_peaks} method is used on the filtered data to find when the phase has a maxima which corresponds to an absolute value of 180$^\circ$, along with finding valleys which represent a phase value of 0$^\circ$.
 	\item The first and last phase values in the series are also determined, as they are required to determine the gradient in the next step. 
-	\item The gradient between these key points is determined, and by observation of Figure \ref{fig:ad8302_VPHS_conformance} is can be seen that a positive gradient corresponds to a negative phase, and vice versa. Using this, the phase in the positive sloped segments are inverted, which results in the phase correctly representing the entire +180$^\circ$ to -180$^\circ$ range which is expected for phase measurements. 
+	\item The gradient between these key points is determined, and by observation of Figure \ref{fig:ad8302_VPHS_conformance} it can be seen that a positive gradient corresponds to a negative phase, and vice versa. Using this, the phase in the positive sloped segments are inverted, which results in the phase correctly representing the entire +180$^\circ$ to -180$^\circ$ range which is expected for phase measurements. 
 \end{itemize} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{phase_correction.png}
+	\includegraphics[width=\linewidth]{phase_correction.png}
 	\caption{Absolute phase to actual phase correction}
 	\label{fig:phase_correction}
 \end{figure}
@@ -242,13 +242,15 @@ Phase correction is required as the phase numbers returned from the VNA are abso
 
 \subsubsection{Calibration}
 Calibration is crucial for a VNA as not only does it compensate for non idealities in the VNA, but is able to change the reference plane at which measurements are taken, which allows for the use of cables and de embedding of DUTs on a PCB when the correct test fixtures and standards are used. For a two port VNA, there are six types of systematic errors, \cite{keysight_vna_cal} which are shown in Figure \ref{fig:vna_error}.
+
+When a one port measurement is being taken, the number of possible errors is reduced as port B is no longer being utilised, and as such the transmission tracking, load mismatch, and crosstalk errors are eliminated. For a typical VNA capable of measuring all four S-parameters of a two port device these error terms exists in both the forward and reverse directions, as as such there are twelve error terms. This is where the common twelve term (or SOLT) calibration process results from, as it is a form of vector error correction capable of correcting the systematic errors outlined above. It requires known short, open, load, and through calibration standards, and by measuring those standards it is able to generate an error model which can be used to remove systematic errors from the measurements. 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\linewidth]{vna_errors.png}
+	\includegraphics[width=\linewidth]{vna_errors.png}
 	\caption{Sources of error in a two port VNA}
 	\label{fig:vna_error}
 \end{figure}
-When a one port measurement is being taken, the number of possible errors is reduced as port B is no longer being utilised, and as such the transmission tracking, load mismatch, and crosstalk errors are eliminated. For a typical VNA capable of measuring all four S-parameters of a two port device these error terms exists in both the forward and reverse directions, as as such there are twelve error terms. This is where the common twelve term (or SOLT) calibration process results from, as it is a form of vector error correction capable of correcting the systematic errors outlined above. It requires known short, open, load, and through calibration standards, and by measuring those standards it is able to generate an error model which can be used to remove systematic errors from the measurements. 
 
 This was achieved by measuring home-made calibration standards on a commercial VNA, effectively transferring the calibration from the expensive calibration kit to the home-made version. After selecting to calibrate the VNA from the Python CLI, it prompts the user through measuring the required standards, before utilising the inbuilt one port and SOLT calibration methods available in scikit-rf to calculate the error model, which is then applied to future measurements.
 

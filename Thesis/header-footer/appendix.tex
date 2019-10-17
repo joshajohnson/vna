@@ -4,49 +4,36 @@
 All files used in the design of the VNA can be found at \url{https://github.com/joshajohnson/vna}. 
 Some of the files, such as the schematic, images of the PCB, and functional block diagrams are included either in the body of this thesis, or in the following pages. 
 
-Schematics for the test boards, ECal unit, along with the code written for the VNA is not included in the thesis, as there are numerous schematics and thousands of lines of code and as such appending them would not be reasonable. The below dot points link through to the GitHub repository where some of the key files can be found if desired. \\
+Schematics for the test boards, ECal unit, along with the code written for the VNA is not included in the thesis, as there are numerous schematics and thousands of lines of code and as such appending them would not be reasonable. The below dot points link through to the GitHub repository where some of the key files can be found if desired. 
 
-\textbf{Hardware}
-\begin{itemize}
-	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware}{Hardware Folder}
-
+\textbf{\href{https://github.com/joshajohnson/vna/tree/master/Hardware}{Hardware Files}}
 \begin{itemize}
 	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/VNAv0}{KiCad Design Files for VNA}
 	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/VNAv0/gerbers}{VNA Gerbers}
 	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/VNAv0/renders_screenshots}{Renders and Screenshots of PCBA}
 	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/Test\%20Boards}{Functional Block Evaluation Boards}
-	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/Ecal}{ECal Hardware Design}\\
+	\item \href{https://github.com/joshajohnson/vna/tree/master/Hardware/Ecal}{ECal Hardware Design}
 \end{itemize}
-\end{itemize}
-
-\textbf{Firmware}
+\textbf{\href{https://github.com/joshajohnson/vna/tree/master/Firmware/VNA}{Firmware Files} }
 \begin{itemize}
-	\item \href{https://github.com/joshajohnson/vna/tree/master/Firmware/VNA}{Firmware Files for VNA} 
-	\begin{itemize}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/max2871.c}{MAX2871 Programming}
-		\item
-		\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/max2871_registers.c}{MAX2871 Register Configuration}
-		\item
-		\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/txChain.c}{Transmit Chain Control}
-		\item
-		\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/receiver.c}{AD8302 Measurement and Initial Phase Correction}
-		\item
-		\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/commandParser.c}{Command Parsing and VNA Control}
-	\end{itemize}
-	\item \href{https://github.com/joshajohnson/vna/tree/master/Firmware/DevBoards}{Firmware Targeting Development Boards}\\
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/max2871.c}{MAX2871 Programming}
+	\item
+	\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/max2871_registers.c}{MAX2871 Register Configuration}
+	\item
+	\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/txChain.c}{Transmit Chain Control}
+	\item
+	\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/receiver.c}{AD8302 Measurement and Initial Phase Correction}
+	\item
+	\href{https://github.com/joshajohnson/vna/blob/master/Firmware/VNA/Src/commandParser.c}{Command Parsing and VNA Control}
+	\item \href{https://github.com/joshajohnson/vna/tree/master/Firmware/DevBoards}{Firmware Targeting Development Boards}
 \end{itemize}
-
-
-\textbf{Software}
+\textbf{\href{https://github.com/joshajohnson/vna/tree/master/Software/vna}{Software Files}}
 \begin{itemize}
-	\item \href{https://github.com/joshajohnson/vna/tree/master/Software/vna}{Software Folder}
-	\begin{itemize}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/vna.py}{VNA Control Software}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/phase_correction.ipynb}{Phase Correction Jupyter Notebook}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/justTesting/ad8302Cal.m}{MATLAB Phase Compensation Script}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/calibration.ipynb}{Calibration Jupyter Notebook}
-		\item \href{https://github.com/joshajohnson/vna/blob/master/Firmware/DevBoards/freqGen.py}{Python Implementation of PLL Configuration}
-	\end{itemize}
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/vna.py}{VNA Control Software}
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/phase_correction.ipynb}{Phase Correction Jupyter Notebook}
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Software/justTesting/ad8302Cal.m}{MATLAB Phase Compensation Script}
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Software/vna/calibration.ipynb}{Calibration Jupyter Notebook}
+	\item \href{https://github.com/joshajohnson/vna/blob/master/Firmware/DevBoards/freqGen.py}{Python Implementation of PLL Configuration}
 \end{itemize}
 
 
@@ -55,8 +42,8 @@ Schematics for the test boards, ECal unit, along with the code written for the V
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=\linewidth]{thirdDayRender.png}
-		\caption{3D render of the PCB}
+		\includegraphics[width=\linewidth]{vna_assembled.jpg}
+		\caption{Assembled PCBA}
 		\label{fig:pcb_render}
 	\end{figure}
 
@@ -118,25 +105,25 @@ Schematics for the test boards, ECal unit, along with the code written for the V
 \end{landscape}
 
 \section{Board Images}
-Below are a number of images which were taken during development and may of be interest, however are not directly relevant to function of the device. 
+Below are a number of images which were taken during development and may of be interest, however are not directly relevant to the function of the device. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{frontPanel.png}
-	\caption{Render of the VNA Front Panel}
+	\includegraphics[width=0.7\linewidth]{vna_front_panel.jpg}
+	\caption{VNA Front Panel}
 	\label{fig:pcb_front_render}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{rearPanel.png}
-	\caption{Render of the VNA Rear Panel}
+	\includegraphics[width=0.75\linewidth]{vna_back_panel.jpg}
+	\caption{VNA Rear Panel}
 	\label{fig:pcb_rear_render}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.65\linewidth]{max_rework.jpg}
+	\includegraphics[width=0.6\linewidth]{max_rework.jpg}
 	\caption{Rework of the MAX2871 RF- output}
 	\label{fig:max_rework}
 \end{figure}
@@ -144,7 +131,35 @@ Below are a number of images which were taken during development and may of be i
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.65\linewidth]{ecal_board.jpg}
+	\includegraphics[width=\linewidth]{testing.jpg}
+	\caption{Measurement of the output spectrum and power level control}
+	\label{fig:testing_vna}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{ecal_board.jpg}
 	\caption{Image of the ECal Unit}
 	\label{fig:ecal_photo}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{max_dev.jpg}
+	\caption{MAX2871 development board}
+	\label{fig:max_dev}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{level_dev.jpg}
+	\caption{LO levelling development board}
+	\label{fig:level_dev}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{coupler_dev.jpg}
+	\caption{Coupler characterisation board}
+	\label{fig:coulpler_dev}
 \end{figure}
