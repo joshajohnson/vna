@@ -7,7 +7,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3}{\ignorespaces Functional Block Diagram of AD8302\relax }}{14}{figure.caption.12}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4}{\ignorespaces VMAG Log Conformance Error\relax }}{15}{figure.caption.13}% 
+\contentsline {figure}{\numberline {4}{\ignorespaces VMAG Log Conformance Error\relax }}{14}{figure.caption.13}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5}{\ignorespaces VPHS Output over Frequency and Phase\relax }}{15}{figure.caption.14}% 
 \defcounter {refsection}{0}\relax 
@@ -17,62 +17,62 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {8}{\ignorespaces Ground cut-outs under large pads to reduce inter-planar capacitance and ensure a 50 $\Omega $ transition\relax }}{22}{figure.caption.19}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9}{\ignorespaces PCB Layout, with Red = Layer 1, Yellow = Layer 2, Pink = Layer 3, Green = Layer 4. Flood fill of each layer is not shown.\relax }}{23}{figure.caption.20}% 
+\contentsline {figure}{\numberline {9}{\ignorespaces Layer change mistake on the signal path\relax }}{22}{figure.caption.20}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10}{\ignorespaces Layer change mistake on the signal path\relax }}{24}{figure.caption.21}% 
+\contentsline {figure}{\numberline {10}{\ignorespaces PCB Layout, with Red = Layer 1, Yellow = Layer 2, Pink = Layer 3, Green = Layer 4. Flood fill of each layer is not shown.\relax }}{23}{figure.caption.21}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {11}{\ignorespaces Assembled VNA in enclosure, with top section removed\relax }}{24}{figure.caption.22}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {12}{\ignorespaces Schematic of the ECal RF circuit\relax }}{27}{figure.caption.24}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {13}{\ignorespaces Correction of non idealities of the AD8302 phase detector output\relax }}{32}{figure.caption.25}% 
+\contentsline {figure}{\numberline {13}{\ignorespaces Correction of non idealities of the AD8302 phase detector output\relax }}{31}{figure.caption.25}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {14}{\ignorespaces Absolute phase to actual phase correction\relax }}{34}{figure.caption.26}% 
+\contentsline {figure}{\numberline {14}{\ignorespaces Absolute phase to actual phase correction\relax }}{33}{figure.caption.26}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {15}{\ignorespaces Sources of error in a two port VNA\relax }}{35}{figure.caption.27}% 
+\contentsline {figure}{\numberline {15}{\ignorespaces Sources of error in a two port VNA\relax }}{34}{figure.caption.27}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {16}{\ignorespaces S\textsubscript {11} comparison of a 900 MHz low pass filter\relax }}{37}{figure.caption.28}% 
+\contentsline {figure}{\numberline {16}{\ignorespaces S\textsubscript {11} comparison of a 900 MHz low pass filter\relax }}{36}{figure.caption.28}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {17}{\ignorespaces S\textsubscript {21} comparison of a 900 MHz low pass filter\relax }}{38}{figure.caption.29}% 
+\contentsline {figure}{\numberline {17}{\ignorespaces S\textsubscript {21} comparison of a 900 MHz low pass filter\relax }}{37}{figure.caption.29}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {18}{\ignorespaces Power flatness from TX chain, measurements shown S\textsubscript {21} with both ports terminated into 50$\Omega $\relax }}{39}{figure.caption.30}% 
+\contentsline {figure}{\numberline {18}{\ignorespaces Power flatness from TX chain, measurements shown S\textsubscript {21} with both ports terminated into 50$\Omega $\relax }}{38}{figure.caption.30}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {19}{\ignorespaces S\textsubscript {21} comparison of a LFCN-400+ low pass filter\relax }}{41}{figure.caption.31}% 
+\contentsline {figure}{\numberline {19}{\ignorespaces S\textsubscript {21} comparison of a LFCN-400+ low pass filter\relax }}{40}{figure.caption.31}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {20}{\ignorespaces S\textsubscript {11} comparison of a LFCN-400+ low pass filter\relax }}{42}{figure.caption.32}% 
+\contentsline {figure}{\numberline {20}{\ignorespaces S\textsubscript {11} comparison of a LFCN-400+ low pass filter\relax }}{41}{figure.caption.32}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {21}{\ignorespaces S\textsubscript {11} and Phase measurements for a calibration load standard, with correction disabled and enabled.\relax }}{43}{figure.caption.33}% 
+\contentsline {figure}{\numberline {21}{\ignorespaces S\textsubscript {11} and Phase measurements for a calibration load standard, with correction disabled and enabled.\relax }}{42}{figure.caption.33}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {22}{\ignorespaces Assembled PCBA\relax }}{47}{figure.caption.35}% 
+\contentsline {figure}{\numberline {22}{\ignorespaces Assembled PCBA\relax }}{46}{figure.caption.35}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {23}{\ignorespaces VNA Schematic - Overview\relax }}{48}{figure.caption.36}% 
+\contentsline {figure}{\numberline {23}{\ignorespaces VNA Schematic - Overview\relax }}{47}{figure.caption.36}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {24}{\ignorespaces VNA Schematic - LO Generation\relax }}{49}{figure.caption.37}% 
+\contentsline {figure}{\numberline {24}{\ignorespaces VNA Schematic - LO Generation\relax }}{48}{figure.caption.37}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {25}{\ignorespaces VNA Schematic - Filter Bank\relax }}{50}{figure.caption.38}% 
+\contentsline {figure}{\numberline {25}{\ignorespaces VNA Schematic - Filter Bank\relax }}{49}{figure.caption.38}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {26}{\ignorespaces VNA Schematic - Source Levelling\relax }}{51}{figure.caption.39}% 
+\contentsline {figure}{\numberline {26}{\ignorespaces VNA Schematic - Source Levelling\relax }}{50}{figure.caption.39}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {27}{\ignorespaces VNA Schematic - Coupling\relax }}{52}{figure.caption.40}% 
+\contentsline {figure}{\numberline {27}{\ignorespaces VNA Schematic - Coupling\relax }}{51}{figure.caption.40}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {28}{\ignorespaces VNA Schematic - Gain and Phase Detection\relax }}{53}{figure.caption.41}% 
+\contentsline {figure}{\numberline {28}{\ignorespaces VNA Schematic - Gain and Phase Detection\relax }}{52}{figure.caption.41}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {29}{\ignorespaces VNA Schematic - Microcontroller\relax }}{54}{figure.caption.42}% 
+\contentsline {figure}{\numberline {29}{\ignorespaces VNA Schematic - Microcontroller\relax }}{53}{figure.caption.42}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {30}{\ignorespaces VNA Schematic - Power\relax }}{55}{figure.caption.43}% 
+\contentsline {figure}{\numberline {30}{\ignorespaces VNA Schematic - Power\relax }}{54}{figure.caption.43}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {31}{\ignorespaces VNA Front Panel\relax }}{56}{figure.caption.44}% 
+\contentsline {figure}{\numberline {31}{\ignorespaces VNA Front Panel\relax }}{55}{figure.caption.44}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {32}{\ignorespaces VNA Rear Panel\relax }}{56}{figure.caption.45}% 
+\contentsline {figure}{\numberline {32}{\ignorespaces VNA Rear Panel\relax }}{55}{figure.caption.45}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {33}{\ignorespaces Rework of the MAX2871 RF- output\relax }}{56}{figure.caption.46}% 
+\contentsline {figure}{\numberline {33}{\ignorespaces Rework of the MAX2871 RF- output\relax }}{55}{figure.caption.46}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {34}{\ignorespaces Measurement of the output spectrum and power level control\relax }}{57}{figure.caption.47}% 
+\contentsline {figure}{\numberline {34}{\ignorespaces Measurement of the output spectrum and power level control\relax }}{56}{figure.caption.47}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {35}{\ignorespaces Image of the ECal Unit\relax }}{57}{figure.caption.48}% 
+\contentsline {figure}{\numberline {35}{\ignorespaces Image of the ECal Unit\relax }}{56}{figure.caption.48}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {36}{\ignorespaces MAX2871 development board\relax }}{58}{figure.caption.49}% 
+\contentsline {figure}{\numberline {36}{\ignorespaces MAX2871 development board\relax }}{57}{figure.caption.49}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {37}{\ignorespaces LO levelling development board\relax }}{58}{figure.caption.50}% 
+\contentsline {figure}{\numberline {37}{\ignorespaces LO levelling development board\relax }}{57}{figure.caption.50}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {38}{\ignorespaces Coupler characterisation board\relax }}{59}{figure.caption.51}% 
+\contentsline {figure}{\numberline {38}{\ignorespaces Coupler characterisation board\relax }}{58}{figure.caption.51}% 

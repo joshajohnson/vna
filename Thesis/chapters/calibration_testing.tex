@@ -11,7 +11,7 @@ As such, S\textsubscript{11} measurements will have a minimum guaranteed dynamic
 With respect to the VNA not measuring the changing frequency response around 930 MHz, it is not related to the frequency response changing too quickly to be measured as there is ample time for the device to sample, however it may be a result of decreased dynamic range caused by harmonics passing from the LO to the detector, which will be discussed later with reference to Figure \ref{fig:power_unlevel}. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{900_MHz_LPF_s11.png}
+	\includegraphics[width=\linewidth]{900_MHz_LPF_s11.png}
 	\caption{S\textsubscript{11} comparison of a 900 MHz low pass filter}
 	\label{fig:compare_900_s11}
 \end{figure}
@@ -20,7 +20,7 @@ Figure \ref{fig:compare_900_s21} shows an S\textsubscript{21} measurement of the
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{900_MHz_LPF_s21.png}
+	\includegraphics[width=\linewidth]{900_MHz_LPF_s21.png}
 	\caption{S\textsubscript{21} comparison of a 900 MHz low pass filter}
 	\label{fig:compare_900_s21}
 \end{figure}
@@ -31,7 +31,7 @@ The rapid changes in power as a function of frequency are a combination of the l
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{power_unlevel.png}
+	\includegraphics[width=\linewidth]{power_unlevel.png}
 	\caption{Power flatness from TX chain, measurements shown S\textsubscript{21} with both ports terminated into 50$\Omega$}
 	\label{fig:power_unlevel}
 \end{figure}
@@ -43,20 +43,21 @@ There are two primary methods which could be used to resolve this issue: changin
 Altering the architecture of the VNA to a superheterodyne device where the inputs to the AD8302 are downconverted to a fixed frequency would also resolve this issue, as a single filter could be used at the inputs of the receiver to filter out any unwanted frequencies as they would be downconverted to outside the bandwidth of the filter. Whilst this method would add an additional MAX2871 and two mixers to the BOM, filtering on the transmit chain could be removed which would save cost, along with allowing the VNA to function up to 6 GHz if the directional couplers are replaced during redesign of the PCB. This would however be a significant investment from a time and resource perspective, and a redesign of this nature should only be attempted if all other aspects of the VNA are shown to be working nominally to reduce the risk of having the redesign not function as desired. 
 
 Figure \ref{fig:compare_lfcn_s21} shows the insertion loss of a 400 MHz filter from Mini Circuits (LFCN-400+) which due to it's internal construction as a multiple order device has a sharp roll off and significant (> 50 dB) attenuation in the stop band. The VNA exhibits frequency shifting and ripple in the passband as discussed above, and in addition does not have the dynamic range below 30 dB to show the full response of the filter. It does however roughly track the frequency response of the device even though it is unable to measure below 30 dB, and as such may be used for indicative measurements if a VNA or other test gear cannot be sourced to determine the exact frequency response. 
+
+Looking at a Smith Chart representation of the LFCN-400+ filter in Figure \ref{fig:compare_lfcn_smith}, it can be seen that there are issues with the phase measurements. Whilst the trace generally follows the expected path, it appears to have incorrect phase values in the center of the chart, where it's location relative to 50$\Omega$ is flipped, along with the path it takes until halfway between the center and edge of the chart. The large spike at 11 o'clock is a result of the dip at 500 - 550 MHz in Figure \ref{fig:compare_lfcn_s21} and is a separate issue to the phase measurement. 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{LFCN-400-s21.png}
+	\includegraphics[width=\linewidth]{LFCN-400-s21.png}
 	\caption{S\textsubscript{21} comparison of a LFCN-400+ low pass filter}
 	\label{fig:compare_lfcn_s21}
 \end{figure}
-
-Looking at a Smith Chart representation of the LFCN-400+ filter in Figure \ref{fig:compare_lfcn_smith}, it can be seen that there are issues with the phase measurements. Whilst the trace generally follows the expected path, it appears to have incorrect phase values in the center of the chart, where it's location relative to 50$\Omega$ is flipped, along with the path it takes until halfway between the center and edge of the chart. The large spike at 11 o'clock is a result of the dip at 500 - 550 MHz in Figure \ref{fig:compare_lfcn_s21} and is a separate issue to the phase measurement. 
 
 This behaviour has been seen on numerous measurements, and typically occurs whenever there is a rapid change in frequency response, such as the roll off of a filter, or resonant frequency of an antenna. Whilst the cause of this is uncertain, the strange phase response can be seen from the raw AD8302 samples, and is only slightly improved when correction is applied from the calibration process. This is a problem where utilising an evaluation board with control over the amplitude and phase difference of the two input signals would be ideal, as the causal reasoning behind the undesirable output could be found, or it may not occur and then issues in other areas of the board could be investigated. In an attempt to resolve this, an AD8302 development board along with dual signal generators were acquired to allow investigation, however due to a lack of time this was unable to be attempted and as such the cause remains unknown. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{LFCN-400-smith.png}
+	\includegraphics[width=0.95\linewidth]{LFCN-400-smith.png}
 	\caption{S\textsubscript{11} comparison of a LFCN-400+ low pass filter}
 	\label{fig:compare_lfcn_smith}
 \end{figure}
